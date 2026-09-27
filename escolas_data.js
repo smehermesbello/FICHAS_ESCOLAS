@@ -7352,4 +7352,3 @@ const ESCOLAS_DATA = [
     "temRelatorio": true
   }
 ];
-Ajuste códigos escolas ficha PDF estética site - Grok
