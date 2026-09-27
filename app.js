@@ -59,15 +59,15 @@ function barSegmentsHTML(nota, maxSeg = 5) {
 }
 
 function escolasComFicha() {
-    return (typeof ESCOLAS_DATA !== 'undefined' ? ESCOLAS_DATA : [])
-        .filter(e => e.temRelatorio)
-        .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+    const arr = (typeof ESCOLAS_DATA !== 'undefined' && Array.isArray(ESCOLAS_DATA)) ? ESCOLAS_DATA : [];
+    return arr
+        .filter(e => e && e.temRelatorio)
+        .sort((a, b) => (a.nome || '').localeCompare(b.nome || '', 'pt-BR'));
 }
 
 function todasEscolas() {
-    return (typeof ESCOLAS_DATA !== 'undefined' ? ESCOLAS_DATA : [])
-        .slice()
-        .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+    const arr = (typeof ESCOLAS_DATA !== 'undefined' && Array.isArray(ESCOLAS_DATA)) ? ESCOLAS_DATA : [];
+    return arr.slice().sort((a, b) => (a.nome || '').localeCompare(b.nome || '', 'pt-BR'));
 }
 
 function renderEscolas(lista) {
@@ -351,27 +351,37 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
 }
 
 function gerarPDFEscola(escola) {
-    if (!escola.temRelatorio) return;
+    if (!escola || !escola.temRelatorio) return;
     const container = document.getElementById('pdfRenderContainer');
+    if (!container) return;
     container.innerHTML = gerarTemplateHTMLPDF(escola, 1, 1);
     container.classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
+    const safeName = (escola.nome || 'escola').replace(/[^\w\-]+/g, '_').slice(0, 40);
     const opt = {
         margin: 0,
-        filename: `Ficha_${escola.codigo}_${escola.nome.replace(/\s+/g, '_')}.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#fdfaf6' },
+        filename: `Ficha_${escola.codigo || 'UE'}_${safeName}.pdf`,
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { scale: 1.8, useCORS: true, backgroundColor: '#fdfaf6', logging: false },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
     html2pdf().set(opt).from(container.children[0]).save().then(() => {
         container.classList.add('hidden');
         container.innerHTML = '';
+    }).catch(err => {
+        console.error('Erro PDF individual:', err);
+        container.classList.add('hidden');
+        container.innerHTML = '';
+        alert('Erro ao gerar o PDF desta escola.');
     });
 }
 
 async function gerarPDFGeral() {
     const lista = escolasComFicha();
-    if (!lista.length) return;
+    if (!lista.length) {
+        alert('Nenhuma escola com ficha para gerar o PDF.');
+        return;
+    }
 
     const btn = document.getElementById('btnPdfGeral');
     const label = document.getElementById('btnPdfGeralLabel');
@@ -381,34 +391,60 @@ async function gerarPDFGeral() {
     const container = document.getElementById('pdfRenderContainer');
     container.classList.remove('hidden');
 
-    const opt = {
+    const optBase = {
         margin: 0,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#fdfaf6' },
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: {
+            scale: 1.5,
+            useCORS: true,
+            backgroundColor: '#fdfaf6',
+            logging: false,
+            windowWidth: 794
+        },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
     try {
-        // Gera e adiciona uma página por vez (em vez de um único canvas gigante
-        // com todas as escolas), evitando o limite de tamanho de canvas do
-        // navegador que deixava o PDF geral em branco.
         let pdf = null;
-        for (let i = 0; i < lista.length; i++) {
+        const total = lista.length;
+
+        for (let i = 0; i < total; i++) {
+            if (label) label.textContent = `Gerando ${i + 1}/${total}...`;
+
             const escola = lista[i];
-            container.innerHTML = gerarTemplateHTMLPDF(escola, i + 1, lista.length);
+            container.innerHTML = gerarTemplateHTMLPDF(escola, i + 1, total);
             if (window.lucide) lucide.createIcons();
+
+            // Aguarda o layout/ícones
+            await new Promise(r => setTimeout(r, 80));
+
             const pageEl = container.children[0];
+            if (!pageEl) continue;
+
+            const worker = html2pdf().set(optBase).from(pageEl);
 
             if (!pdf) {
-                pdf = await html2pdf().set(opt).from(pageEl).toPdf().get('pdf');
+                // Primeira página: cria o documento
+                pdf = await worker.toPdf().get('pdf');
             } else {
-                const canvas = await html2pdf().set(opt).from(pageEl).toCanvas();
-                const imgData = canvas.toDataURL('image/jpeg', 0.98);
+                // Páginas seguintes: canvas → imagem → addPage
+                const canvas = await worker.toCanvas();
+                const imgData = canvas.toDataURL('image/jpeg', 0.95);
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
                 pdf.addPage();
-                pdf.addImage(imgData, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+                pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight);
             }
         }
-        if (pdf) pdf.save('RaioX_Curitiba_Retrato_das_Escolas.pdf');
+
+        if (pdf) {
+            pdf.save('RaioX_Curitiba_Retrato_das_Escolas.pdf');
+        } else {
+            alert('Não foi possível gerar o PDF. Tente novamente.');
+        }
+    } catch (err) {
+        console.error('Erro ao gerar PDF geral:', err);
+        alert('Erro ao gerar o PDF geral. Veja o console para detalhes.');
     } finally {
         container.classList.add('hidden');
         container.innerHTML = '';
@@ -418,14 +454,28 @@ async function gerarPDFGeral() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const search = document.getElementById('searchInput');
-    const regional = document.getElementById('regionalSelect');
-    if (search) search.addEventListener('input', filterSchools);
-    if (regional) regional.addEventListener('change', filterSchools);
-    renderEscolas(todasEscolas());
-    if (window.lucide) lucide.createIcons();
+    try {
+        if (typeof ESCOLAS_DATA === 'undefined' || !Array.isArray(ESCOLAS_DATA)) {
+            console.error('ESCOLAS_DATA não carregado. Verifique o arquivo escolas_data.js');
+            const grid = document.getElementById('schoolsGrid');
+            if (grid) {
+                grid.innerHTML = '<p class="col-span-full text-center text-red-600 py-8">Erro ao carregar os dados das escolas. Verifique se o arquivo <code>escolas_data.js</code> está presente.</p>';
+            }
+            return;
+        }
+        const search = document.getElementById('searchInput');
+        const regional = document.getElementById('regionalSelect');
+        if (search) search.addEventListener('input', filterSchools);
+        if (regional) regional.addEventListener('change', filterSchools);
+        renderEscolas(todasEscolas());
+        if (window.lucide) lucide.createIcons();
+        console.log('Raio-X Curitiba carregado:', ESCOLAS_DATA.length, 'escolas,', escolasComFicha().length, 'com ficha');
+    } catch (err) {
+        console.error('Erro na inicialização:', err);
+    }
 });
 
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
 });
+Atualize fichas e conselho de escolas - Grok
