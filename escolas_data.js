@@ -70,6 +70,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN5",
     "nome": "Prof. José Cavallin",
     "regional": "BN - Regional Bairro Novo",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "340",
       "turmas": "13",
@@ -151,8 +152,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina entre os alunos, conflitos ocasionais com professores e certa interferência da comunidade nas rotinas escolares. Apesar desses pontos de atenção, a avaliação geral do respondente é positiva, considerando a unidade um bom ambiente de trabalho no dia a dia.",
-    "temRelatorio": true
+    "conselho": "O relato aponta indisciplina entre os alunos, conflitos ocasionais com professores e certa interferência da comunidade nas rotinas escolares. Apesar desses pontos de atenção, a avaliação geral do respondente é positiva, considerando a unidade um bom ambiente de trabalho no dia a dia."
   },
   {
     "id": "UEBN6",
@@ -269,6 +269,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN11",
     "nome": "Dona Lulu",
     "regional": "BN - Regional Bairro Novo",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "600",
       "turmas": "relato ambíguo",
@@ -350,8 +351,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato descreve um ambiente de trabalho desafiador, com favoritismo por parte da direção em relação a alguns colegas, pouco apoio institucional e momentos de grande agitação durante o refeitório e a saída dos alunos. A recomendação é evitar a unidade.",
-    "temRelatorio": true
+    "conselho": "O relato descreve um ambiente de trabalho desafiador, com favoritismo por parte da direção em relação a alguns colegas, pouco apoio institucional e momentos de grande agitação durante o refeitório e a saída dos alunos. A recomendação é evitar a unidade."
   },
   {
     "id": "UEBN12",
@@ -402,6 +402,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN15",
     "nome": "Paulo Freire",
     "regional": "BN - Regional Bairro Novo",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "600",
       "turmas": "16 por período",
@@ -483,8 +484,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato descreve a direção como neutra diante das situações do dia a dia, e o setor pedagógico como pouco atuante. Recomenda-se que o novo inspetor evite reclamações excessivas, já que esse comportamento por parte da própria direção pode gerar atritos adicionais dentro da equipe.",
-    "temRelatorio": true
+    "conselho": "O relato descreve a direção como neutra diante das situações do dia a dia, e o setor pedagógico como pouco atuante. Recomenda-se que o novo inspetor evite reclamações excessivas, já que esse comportamento por parte da própria direção pode gerar atritos adicionais dentro da equipe."
   },
   {
     "id": "UEBN16",
@@ -579,6 +579,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN20",
     "nome": "Prof.ª Cecília Maria Westphalen",
     "regional": "BN - Regional Bairro Novo",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 470 (variação: 450–480)",
       "turmas": "aprox. 9–15",
@@ -660,8 +661,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Há relatos recorrentes de dificuldades na relação entre a gestão e a equipe de inspetores, incluindo falhas de comunicação com o setor pedagógico e situações de pressão excessiva por parte da chefia, que levaram um profissional a solicitar transferência. Recomenda-se cautela e conhecimento das próprias atribuições.",
-    "temRelatorio": true
+    "conselho": "Há relatos recorrentes de dificuldades na relação entre a gestão e a equipe de inspetores, incluindo falhas de comunicação com o setor pedagógico e situações de pressão excessiva por parte da chefia, que levaram um profissional a solicitar transferência. Recomenda-se cautela e conhecimento das próprias atribuições."
   },
   {
     "id": "UEBN24",
@@ -1064,6 +1064,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBQ18",
     "nome": "Francisco Derosso",
     "regional": "BQ - Regional Boqueirão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "700",
       "turmas": "24",
@@ -1145,8 +1146,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os pontos de atenção relatados envolvem conflitos ocasionais entre colegas e certa interferência da comunidade no cotidiano escolar. Como orientação prática, recomenda-se manter a direção e o setor pedagógico sempre informados sobre eventuais saídas durante o horário de trabalho, mantendo a comunicação transparente com a gestão.",
-    "temRelatorio": true
+    "conselho": "Os pontos de atenção relatados envolvem conflitos ocasionais entre colegas e certa interferência da comunidade no cotidiano escolar. Como orientação prática, recomenda-se manter a direção e o setor pedagógico sempre informados sobre eventuais saídas durante o horário de trabalho, mantendo a comunicação transparente com a gestão."
   },
   {
     "id": "UEBQ19",
@@ -1197,6 +1197,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBQ21",
     "nome": "Jorn. Arnaldo A. da Cruz",
     "regional": "BQ - Regional Boqueirão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 319 (variação: 300–339)",
       "turmas": "aprox. 10–13",
@@ -1278,14 +1279,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "A unidade atende alunos com necessidades específicas que exigem atenção redobrada, e há episódios de desarmonia entre colegas, além de situações em que professores extrapolam as atribuições dos inspetores. A comunidade do entorno apresenta vulnerabilidade social, sendo recomendável manter os limites da função.",
-    "temRelatorio": true
+    "conselho": "A unidade atende alunos com necessidades específicas que exigem atenção redobrada, e há episódios de desarmonia entre colegas, além de situações em que professores extrapolam as atribuições dos inspetores. A comunidade do entorno apresenta vulnerabilidade social, sendo recomendável manter os limites da função."
   },
   {
     "id": "UEBV1",
     "codigo": "UEBV1",
     "nome": "Romário Martins",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 780 (variação: 720–840)",
       "turmas": "aprox. 19",
@@ -1367,14 +1368,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Os relatos descrevem um ambiente de trabalho desgastante, marcado por conflitos frequentes entre a equipe, comentários e discussões que chegam a ocorrer na presença dos alunos, além de episódios de indisciplina relevantes. Ambos os respondentes desaconselham a unidade, recomendando que o inspetor avalie outras opções.",
-    "temRelatorio": true
+    "conselho": "Os relatos descrevem um ambiente de trabalho desgastante, marcado por conflitos frequentes entre a equipe, comentários e discussões que chegam a ocorrer na presença dos alunos, além de episódios de indisciplina relevantes. Ambos os respondentes desaconselham a unidade, recomendando que o inspetor avalie outras opções."
   },
   {
     "id": "UEBV2",
     "codigo": "UEBV2",
     "nome": "Ulysses Silveira Guimarães",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "580",
       "turmas": "24",
@@ -1456,8 +1457,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Trata-se de uma unidade de tempo integral, com alunos permanecendo cerca de nove horas diárias na escola, o que demanda dedicação, criatividade e acolhimento por parte da equipe. Há alguns conflitos pontuais, mas o nível de indisciplina é considerado baixo em relação a outras unidades.",
-    "temRelatorio": true
+    "conselho": "Trata-se de uma unidade de tempo integral, com alunos permanecendo cerca de nove horas diárias na escola, o que demanda dedicação, criatividade e acolhimento por parte da equipe. Há alguns conflitos pontuais, mas o nível de indisciplina é considerado baixo em relação a outras unidades."
   },
   {
     "id": "UEBV3",
@@ -1486,6 +1486,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV4",
     "nome": "Herley Mehl",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "630",
       "turmas": "22",
@@ -1567,8 +1568,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O principal desafio relatado é a indisciplina de parte dos alunos. Como orientação, destaca-se a importância de dedicar atenção especial aos estudantes de inclusão, cujo acompanhamento cuidadoso pode contribuir para reduzir conflitos e melhorar a convivência no ambiente escolar como um todo.",
-    "temRelatorio": true
+    "conselho": "O principal desafio relatado é a indisciplina de parte dos alunos. Como orientação, destaca-se a importância de dedicar atenção especial aos estudantes de inclusão, cujo acompanhamento cuidadoso pode contribuir para reduzir conflitos e melhorar a convivência no ambiente escolar como um todo."
   },
   {
     "id": "UEBV5",
@@ -1773,6 +1773,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV14",
     "nome": "Cerro Azul",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "376",
       "turmas": "13",
@@ -1854,14 +1855,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A unidade recebe uma demanda expressiva de alunos de inclusão, com salas numerosas, e a comunidade tem grande proximidade com a escola, registrando reclamações com frequência. A direção é bem avaliada, embora tenda a concentrar funções na equipe. Recomenda-se postura firme e capacidade de se posicionar.",
-    "temRelatorio": true
+    "conselho": "A unidade recebe uma demanda expressiva de alunos de inclusão, com salas numerosas, e a comunidade tem grande proximidade com a escola, registrando reclamações com frequência. A direção é bem avaliada, embora tenda a concentrar funções na equipe. Recomenda-se postura firme e capacidade de se posicionar."
   },
   {
     "id": "UEBV15",
     "codigo": "UEBV15",
     "nome": "Eny Caldeira",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "750",
       "turmas": "16",
@@ -1943,14 +1944,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina entre os alunos e reclamações frequentes por parte das famílias. Como pontos positivos, destaca-se a boa localização da escola, com fácil acesso e comércios nas proximidades, além de uma reforma geral prevista para o próximo ano, o que pode trazer melhorias estruturais.",
-    "temRelatorio": true
+    "conselho": "O relato aponta indisciplina entre os alunos e reclamações frequentes por parte das famílias. Como pontos positivos, destaca-se a boa localização da escola, com fácil acesso e comércios nas proximidades, além de uma reforma geral prevista para o próximo ano, o que pode trazer melhorias estruturais."
   },
   {
     "id": "UEBV16",
     "codigo": "UEBV16",
     "nome": "Theodoro de Bona",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "330",
       "turmas": "6",
@@ -2032,8 +2033,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Escola de porte pequeno, com bastante demanda de trabalho. Um ponto de atenção é o comportamento de alguns alunos mais velhos, que por vezes demonstram pouco respeito com professores e funcionários. Recomenda-se disposição e energia para lidar com o dia a dia.",
-    "temRelatorio": true
+    "conselho": "Escola de porte pequeno, com bastante demanda de trabalho. Um ponto de atenção é o comportamento de alguns alunos mais velhos, que por vezes demonstram pouco respeito com professores e funcionários. Recomenda-se disposição e energia para lidar com o dia a dia."
   },
   {
     "id": "UEBV17",
@@ -2084,6 +2084,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV19",
     "nome": "Raul Gelbeck",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "300",
       "turmas": "5",
@@ -2165,8 +2166,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "A unidade apresenta poucos conflitos, com apoio efetivo da direção e do setor pedagógico na resolução de situações. Parte da comunidade, por vezes, questiona o comportamento de determinados estudantes. Recomenda-se firmeza aliada a acolhimento e diálogo, encaminhando ao setor pedagógico os casos que envolvam agressão física.",
-    "temRelatorio": true
+    "conselho": "A unidade apresenta poucos conflitos, com apoio efetivo da direção e do setor pedagógico na resolução de situações. Parte da comunidade, por vezes, questiona o comportamento de determinados estudantes. Recomenda-se firmeza aliada a acolhimento e diálogo, encaminhando ao setor pedagógico os casos que envolvam agressão física."
   },
   {
     "id": "UEBV21",
@@ -2239,6 +2239,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV24",
     "nome": "Kó Yamawaki",
     "regional": "BV - Regional Boa Vista",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "600",
       "turmas": "22",
@@ -2320,8 +2321,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A escola atende alunos com necessidades específicas que demandam atenção redobrada, e a comunidade costuma se manifestar sobre temas sensíveis. A equipe enfrenta desafios de comunicação e organização interna, além de receber, por vezes, tarefas do setor pedagógico. Busca-se colegas colaborativos e dispostos a somar.",
-    "temRelatorio": true
+    "conselho": "A escola atende alunos com necessidades específicas que demandam atenção redobrada, e a comunidade costuma se manifestar sobre temas sensíveis. A equipe enfrenta desafios de comunicação e organização interna, além de receber, por vezes, tarefas do setor pedagógico. Busca-se colegas colaborativos e dispostos a somar."
   },
   {
     "id": "UEBV25",
@@ -2482,6 +2482,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECIC6",
     "nome": "Olívio Soares Sabóia",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "360",
       "turmas": "13",
@@ -2544,7 +2545,7 @@ const ESCOLAS_DATA = [
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "O auxílio do setor pedagógico e direção em situações de conflito classificado como regular, com aspectos a serem aprimorados. | Inclusão com tutores | N/A | Dados insuficientes para avaliação precisa."
+        "obs": "O auxílio do setor pedagógico e direção em situações de conflito classificado como regular, com aspectos a serem aprimorados."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
@@ -2563,14 +2564,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina acentuada entre os alunos e uma situação de favoritismo informal em relação a uma colega que exerce funções além do seu cargo. Também é mencionado que a direção tende a ser mais permissiva, possivelmente por receio de reações da comunidade.",
-    "temRelatorio": true
+    "conselho": "O relato aponta indisciplina acentuada entre os alunos e uma situação de favoritismo informal em relação a uma colega que exerce funções além do seu cargo. Também é mencionado que a direção tende a ser mais permissiva, possivelmente por receio de reações da comunidade."
   },
   {
     "id": "UECIC7",
     "codigo": "UECIC7",
     "nome": "Sidônio Muralha",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "670",
       "turmas": "27",
@@ -2652,8 +2653,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "É considerado um bom ambiente de trabalho para quem conhece bem suas atribuições e sabe estabelecer limites, já que há bastante autonomia. Pontos de atenção incluem a integração da equipe gestora, a estrutura física da unidade e o acúmulo eventual de funções.",
-    "temRelatorio": true
+    "conselho": "É considerado um bom ambiente de trabalho para quem conhece bem suas atribuições e sabe estabelecer limites, já que há bastante autonomia. Pontos de atenção incluem a integração da equipe gestora, a estrutura física da unidade e o acúmulo eventual de funções."
   },
   {
     "id": "UECIC8",
@@ -2726,6 +2726,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECIC11",
     "nome": "Dario P. de C. Velloso",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "450",
       "turmas": "aprox. 17–24",
@@ -2807,8 +2808,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos indicam indisciplina entre alunos e também entre funcionários, além da percepção de favoritismo por parte da direção em relação a determinados colegas. Recomenda-se cautela ao lidar com divergências junto à gestão, evitando confrontos diretos com a direção.",
-    "temRelatorio": true
+    "conselho": "Os relatos indicam indisciplina entre alunos e também entre funcionários, além da percepção de favoritismo por parte da direção em relação a determinados colegas. Recomenda-se cautela ao lidar com divergências junto à gestão, evitando confrontos diretos com a direção."
   },
   {
     "id": "UECIC12",
@@ -3013,6 +3013,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECIC21",
     "nome": "Monteiro Lobato",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 575 (variação: 500–650)",
       "turmas": "aprox. 21-22",
@@ -3094,14 +3095,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A rotina é descrita, de forma geral, como tranquila, com desafios pontuais relacionados a alunos de inclusão e certa circulação de comentários entre professores. A demanda de trabalho é considerável, sendo recomendável disposição para atuar de forma dedicada, além de manter o foco nas próprias atribuições.",
-    "temRelatorio": true
+    "conselho": "A rotina é descrita, de forma geral, como tranquila, com desafios pontuais relacionados a alunos de inclusão e certa circulação de comentários entre professores. A demanda de trabalho é considerável, sendo recomendável disposição para atuar de forma dedicada, além de manter o foco nas próprias atribuições."
   },
   {
     "id": "UECIC22",
     "codigo": "UECIC22",
     "nome": "Otto Bracarense Costa",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 800 (variação: 700–900)",
       "turmas": "aprox. entre 16–30",
@@ -3183,8 +3184,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos apontam questionamentos quanto à gestão dos recursos e à definição de atribuições, além de pouco apoio da direção diante da influência da comunidade e da indisciplina dos alunos. Recomenda-se atenção redobrada para que funções fora do cargo não sejam atribuídas ao inspetor.",
-    "temRelatorio": true
+    "conselho": "Os relatos apontam questionamentos quanto à gestão dos recursos e à definição de atribuições, além de pouco apoio da direção diante da influência da comunidade e da indisciplina dos alunos. Recomenda-se atenção redobrada para que funções fora do cargo não sejam atribuídas ao inspetor."
   },
   {
     "id": "UECIC23",
@@ -3213,6 +3213,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECIC24",
     "nome": "Doutor Hamilton Calderari Leal",
     "regional": "CIC - Regional Cidade Industrial",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "380",
       "turmas": "16",
@@ -3294,8 +3295,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Os desafios relatados são considerados típicos do dia a dia escolar, como turmas mais agitadas e alunos que exigem atenção redobrada, sem particularidades que destoem de outras unidades. Recomenda-se construir relações de confiança principalmente com os colegas mais próximos da rotina de trabalho.",
-    "temRelatorio": true
+    "conselho": "Os desafios relatados são considerados típicos do dia a dia escolar, como turmas mais agitadas e alunos que exigem atenção redobrada, sem particularidades que destoem de outras unidades. Recomenda-se construir relações de confiança principalmente com os colegas mais próximos da rotina de trabalho."
   },
   {
     "id": "UECIC25",
@@ -3434,6 +3434,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ6",
     "nome": "Irati",
     "regional": "CJ - Regional Cajuru",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "1200",
       "turmas": "aprox. 18-20",
@@ -3515,8 +3516,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos são divergentes: um respondente descreve a rotina como tranquila e sem grandes problemas, enquanto outro menciona dificuldades de diálogo com a direção e a percepção de tratamento desigual entre a equipe. Recomenda-se buscar mais informações antes de formar uma opinião definitiva.",
-    "temRelatorio": true
+    "conselho": "Os relatos são divergentes: um respondente descreve a rotina como tranquila e sem grandes problemas, enquanto outro menciona dificuldades de diálogo com a direção e a percepção de tratamento desigual entre a equipe. Recomenda-se buscar mais informações antes de formar uma opinião definitiva."
   },
   {
     "id": "UECJ7",
@@ -3567,6 +3567,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ13",
     "nome": "Rita Anna Cássia",
     "regional": "CJ - Regional Cajuru",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 560 (variação: 540–580)",
       "turmas": "19",
@@ -3648,8 +3649,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Diversos relatos apontam para uma gestão ainda em processo de amadurecimento, dificuldades estruturais e alto índice de indisciplina entre alunos e famílias. Um número expressivo de profissionais solicitou remoção. Recomenda-se refletir cuidadosamente antes de aceitar a vaga e considerar outras opções na região.",
-    "temRelatorio": true
+    "conselho": "Diversos relatos apontam para uma gestão ainda em processo de amadurecimento, dificuldades estruturais e alto índice de indisciplina entre alunos e famílias. Um número expressivo de profissionais solicitou remoção. Recomenda-se refletir cuidadosamente antes de aceitar a vaga e considerar outras opções na região."
   },
   {
     "id": "UECJ14",
@@ -3678,6 +3678,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ15",
     "nome": "Ayrton Senna da Silva",
     "regional": "CJ - Regional Cajuru",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 570 (variação: 550–590)",
       "turmas": "aprox. 18-20",
@@ -3759,8 +3760,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos indicam ausência de regras claras por parte da direção, estrutura física limitada e escassez de materiais. Por outro lado, os alunos são descritos como receptivos e respeitosos, sendo o comportamento de alguns professores a maior fonte de desgaste relatada.",
-    "temRelatorio": true
+    "conselho": "Os relatos indicam ausência de regras claras por parte da direção, estrutura física limitada e escassez de materiais. Por outro lado, os alunos são descritos como receptivos e respeitosos, sendo o comportamento de alguns professores a maior fonte de desgaste relatada."
   },
   {
     "id": "UECJ17",
@@ -3921,6 +3921,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ24",
     "nome": "Maria Marli Piovesan",
     "regional": "CJ - Regional Cajuru",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "600",
       "turmas": "20",
@@ -4002,8 +4003,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta indisciplina entre os alunos e certo distanciamento das famílias, associado a um contexto socioeconômico mais vulnerável. Em contrapartida, a direção é destacada como bastante presente e solícita, oferecendo apoio consistente à equipe. A recomendação do respondente é entusiasticamente favorável à vaga.",
-    "temRelatorio": true
+    "conselho": "O relato aponta indisciplina entre os alunos e certo distanciamento das famílias, associado a um contexto socioeconômico mais vulnerável. Em contrapartida, a direção é destacada como bastante presente e solícita, oferecendo apoio consistente à equipe. A recomendação do respondente é entusiasticamente favorável à vaga."
   },
   {
     "id": "UECJ25",
@@ -4032,6 +4032,7 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ26",
     "nome": "Rachel M. Gonçalves",
     "regional": "CJ - Regional Cajuru",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "630",
       "turmas": "22",
@@ -4113,8 +4114,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta diversas limitações estruturais, como falta de materiais, capacidade insuficiente para o número de alunos, problemas no prédio e presença eventual de roedores no pátio, além de pouca escuta por parte da direção. Recomenda-se fortalecer a união entre os inspetores diante desses desafios.",
-    "temRelatorio": true
+    "conselho": "O relato aponta diversas limitações estruturais, como falta de materiais, capacidade insuficiente para o número de alunos, problemas no prédio e presença eventual de roedores no pátio, além de pouca escuta por parte da direção. Recomenda-se fortalecer a união entre os inspetores diante desses desafios."
   },
   {
     "id": "UECJ27",
@@ -4209,6 +4209,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEMZ3",
     "nome": "Dom Manuel da Silveira D'Elboux",
     "regional": "MZ - Regional Matriz",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "350",
       "turmas": "6 manhã e 7 tarde",
@@ -4223,22 +4224,22 @@ const ESCOLAS_DATA = [
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Relação razoável; alguns professores solicitam funções indevidas."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Muito bom, com boa resolutividade."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4.0,
+        "nota": 4,
         "obs": "Avaliação boa, mas às vezes cobra funções injustas."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Muito boa."
       },
       {
@@ -4250,12 +4251,12 @@ const ESCOLAS_DATA = [
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Muito segura."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Não há sala de descanso; refeições na sala dos funcionários; mobiliário parcialmente adequado."
       },
       {
@@ -4265,33 +4266,32 @@ const ESCOLAS_DATA = [
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.0,
+        "nota": 2,
         "obs": "Divisões ambíguas e sem clareza."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Resolvem bem as demandas do recreio."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.0,
+        "nota": 2,
         "obs": "Muitos alunos de inclusão e falta de tutores."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4.0,
+        "nota": 4,
         "obs": "Várias linhas de ônibus e ciclovia; sem estacionamento interno."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Muitos restaurantes, mercados e farmácias próximos."
       }
     ],
     "sintese": "Unidade com avaliação global positiva; boa relação interpessoal e segurança, mas estrutura para inspetores e clareza de funções deixam a desejar.",
-    "conselho": "Os relatos apontam ambiente seguro e bom apoio pedagógico, mas com famílias exigentes, desvio de função, falta de tutores e ausência de sala para inspetores. Recomenda-se aceitar com reservas, firmando limites claros e preservando a união da equipe.",
-    "temRelatorio": true
+    "conselho": "Os relatos apontam ambiente seguro e bom apoio pedagógico, mas com famílias exigentes, desvio de função, falta de tutores e ausência de sala para inspetores. Recomenda-se aceitar com reservas, firmando limites claros e preservando a união da equipe."
   },
   {
     "id": "UEMZ4",
@@ -4452,6 +4452,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN3",
     "nome": "Cláudio Abramo",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 412 (variação: 300–525)",
       "turmas": "aprox. 19–20",
@@ -4533,8 +4534,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos indicam que a direção poderia agir com mais agilidade na resolução de conflitos entre diferentes cargos. Quanto aos alunos, alguns demandam mais atenção por questões comportamentais ou de vulnerabilidade social, mas são descritos como afetuosos. A equipe é colaborativa, sendo importante saber se posicionar.",
-    "temRelatorio": true
+    "conselho": "Os relatos indicam que a direção poderia agir com mais agilidade na resolução de conflitos entre diferentes cargos. Quanto aos alunos, alguns demandam mais atenção por questões comportamentais ou de vulnerabilidade social, mas são descritos como afetuosos. A equipe é colaborativa, sendo importante saber se posicionar."
   },
   {
     "id": "UEPN4",
@@ -4607,6 +4607,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN12",
     "nome": "Piratini",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "350",
       "turmas": "9",
@@ -4688,8 +4689,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outras informações adicionais sobre a direção, a comunidade ou a equipe. A recomendação do respondente é agir com certa cautela e manter uma postura atenta ao longo da atuação na unidade.",
-    "temRelatorio": true
+    "conselho": "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outras informações adicionais sobre a direção, a comunidade ou a equipe. A recomendação do respondente é agir com certa cautela e manter uma postura atenta ao longo da atuação na unidade."
   },
   {
     "id": "UEPN13",
@@ -4718,6 +4718,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN23",
     "nome": "Francisco Frischmann",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "700",
       "turmas": "aprox. 30",
@@ -4799,8 +4800,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos indicam desafios de convivência entre a equipe, com dinâmicas de hierarquia informal entre colegas mais experientes, além de episódios de indisciplina que podem chegar à agressão física contra profissionais. O ritmo de escola integral é considerado desgastante. Recomenda-se postura firme e resiliência.",
-    "temRelatorio": true
+    "conselho": "Os relatos indicam desafios de convivência entre a equipe, com dinâmicas de hierarquia informal entre colegas mais experientes, além de episódios de indisciplina que podem chegar à agressão física contra profissionais. O ritmo de escola integral é considerado desgastante. Recomenda-se postura firme e resiliência."
   },
   {
     "id": "UEPN24",
@@ -4851,6 +4851,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN43",
     "nome": "Tomaz Edison de Andrade Vieira",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 325 (variação: 300–350)",
       "turmas": "aprox. 24–25",
@@ -4932,14 +4933,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Os relatos apontam pouco apoio institucional e dificuldades de relacionamento na equipe, apesar da boa estrutura e dos alunos bem avaliados. Um respondente considera que o adicional financeiro não compensa o desgaste, enquanto outro recomenda a vaga com ressalvas quanto à convivência interna.",
-    "temRelatorio": true
+    "conselho": "Os relatos apontam pouco apoio institucional e dificuldades de relacionamento na equipe, apesar da boa estrutura e dos alunos bem avaliados. Um respondente considera que o adicional financeiro não compensa o desgaste, enquanto outro recomenda a vaga com ressalvas quanto à convivência interna."
   },
   {
     "id": "UEPN51",
     "codigo": "UEPN51",
     "nome": "Belmiro César",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "500",
       "turmas": "11",
@@ -5021,8 +5022,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "É relatado um caso pontual de assiduidade irregular de uma colega, com o registro de ponto mantido normalmente pela direção. Fora essa situação específica, não há outras queixas relevantes. A recomendação é considerar a vaga principalmente na ausência de alternativas mais adequadas no momento.",
-    "temRelatorio": true
+    "conselho": "É relatado um caso pontual de assiduidade irregular de uma colega, com o registro de ponto mantido normalmente pela direção. Fora essa situação específica, não há outras queixas relevantes. A recomendação é considerar a vaga principalmente na ausência de alternativas mais adequadas no momento."
   },
   {
     "id": "UEPN52",
@@ -5095,6 +5095,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN55",
     "nome": "Do Expedicionário",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 225 (variação: 200–250)",
       "turmas": "aprox. 8–9",
@@ -5176,14 +5177,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Os relatos são divergentes: um aponta pouca valorização da função, distanciamento entre setores e um contexto de segurança mais sensível no entorno; outro descreve a equipe como receptiva e tranquila. Um ponto positivo comum é o porte reduzido da escola, com poucos alunos.",
-    "temRelatorio": true
+    "conselho": "Os relatos são divergentes: um aponta pouca valorização da função, distanciamento entre setores e um contexto de segurança mais sensível no entorno; outro descreve a equipe como receptiva e tranquila. Um ponto positivo comum é o porte reduzido da escola, com poucos alunos."
   },
   {
     "id": "UEPN56",
     "codigo": "UEPN56",
     "nome": "Elevir Dionísio",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "330",
       "turmas": "7 manhã e 8 tarde",
@@ -5265,8 +5266,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A relação com a direção é apontada como um ponto de atenção, com relatos de escuta parcial nos conflitos internos. A experiência pode variar conforme o inspetor responsável, e um novo profissional pode encontrar uma dinâmica diferente da vivenciada anteriormente.",
-    "temRelatorio": true
+    "conselho": "A relação com a direção é apontada como um ponto de atenção, com relatos de escuta parcial nos conflitos internos. A experiência pode variar conforme o inspetor responsável, e um novo profissional pode encontrar uma dinâmica diferente da vivenciada anteriormente."
   },
   {
     "id": "UEPN57",
@@ -5295,6 +5295,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPN58",
     "nome": "Dr. Osvaldo Cruz",
     "regional": "PN - Regional Pinheirinho",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "260",
       "turmas": "7",
@@ -5376,8 +5377,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Segundo o relato, os desafios enfrentados são semelhantes aos de outras unidades, especialmente relacionados ao atendimento de alunos de inclusão. De modo geral, a escola é bem avaliada, sem outras questões relevantes destacadas pelo respondente quanto ao ambiente ou à relação com a equipe gestora.",
-    "temRelatorio": true
+    "conselho": "Segundo o relato, os desafios enfrentados são semelhantes aos de outras unidades, especialmente relacionados ao atendimento de alunos de inclusão. De modo geral, a escola é bem avaliada, sem outras questões relevantes destacadas pelo respondente quanto ao ambiente ou à relação com a equipe gestora."
   },
   {
     "id": "UEPR1",
@@ -5406,6 +5406,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR3",
     "nome": "Francisco Klemtz",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 300–320 (variação entre respostas)",
       "turmas": "aprox. 5–11",
@@ -5420,7 +5421,7 @@ const ESCOLAS_DATA = [
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4.0,
+        "nota": 4,
         "obs": "Relação boa na média dos relatos."
       },
       {
@@ -5430,7 +5431,7 @@ const ESCOLAS_DATA = [
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4.0,
+        "nota": 4,
         "obs": "Avaliação boa, mas com ressalvas sobre desvio de função."
       },
       {
@@ -5447,7 +5448,7 @@ const ESCOLAS_DATA = [
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Sem problemas de segurança no entorno."
       },
       {
@@ -5467,7 +5468,7 @@ const ESCOLAS_DATA = [
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.0,
+        "nota": 2,
         "obs": "Retorno varia de regular a insatisfatório."
       },
       {
@@ -5482,13 +5483,12 @@ const ESCOLAS_DATA = [
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.0,
+        "nota": 1,
         "obs": "Não possui comércios próximos."
       }
     ],
     "sintese": "Unidade com avaliação global moderada; relatos divergentes, com pontos positivos em relações, mas desgaste, desvio de função, falta de inclusão e comércio precário.",
-    "conselho": "Os relatos divergem, mas destacam indisciplina, falta de inclusão, estrutura precária, retorno insatisfatório e desvio de função. Recomenda-se refletir cuidadosamente antes de aceitar a vaga e priorizar unidades com melhor suporte.",
-    "temRelatorio": true
+    "conselho": "Os relatos divergem, mas destacam indisciplina, falta de inclusão, estrutura precária, retorno insatisfatório e desvio de função. Recomenda-se refletir cuidadosamente antes de aceitar a vaga e priorizar unidades com melhor suporte."
   },
   {
     "id": "UEPR11",
@@ -5605,6 +5605,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR21",
     "nome": "Graciliano Ramos",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "580",
       "turmas": "20",
@@ -5686,8 +5687,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A comunidade escolar é descrita como bastante exigente, com famílias que esperam da escola o mesmo acolhimento oferecido em casa. A unidade valoriza o cuidado e o respeito com os alunos, sendo indicada para quem se identifica com esse perfil e busca real dedicação.",
-    "temRelatorio": true
+    "conselho": "A comunidade escolar é descrita como bastante exigente, com famílias que esperam da escola o mesmo acolhimento oferecido em casa. A unidade valoriza o cuidado e o respeito com os alunos, sendo indicada para quem se identifica com esse perfil e busca real dedicação."
   },
   {
     "id": "UEPR27",
@@ -5738,6 +5738,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR33",
     "nome": "Itacelina Bittencourt",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "390",
       "turmas": "13",
@@ -5819,8 +5820,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta um crescimento da indisciplina entre os alunos, associado a expectativas elevadas por parte das famílias e pouco envolvimento destas na educação dos filhos. A recomendação é aceitar a vaga com tranquilidade, desde que haja real disposição para o trabalho.",
-    "temRelatorio": true
+    "conselho": "O relato aponta um crescimento da indisciplina entre os alunos, associado a expectativas elevadas por parte das famílias e pouco envolvimento destas na educação dos filhos. A recomendação é aceitar a vaga com tranquilidade, desde que haja real disposição para o trabalho."
   },
   {
     "id": "UEPR34",
@@ -5871,6 +5871,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR36",
     "nome": "Nansyr Cecato",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "120",
       "turmas": "não informado",
@@ -5952,8 +5953,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato menciona episódios de violência e pouco apoio por parte da comunidade escolar. Recomenda-se atenção redobrada e postura cuidadosa em diferentes frentes, além de bastante paciência, já que parte significativa dos alunos apresenta vulnerabilidades sociais e emocionais que exigem sensibilidade no dia a dia.",
-    "temRelatorio": true
+    "conselho": "O relato menciona episódios de violência e pouco apoio por parte da comunidade escolar. Recomenda-se atenção redobrada e postura cuidadosa em diferentes frentes, além de bastante paciência, já que parte significativa dos alunos apresenta vulnerabilidades sociais e emocionais que exigem sensibilidade no dia a dia."
   },
   {
     "id": "UEPR37",
@@ -5997,69 +5997,69 @@ const ESCOLAS_DATA = [
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Relação razoável."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Avaliação razoável."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2.0,
+        "nota": 2,
         "obs": "Relação ruim; relato de conflitos e assédio moral."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Relação razoável."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Equipe muito boa e unida."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Local seguro, sem problemas relatados."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.0,
+        "nota": 1,
         "obs": "Não há local próprio para inspetores e não são bem-vindos na sala dos professores."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "Oferta mediana."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4.0,
+        "nota": 4,
         "obs": "Escala considerada justa."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.0,
+        "nota": 1,
         "obs": "Culpabilizam os inspetores e colocam as famílias contra a equipe."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 5.0,
+        "nota": 5,
         "obs": "Número adequado de profissionais de apoio."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3.0,
+        "nota": 3,
         "obs": "3 linhas de ônibus, estacionamento próprio pequeno."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.0,
+        "nota": 2,
         "obs": "Farmácia, posto e padaria próximos, mas com poucas opções."
       }
     ],
@@ -6071,6 +6071,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR39",
     "nome": "Jardim Santos Andrade",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "285",
       "turmas": "12",
@@ -6152,8 +6153,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato menciona conflitos relevantes entre colegas de equipe e ausência de apoio por parte da direção nas situações do cotidiano escolar. A recomendação do respondente é enfática, sugerindo que o profissional evite aceitar essa unidade diante da experiência vivida.",
-    "temRelatorio": true
+    "conselho": "O relato menciona conflitos relevantes entre colegas de equipe e ausência de apoio por parte da direção nas situações do cotidiano escolar. A recomendação do respondente é enfática, sugerindo que o profissional evite aceitar essa unidade diante da experiência vivida."
   },
   {
     "id": "UEPR40",
@@ -6182,6 +6182,7 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR41",
     "nome": "EM de Educação Integral Zélia Milléo Pavão",
     "regional": "PR - Regional Portão",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "270",
       "turmas": "9",
@@ -6263,8 +6264,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O único ponto de atenção relatado envolve conflitos pontuais entre colegas de equipe, sem detalhamento de outras dificuldades relacionadas à direção, à comunidade ou aos alunos. A recomendação do respondente é objetiva e positiva, sugerindo que a vaga pode ser aceita sem grandes reservas.",
-    "temRelatorio": true
+    "conselho": "O único ponto de atenção relatado envolve conflitos pontuais entre colegas de equipe, sem detalhamento de outras dificuldades relacionadas à direção, à comunidade ou aos alunos. A recomendação do respondente é objetiva e positiva, sugerindo que a vaga pode ser aceita sem grandes reservas."
   },
   {
     "id": "UESF1",
@@ -6381,6 +6381,7 @@ const ESCOLAS_DATA = [
     "codigo": "UESF6",
     "nome": "Boleslau Falarz",
     "regional": "SF - Regional Santa Felicidade",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "300",
       "turmas": "16",
@@ -6462,14 +6463,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato menciona indisciplina e questões emocionais entre os alunos como pontos de atenção, sem detalhar outros aspectos negativos relacionados à direção, à comunidade ou à equipe. A avaliação geral do respondente é muito positiva, descrevendo a experiência de trabalho na unidade como excelente e recomendável.",
-    "temRelatorio": true
+    "conselho": "O relato menciona indisciplina e questões emocionais entre os alunos como pontos de atenção, sem detalhar outros aspectos negativos relacionados à direção, à comunidade ou à equipe. A avaliação geral do respondente é muito positiva, descrevendo a experiência de trabalho na unidade como excelente e recomendável."
   },
   {
     "id": "UESF7",
     "codigo": "UESF7",
     "nome": "Pedro Dallabona",
     "regional": "SF - Regional Santa Felicidade",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "325",
       "turmas": "11",
@@ -6551,14 +6552,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato menciona que alunos atípicos demandam apoio específico, o qual nem sempre está disponível de forma integral, sendo por vezes oferecido apenas em parte do período letivo. Como pontos positivos, destacam-se uma equipe colaborativa e boa localização, próxima a uma avenida de fácil acesso.",
-    "temRelatorio": true
+    "conselho": "O relato menciona que alunos atípicos demandam apoio específico, o qual nem sempre está disponível de forma integral, sendo por vezes oferecido apenas em parte do período letivo. Como pontos positivos, destacam-se uma equipe colaborativa e boa localização, próxima a uma avenida de fácil acesso."
   },
   {
     "id": "UESF8",
     "codigo": "UESF8",
     "nome": "Paranaguá",
     "regional": "SF - Regional Santa Felicidade",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "300",
       "turmas": "14",
@@ -6640,8 +6641,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outros detalhes adicionais sobre a rotina, a direção ou a equipe. A avaliação geral registrada pelo respondente é bastante positiva, indicando uma boa experiência de trabalho nessa unidade escolar.",
-    "temRelatorio": true
+    "conselho": "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outros detalhes adicionais sobre a rotina, a direção ou a equipe. A avaliação geral registrada pelo respondente é bastante positiva, indicando uma boa experiência de trabalho nessa unidade escolar."
   },
   {
     "id": "UESF9",
@@ -6758,6 +6758,7 @@ const ESCOLAS_DATA = [
     "codigo": "UETQ1",
     "nome": "Dona Pompília",
     "regional": "TQ - Regional Tatuquara",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "1000",
       "turmas": "18",
@@ -6839,14 +6840,14 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Segundo o relato, os desafios enfrentados na unidade tendem a ser semelhantes aos de outras escolas, e parte das queixas estaria relacionada à postura de alguns colegas. A recomendação é manter dedicação e comprometimento com as atribuições.",
-    "temRelatorio": true
+    "conselho": "Segundo o relato, os desafios enfrentados na unidade tendem a ser semelhantes aos de outras escolas, e parte das queixas estaria relacionada à postura de alguns colegas. A recomendação é manter dedicação e comprometimento com as atribuições."
   },
   {
     "id": "UETQ2",
     "codigo": "UETQ2",
     "nome": "Newton Borges Reis",
     "regional": "TQ - Regional Tatuquara",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "800",
       "turmas": "16 por turno",
@@ -6928,8 +6929,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O principal ponto de atenção relatado envolve o cumprimento de horários por parte de alguns professores. Fora essa questão pontual, a experiência é descrita como positiva, e o profissional é encorajado a aceitar a oportunidade com confiança e sem receios.",
-    "temRelatorio": true
+    "conselho": "O principal ponto de atenção relatado envolve o cumprimento de horários por parte de alguns professores. Fora essa questão pontual, a experiência é descrita como positiva, e o profissional é encorajado a aceitar a oportunidade com confiança e sem receios."
   },
   {
     "id": "UETQ3",
@@ -6958,6 +6958,7 @@ const ESCOLAS_DATA = [
     "codigo": "UETQ4",
     "nome": "Margarida Orso Dalagassa",
     "regional": "TQ - Regional Tatuquara",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "aproximadamente 465 (variação: 430–500)",
       "turmas": "aprox. 12–19",
@@ -7039,8 +7040,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Há relatos de dificuldades na relação entre a direção e os inspetores, além de divergências internas na equipe quanto à organização de rotinas e responsabilidades no recreio. Recomenda-se cautela, discrição quanto a opiniões pessoais e firmeza para conduzir o trabalho de forma independente.",
-    "temRelatorio": true
+    "conselho": "Há relatos de dificuldades na relação entre a direção e os inspetores, além de divergências internas na equipe quanto à organização de rotinas e responsabilidades no recreio. Recomenda-se cautela, discrição quanto a opiniões pessoais e firmeza para conduzir o trabalho de forma independente."
   },
   {
     "id": "UETQ5",
@@ -7223,6 +7223,7 @@ const ESCOLAS_DATA = [
     "codigo": "UETQ13",
     "nome": "Helena Kolody",
     "regional": "TQ - Regional Tatuquara",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "990",
       "turmas": "19",
@@ -7304,8 +7305,7 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta indisciplina pontual entre alguns alunos, gerando conflitos ocasionais, além de espaço físico limitado para atividades de recreio. Fora essas observações, não há outras questões relevantes apontadas, e o respondente recomenda a vaga, convidando o novo inspetor a somar com a equipe.",
-    "temRelatorio": true
+    "conselho": "O relato aponta indisciplina pontual entre alguns alunos, gerando conflitos ocasionais, além de espaço físico limitado para atividades de recreio. Fora essas observações, não há outras questões relevantes apontadas, e o respondente recomenda a vaga, convidando o novo inspetor a somar com a equipe."
   },
   {
     "id": "UETQ14",
@@ -7334,6 +7334,7 @@ const ESCOLAS_DATA = [
     "codigo": "UETQ15",
     "nome": "João Amazonas",
     "regional": "TQ - Regional Tatuquara",
+    "temRelatorio": true,
     "caracteristicasGerais": {
       "alunos": "990",
       "turmas": "15 por período + 2 integrais por período",
@@ -7415,7 +7416,6 @@ const ESCOLAS_DATA = [
       }
     ],
     "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A direção é descrita como tranquila e organizada, sem excesso de cobrança no dia a dia. O principal desafio relatado envolve o relacionamento com famílias de contexto socioeconômico mais vulnerável. A equipe de inspetores é unida, e a recomendação geral é positiva.",
-    "temRelatorio": true
+    "conselho": "A direção é descrita como tranquila e organizada, sem excesso de cobrança no dia a dia. O principal desafio relatado envolve o relacionamento com famílias de contexto socioeconômico mais vulnerável. A equipe de inspetores é unida, e a recomendação geral é positiva."
   }
 ];
