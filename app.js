@@ -5,11 +5,15 @@
  */
 
 function calcularPontuacaoEscola(escola) {
-    if (!escola.temRelatorio) return null;
-    const relValid = (escola.relacoesInterpessoais || []).filter(i => i.nota != null && !isNaN(i.nota));
-    if (!relValid.length) return null;
-    const mediaRel = relValid.reduce((a, c) => a + c.nota, 0) / relValid.length;
+    if (!escola || !escola.temRelatorio) return null;
 
+    const relValid = (escola.relacoesInterpessoais || []).filter(
+        i => i.nota != null && !isNaN(Number(i.nota))
+    );
+    if (!relValid.length) return null;
+    const mediaRel = relValid.reduce((a, c) => a + Number(c.nota), 0) / relValid.length;
+
+    // Itens prioritários pesam 70% na média de características
     const prioritarios = [
         "Materiais para Recreio",
         "Equilíbrio na Distribuição de Funções",
@@ -17,23 +21,77 @@ function calcularPontuacaoEscola(escola) {
     ];
     let sp = 0, cp = 0, so = 0, co = 0;
     (escola.caracteristicasEscola || []).forEach(item => {
-        if (item.nota == null || isNaN(item.nota)) return;
-        if (prioritarios.includes(item.item)) { sp += item.nota; cp++; }
-        else { so += item.nota; co++; }
+        if (item.nota == null || isNaN(Number(item.nota))) return;
+        const n = Number(item.nota);
+        if (prioritarios.includes(item.item)) {
+            sp += n;
+            cp++;
+        } else {
+            so += n;
+            co++;
+        }
     });
     const mediaPri = cp ? sp / cp : 0;
     const mediaOut = co ? so / co : 0;
     const mediaCar = (mediaPri * 0.70) + (mediaOut * 0.30);
+
     return Number(((mediaRel * 0.60) + (mediaCar * 0.40)).toFixed(1));
 }
 
 function getStatusClass(nota) {
-    if (nota == null || isNaN(nota)) return { label: "—", color: "#78716c", bgClass: "bg-stone-100 text-stone-600 border-stone-200", bar: "#a8a29e" };
-    if (nota <= 1.5) return { label: "Baixo", color: "#c2410c", bgClass: "bg-orange-100 text-orange-800 border-orange-200", bar: "#ef4444", badgeLabel: "BAIXO" };
-    if (nota <= 2.5) return { label: "Baixo", color: "#ea580c", bgClass: "bg-orange-100 text-orange-800 border-orange-200", bar: "#f97316", badgeLabel: "BAIXO" };
-    if (nota <= 3.4) return { label: "Regular", color: "#ca8a04", bgClass: "bg-yellow-100 text-yellow-800 border-yellow-200", bar: "#eab308", badgeLabel: "REGULAR" };
-    if (nota <= 4.4) return { label: "Bom", color: "#65a30d", bgClass: "bg-lime-100 text-lime-800 border-lime-200", bar: "#84cc16", badgeLabel: "BOM" };
-    return { label: "Excelente", color: "#16a34a", bgClass: "bg-emerald-100 text-emerald-800 border-emerald-200", bar: "#22c55e", badgeLabel: "EXCELENTE" };
+    if (nota == null || isNaN(nota)) {
+        return {
+            label: "—",
+            color: "#78716c",
+            bgClass: "bg-stone-100 text-stone-600 border-stone-200",
+            bar: "#a8a29e",
+            badgeLabel: "—"
+        };
+    }
+    // Alinhado à legenda do PDF: Crítico · Baixo · Regular · Bom · Excelente
+    if (nota <= 1.5) {
+        return {
+            label: "Crítico",
+            color: "#c2410c",
+            bgClass: "bg-orange-100 text-orange-800 border-orange-200",
+            bar: "#ef4444",
+            badgeLabel: "CRÍTICO"
+        };
+    }
+    if (nota <= 2.5) {
+        return {
+            label: "Baixo",
+            color: "#ea580c",
+            bgClass: "bg-orange-100 text-orange-800 border-orange-200",
+            bar: "#f97316",
+            badgeLabel: "BAIXO"
+        };
+    }
+    if (nota <= 3.4) {
+        return {
+            label: "Regular",
+            color: "#ca8a04",
+            bgClass: "bg-yellow-100 text-yellow-800 border-yellow-200",
+            bar: "#eab308",
+            badgeLabel: "REGULAR"
+        };
+    }
+    if (nota <= 4.4) {
+        return {
+            label: "Bom",
+            color: "#65a30d",
+            bgClass: "bg-lime-100 text-lime-800 border-lime-200",
+            bar: "#84cc16",
+            badgeLabel: "BOM"
+        };
+    }
+    return {
+        label: "Excelente",
+        color: "#16a34a",
+        bgClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        bar: "#22c55e",
+        badgeLabel: "EXCELENTE"
+    };
 }
 
 /** Cor da barra conforme nota (escala dossiê) */
@@ -48,9 +106,9 @@ function barColor(nota) {
 
 /** Segmentos de barra estilo dossiê (5 blocos) */
 function barSegmentsHTML(nota, maxSeg = 5) {
-    const filled = nota == null ? 0 : Math.round((nota / 5) * maxSeg);
+    const filled = nota == null || isNaN(nota) ? 0 : Math.round((Number(nota) / 5) * maxSeg);
     const color = barColor(nota);
-    let html = '';
+    let html = "";
     for (let i = 0; i < maxSeg; i++) {
         const bg = i < filled ? color : "#e7e5e4";
         html += `<span class="seg" style="background:${bg}"></span>`;
@@ -59,174 +117,235 @@ function barSegmentsHTML(nota, maxSeg = 5) {
 }
 
 function escolasComFicha() {
-    const arr = (typeof ESCOLAS_DATA !== 'undefined' && Array.isArray(ESCOLAS_DATA)) ? ESCOLAS_DATA : [];
+    const arr = (typeof ESCOLAS_DATA !== "undefined" && Array.isArray(ESCOLAS_DATA))
+        ? ESCOLAS_DATA
+        : [];
     return arr
         .filter(e => e && e.temRelatorio)
-        .sort((a, b) => (a.nome || '').localeCompare(b.nome || '', 'pt-BR'));
+        .sort((a, b) => (a.nome || "").localeCompare(b.nome || "", "pt-BR"));
 }
 
 function todasEscolas() {
-    const arr = (typeof ESCOLAS_DATA !== 'undefined' && Array.isArray(ESCOLAS_DATA)) ? ESCOLAS_DATA : [];
-    return arr.slice().sort((a, b) => (a.nome || '').localeCompare(b.nome || '', 'pt-BR'));
+    const arr = (typeof ESCOLAS_DATA !== "undefined" && Array.isArray(ESCOLAS_DATA))
+        ? ESCOLAS_DATA
+        : [];
+    return arr.slice().sort((a, b) => (a.nome || "").localeCompare(b.nome || "", "pt-BR"));
 }
 
 function renderEscolas(lista) {
-    const grid = document.getElementById('schoolsGrid');
-    const emptyState = document.getElementById('emptyState');
-    const countEl = document.getElementById('schoolCount');
+    const grid = document.getElementById("schoolsGrid");
+    const emptyState = document.getElementById("emptyState");
+    const countEl = document.getElementById("schoolCount");
     if (!grid) return;
-    grid.innerHTML = '';
+
+    grid.innerHTML = "";
 
     if (!lista.length) {
-        if (emptyState) emptyState.classList.remove('hidden');
-        if (countEl) countEl.textContent = '0 unidades';
+        if (emptyState) emptyState.classList.remove("hidden");
+        if (countEl) countEl.textContent = "0 unidades";
         return;
     }
-    if (emptyState) emptyState.classList.add('hidden');
-    if (countEl) countEl.textContent = lista.length + ' unidade' + (lista.length !== 1 ? 's' : '');
+    if (emptyState) emptyState.classList.add("hidden");
+    if (countEl) {
+        countEl.textContent =
+            lista.length + " unidade" + (lista.length !== 1 ? "s" : "");
+    }
 
     lista.forEach(escola => {
         const hasFicha = !!escola.temRelatorio;
         const score = calcularPontuacaoEscola(escola);
         const status = getStatusClass(score);
-        const badgeClass = hasFicha ? status.bgClass : 'bg-stone-50 text-stone-400 border-stone-200';
-        const badgeText = hasFicha ? (score != null ? score.toFixed(1) : '—') : 'Sem relato';
-        const card = document.createElement('button');
-        card.type = 'button';
-        card.className = 'school-tile group text-left bg-white border rounded-xl p-4 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-amber-500 '
-            + (hasFicha ? 'border-stone-200 hover:border-amber-400 hover:shadow-md' : 'border-stone-200 border-dashed hover:border-stone-300');
+        const badgeClass = hasFicha
+            ? status.bgClass
+            : "bg-stone-50 text-stone-400 border-stone-200";
+        const badgeText = hasFicha
+            ? (score != null ? score.toFixed(1) : "—")
+            : "Sem relato";
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className =
+            "school-tile group text-left bg-white border rounded-xl p-4 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-amber-500 " +
+            (hasFicha
+                ? "border-stone-200 hover:border-amber-400 hover:shadow-md"
+                : "border-stone-200 border-dashed hover:border-stone-300");
         card.onclick = () => openModal(escola.id);
         card.innerHTML = `
             <div class="flex items-start justify-between gap-2 mb-2">
-                <span class="text-[10px] font-bold tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">${escola.codigo}</span>
+                <span class="text-[10px] font-bold tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">${escola.codigo || ""}</span>
                 <span class="text-[11px] font-bold ${badgeClass} px-2 py-0.5 rounded-full border">${badgeText}</span>
             </div>
-            <h3 class="text-sm font-semibold ${hasFicha ? 'text-stone-800 group-hover:text-amber-700' : 'text-stone-500'} leading-snug line-clamp-3">${escola.nome}</h3>
+            <h3 class="text-sm font-semibold ${hasFicha ? "text-stone-800 group-hover:text-amber-700" : "text-stone-500"} leading-snug line-clamp-3">${escola.nome || ""}</h3>
         `;
         grid.appendChild(card);
     });
 }
 
 function filterSchools() {
-    const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
-    const regional = document.getElementById('regionalSelect')?.value || 'todas';
+    const query = (document.getElementById("searchInput")?.value || "")
+        .toLowerCase()
+        .trim();
+    const regional = document.getElementById("regionalSelect")?.value || "todas";
+
     let lista = todasEscolas();
+
     if (query) {
-        lista = lista.filter(e =>
-            e.nome.toLowerCase().includes(query) ||
-            (e.codigo && e.codigo.toLowerCase().includes(query))
+        lista = lista.filter(
+            e =>
+                (e.nome || "").toLowerCase().includes(query) ||
+                (e.codigo || "").toLowerCase().includes(query)
         );
     }
-    if (regional !== 'todas') {
-        lista = lista.filter(e => (e.regional || '').includes(regional));
+
+    if (regional !== "todas") {
+        // Aceita valor completo ("BN - Regional...") ou só o código ("BN")
+        lista = lista.filter(e => {
+            const r = e.regional || "";
+            return r === regional || r.startsWith(regional + " ") || r.startsWith(regional + " -");
+        });
     }
+
     renderEscolas(lista);
 }
 
 function openModal(escolaId) {
+    if (typeof ESCOLAS_DATA === "undefined" || !Array.isArray(ESCOLAS_DATA)) return;
     const escola = ESCOLAS_DATA.find(e => e.id === escolaId);
     if (!escola) return;
 
-    document.getElementById('modalCode').innerText = escola.codigo || '';
-    document.getElementById('modalTitle').innerText = escola.nome;
-    document.getElementById('modalRegional').innerText = escola.regional || '';
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = text;
+    };
 
-    const noFichaEl = document.getElementById('modalNoFicha');
-    const dataEl = document.getElementById('modalDataSections');
-    const footerEl = document.getElementById('modalFooter');
+    setText("modalCode", escola.codigo || "");
+    setText("modalTitle", escola.nome || "");
+    setText("modalRegional", escola.regional || "");
+
+    const noFichaEl = document.getElementById("modalNoFicha");
+    const dataEl = document.getElementById("modalDataSections");
+    const footerEl = document.getElementById("modalFooter");
+    const modal = document.getElementById("schoolModal");
 
     if (!escola.temRelatorio) {
-        if (noFichaEl) noFichaEl.classList.remove('hidden');
-        if (dataEl) dataEl.classList.add('hidden');
-        if (footerEl) footerEl.classList.add('hidden');
-        document.getElementById('schoolModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        if (noFichaEl) noFichaEl.classList.remove("hidden");
+        if (dataEl) dataEl.classList.add("hidden");
+        if (footerEl) footerEl.classList.add("hidden");
+        if (modal) modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
         if (window.lucide) lucide.createIcons();
         return;
     }
 
-    if (noFichaEl) noFichaEl.classList.add('hidden');
-    if (dataEl) dataEl.classList.remove('hidden');
-    if (footerEl) footerEl.classList.remove('hidden');
+    if (noFichaEl) noFichaEl.classList.add("hidden");
+    if (dataEl) dataEl.classList.remove("hidden");
+    if (footerEl) footerEl.classList.remove("hidden");
 
     const score = calcularPontuacaoEscola(escola);
     const status = getStatusClass(score);
 
-    document.getElementById('modalScoreDisplay').innerText = score != null ? score.toFixed(1) + ' / 5,0' : '—';
-    document.getElementById('modalScoreDisplay').style.color = status.color;
-    document.getElementById('modalScoreBadge').innerText = status.label;
-    document.getElementById('modalScoreBadge').className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase ${status.bgClass}`;
-    document.getElementById('modalSynthesis').innerText = escola.sintese || '';
-    document.getElementById('modalAdvice').innerText = escola.conselho ? `"${escola.conselho}"` : '';
+    const scoreDisplay = document.getElementById("modalScoreDisplay");
+    if (scoreDisplay) {
+        scoreDisplay.innerText = score != null ? score.toFixed(1) + " / 5,0" : "—";
+        scoreDisplay.style.color = status.color;
+    }
+
+    const scoreBadge = document.getElementById("modalScoreBadge");
+    if (scoreBadge) {
+        scoreBadge.innerText = status.label;
+        scoreBadge.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase ${status.bgClass}`;
+    }
+
+    setText("modalSynthesis", escola.sintese || "");
+    setText("modalAdvice", escola.conselho ? `"${escola.conselho}"` : "");
 
     const g = escola.caracteristicasGerais || {};
-    document.getElementById('modalGeneralGrid').innerHTML = [
-        ['Alunos', g.alunos], ['Turmas', g.turmas], ['Inspetores', g.quadroInspetores],
-        ['Ensino Integral', g.ensinoIntegral], ['UEI', g.uei], ['Soninho do Pré', g.soninhoPre],
-        ['Ônibus Escolar', g.onibusEscolar], ['Portões', g.portoes]
-    ].map(([k, v]) => `
-        <div>
-            <span class="block text-stone-400 text-[11px] uppercase tracking-wide">${k}</span>
-            <span class="font-semibold text-sm">${v || '—'}</span>
-        </div>
-    `).join('');
+    const generalGrid = document.getElementById("modalGeneralGrid");
+    if (generalGrid) {
+        generalGrid.innerHTML = [
+            ["Alunos", g.alunos],
+            ["Turmas", g.turmas],
+            ["Inspetores", g.quadroInspetores],
+            ["Ensino Integral", g.ensinoIntegral],
+            ["UEI", g.uei],
+            ["Soninho do Pré", g.soninhoPre],
+            ["Ônibus Escolar", g.onibusEscolar],
+            ["Portões", g.portoes],
+            ["Público Atendido", g.publicoAtendido]
+        ]
+            .map(
+                ([k, v]) => `
+            <div>
+                <span class="block text-stone-400 text-[11px] uppercase tracking-wide">${k}</span>
+                <span class="font-semibold text-sm">${v || "—"}</span>
+            </div>`
+            )
+            .join("");
+    }
 
-    renderScoreBars('modalInterpersonalList', escola.relacoesInterpessoais || []);
-    renderScoreBars('modalSchoolCharList', escola.caracteristicasEscola || []);
+    renderScoreBars("modalInterpersonalList", escola.relacoesInterpessoais || []);
+    renderScoreBars("modalSchoolCharList", escola.caracteristicasEscola || []);
 
-    document.getElementById('btnDownloadSinglePdf').onclick = () => gerarPDFEscola(escola);
-    document.getElementById('schoolModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    const btnPdf = document.getElementById("btnDownloadSinglePdf");
+    if (btnPdf) btnPdf.onclick = () => gerarPDFEscola(escola);
+
+    if (modal) modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
     if (window.lucide) lucide.createIcons();
 }
 
 function renderScoreBars(containerId, items) {
     const container = document.getElementById(containerId);
     if (!container) return;
-    container.innerHTML = '';
-    items.forEach((item, index) => {
-        const status = getStatusClass(item.nota);
-        const notaStr = item.nota != null ? item.nota.toFixed(1).replace('.', ',') : '—';
-        const color = barColor(item.nota);
-        const filled = item.nota == null ? 0 : Math.round((item.nota / 5) * 5);
-        let segs = '';
+    container.innerHTML = "";
+
+    (items || []).forEach((item, index) => {
+        const n = item.nota != null && !isNaN(Number(item.nota)) ? Number(item.nota) : null;
+        const notaStr = n != null ? n.toFixed(1).replace(".", ",") : "—";
+        const color = barColor(n);
+        const filled = n == null ? 0 : Math.round((n / 5) * 5);
+
+        let segs = "";
         for (let i = 0; i < 5; i++) {
-            segs += `<span class="inline-block h-2 w-5 rounded-sm mr-0.5" style="background:${i < filled ? color : '#e7e5e4'}"></span>`;
+            segs += `<span class="inline-block h-2 w-5 rounded-sm mr-0.5" style="background:${i < filled ? color : "#e7e5e4"}"></span>`;
         }
-        const div = document.createElement('div');
-        div.className = 'p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-2 cursor-pointer hover:border-amber-300 transition';
+
+        const div = document.createElement("div");
+        div.className =
+            "p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-2 cursor-pointer hover:border-amber-300 transition";
         div.onclick = () => {
             const obs = document.getElementById(`${containerId}_obs_${index}`);
-            if (obs) obs.classList.toggle('hidden');
+            if (obs) obs.classList.toggle("hidden");
         };
         div.innerHTML = `
             <div class="flex items-center justify-between text-xs font-semibold gap-2">
-                <span class="text-stone-700 leading-tight">${item.item}</span>
+                <span class="text-stone-700 leading-tight">${item.item || ""}</span>
                 <span class="font-bold shrink-0" style="color:${color}">${notaStr}</span>
             </div>
             <div class="flex items-center">${segs}</div>
             <p id="${containerId}_obs_${index}" class="hidden text-[11px] text-stone-500 italic border-t border-stone-200/60 pt-2 leading-relaxed">
-                ${item.obs || 'Sem observação detalhada.'}
+                ${item.obs || "Sem observação detalhada."}
             </p>`;
         container.appendChild(div);
     });
 }
 
 function closeModal() {
-    document.getElementById('schoolModal').classList.add('hidden');
-    document.body.style.overflow = '';
+    const modal = document.getElementById("schoolModal");
+    if (modal) modal.classList.add("hidden");
+    document.body.style.overflow = "";
 }
 
 /* ========== PDF — modelo "Raio-X Curitiba" ========== */
-const PDF_KICKER = 'RAIO-X CURITIBA: RETRATO DAS ESCOLAS PELOS INSPETORES';
+const PDF_KICKER = "RAIO-X CURITIBA: RETRATO DAS ESCOLAS PELOS INSPETORES";
 
 function pdfScoreRing(score, status) {
     const pct = score != null ? Math.max(0, Math.min(1, score / 5)) : 0;
     const r = 50;
     const circumference = 2 * Math.PI * r;
     const offset = circumference * (1 - pct);
-    const scoreStr = score != null ? score.toFixed(1).replace('.', ',') : '—';
-    const label = status.badgeLabel || status.label.toUpperCase();
+    const scoreStr = score != null ? score.toFixed(1).replace(".", ",") : "—";
+    const label = status.badgeLabel || (status.label || "").toUpperCase();
     return `
         <div class="pdf-score-ring">
             <svg viewBox="0 0 120 120" width="92" height="92">
@@ -244,18 +363,18 @@ function pdfScoreRing(score, status) {
 }
 
 function pdfBarRow(item) {
-    const n = item.nota;
-    const notaStr = n != null ? n.toFixed(1).replace('.', ',') : '—';
+    const n = item.nota != null && !isNaN(Number(item.nota)) ? Number(item.nota) : null;
+    const notaStr = n != null ? n.toFixed(1).replace(".", ",") : "—";
     const color = barColor(n);
     const filled = n == null ? 0 : Math.round((n / 5) * 5);
-    let segs = '';
+    let segs = "";
     for (let i = 0; i < 5; i++) {
-        segs += `<span class="pdf-seg" style="background:${i < filled ? color : '#e7e5e4'}"></span>`;
+        segs += `<span class="pdf-seg" style="background:${i < filled ? color : "#e7e5e4"}"></span>`;
     }
     return `
         <div class="pdf-metric">
             <div class="pdf-metric-top">
-                <span class="pdf-metric-name">${item.item}</span>
+                <span class="pdf-metric-name">${item.item || ""}</span>
                 <span class="pdf-metric-nota" style="color:${color}">${notaStr}</span>
             </div>
             <div class="pdf-segs">${segs}</div>
@@ -266,20 +385,20 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
     const score = calcularPontuacaoEscola(escola);
     const status = getStatusClass(score);
     const g = escola.caracteristicasGerais || {};
-    const scoreStr = score != null ? score.toFixed(1).replace('.', ',') : '—';
-    const pageNumStr = String(pageNum).padStart(2, '0');
-    const totalStr = String(totalPaginas).padStart(2, '0');
+    const scoreStr = score != null ? score.toFixed(1).replace(".", ",") : "—";
+    const pageNumStr = String(pageNum).padStart(2, "0");
+    const totalStr = String(totalPaginas).padStart(2, "0");
 
     const geralItems = [
-        { icon: 'users', label: 'ALUNOS', value: g.alunos || '—' },
-        { icon: 'layers', label: 'TURMAS', value: g.turmas || '—' },
-        { icon: 'user-check', label: 'QUADRO DE INSPETORES', value: g.quadroInspetores || '—' },
-        { icon: 'graduation-cap', label: 'ENSINO INTEGRAL', value: g.ensinoIntegral || '—' },
-        { icon: 'heart', label: 'UEI', value: g.uei || '—' },
-        { icon: 'moon', label: 'SONINHO DO PRÉ', value: g.soninhoPre || '—' },
-        { icon: 'bus', label: 'ÔNIBUS ESCOLAR', value: g.onibusEscolar || '—' },
-        { icon: 'door-open', label: 'PORTÕES', value: g.portoes || '—' },
-        { icon: 'home', label: 'PÚBLICO ATENDIDO', value: g.publicoAtendido || '—' },
+        { icon: "users", label: "ALUNOS", value: g.alunos || "—" },
+        { icon: "layers", label: "TURMAS", value: g.turmas || "—" },
+        { icon: "user-check", label: "QUADRO DE INSPETORES", value: g.quadroInspetores || "—" },
+        { icon: "graduation-cap", label: "ENSINO INTEGRAL", value: g.ensinoIntegral || "—" },
+        { icon: "heart", label: "UEI", value: g.uei || "—" },
+        { icon: "moon", label: "SONINHO DO PRÉ", value: g.soninhoPre || "—" },
+        { icon: "bus", label: "ÔNIBUS ESCOLAR", value: g.onibusEscolar || "—" },
+        { icon: "door-open", label: "PORTÕES", value: g.portoes || "—" },
+        { icon: "home", label: "PÚBLICO ATENDIDO", value: g.publicoAtendido || "—" }
     ];
 
     return `
@@ -292,24 +411,27 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
         <div class="pdf-header-row">
             <div class="pdf-header-text">
                 <div class="pdf-ficha-label">FICHA DA UNIDADE</div>
-                <div class="pdf-school-title">${escola.nome}</div>
+                <div class="pdf-school-title">${escola.nome || ""}</div>
                 <div class="pdf-subtitle">Índices de 0 a 5 · cores do crítico ao excelente</div>
-                <div class="pdf-code-line">${escola.codigo} · ${escola.regional || ''}</div>
+                <div class="pdf-code-line">${escola.codigo || ""} · ${escola.regional || ""}</div>
             </div>
             ${pdfScoreRing(score, status)}
         </div>
 
         <div class="pdf-section-label">CARACTERÍSTICAS GERAIS</div>
         <div class="pdf-geral-cards">
-            ${geralItems.map(it => `
+            ${geralItems
+                .map(
+                    it => `
                 <div class="pdf-geral-card">
                     <div class="pdf-geral-icon"><i data-lucide="${it.icon}"></i></div>
                     <div class="pdf-geral-text">
                         <div class="pdf-geral-label">${it.label}</div>
                         <div class="pdf-geral-value">${it.value}</div>
                     </div>
-                </div>
-            `).join('')}
+                </div>`
+                )
+                .join("")}
         </div>
 
         <div class="pdf-cols">
@@ -318,27 +440,31 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
                     <span class="pdf-col-title">RELAÇÕES INTERPESSOAIS</span>
                     <span class="pdf-col-scale">0 ruim · 5 muito boa</span>
                 </div>
-                ${(escola.relacoesInterpessoais || []).map(item => pdfBarRow(item)).join('')}
+                ${(escola.relacoesInterpessoais || []).map(item => pdfBarRow(item)).join("")}
             </div>
             <div class="pdf-col">
                 <div class="pdf-col-header">
                     <span class="pdf-col-title">CARACTERÍSTICAS DA ESCOLA</span>
                     <span class="pdf-col-scale">0 negativo · 5 positivo</span>
                 </div>
-                ${(escola.caracteristicasEscola || []).map(item => pdfBarRow(item)).join('')}
+                ${(escola.caracteristicasEscola || []).map(item => pdfBarRow(item)).join("")}
             </div>
         </div>
 
         <div class="pdf-sintese-block">
             <div class="pdf-sintese-title">SÍNTESE · NOTA ${scoreStr} / 5,0</div>
-            <div class="pdf-sintese-text">${escola.sintese || ''}</div>
+            <div class="pdf-sintese-text">${escola.sintese || ""}</div>
         </div>
 
-        ${escola.conselho ? `
+        ${
+            escola.conselho
+                ? `
         <div class="pdf-conselho-block">
             <div class="pdf-conselho-title">Conselho dos Inspetores</div>
             <div class="pdf-conselho-text">"${escola.conselho}"</div>
-        </div>` : ''}
+        </div>`
+                : ""
+        }
 
         <div class="pdf-legend">
             <span class="leg"><span class="dot" style="background:#ef4444"></span>Crítico</span>
@@ -352,56 +478,76 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
 
 function gerarPDFEscola(escola) {
     if (!escola || !escola.temRelatorio) return;
-    const container = document.getElementById('pdfRenderContainer');
+    const container = document.getElementById("pdfRenderContainer");
     if (!container) return;
+
     container.innerHTML = gerarTemplateHTMLPDF(escola, 1, 1);
-    container.classList.remove('hidden');
+    container.classList.remove("hidden");
     if (window.lucide) lucide.createIcons();
-    const safeName = (escola.nome || 'escola').replace(/[^\w\-]+/g, '_').slice(0, 40);
+
+    const safeName = (escola.nome || "escola")
+        .replace(/[^\w\-]+/g, "_")
+        .slice(0, 40);
     const opt = {
         margin: 0,
-        filename: `Ficha_${escola.codigo || 'UE'}_${safeName}.pdf`,
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 1.8, useCORS: true, backgroundColor: '#fdfaf6', logging: false },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        filename: `Ficha_${escola.codigo || "UE"}_${safeName}.pdf`,
+        image: { type: "jpeg", quality: 0.95 },
+        html2canvas: {
+            scale: 1.8,
+            useCORS: true,
+            backgroundColor: "#fdfaf6",
+            logging: false
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
     };
-    html2pdf().set(opt).from(container.children[0]).save().then(() => {
-        container.classList.add('hidden');
-        container.innerHTML = '';
-    }).catch(err => {
-        console.error('Erro PDF individual:', err);
-        container.classList.add('hidden');
-        container.innerHTML = '';
-        alert('Erro ao gerar o PDF desta escola.');
-    });
+
+    html2pdf()
+        .set(opt)
+        .from(container.children[0])
+        .save()
+        .then(() => {
+            container.classList.add("hidden");
+            container.innerHTML = "";
+        })
+        .catch(err => {
+            console.error("Erro PDF individual:", err);
+            container.classList.add("hidden");
+            container.innerHTML = "";
+            alert("Erro ao gerar o PDF desta escola.");
+        });
 }
 
 async function gerarPDFGeral() {
     const lista = escolasComFicha();
     if (!lista.length) {
-        alert('Nenhuma escola com ficha para gerar o PDF.');
+        alert("Nenhuma escola com ficha para gerar o PDF.");
         return;
     }
 
-    const btn = document.getElementById('btnPdfGeral');
-    const label = document.getElementById('btnPdfGeralLabel');
+    const btn = document.getElementById("btnPdfGeral");
+    const label = document.getElementById("btnPdfGeralLabel");
     if (btn) btn.disabled = true;
-    if (label) label.textContent = 'Gerando...';
+    if (label) label.textContent = "Gerando...";
 
-    const container = document.getElementById('pdfRenderContainer');
-    container.classList.remove('hidden');
+    const container = document.getElementById("pdfRenderContainer");
+    if (!container) {
+        if (btn) btn.disabled = false;
+        if (label) label.textContent = "PDF Geral";
+        return;
+    }
+    container.classList.remove("hidden");
 
     const optBase = {
         margin: 0,
-        image: { type: 'jpeg', quality: 0.95 },
+        image: { type: "jpeg", quality: 0.95 },
         html2canvas: {
             scale: 1.5,
             useCORS: true,
-            backgroundColor: '#fdfaf6',
+            backgroundColor: "#fdfaf6",
             logging: false,
             windowWidth: 794
         },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
     };
 
     try {
@@ -415,8 +561,8 @@ async function gerarPDFGeral() {
             container.innerHTML = gerarTemplateHTMLPDF(escola, i + 1, total);
             if (window.lucide) lucide.createIcons();
 
-            // Aguarda o layout/ícones
-            await new Promise(r => setTimeout(r, 80));
+            // Aguarda layout e ícones renderizarem
+            await new Promise(r => setTimeout(r, 100));
 
             const pageEl = container.children[0];
             if (!pageEl) continue;
@@ -424,58 +570,67 @@ async function gerarPDFGeral() {
             const worker = html2pdf().set(optBase).from(pageEl);
 
             if (!pdf) {
-                // Primeira página: cria o documento
-                pdf = await worker.toPdf().get('pdf');
+                pdf = await worker.toPdf().get("pdf");
             } else {
-                // Páginas seguintes: canvas → imagem → addPage
                 const canvas = await worker.toCanvas();
-                const imgData = canvas.toDataURL('image/jpeg', 0.95);
+                const imgData = canvas.toDataURL("image/jpeg", 0.95);
                 const pageWidth = pdf.internal.pageSize.getWidth();
                 const pageHeight = pdf.internal.pageSize.getHeight();
                 pdf.addPage();
-                pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight);
+                pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, pageHeight);
             }
         }
 
         if (pdf) {
-            pdf.save('RaioX_Curitiba_Retrato_das_Escolas.pdf');
+            pdf.save("RaioX_Curitiba_Retrato_das_Escolas.pdf");
         } else {
-            alert('Não foi possível gerar o PDF. Tente novamente.');
+            alert("Não foi possível gerar o PDF. Tente novamente.");
         }
     } catch (err) {
-        console.error('Erro ao gerar PDF geral:', err);
-        alert('Erro ao gerar o PDF geral. Veja o console para detalhes.');
+        console.error("Erro ao gerar PDF geral:", err);
+        alert("Erro ao gerar o PDF geral. Veja o console para detalhes.");
     } finally {
-        container.classList.add('hidden');
-        container.innerHTML = '';
+        container.classList.add("hidden");
+        container.innerHTML = "";
         if (btn) btn.disabled = false;
-        if (label) label.textContent = 'PDF Geral';
+        if (label) label.textContent = "PDF Geral";
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     try {
-        if (typeof ESCOLAS_DATA === 'undefined' || !Array.isArray(ESCOLAS_DATA)) {
-            console.error('ESCOLAS_DATA não carregado. Verifique o arquivo escolas_data.js');
-            const grid = document.getElementById('schoolsGrid');
+        if (typeof ESCOLAS_DATA === "undefined" || !Array.isArray(ESCOLAS_DATA)) {
+            console.error(
+                "ESCOLAS_DATA não carregado. Verifique o arquivo escolas_data.js"
+            );
+            const grid = document.getElementById("schoolsGrid");
             if (grid) {
-                grid.innerHTML = '<p class="col-span-full text-center text-red-600 py-8">Erro ao carregar os dados das escolas. Verifique se o arquivo <code>escolas_data.js</code> está presente.</p>';
+                grid.innerHTML =
+                    '<p class="col-span-full text-center text-red-600 py-8">Erro ao carregar os dados das escolas. Verifique se o arquivo <code>escolas_data.js</code> está presente.</p>';
             }
             return;
         }
-        const search = document.getElementById('searchInput');
-        const regional = document.getElementById('regionalSelect');
-        if (search) search.addEventListener('input', filterSchools);
-        if (regional) regional.addEventListener('change', filterSchools);
+
+        const search = document.getElementById("searchInput");
+        const regional = document.getElementById("regionalSelect");
+        if (search) search.addEventListener("input", filterSchools);
+        if (regional) regional.addEventListener("change", filterSchools);
+
         renderEscolas(todasEscolas());
         if (window.lucide) lucide.createIcons();
-        console.log('Raio-X Curitiba carregado:', ESCOLAS_DATA.length, 'escolas,', escolasComFicha().length, 'com ficha');
+
+        console.log(
+            "Raio-X Curitiba carregado:",
+            ESCOLAS_DATA.length,
+            "escolas,",
+            escolasComFicha().length,
+            "com ficha"
+        );
     } catch (err) {
-        console.error('Erro na inicialização:', err);
+        console.error("Erro na inicialização:", err);
     }
 });
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
 });
-Atualize fichas e conselho de escolas - Grok
