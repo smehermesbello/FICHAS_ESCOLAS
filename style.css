@@ -30,7 +30,66 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+}
+
+.pdf-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.pdf-header-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.pdf-score-ring {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-score-ring-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pdf-score-ring-value {
+    font-size: 17pt;
+    font-weight: 800;
+    color: #1c1917;
+    line-height: 1;
+}
+
+.pdf-score-ring-max {
+    font-size: 6pt;
+    font-weight: 600;
+    color: #a8a29e;
+    letter-spacing: 0.03em;
+    margin-top: 1px;
+}
+
+.pdf-score-ring-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-top: 2px;
 }
 
 .pdf-kicker {
@@ -101,6 +160,32 @@
     border: 1px solid #e7e5e4;
     border-radius: 8px;
     padding: 6px 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.pdf-geral-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: #f5efe4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #92400e;
+    margin-top: 1px;
+}
+
+.pdf-geral-icon svg {
+    width: 11px;
+    height: 11px;
+    stroke-width: 2.2;
+}
+
+.pdf-geral-text {
+    min-width: 0;
 }
 
 .pdf-geral-label {
@@ -190,13 +275,6 @@
     border-radius: 2px;
 }
 
-.pdf-metric-scale {
-    display: flex;
-    justify-content: space-between;
-    font-size: 5.5pt;
-    color: #a8a29e;
-}
-
 .pdf-sintese-block {
     border-top: 1.5px solid #e7e5e4;
     padding-top: 8px;
@@ -243,8 +321,8 @@
 
 .pdf-legend {
     display: flex;
-    gap: 6px;
-    justify-content: center;
+    gap: 12px;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 6px;
     padding-top: 6px;
@@ -254,8 +332,17 @@
 .pdf-legend .leg {
     font-size: 6.5pt;
     font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: #57534e;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.pdf-legend .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
 }
 
 #pdfRenderContainer {
