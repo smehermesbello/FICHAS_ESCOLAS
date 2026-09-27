@@ -7419,5 +7419,3 @@ const ESCOLAS_DATA = [
     "temRelatorio": true
   }
 ];
-Atualize esse codigo js com as atualização das fichas dessas 3 escolas. alem disso atualize o conselho de todas as escolas com ficha com esse documento. atualize tambem o numero de turmas por escola c - Grok
-Atualize fichas e conselho de escolas - Grok
