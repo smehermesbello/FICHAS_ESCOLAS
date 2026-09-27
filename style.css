@@ -16,13 +16,18 @@
 /* ========== PDF — layout idêntico ao dossiê ========== */
 .pdf-page {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
     padding: 12mm 14mm 10mm;
     background: #fdfaf6;
     color: #1c1917;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+    overflow: hidden;
     page-break-inside: avoid;
+}
+
+.pdf-scale-wrap {
+    transform-origin: top left;
 }
 
 .pdf-topbar {
