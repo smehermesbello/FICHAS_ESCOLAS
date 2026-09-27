@@ -572,7 +572,7 @@ async function gerarPDFGeral() {
             if (!pdf) {
                 pdf = await worker.toPdf().get("pdf");
             } else {
-                const canvas = await worker.toCanvas();
+                const canvas = await worker.toCanvas().get("canvas");
                 const imgData = canvas.toDataURL("image/jpeg", 0.95);
                 const pageWidth = pdf.internal.pageSize.getWidth();
                 const pageHeight = pdf.internal.pageSize.getHeight();
