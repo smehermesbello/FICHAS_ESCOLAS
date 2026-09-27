@@ -515,7 +515,10 @@ function gerarPDFEscola(escola) {
             scale: 1.8,
             useCORS: true,
             backgroundColor: "#fdfaf6",
-            logging: false
+            logging: false,
+            windowWidth: 794,
+            scrollX: 0,
+            scrollY: 0
         },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
     };
@@ -564,7 +567,9 @@ async function gerarPDFGeral() {
             useCORS: true,
             backgroundColor: "#fdfaf6",
             logging: false,
-            windowWidth: 794
+            windowWidth: 794,
+            scrollX: 0,
+            scrollY: 0
         },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
     };
