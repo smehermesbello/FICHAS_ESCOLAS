@@ -369,24 +369,52 @@ function gerarPDFEscola(escola) {
     });
 }
 
-function gerarPDFGeral() {
+async function gerarPDFGeral() {
     const lista = escolasComFicha();
+    if (!lista.length) return;
+
+    const btn = document.getElementById('btnPdfGeral');
+    const label = document.getElementById('btnPdfGeralLabel');
+    if (btn) btn.disabled = true;
+    if (label) label.textContent = 'Gerando...';
+
     const container = document.getElementById('pdfRenderContainer');
-    container.innerHTML = lista.map((escola, i) => gerarTemplateHTMLPDF(escola, i + 1, lista.length)).join('');
     container.classList.remove('hidden');
-    if (window.lucide) lucide.createIcons();
+
     const opt = {
         margin: 0,
-        filename: 'RaioX_Curitiba_Retrato_das_Escolas.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true, backgroundColor: '#fdfaf6' },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'] }
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(container).save().then(() => {
+
+    try {
+        // Gera e adiciona uma página por vez (em vez de um único canvas gigante
+        // com todas as escolas), evitando o limite de tamanho de canvas do
+        // navegador que deixava o PDF geral em branco.
+        let pdf = null;
+        for (let i = 0; i < lista.length; i++) {
+            const escola = lista[i];
+            container.innerHTML = gerarTemplateHTMLPDF(escola, i + 1, lista.length);
+            if (window.lucide) lucide.createIcons();
+            const pageEl = container.children[0];
+
+            if (!pdf) {
+                pdf = await html2pdf().set(opt).from(pageEl).toPdf().get('pdf');
+            } else {
+                const canvas = await html2pdf().set(opt).from(pageEl).toCanvas();
+                const imgData = canvas.toDataURL('image/jpeg', 0.98);
+                pdf.addPage();
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+            }
+        }
+        if (pdf) pdf.save('RaioX_Curitiba_Retrato_das_Escolas.pdf');
+    } finally {
         container.classList.add('hidden');
         container.innerHTML = '';
-    });
+        if (btn) btn.disabled = false;
+        if (label) label.textContent = 'PDF Geral';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
