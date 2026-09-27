@@ -271,7 +271,7 @@ const ESCOLAS_DATA = [
     "regional": "BN - Regional Bairro Novo",
     "caracteristicasGerais": {
       "alunos": "600",
-      "turmas": "Não recordo... Lembro que era dois pré, duas classe especial... Muitas",
+      "turmas": "indefinido",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
@@ -581,7 +581,7 @@ const ESCOLAS_DATA = [
     "regional": "BN - Regional Bairro Novo",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 470 (variação: 450–480)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "indefinido",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -1199,7 +1199,7 @@ const ESCOLAS_DATA = [
     "regional": "BQ - Regional Boqueirão",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 319 (variação: 300–339)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "indefinido",
       "quadroInspetores": "Incompleto",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -1288,7 +1288,7 @@ const ESCOLAS_DATA = [
     "regional": "BV - Regional Boa Vista",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 780 (variação: 720–840)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
@@ -2728,7 +2728,7 @@ const ESCOLAS_DATA = [
     "regional": "CIC - Regional Cidade Industrial",
     "caracteristicasGerais": {
       "alunos": "450",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -3015,7 +3015,7 @@ const ESCOLAS_DATA = [
     "regional": "CIC - Regional Cidade Industrial",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 575 (variação: 500–650)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -3104,7 +3104,7 @@ const ESCOLAS_DATA = [
     "regional": "CIC - Regional Cidade Industrial",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 800 (variação: 700–900)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
@@ -3436,7 +3436,7 @@ const ESCOLAS_DATA = [
     "regional": "CJ - Regional Cajuru",
     "caracteristicasGerais": {
       "alunos": "1200",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
@@ -3680,7 +3680,7 @@ const ESCOLAS_DATA = [
     "regional": "CJ - Regional Cajuru",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 570 (variação: 550–590)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Incompleto",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
@@ -4454,7 +4454,7 @@ const ESCOLAS_DATA = [
     "regional": "PN - Regional Pinheirinho",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 412 (variação: 300–525)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
@@ -4720,7 +4720,7 @@ const ESCOLAS_DATA = [
     "regional": "PN - Regional Pinheirinho",
     "caracteristicasGerais": {
       "alunos": "700",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -4853,7 +4853,7 @@ const ESCOLAS_DATA = [
     "regional": "PN - Regional Pinheirinho",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 325 (variação: 300–350)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Incompleto",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Não possui",
@@ -5097,7 +5097,7 @@ const ESCOLAS_DATA = [
     "regional": "PN - Regional Pinheirinho",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 225 (variação: 200–250)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Indefinido",
@@ -6893,7 +6893,7 @@ const ESCOLAS_DATA = [
     "regional": "TQ - Regional Tatuquara",
     "caracteristicasGerais": {
       "alunos": "aproximadamente 465 (variação: 430–500)",
-      "turmas": "aproximadamente (variação entre relatos)",
+      "turmas": "relatos divergentes",
       "quadroInspetores": "Indefinido",
       "ensinoIntegral": "Indefinido",
       "uei": "Não possui",
