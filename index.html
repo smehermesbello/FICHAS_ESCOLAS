@@ -4,52 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dossiê Unidades Escolares | Sistema de Consulta</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- html2pdf.js para geração de PDF de alta fidelidade -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fdfaf6', 100: '#f9f3ea', 200: '#f0e6d6' }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+<body class="bg-cream-50 text-stone-800 font-sans min-h-screen flex flex-col">
 
-    <!-- Header / Navbar -->
-    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 p-2.5 rounded-xl shadow-lg shadow-blue-500/30">
-                    <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+    <header class="bg-stone-900 text-white shadow-md sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 min-w-0">
+                <div class="bg-amber-600 p-2 sm:p-2.5 rounded-xl shadow-lg shadow-amber-600/30 shrink-0">
+                    <i data-lucide="building-2" class="w-5 h-5 sm:w-6 sm:h-6 text-white"></i>
                 </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight">Dossiê das Unidades Escolares</h1>
-                    <p class="text-xs text-slate-400">Relatórios e Avaliações Técnicas de Inspetores</p>
+                <div class="min-w-0">
+                    <h1 class="font-bold text-base sm:text-lg leading-tight truncate">Dossiê das Unidades Escolares</h1>
+                    <p class="text-[11px] sm:text-xs text-stone-400 truncate">Relatórios e Avaliações Técnicas de Inspetores</p>
                 </div>
             </div>
-            
-            <button onclick="gerarPDFGeral()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2 transition shadow-lg shadow-emerald-600/20">
+            <button onclick="gerarPDFGeral()" class="shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm flex items-center space-x-2 transition shadow-lg shadow-emerald-600/20">
                 <i data-lucide="file-text" class="w-4 h-4"></i>
-                <span>Baixar PDF Geral (A-Z)</span>
+                <span class="hidden sm:inline">Baixar PDF Geral (A–Z)</span>
+                <span class="sm:hidden">PDF Geral</span>
             </button>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-        
-        <!-- Controls: Search & Regionals -->
-        <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 mb-8 space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                <!-- Search Bar -->
-                <div class="relative md:col-span-8">
-                    <i data-lucide="search" class="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar por nome da escola ou código (ex: UEBN1, Joãozinho)..." 
-                           class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm transition">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1 w-full">
+        <section class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-stone-200/80 mb-6 sm:mb-8 space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
+                <div class="relative md:col-span-5">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-3.5 top-3.5 text-stone-400"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por nome ou código (ex: UEBN11, Dona Lulu)..."
+                           class="w-full pl-10 pr-4 py-3 bg-cream-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white text-sm transition">
                 </div>
-                
-                <!-- Regional Filter -->
                 <div class="md:col-span-4">
-                    <select id="regionalSelect" class="w-full py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium text-slate-700">
+                    <select id="regionalSelect" class="w-full py-3 px-4 bg-cream-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm font-medium text-stone-700">
                         <option value="todas">Todas as Regionais</option>
                         <option value="BN">BN - Bairro Novo</option>
                         <option value="BQ">BQ - Boqueirão</option>
@@ -63,116 +64,141 @@
                         <option value="TQ">TQ - Tatuquara</option>
                     </select>
                 </div>
+                <div class="md:col-span-3">
+                    <select id="statusSelect" class="w-full py-3 px-4 bg-cream-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm font-medium text-stone-700">
+                        <option value="todas">Todas classificações</option>
+                        <option value="crítico">Crítico</option>
+                        <option value="baixo">Baixo</option>
+                        <option value="regular">Regular</option>
+                        <option value="bom">Bom</option>
+                        <option value="excelente">Excelente</option>
+                        <option value="sem">Sem relatório</option>
+                    </select>
+                </div>
             </div>
-
-            <!-- Score Legend -->
-            <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs gap-3">
-                <span class="font-semibold text-slate-500 uppercase tracking-wider">Escala de Avaliação:</span>
-                <div class="flex flex-wrap items-center gap-2">
-                    <span class="px-2.5 py-1 rounded-md text-red-700 bg-red-100 border border-red-200 font-medium">0.0 - 1.5 Crítico</span>
-                    <span class="px-2.5 py-1 rounded-md text-orange-700 bg-orange-100 border border-orange-200 font-medium">1.6 - 2.5 Baixo</span>
-                    <span class="px-2.5 py-1 rounded-md text-yellow-800 bg-yellow-100 border border-yellow-200 font-medium">2.6 - 3.4 Regular</span>
-                    <span class="px-2.5 py-1 rounded-md text-lime-800 bg-lime-100 border border-lime-200 font-medium">3.5 - 4.4 Bom</span>
-                    <span class="px-2.5 py-1 rounded-md text-emerald-800 bg-emerald-100 border border-emerald-200 font-medium">4.5 - 5.0 Excelente</span>
+            <div class="pt-3 border-t border-stone-100 flex flex-wrap items-center justify-between text-xs gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="font-semibold text-stone-500 uppercase tracking-wider">Escala:</span>
+                    <span id="schoolCount" class="text-stone-600 font-medium"></span>
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <span class="px-2 py-1 rounded-md text-red-700 bg-red-100 border border-red-200 font-medium">0–1,5 Crítico</span>
+                    <span class="px-2 py-1 rounded-md text-orange-700 bg-orange-100 border border-orange-200 font-medium">1,6–2,5 Baixo</span>
+                    <span class="px-2 py-1 rounded-md text-yellow-800 bg-yellow-100 border border-yellow-200 font-medium">2,6–3,4 Regular</span>
+                    <span class="px-2 py-1 rounded-md text-lime-800 bg-lime-100 border border-lime-200 font-medium">3,5–4,4 Bom</span>
+                    <span class="px-2 py-1 rounded-md text-emerald-800 bg-emerald-100 border border-emerald-200 font-medium">4,5–5,0 Excelente</span>
                 </div>
             </div>
         </section>
 
-        <!-- Schools Grid -->
-        <div id="schoolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Cards gerados via Javascript -->
-        </div>
+        <div id="schoolsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
 
-        <!-- Empty State -->
-        <div id="emptyState" class="hidden bg-white rounded-2xl p-12 text-center border border-slate-200 max-w-xl mx-auto my-8">
-            <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i data-lucide="file-question" class="w-8 h-8"></i>
+        <div id="emptyState" class="hidden bg-white rounded-2xl p-10 text-center border border-stone-200 max-w-xl mx-auto my-8">
+            <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="file-question" class="w-7 h-7"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-800 mb-2">Nenhuma escola encontrada</h3>
-            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Esta unidade ainda não possui relatórios cadastrados ou a busca não retornou resultados. 
-                Caso você trabalhe nesta unidade, envie suas impressões de forma 100% anônima.
-            </p>
-            <a href="#anonymityBanner" class="inline-flex items-center space-x-2 text-blue-600 font-semibold text-sm hover:underline">
-                <span>Saiba como colaborar</span>
-                <i data-lucide="arrow-down" class="w-4 h-4"></i>
-            </a>
+            <h3 class="text-lg font-bold text-stone-800 mb-2">Nenhuma escola encontrada</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">Ajuste a busca ou os filtros de regional e classificação.</p>
         </div>
     </main>
 
-    <!-- Modal Detalhes da Escola (Visualização Completa no Site) -->
-    <div id="schoolModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-fadeIn">
-            <!-- Modal Header -->
-            <div class="p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
-                <div>
-                    <span id="modalCode" class="text-xs font-semibold px-2.5 py-1 bg-blue-500/20 text-blue-300 rounded-md border border-blue-500/30"></span>
-                    <h2 id="modalTitle" class="text-2xl font-bold mt-1"></h2>
-                    <p id="modalRegional" class="text-xs text-slate-400 mt-0.5"></p>
+    <div id="schoolModal" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 hidden overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-fadeIn">
+            <div class="p-4 sm:p-6 bg-stone-900 text-white flex items-center justify-between border-b border-stone-800 shrink-0">
+                <div class="min-w-0 pr-2">
+                    <span id="modalCode" class="text-[10px] font-semibold px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded-md border border-amber-500/30"></span>
+                    <h2 id="modalTitle" class="text-xl sm:text-2xl font-bold mt-1 truncate"></h2>
+                    <p id="modalRegional" class="text-xs text-stone-400 mt-0.5"></p>
                 </div>
-                <button onclick="closeModal()" class="p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition">
+                <button onclick="closeModal()" class="p-2 hover:bg-stone-800 rounded-lg text-stone-400 hover:text-white transition shrink-0">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
 
-            <!-- Modal Body (Scrollable) -->
-            <div class="p-6 overflow-y-auto space-y-8 flex-1" id="modalBodyContent">
-                <!-- Informações Gerais em Grid -->
-                <section class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                    <h3 class="font-bold text-slate-700 text-xs uppercase tracking-wider mb-4 flex items-center gap-2">
-                        <i data-lucide="info" class="w-4 h-4 text-blue-600"></i> Características Gerais da Unidade
+            <div id="modalBodyComRelatorio" class="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1">
+                <section class="bg-cream-50 p-4 sm:p-5 rounded-xl border border-stone-200">
+                    <h3 class="font-bold text-stone-700 text-xs uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Características Gerais
                     </h3>
-                    <div id="modalGeneralGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm"></div>
+                    <div id="modalGeneralGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-sm"></div>
                 </section>
 
-                <!-- Pontuação Final & Resumo -->
-                <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center bg-slate-900 text-white p-6 rounded-xl">
-                    <div class="text-center md:border-r border-slate-800 pr-4">
-                        <span class="text-xs uppercase text-slate-400 tracking-wider font-medium">SÍNTESE GERAL</span>
-                        <div id="modalScoreDisplay" class="text-4xl font-extrabold my-2"></div>
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-stone-900 text-white p-5 rounded-xl">
+                    <div class="text-center md:border-r border-stone-700 pr-0 md:pr-4">
+                        <span class="text-[10px] uppercase text-stone-400 tracking-wider font-medium">Síntese Geral</span>
+                        <div id="modalScoreDisplay" class="text-3xl sm:text-4xl font-extrabold my-1"></div>
                         <div id="modalScoreBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase"></div>
                     </div>
-                    <div class="md:col-span-2 space-y-2">
-                        <h4 class="font-semibold text-blue-400 text-sm">Resumo da Avaliação</h4>
-                        <p id="modalSynthesis" class="text-xs text-slate-300 leading-relaxed italic"></p>
+                    <div class="md:col-span-2 space-y-1">
+                        <h4 class="font-semibold text-amber-400 text-sm">Resumo da Avaliação</h4>
+                        <p id="modalSynthesis" class="text-xs text-stone-300 leading-relaxed"></p>
                     </div>
                 </section>
 
-                <!-- Tabelas de Índices com Observações Interativas -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Relações Interpessoais (Peso 60%) -->
-                    <div class="space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <h3 class="font-bold text-slate-800 text-sm">Relações Interpessoais</h3>
-                            <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-800 rounded">Peso: 60%</span>
+                            <h3 class="font-bold text-stone-800 text-sm">Relações Interpessoais</h3>
+                            <span class="text-[10px] font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Peso 60%</span>
                         </div>
                         <div id="modalInterpersonalList" class="space-y-2"></div>
                     </div>
-
-                    <!-- Características da Escola (Peso 40%) -->
-                    <div class="space-y-3">
+                    <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <h3 class="font-bold text-slate-800 text-sm">Características da Escola</h3>
-                            <span class="text-[10px] font-bold px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded">Peso: 40%</span>
+                            <h3 class="font-bold text-stone-800 text-sm">Características da Escola</h3>
+                            <span class="text-[10px] font-bold px-2 py-0.5 bg-orange-100 text-orange-800 rounded">Peso 40%</span>
                         </div>
                         <div id="modalSchoolCharList" class="space-y-2"></div>
                     </div>
                 </div>
 
-                <!-- Conselho dos Inspetores -->
-                <section class="bg-amber-50 border border-amber-200/80 p-5 rounded-xl">
+                <section class="bg-amber-50 border border-amber-200/80 p-4 sm:p-5 rounded-xl">
                     <h4 class="font-bold text-amber-900 text-sm flex items-center gap-2 mb-2">
-                        <i data-lucide="message-square font-bold" class="w-4 h-4 text-amber-700"></i>
+                        <i data-lucide="message-square" class="w-4 h-4 text-amber-700"></i>
                         Conselho Profissional dos Inspetores
                     </h4>
-                    <p id="modalAdvice" class="text-xs text-amber-800 leading-relaxed italic"></p>
+                    <p id="modalAdvice" class="text-xs text-amber-900/90 leading-relaxed italic"></p>
+                </section>
+
+                <section class="bg-stone-50 border border-stone-200 p-4 rounded-xl text-center">
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        Trabalha nesta unidade e quer atualizar ou complementar o relatório?
+                        Entre no <strong>grupo oficial dos inspetores de escola</strong> e preencha o
+                        <strong>formulário 100% anônimo</strong>. Sua contribuição fortalece a transparência da categoria.
+                    </p>
                 </section>
             </div>
 
-            <!-- Modal Footer -->
-            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-between items-center">
-                <span class="text-xs text-slate-500">Clique nas notas para alternar as observações detalhadas.</span>
-                <button id="btnDownloadSinglePdf" class="bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2 rounded-xl text-sm flex items-center space-x-2 transition shadow">
+            <div id="modalBodySemRelatorio" class="p-6 sm:p-8 overflow-y-auto flex-1 hidden">
+                <div class="max-w-md mx-auto text-center space-y-5 py-4">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto border border-amber-100">
+                        <i data-lucide="clipboard-pen" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800">Esta unidade ainda não possui relatório</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Se você trabalha ou já trabalhou nesta escola, sua experiência é fundamental para a categoria.
+                        O relato é <strong>totalmente anônimo</strong> e ajuda outros inspetores a conhecer a realidade da unidade.
+                    </p>
+                    <div class="bg-cream-50 border border-amber-100 rounded-xl p-4 text-left space-y-2 text-sm text-stone-700">
+                        <p class="font-semibold text-amber-900 flex items-center gap-2">
+                            <i data-lucide="list-checks" class="w-4 h-4"></i> Como colaborar
+                        </p>
+                        <ol class="list-decimal list-inside space-y-1.5 text-xs text-stone-600 leading-relaxed">
+                            <li>Entre no <strong>grupo oficial dos inspetores de escola</strong>.</li>
+                            <li>Acesse o formulário de relato (link no grupo).</li>
+                            <li>Preencha com sinceridade — é <strong>100% anônimo</strong>.</li>
+                        </ol>
+                    </div>
+                    <a href="#" target="_blank" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-amber-600/25">
+                        <i data-lucide="file-plus" class="w-4 h-4"></i>
+                        Preencher Formulário Anônimo
+                    </a>
+                </div>
+            </div>
+
+            <div id="modalFooterPdf" class="p-3 sm:p-4 bg-stone-100 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-center gap-2 shrink-0">
+                <span class="text-[11px] text-stone-500">Toque nas notas para ver as observações detalhadas (somente no site).</span>
+                <button id="btnDownloadSinglePdf" class="bg-amber-600 hover:bg-amber-500 text-white font-medium px-5 py-2 rounded-xl text-sm flex items-center space-x-2 transition shadow">
                     <i data-lucide="download" class="w-4 h-4"></i>
                     <span>Baixar PDF desta Escola</span>
                 </button>
@@ -180,33 +206,31 @@
         </div>
     </div>
 
-    <!-- Banner Fixo/Rodapé para Anonimato e Convite aos Inspetores -->
-    <footer id="anonymityBanner" class="bg-slate-900 text-slate-300 border-t border-slate-800 py-10 mt-auto">
+    <footer id="anonymityBanner" class="bg-stone-900 text-stone-300 border-t border-stone-800 py-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-blue-950 to-slate-900 p-6 md:p-8 rounded-2xl border border-blue-900/50 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="bg-gradient-to-r from-amber-950/80 to-stone-900 p-5 sm:p-7 rounded-2xl border border-amber-900/40 flex flex-col md:flex-row items-center justify-between gap-5">
                 <div class="space-y-2 text-center md:text-left">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Espaço do Inspetor • 100% Anônimo
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Espaço do Inspetor · 100% Anônimo
                     </span>
-                    <h3 class="text-lg font-bold text-white">Sua unidade não tem relatório ou possui dados desatualizados?</h3>
-                    <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
-                        Colabore com a categoria. Entre no grupo oficial dos inspetores de escola e preencha o formulário anônimo. Sua contribuição é fundamental para o fortalecimento da gestão e transparência nas unidades.
+                    <h3 class="text-base sm:text-lg font-bold text-white">Sua unidade não tem relatório ou os dados estão desatualizados?</h3>
+                    <p class="text-xs text-stone-300 max-w-2xl leading-relaxed">
+                        Colabore com a categoria. Entre no grupo oficial dos inspetores de escola e preencha o formulário anônimo.
+                        Sua contribuição é fundamental para o fortalecimento da gestão e da transparência nas unidades.
                     </p>
                 </div>
-                <a href="#" target="_blank" class="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition flex items-center space-x-2 shadow-lg shadow-blue-600/30">
+                <a href="#" target="_blank" class="whitespace-nowrap bg-amber-600 hover:bg-amber-500 text-white font-semibold px-5 py-3 rounded-xl text-sm transition flex items-center space-x-2 shadow-lg shadow-amber-600/30">
                     <i data-lucide="file-plus" class="w-4 h-4"></i>
                     <span>Preencher Formulário Anônimo</span>
                 </a>
             </div>
-            <div class="text-center text-xs text-slate-500 mt-8">
-                &copy; 2026 Dossiê Unidades Escolares • Gestão e Transparência Pedagógica
+            <div class="text-center text-xs text-stone-500 mt-6">
+                &copy; 2026 Dossiê Unidades Escolares · Gestão e Transparência Pedagógica
             </div>
         </div>
     </footer>
 
-    <!-- Elemento invisível temporário para renderizar o PDF oficial -->
     <div id="pdfRenderContainer" class="hidden"></div>
-
     <script src="app.js"></script>
 </body>
 </html>
