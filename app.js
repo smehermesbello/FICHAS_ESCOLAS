@@ -361,4 +361,3 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
 });
-Ajuste códigos escolas ficha PDF estética site - Grok
