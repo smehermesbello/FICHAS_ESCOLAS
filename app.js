@@ -422,6 +422,7 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
 
     return `
     <div class="pdf-page">
+      <div class="pdf-scale-wrap">
         <div class="pdf-topbar">
             <span class="pdf-kicker">${PDF_KICKER}</span>
             <span class="pdf-page-info">PÁG. ${pageNumStr} / ${totalStr}</span>
@@ -492,10 +493,42 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
             <span class="leg"><span class="dot" style="background:#84cc16"></span>Bom</span>
             <span class="leg"><span class="dot" style="background:#22c55e"></span>Excelente</span>
         </div>
+      </div>
     </div>`;
 }
 
-function gerarPDFEscola(escola) {
+/**
+ * Garante que a ficha caiba em uma única página.
+ * Mede a altura natural do conteúdo (.pdf-scale-wrap) contra a altura útil
+ * de .pdf-page (já descontando o padding) e, se ultrapassar, aplica um
+ * scale() proporcional para encolher tudo (texto, espaçamentos, ícones)
+ * até caber exatamente em 297mm — em vez de deixar o html2pdf criar uma
+ * segunda página com a sobra (que normalmente sai quase em branco).
+ */
+function ajustarEscalaPDF(pageEl) {
+    if (!pageEl) return;
+    const wrap = pageEl.querySelector(".pdf-scale-wrap");
+    if (!wrap) return;
+
+    // Reseta antes de medir, para não acumular escalas de uma renderização anterior
+    wrap.style.transform = "none";
+    wrap.style.width = "100%";
+
+    const cs = window.getComputedStyle(pageEl);
+    const paddingTop = parseFloat(cs.paddingTop) || 0;
+    const paddingBottom = parseFloat(cs.paddingBottom) || 0;
+    const availableHeight = pageEl.clientHeight - paddingTop - paddingBottom;
+    const naturalHeight = wrap.scrollHeight;
+
+    if (naturalHeight > availableHeight && availableHeight > 0) {
+        const scale = availableHeight / naturalHeight;
+        wrap.style.transformOrigin = "top left";
+        wrap.style.transform = `scale(${scale})`;
+        wrap.style.width = `${100 / scale}%`;
+    }
+}
+
+async function gerarPDFEscola(escola) {
     if (!escola || !escola.temRelatorio) return;
     const container = document.getElementById("pdfRenderContainer");
     if (!container) return;
@@ -503,6 +536,10 @@ function gerarPDFEscola(escola) {
     container.innerHTML = gerarTemplateHTMLPDF(escola, 1, 1);
     container.classList.remove("hidden");
     if (window.lucide) lucide.createIcons();
+
+    // Aguarda layout/ícones/fontes assentarem antes de medir a altura real
+    await new Promise(r => setTimeout(r, 100));
+    ajustarEscalaPDF(container.children[0]);
 
     const safeName = (escola.nome || "escola")
         .replace(/[^\w\-]+/g, "_")
@@ -590,6 +627,8 @@ async function gerarPDFGeral() {
 
             const pageEl = container.children[0];
             if (!pageEl) continue;
+
+            ajustarEscalaPDF(pageEl);
 
             const worker = html2pdf().set(optBase).from(pageEl);
 
