@@ -1,26 +1,23 @@
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.animate-fadeIn { animation: fadeIn 0.2s ease-out forwards; }
 
-.animate-fadeIn {
-    animation: fadeIn 0.25s ease-out forwards;
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #f5f5f4; }
-::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+.school-tile:hover { border-color: #fbbf24; }
 
-.school-card:hover {
-    border-color: #fcd34d;
-}
-
-/* ========== PDF layout (dossiê visual) ========== */
+/* ========== PDF — layout idêntico ao dossiê ========== */
 .pdf-page {
     width: 210mm;
     min-height: 297mm;
-    padding: 12mm 14mm;
+    padding: 12mm 14mm 10mm;
     background: #fdfaf6;
     color: #1c1917;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -29,237 +26,238 @@
     page-break-inside: avoid;
 }
 
-.pdf-header {
+.pdf-topbar {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 2.5px solid #c2410c;
-    padding-bottom: 10px;
-    margin-bottom: 12px;
-    gap: 12px;
+    margin-bottom: 6px;
 }
 
 .pdf-kicker {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #a8a29e;
+    text-transform: uppercase;
+}
+
+.pdf-page-info {
+    text-align: right;
+    font-size: 8pt;
+    color: #78716c;
+    line-height: 1.25;
+}
+
+.pdf-ficha-label {
     font-size: 8pt;
     font-weight: 600;
     color: #78716c;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+    margin-top: 4px;
 }
 
-.pdf-school-name {
-    font-size: 18pt;
+.pdf-school-title {
+    font-size: 22pt;
     font-weight: 800;
     color: #1c1917;
-    margin-top: 2px;
-    line-height: 1.15;
+    line-height: 1.1;
+    margin: 2px 0 4px;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
-.pdf-sub {
-    font-size: 8pt;
+.pdf-subtitle {
+    font-size: 8.5pt;
     color: #a8a29e;
-    margin-top: 3px;
+    margin-bottom: 2px;
 }
 
-.pdf-score-circle {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    border: 3.5px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.pdf-code-line {
+    font-size: 8pt;
+    color: #78716c;
+    margin-bottom: 10px;
+}
+
+.pdf-section-label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #44403c;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.pdf-geral-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.pdf-geral-card {
     background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.pdf-geral-label {
+    font-size: 6.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #a8a29e;
+    margin-bottom: 2px;
+}
+
+.pdf-geral-value {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #292524;
+    line-height: 1.25;
+}
+
+.pdf-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.pdf-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.pdf-col-title {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #44403c;
+}
+
+.pdf-col-scale {
+    font-size: 6.5pt;
+    color: #a8a29e;
+}
+
+.pdf-metric {
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin-bottom: 5px;
+}
+
+.pdf-metric-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+}
+
+.pdf-metric-name {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #44403c;
+    line-height: 1.2;
+}
+
+.pdf-metric-nota {
+    font-size: 9pt;
+    font-weight: 800;
     flex-shrink: 0;
 }
 
-.pdf-score-num {
-    font-size: 18pt;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.pdf-score-den {
-    font-size: 7pt;
-    color: #78716c;
-    margin-top: 1px;
-}
-
-.pdf-score-label {
-    font-size: 6.5pt;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    margin-top: 2px;
-}
-
-.pdf-section-title {
-    font-size: 8.5pt;
-    font-weight: 700;
-    background: linear-gradient(90deg, #fef3c7 0%, transparent 100%);
-    padding: 4px 8px;
-    border-left: 4px solid #c2410c;
-    margin-bottom: 8px;
-    margin-top: 4px;
-    text-transform: uppercase;
-    color: #44403c;
+.pdf-segs {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    gap: 3px;
+    margin-bottom: 2px;
 }
 
-.pdf-peso {
-    font-size: 7pt;
-    font-weight: 500;
-    color: #a8a29e;
-    text-transform: none;
-    letter-spacing: 0;
-}
-
-.pdf-geral-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 14px;
-    margin-bottom: 12px;
-    font-size: 8pt;
-}
-
-.pdf-geral-item {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 1px solid #e7e5e4;
-    border-radius: 6px;
-    padding: 5px 8px;
-}
-
-.pdf-geral-k {
-    font-size: 6.5pt;
-    text-transform: uppercase;
-    color: #a8a29e;
-    letter-spacing: 0.03em;
-    font-weight: 600;
-}
-
-.pdf-geral-v {
-    font-weight: 600;
-    color: #292524;
-    margin-top: 1px;
-}
-
-.pdf-two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 12px;
-}
-
-.pdf-col {
-    min-width: 0;
-}
-
-.pdf-bar-row {
-    display: grid;
-    grid-template-columns: 1fr 70px 28px;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 5px;
-    font-size: 7.5pt;
-}
-
-.pdf-bar-label {
-    color: #44403c;
-    line-height: 1.2;
-    font-weight: 500;
-}
-
-.pdf-bar-track {
+.pdf-seg {
+    display: inline-block;
     height: 7px;
-    background: #e7e5e4;
-    border-radius: 4px;
-    overflow: hidden;
+    flex: 1;
+    border-radius: 2px;
 }
 
-.pdf-bar-fill {
-    height: 100%;
-    border-radius: 4px;
+.pdf-metric-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 5.5pt;
+    color: #a8a29e;
 }
 
-.pdf-bar-nota {
-    font-weight: 700;
-    text-align: right;
-    font-size: 8pt;
-}
-
-.pdf-sintese {
-    background: #fff;
-    border: 1.5px solid #e7e5e4;
-    border-radius: 8px;
-    padding: 8px 10px;
-    margin-bottom: 10px;
+.pdf-sintese-block {
+    border-top: 1.5px solid #e7e5e4;
+    padding-top: 8px;
+    margin-bottom: 8px;
 }
 
 .pdf-sintese-title {
     font-size: 8pt;
     font-weight: 700;
-    color: #c2410c;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #44403c;
     margin-bottom: 3px;
 }
 
 .pdf-sintese-text {
     font-size: 8pt;
-    color: #44403c;
+    color: #57534e;
     line-height: 1.35;
 }
 
-.pdf-conselho {
+.pdf-conselho-block {
     background: #fffbeb;
     border: 1px solid #fde68a;
     border-radius: 8px;
-    padding: 8px 10px;
-    margin-bottom: 10px;
+    padding: 7px 9px;
+    margin-bottom: 8px;
 }
 
 .pdf-conselho-title {
-    font-size: 8pt;
+    font-size: 7.5pt;
     font-weight: 700;
     color: #92400e;
     text-transform: uppercase;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .pdf-conselho-text {
-    font-size: 8pt;
+    font-size: 7.5pt;
     color: #78350f;
     font-style: italic;
-    line-height: 1.35;
+    line-height: 1.3;
 }
 
-.pdf-footer-legend {
+.pdf-legend {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 6px;
-    padding-top: 8px;
+    padding-top: 6px;
     border-top: 1px solid #e7e5e4;
 }
 
-.leg {
-    font-size: 7pt;
+.pdf-legend .leg {
+    font-size: 6.5pt;
     font-weight: 600;
-    padding: 2px 7px;
+    padding: 2px 6px;
     border-radius: 4px;
 }
 
-.leg-crit { background: #fee2e2; color: #b91c1c; }
-.leg-baixo { background: #ffedd5; color: #c2410c; }
-.leg-reg { background: #fef9c3; color: #a16207; }
-.leg-bom { background: #ecfccb; color: #4d7c0f; }
-.leg-exc { background: #d1fae5; color: #047857; }
-
-/* Ensure PDF render container doesn't affect page */
 #pdfRenderContainer {
     position: absolute;
     left: -9999px;
