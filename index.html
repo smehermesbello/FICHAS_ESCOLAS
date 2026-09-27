@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raio-X Curitiba: Retrato das Escolas pelos Inspetores</title>
+    <link rel="icon" type="image/svg+xml" href="escola.svg">
+    <link rel="alternate icon" href="escola.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -19,17 +21,17 @@
     <header class="bg-stone-900 text-white shadow-md sticky top-0 z-30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             <div class="flex items-center gap-3 min-w-0">
-                <div class="bg-amber-600 p-2 rounded-xl shrink-0">
-                    <i data-lucide="building-2" class="w-5 h-5 text-white"></i>
+                <div class="bg-white p-1.5 rounded-xl shrink-0 flex items-center justify-center w-9 h-9">
+                    <img src="escola.svg" alt="Raio-X Curitiba" class="w-6 h-6">
                 </div>
                 <div class="min-w-0">
                     <h1 class="font-bold text-base leading-tight truncate">Raio-X Curitiba</h1>
                     <p class="text-[11px] text-stone-400 truncate">Retrato das Escolas pelos Inspetores</p>
                 </div>
             </div>
-            <button onclick="gerarPDFGeral()" class="shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 py-2 rounded-xl text-xs flex items-center gap-2 transition">
+            <button id="btnPdfGeral" onclick="gerarPDFGeral()" class="shrink-0 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium px-3 py-2 rounded-xl text-xs flex items-center gap-2 transition">
                 <i data-lucide="file-text" class="w-4 h-4"></i>
-                <span class="hidden sm:inline">PDF Geral</span>
+                <span class="hidden sm:inline" id="btnPdfGeralLabel">PDF Geral</span>
             </button>
         </div>
     </header>
