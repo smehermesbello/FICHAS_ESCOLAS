@@ -4,36 +4,55 @@
  * PDF: layout idêntico ao dossiê (barras segmentadas, badge circular, cards gerais)
  */
 
+// Pesos internos de Relações Interpessoais (60% da nota final)
+const PESOS_RELACOES = {
+    "Entre os Inspetores da Unidade": 0.30,
+    "Inspetores x Direção": 0.25,
+    "Inspetores x Setor Pedagógico": 0.25,
+    "Inspetores x Professores": 0.15,
+    "Inspetores x Secretaria": 0.05
+};
+
+// Pesos internos de Características da Escola (40% da nota final)
+// Ordem de hierarquia (do que vale mais ao que vale menos)
+const PESOS_CARACTERISTICAS = {
+    "Equilíbrio na Distribuição de Funções": 0.22,
+    "Materiais para Recreio": 0.19,
+    "Segurança Externa": 0.17,
+    "Acesso (ônibus, bicicleta, estacionamento)": 0.14,
+    "Estrutura Física e Mobiliária": 0.11,
+    "Inclusão com Tutores Profissionais": 0.08,
+    "Auxílio Pedagógico/Direção no Recreio": 0.06,
+    "Comércio e Restaurantes no Entorno": 0.03
+};
+
+/**
+ * Média ponderada de um bloco de itens, usando um mapa {nome do item: peso}.
+ * Renormaliza automaticamente entre os itens que tiverem nota válida,
+ * para não distorcer a média caso algum item esteja sem registro.
+ */
+function mediaPonderada(items, pesos) {
+    let somaPesoNota = 0;
+    let somaPeso = 0;
+    (items || []).forEach(item => {
+        const peso = pesos[item.item];
+        if (peso == null) return;
+        if (item.nota == null || isNaN(Number(item.nota))) return;
+        somaPesoNota += peso * Number(item.nota);
+        somaPeso += peso;
+    });
+    if (!somaPeso) return null;
+    return somaPesoNota / somaPeso;
+}
+
 function calcularPontuacaoEscola(escola) {
     if (!escola || !escola.temRelatorio) return null;
 
-    const relValid = (escola.relacoesInterpessoais || []).filter(
-        i => i.nota != null && !isNaN(Number(i.nota))
-    );
-    if (!relValid.length) return null;
-    const mediaRel = relValid.reduce((a, c) => a + Number(c.nota), 0) / relValid.length;
+    const mediaRel = mediaPonderada(escola.relacoesInterpessoais, PESOS_RELACOES);
+    if (mediaRel == null) return null;
 
-    // Itens prioritários pesam 70% na média de características
-    const prioritarios = [
-        "Materiais para Recreio",
-        "Equilíbrio na Distribuição de Funções",
-        "Estrutura Física e Mobiliária"
-    ];
-    let sp = 0, cp = 0, so = 0, co = 0;
-    (escola.caracteristicasEscola || []).forEach(item => {
-        if (item.nota == null || isNaN(Number(item.nota))) return;
-        const n = Number(item.nota);
-        if (prioritarios.includes(item.item)) {
-            sp += n;
-            cp++;
-        } else {
-            so += n;
-            co++;
-        }
-    });
-    const mediaPri = cp ? sp / cp : 0;
-    const mediaOut = co ? so / co : 0;
-    const mediaCar = (mediaPri * 0.70) + (mediaOut * 0.30);
+    const mediaCarRaw = mediaPonderada(escola.caracteristicasEscola, PESOS_CARACTERISTICAS);
+    const mediaCar = mediaCarRaw == null ? 0 : mediaCarRaw;
 
     return Number(((mediaRel * 0.60) + (mediaCar * 0.40)).toFixed(1));
 }
