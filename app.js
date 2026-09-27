@@ -64,6 +64,12 @@ function escolasComFicha() {
         .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
 }
 
+function todasEscolas() {
+    return (typeof ESCOLAS_DATA !== 'undefined' ? ESCOLAS_DATA : [])
+        .slice()
+        .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+}
+
 function renderEscolas(lista) {
     const grid = document.getElementById('schoolsGrid');
     const emptyState = document.getElementById('emptyState');
@@ -80,18 +86,22 @@ function renderEscolas(lista) {
     if (countEl) countEl.textContent = lista.length + ' unidade' + (lista.length !== 1 ? 's' : '');
 
     lista.forEach(escola => {
+        const hasFicha = !!escola.temRelatorio;
         const score = calcularPontuacaoEscola(escola);
         const status = getStatusClass(score);
+        const badgeClass = hasFicha ? status.bgClass : 'bg-stone-50 text-stone-400 border-stone-200';
+        const badgeText = hasFicha ? (score != null ? score.toFixed(1) : '—') : 'Sem relato';
         const card = document.createElement('button');
         card.type = 'button';
-        card.className = 'school-tile group text-left bg-white border border-stone-200 rounded-xl p-4 hover:border-amber-400 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-amber-500';
+        card.className = 'school-tile group text-left bg-white border rounded-xl p-4 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-amber-500 '
+            + (hasFicha ? 'border-stone-200 hover:border-amber-400 hover:shadow-md' : 'border-stone-200 border-dashed hover:border-stone-300');
         card.onclick = () => openModal(escola.id);
         card.innerHTML = `
             <div class="flex items-start justify-between gap-2 mb-2">
                 <span class="text-[10px] font-bold tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">${escola.codigo}</span>
-                <span class="text-[11px] font-bold ${status.bgClass} px-2 py-0.5 rounded-full border">${score != null ? score.toFixed(1) : '—'}</span>
+                <span class="text-[11px] font-bold ${badgeClass} px-2 py-0.5 rounded-full border">${badgeText}</span>
             </div>
-            <h3 class="text-sm font-semibold text-stone-800 group-hover:text-amber-700 leading-snug line-clamp-3">${escola.nome}</h3>
+            <h3 class="text-sm font-semibold ${hasFicha ? 'text-stone-800 group-hover:text-amber-700' : 'text-stone-500'} leading-snug line-clamp-3">${escola.nome}</h3>
         `;
         grid.appendChild(card);
     });
@@ -100,7 +110,7 @@ function renderEscolas(lista) {
 function filterSchools() {
     const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
     const regional = document.getElementById('regionalSelect')?.value || 'todas';
-    let lista = escolasComFicha();
+    let lista = todasEscolas();
     if (query) {
         lista = lista.filter(e =>
             e.nome.toLowerCase().includes(query) ||
@@ -115,14 +125,33 @@ function filterSchools() {
 
 function openModal(escolaId) {
     const escola = ESCOLAS_DATA.find(e => e.id === escolaId);
-    if (!escola || !escola.temRelatorio) return;
-
-    const score = calcularPontuacaoEscola(escola);
-    const status = getStatusClass(score);
+    if (!escola) return;
 
     document.getElementById('modalCode').innerText = escola.codigo || '';
     document.getElementById('modalTitle').innerText = escola.nome;
     document.getElementById('modalRegional').innerText = escola.regional || '';
+
+    const noFichaEl = document.getElementById('modalNoFicha');
+    const dataEl = document.getElementById('modalDataSections');
+    const footerEl = document.getElementById('modalFooter');
+
+    if (!escola.temRelatorio) {
+        if (noFichaEl) noFichaEl.classList.remove('hidden');
+        if (dataEl) dataEl.classList.add('hidden');
+        if (footerEl) footerEl.classList.add('hidden');
+        document.getElementById('schoolModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+        return;
+    }
+
+    if (noFichaEl) noFichaEl.classList.add('hidden');
+    if (dataEl) dataEl.classList.remove('hidden');
+    if (footerEl) footerEl.classList.remove('hidden');
+
+    const score = calcularPontuacaoEscola(escola);
+    const status = getStatusClass(score);
+
     document.getElementById('modalScoreDisplay').innerText = score != null ? score.toFixed(1) + ' / 5,0' : '—';
     document.getElementById('modalScoreDisplay').style.color = status.color;
     document.getElementById('modalScoreBadge').innerText = status.label;
@@ -188,8 +217,33 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-/* ========== PDF idêntico ao dossiê ========== */
-function pdfBarRow(item, labels) {
+/* ========== PDF — modelo "Raio-X Curitiba" ========== */
+const PDF_KICKER = 'RAIO-X CURITIBA: RETRATO DAS ESCOLAS PELOS INSPETORES';
+
+function pdfScoreRing(score, status) {
+    const pct = score != null ? Math.max(0, Math.min(1, score / 5)) : 0;
+    const r = 50;
+    const circumference = 2 * Math.PI * r;
+    const offset = circumference * (1 - pct);
+    const scoreStr = score != null ? score.toFixed(1).replace('.', ',') : '—';
+    const label = status.badgeLabel || status.label.toUpperCase();
+    return `
+        <div class="pdf-score-ring">
+            <svg viewBox="0 0 120 120" width="92" height="92">
+                <circle cx="60" cy="60" r="${r}" fill="none" stroke="#e7e5e4" stroke-width="9"/>
+                <circle cx="60" cy="60" r="${r}" fill="none" stroke="${status.color}" stroke-width="9"
+                    stroke-linecap="round" stroke-dasharray="${circumference.toFixed(2)}"
+                    stroke-dashoffset="${offset.toFixed(2)}" transform="rotate(-90 60 60)"/>
+            </svg>
+            <div class="pdf-score-ring-inner">
+                <div class="pdf-score-ring-value">${scoreStr}</div>
+                <div class="pdf-score-ring-max">DE 5,0</div>
+                <div class="pdf-score-ring-label" style="color:${status.color}">${label}</div>
+            </div>
+        </div>`;
+}
+
+function pdfBarRow(item) {
     const n = item.nota;
     const notaStr = n != null ? n.toFixed(1).replace('.', ',') : '—';
     const color = barColor(n);
@@ -198,8 +252,6 @@ function pdfBarRow(item, labels) {
     for (let i = 0; i < 5; i++) {
         segs += `<span class="pdf-seg" style="background:${i < filled ? color : '#e7e5e4'}"></span>`;
     }
-    const leftLabel = labels?.left || '0';
-    const rightLabel = labels?.right || '5';
     return `
         <div class="pdf-metric">
             <div class="pdf-metric-top">
@@ -207,66 +259,55 @@ function pdfBarRow(item, labels) {
                 <span class="pdf-metric-nota" style="color:${color}">${notaStr}</span>
             </div>
             <div class="pdf-segs">${segs}</div>
-            <div class="pdf-metric-scale"><span>${leftLabel}</span><span>${rightLabel}</span></div>
         </div>`;
 }
 
-function gerarTemplateHTMLPDF(escola) {
+function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
     const score = calcularPontuacaoEscola(escola);
     const status = getStatusClass(score);
     const g = escola.caracteristicasGerais || {};
     const scoreStr = score != null ? score.toFixed(1).replace('.', ',') : '—';
-    const pageNum = '01';
+    const pageNumStr = String(pageNum).padStart(2, '0');
+    const totalStr = String(totalPaginas).padStart(2, '0');
 
     const geralItems = [
-        { icon: '👥', label: 'ALUNOS', value: g.alunos || '—' },
-        { icon: '📚', label: 'TURMAS', value: g.turmas || '—' },
-        { icon: '👤', label: 'QUADRO DE INSPETORES', value: g.quadroInspetores || '—' },
-        { icon: '🎓', label: 'ENSINO INTEGRAL', value: g.ensinoIntegral || '—' },
-        { icon: '❤️', label: 'UEI', value: g.uei || '—' },
-        { icon: '🌙', label: 'SONINHO DO PRÉ', value: g.soninhoPre || '—' },
-        { icon: '🚌', label: 'ÔNIBUS ESCOLAR', value: g.onibusEscolar || '—' },
-        { icon: '🚪', label: 'PORTÕES', value: g.portoes || '—' },
-        { icon: '🏘️', label: 'PÚBLICO ATENDIDO', value: g.publicoAtendido || '—' },
+        { icon: 'users', label: 'ALUNOS', value: g.alunos || '—' },
+        { icon: 'layers', label: 'TURMAS', value: g.turmas || '—' },
+        { icon: 'user-check', label: 'QUADRO DE INSPETORES', value: g.quadroInspetores || '—' },
+        { icon: 'graduation-cap', label: 'ENSINO INTEGRAL', value: g.ensinoIntegral || '—' },
+        { icon: 'heart', label: 'UEI', value: g.uei || '—' },
+        { icon: 'moon', label: 'SONINHO DO PRÉ', value: g.soninhoPre || '—' },
+        { icon: 'bus', label: 'ÔNIBUS ESCOLAR', value: g.onibusEscolar || '—' },
+        { icon: 'door-open', label: 'PORTÕES', value: g.portoes || '—' },
+        { icon: 'home', label: 'PÚBLICO ATENDIDO', value: g.publicoAtendido || '—' },
     ];
-
-    const relLabels = [
-        { left: '0 · ruim', right: '5 · muito boa' },
-        { left: '0 · ruim', right: '5 · muito boa' },
-        { left: '0 · ruim', right: '5 · muito boa' },
-        { left: '0 · ruim', right: '5 · muito boa' },
-        { left: '0 · ruim', right: '5 · muito boa' },
-    ];
-    const carLabelsMap = {
-        'Segurança Externa': { left: '0 · perigoso', right: '5 · seguro' },
-        'Estrutura Física e Mobiliária': { left: '0 · inadequada', right: '5 · adequada' },
-        'Materiais para Recreio': { left: '0 · pouco', right: '5 · muito' },
-        'Equilíbrio na Distribuição de Funções': { left: '0 · desigual', right: '5 · equilibrado' },
-        'Auxílio Pedagógico/Direção no Recreio': { left: '0 · ruim', right: '5 · ótimo' },
-        'Inclusão com Tutores Profissionais': { left: '0 · poucos', right: '5 · todos' },
-        'Acesso (ônibus, bicicleta, estacionamento)': { left: '0 · pouco acessível', right: '5 · muito acessível' },
-        'Comércio e Restaurantes no Entorno': { left: '0 · nada', right: '5 · bastante' },
-        'Público atendido': { left: '0 · carente', right: '5 · abastado' },
-    };
 
     return `
     <div class="pdf-page">
         <div class="pdf-topbar">
-            <span class="pdf-kicker">DOSSIÊ DAS UNIDADES · RELATÓRIOS DE INSPETORES</span>
-            <span class="pdf-page-info">PÁG. ${pageNum} / <strong style="color:${status.color};font-size:14pt">${scoreStr}</strong><br><span style="font-size:7pt;color:#a8a29e">DE 5,0<br>${status.badgeLabel || status.label.toUpperCase()}</span></span>
+            <span class="pdf-kicker">${PDF_KICKER}</span>
+            <span class="pdf-page-info">PÁG. ${pageNumStr} / ${totalStr}</span>
         </div>
 
-        <div class="pdf-ficha-label">FICHA DA UNIDADE</div>
-        <div class="pdf-school-title">${escola.nome}</div>
-        <div class="pdf-subtitle">Índices de 0 a 5 · cores do crítico ao excelente</div>
-        <div class="pdf-code-line">${escola.codigo} · ${escola.regional || ''}</div>
+        <div class="pdf-header-row">
+            <div class="pdf-header-text">
+                <div class="pdf-ficha-label">FICHA DA UNIDADE</div>
+                <div class="pdf-school-title">${escola.nome}</div>
+                <div class="pdf-subtitle">Índices de 0 a 5 · cores do crítico ao excelente</div>
+                <div class="pdf-code-line">${escola.codigo} · ${escola.regional || ''}</div>
+            </div>
+            ${pdfScoreRing(score, status)}
+        </div>
 
         <div class="pdf-section-label">CARACTERÍSTICAS GERAIS</div>
         <div class="pdf-geral-cards">
             ${geralItems.map(it => `
                 <div class="pdf-geral-card">
-                    <div class="pdf-geral-label">${it.label}</div>
-                    <div class="pdf-geral-value">${it.value}</div>
+                    <div class="pdf-geral-icon"><i data-lucide="${it.icon}"></i></div>
+                    <div class="pdf-geral-text">
+                        <div class="pdf-geral-label">${it.label}</div>
+                        <div class="pdf-geral-value">${it.value}</div>
+                    </div>
                 </div>
             `).join('')}
         </div>
@@ -277,17 +318,14 @@ function gerarTemplateHTMLPDF(escola) {
                     <span class="pdf-col-title">RELAÇÕES INTERPESSOAIS</span>
                     <span class="pdf-col-scale">0 ruim · 5 muito boa</span>
                 </div>
-                ${(escola.relacoesInterpessoais || []).map((item, i) => pdfBarRow(item, relLabels[i])).join('')}
+                ${(escola.relacoesInterpessoais || []).map(item => pdfBarRow(item)).join('')}
             </div>
             <div class="pdf-col">
                 <div class="pdf-col-header">
                     <span class="pdf-col-title">CARACTERÍSTICAS DA ESCOLA</span>
                     <span class="pdf-col-scale">0 negativo · 5 positivo</span>
                 </div>
-                ${(escola.caracteristicasEscola || []).map(item => {
-                    const lab = carLabelsMap[item.item] || { left: '0', right: '5' };
-                    return pdfBarRow(item, lab);
-                }).join('')}
+                ${(escola.caracteristicasEscola || []).map(item => pdfBarRow(item)).join('')}
             </div>
         </div>
 
@@ -303,11 +341,11 @@ function gerarTemplateHTMLPDF(escola) {
         </div>` : ''}
 
         <div class="pdf-legend">
-            <span class="leg" style="background:#fee2e2;color:#b91c1c">● Crítico</span>
-            <span class="leg" style="background:#ffedd5;color:#c2410c">● Baixo</span>
-            <span class="leg" style="background:#fef9c3;color:#a16207">● Regular</span>
-            <span class="leg" style="background:#ecfccb;color:#4d7c0f">● Bom</span>
-            <span class="leg" style="background:#d1fae5;color:#047857">● Excelente</span>
+            <span class="leg"><span class="dot" style="background:#ef4444"></span>Crítico</span>
+            <span class="leg"><span class="dot" style="background:#f97316"></span>Baixo</span>
+            <span class="leg"><span class="dot" style="background:#eab308"></span>Regular</span>
+            <span class="leg"><span class="dot" style="background:#84cc16"></span>Bom</span>
+            <span class="leg"><span class="dot" style="background:#22c55e"></span>Excelente</span>
         </div>
     </div>`;
 }
@@ -315,8 +353,9 @@ function gerarTemplateHTMLPDF(escola) {
 function gerarPDFEscola(escola) {
     if (!escola.temRelatorio) return;
     const container = document.getElementById('pdfRenderContainer');
-    container.innerHTML = gerarTemplateHTMLPDF(escola);
+    container.innerHTML = gerarTemplateHTMLPDF(escola, 1, 1);
     container.classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
     const opt = {
         margin: 0,
         filename: `Ficha_${escola.codigo}_${escola.nome.replace(/\s+/g, '_')}.pdf`,
@@ -333,11 +372,12 @@ function gerarPDFEscola(escola) {
 function gerarPDFGeral() {
     const lista = escolasComFicha();
     const container = document.getElementById('pdfRenderContainer');
-    container.innerHTML = lista.map(gerarTemplateHTMLPDF).join('');
+    container.innerHTML = lista.map((escola, i) => gerarTemplateHTMLPDF(escola, i + 1, lista.length)).join('');
     container.classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
     const opt = {
         margin: 0,
-        filename: 'Dossie_Geral_Unidades_Escolares.pdf',
+        filename: 'RaioX_Curitiba_Retrato_das_Escolas.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true, backgroundColor: '#fdfaf6' },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
@@ -354,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const regional = document.getElementById('regionalSelect');
     if (search) search.addEventListener('input', filterSchools);
     if (regional) regional.addEventListener('change', filterSchools);
-    renderEscolas(escolasComFicha());
+    renderEscolas(todasEscolas());
     if (window.lucide) lucide.createIcons();
 });
 
