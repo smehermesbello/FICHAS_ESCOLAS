@@ -72,7 +72,6 @@
             </div>
         </section>
 
-        <!-- Grade 4 colunas: todas as escolas (com e sem ficha) -->
         <div id="schoolsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"></div>
 
         <div id="emptyState" class="hidden bg-white rounded-2xl p-10 text-center border border-stone-200 max-w-lg mx-auto my-8">
@@ -141,9 +140,18 @@
                         </div>
                     </div>
 
-                    <section class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
-                        <h4 class="font-bold text-amber-900 text-sm mb-2">Conselho dos Inspetores</h4>
-                        <p id="modalAdvice" class="text-xs text-amber-900/90 leading-relaxed italic"></p>
+                    <!-- Botão Resumo de Relatos (substitui o antigo Conselho) -->
+                    <section id="modalRelatosSection" class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                        <div class="flex items-center justify-between gap-3">
+                            <h4 class="font-bold text-amber-900 text-sm">Resumo de Relatos</h4>
+                            <button id="btnToggleRelatos" onclick="toggleRelatos()" class="bg-amber-600 hover:bg-amber-500 text-white font-medium px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition">
+                                <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i>
+                                <span id="btnToggleRelatosLabel">Ver relatos</span>
+                            </button>
+                        </div>
+                        <div id="modalRelatosContent" class="hidden mt-3 space-y-3 border-t border-amber-200/60 pt-3">
+                            <!-- preenchido via JS -->
+                        </div>
                     </section>
 
                     <p class="text-center text-[11px] text-stone-500 italic pt-1 border-t border-stone-100">
