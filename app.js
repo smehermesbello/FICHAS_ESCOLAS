@@ -2,6 +2,7 @@
  * Dossiê Unidades Escolares — lógica de processamento
  * Dados: escolas_data.js
  * PDF: layout idêntico ao dossiê (barras segmentadas, badge circular, cards gerais)
+ * Atualizado: relatos no lugar de conselho + botão "Resumo de Relatos" (não vai para o PDF)
  */
 
 // Pesos internos de Relações Interpessoais (60% da nota final)
@@ -14,7 +15,6 @@ const PESOS_RELACOES = {
 };
 
 // Pesos internos de Características da Escola (40% da nota final)
-// Ordem de hierarquia (do que vale mais ao que vale menos)
 const PESOS_CARACTERISTICAS = {
     "Equilíbrio na Distribuição de Funções": 0.22,
     "Materiais para Recreio": 0.19,
@@ -26,11 +26,6 @@ const PESOS_CARACTERISTICAS = {
     "Comércio e Restaurantes no Entorno": 0.03
 };
 
-/**
- * Média ponderada de um bloco de itens, usando um mapa {nome do item: peso}.
- * Renormaliza automaticamente entre os itens que tiverem nota válida,
- * para não distorcer a média caso algum item esteja sem registro.
- */
 function mediaPonderada(items, pesos) {
     let somaPesoNota = 0;
     let somaPeso = 0;
@@ -67,7 +62,6 @@ function getStatusClass(nota) {
             badgeLabel: "—"
         };
     }
-    // Alinhado à legenda do PDF: Crítico · Baixo · Regular · Bom · Excelente
     if (nota <= 1.5) {
         return {
             label: "Crítico",
@@ -113,7 +107,6 @@ function getStatusClass(nota) {
     };
 }
 
-/** Cor da barra conforme nota (escala dossiê) */
 function barColor(nota) {
     if (nota == null || isNaN(nota)) return "#e7e5e4";
     if (nota <= 1.5) return "#ef4444";
@@ -123,7 +116,6 @@ function barColor(nota) {
     return "#22c55e";
 }
 
-/** Segmentos de barra estilo dossiê (5 blocos) */
 function barSegmentsHTML(nota, maxSeg = 5) {
     const filled = nota == null || isNaN(nota) ? 0 : Math.round((Number(nota) / 5) * maxSeg);
     const color = barColor(nota);
@@ -217,7 +209,6 @@ function filterSchools() {
     }
 
     if (regional !== "todas") {
-        // Aceita valor completo ("BN - Regional...") ou só o código ("BN")
         lista = lista.filter(e => {
             const r = e.regional || "";
             return r === regional || r.startsWith(regional + " ") || r.startsWith(regional + " -");
@@ -276,7 +267,25 @@ function openModal(escolaId) {
     }
 
     setText("modalSynthesis", escola.sintese || "");
-    setText("modalAdvice", escola.conselho ? `"${escola.conselho}"` : "");
+
+    // Relatos
+    const relatos = Array.isArray(escola.relatos) ? escola.relatos : [];
+    const relatosContent = document.getElementById("modalRelatosContent");
+    const btnLabel = document.getElementById("btnToggleRelatosLabel");
+    if (relatosContent) {
+        if (relatos.length === 0) {
+            relatosContent.innerHTML = `<p class="text-xs text-stone-500 italic">Nenhum relato textual disponível para esta unidade.</p>`;
+        } else {
+            relatosContent.innerHTML = relatos.map((r, i) => `
+                <div class="bg-white/70 border border-amber-100 rounded-lg p-3">
+                    <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wide">Relato ${i + 1}</span>
+                    <p class="text-xs text-stone-700 leading-relaxed mt-1">${r}</p>
+                </div>
+            `).join("");
+        }
+        relatosContent.classList.add("hidden");
+        if (btnLabel) btnLabel.textContent = "Ver relatos";
+    }
 
     const g = escola.caracteristicasGerais || {};
     const generalGrid = document.getElementById("modalGeneralGrid");
@@ -311,6 +320,20 @@ function openModal(escolaId) {
     if (modal) modal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
     if (window.lucide) lucide.createIcons();
+}
+
+function toggleRelatos() {
+    const content = document.getElementById("modalRelatosContent");
+    const label = document.getElementById("btnToggleRelatosLabel");
+    if (!content) return;
+    const isHidden = content.classList.contains("hidden");
+    if (isHidden) {
+        content.classList.remove("hidden");
+        if (label) label.textContent = "Ocultar relatos";
+    } else {
+        content.classList.add("hidden");
+        if (label) label.textContent = "Ver relatos";
+    }
 }
 
 function renderScoreBars(containerId, items) {
@@ -355,7 +378,7 @@ function closeModal() {
     document.body.style.overflow = "";
 }
 
-/* ========== PDF — modelo "Raio-X Curitiba" ========== */
+/* ========== PDF — modelo "Raio-X Curitiba" (SEM relatos) ========== */
 const PDF_KICKER = "RAIO-X CURITIBA: RETRATO DAS ESCOLAS PELOS INSPETORES";
 
 function pdfScoreRing(score, status) {
@@ -476,15 +499,7 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
             <div class="pdf-sintese-text">${escola.sintese || ""}</div>
         </div>
 
-        ${
-            escola.conselho
-                ? `
-        <div class="pdf-conselho-block">
-            <div class="pdf-conselho-title">Conselho dos Inspetores</div>
-            <div class="pdf-conselho-text">"${escola.conselho}"</div>
-        </div>`
-                : ""
-        }
+        <!-- Relatos NÃO são incluídos no PDF -->
 
         <div class="pdf-legend">
             <span class="leg"><span class="dot" style="background:#ef4444"></span>Crítico</span>
@@ -497,20 +512,11 @@ function gerarTemplateHTMLPDF(escola, pageNum = 1, totalPaginas = 1) {
     </div>`;
 }
 
-/**
- * Garante que a ficha caiba em uma única página.
- * Mede a altura natural do conteúdo (.pdf-scale-wrap) contra a altura útil
- * de .pdf-page (já descontando o padding) e, se ultrapassar, aplica um
- * scale() proporcional para encolher tudo (texto, espaçamentos, ícones)
- * até caber exatamente em 297mm — em vez de deixar o html2pdf criar uma
- * segunda página com a sobra (que normalmente sai quase em branco).
- */
 function ajustarEscalaPDF(pageEl) {
     if (!pageEl) return;
     const wrap = pageEl.querySelector(".pdf-scale-wrap");
     if (!wrap) return;
 
-    // Reseta antes de medir, para não acumular escalas de uma renderização anterior
     wrap.style.transform = "none";
     wrap.style.width = "100%";
 
@@ -537,7 +543,6 @@ async function gerarPDFEscola(escola) {
     container.classList.remove("hidden");
     if (window.lucide) lucide.createIcons();
 
-    // Aguarda layout/ícones/fontes assentarem antes de medir a altura real
     await new Promise(r => setTimeout(r, 100));
     ajustarEscalaPDF(container.children[0]);
 
@@ -622,7 +627,6 @@ async function gerarPDFGeral() {
             container.innerHTML = gerarTemplateHTMLPDF(escola, i + 1, total);
             if (window.lucide) lucide.createIcons();
 
-            // Aguarda layout e ícones renderizarem
             await new Promise(r => setTimeout(r, 100));
 
             const pageEl = container.children[0];
