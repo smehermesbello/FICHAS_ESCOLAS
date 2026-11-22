@@ -5,6 +5,8 @@ const ESCOLAS_DATA = [
     "nome": "Rio Negro",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -14,7 +16,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -28,6 +32,8 @@ const ESCOLAS_DATA = [
     "nome": "Pedro Viriato Parigot de Souza",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -37,7 +43,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -51,6 +59,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Augusta Glück Ribas",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -60,7 +70,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -74,90 +86,111 @@ const ESCOLAS_DATA = [
     "nome": "Prof. José Cavallin",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "340",
-      "turmas": "13",
+      "alunos": "aproximadamente 340",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Diversificada (tem uns que condições boa enquanto outros desfavorável)"
+      "publicoAtendido": "Diversificada ( tem uns que condições boa enquanto outros desfavorável)",
+      "turmasIntegrais": "12",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato cita indisciplina, conflitos com professores e interferência da comunidade, mas considera a escola boa para trabalhar. A escala é justa e as cadeiras são boas, embora não haja sala. O entorno não apresenta problemas de segurança, a inclusão é difícil e desgastante, o estresse é alto (4/5) e o retorno de ocorrências graves cabe à direção e ao setor pedagógico.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Professores (3,0).",
+    "conselho": "O público é diversificado, com condições boas e desfavoráveis. Os conflitos são indisciplina, desentendimentos com professores e interferência da comunidade. É uma boa escola de trabalhar. A escala é justa. Há cadeiras boas, mas não sala. Não há problemas de segurança. A relação com a inclusão é difícil e desgastante. Desgaste: 4/5. O acesso é bom.",
     "relatos": [
-      "O relato cita indisciplina, conflitos com professores e interferência da comunidade, mas considera a escola boa para trabalhar. A escala é justa e as cadeiras são boas, embora não haja sala. O entorno não apresenta problemas de segurança, a inclusão é difícil e desgastante, o estresse é alto (4/5) e o retorno de ocorrências graves cabe à direção e ao setor pedagógico."
+      "O público é diversificado, com condições boas e desfavoráveis. Os conflitos são indisciplina, desentendimentos com professores e interferência da comunidade. É uma boa escola de trabalhar. A escala é justa. Há cadeiras boas, mas não sala. Não há problemas de segurança. A relação com a inclusão é difícil e desgastante. Desgaste: 4/5. O acesso é bom."
     ]
   },
   {
@@ -166,6 +199,8 @@ const ESCOLAS_DATA = [
     "nome": "Carlos Drummond de Andrade",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -175,7 +210,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -188,23 +225,113 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN7",
     "nome": "Colombo",
     "regional": "BN - Regional Bairro Novo",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.4,
+    "participantes": {
+      "total": 1,
+      "atuais": 0,
+      "exFuncionarios": 1
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 10",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "uei": "Não possui",
+      "soninhoPre": "Indefinido",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Crianças carentes e crianças melhores de vida são metade metade.",
+      "turmasIntegrais": "Não sei atualmente, talvez 1 ou 2",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 3.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,4), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Equilíbrio na Distribuição de Funções (2,0); Comércio e Restaurantes no Entorno (2,5); Inclusão com Tutores Profissionais (3,0).",
+    "conselho": "O público é dividido entre crianças carentes e outras em melhores condições. Na época em que trabalhei lá, não tive nada a reclamar: escola limpa, pequena, acolhedora e organizada, com pessoas maravilhosas. Aconselho não sair, porque depois não se consegue voltar. A escala é justa e igualitária, e os recreios eram divertidos. Há sala própria, descanso, sanduicheira, micro-ondas, geladeira e banheiros adequados. Não há problemas de segurança. Havia poucos incluídos, com apoio. Desgaste: 1/5. Fica perto do terminal Sítio Cercado, com estacionamento e portão eletrônico.",
+    "relatos": [
+      "O público é dividido entre crianças carentes e outras em melhores condições. Na época em que trabalhei lá, não tive nada a reclamar: escola limpa, pequena, acolhedora e organizada, com pessoas maravilhosas. Aconselho não sair, porque depois não se consegue voltar. A escala é justa e igualitária, e os recreios eram divertidos. Há sala própria, descanso, sanduicheira, micro-ondas, geladeira e banheiros adequados. Não há problemas de segurança. Havia poucos incluídos, com apoio. Desgaste: 1/5. Fica perto do terminal Sítio Cercado, com estacionamento e portão eletrônico."
+    ]
   },
   {
     "id": "UEBN8",
@@ -212,6 +339,8 @@ const ESCOLAS_DATA = [
     "nome": "Paulo R. G. Esmanhotto",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -221,7 +350,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -235,6 +366,8 @@ const ESCOLAS_DATA = [
     "nome": "Sady Sousa",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -244,7 +377,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -258,6 +393,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Miracy Rodrigues de Araújo",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -267,7 +404,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -281,90 +420,111 @@ const ESCOLAS_DATA = [
     "nome": "Dona Lulu",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": true,
+    "notaFinal": 2.5,
+    "participantes": {
+      "total": 1,
+      "atuais": 0,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "600",
-      "turmas": "Não recordo... lembro que era dois pré, duas classe especial... muitas turmas.",
+      "alunos": "aproximadamente 600",
+      "turmas": "—",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Público diversificado, tem uns pais complicados."
+      "publicoAtendido": "Público diversificado, tem uns pais complicados.",
+      "turmasIntegrais": "Quase 100% integral.",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 1,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente insatisfatória."
+        "nota": 1.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito negativa."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 1,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 1.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta muitos conflitos: protecionismo da direção, interferência da comunidade, falta de apoio de gestores e colegas, além de caos no refeitório e na saída. A escala é injusta, penaliza novos e privilegia aliados da direção. A estrutura física é boa, mas não havia apoio à inclusão. O estresse é alto (4/5), não há retorno às ocorrências e a escola é desaconselhada.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,5), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Segurança Externa (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Inspetores x Setor Pedagógico (1,0); Materiais para Recreio (1,0); Entre os Inspetores da Unidade (2,0); Equilíbrio na Distribuição de Funções (2,0).",
+    "conselho": "O público é diversificado, com alguns pais complicados. Há muitos conflitos: protecionismo da direção a certos inspetores, interferência da comunidade e falta de apoio de direção e colegas. Aconselho fugir do local. A escala é injusta, sem divisão clara; os novos são prejudicados e os favoritos privilegiados. O espaço é bom e não há problemas de segurança. Na época em que trabalhei lá, não havia apoio nem tutores. Desgaste: 4/5. O acesso é fácil, com estacionamento e ciclovias.",
     "relatos": [
-      "O relato aponta muitos conflitos: protecionismo da direção, interferência da comunidade, falta de apoio de gestores e colegas, além de caos no refeitório e na saída. A escala é injusta, penaliza novos e privilegia aliados da direção. A estrutura física é boa, mas não havia apoio à inclusão. O estresse é alto (4/5), não há retorno às ocorrências e a escola é desaconselhada."
+      "O público é diversificado, com alguns pais complicados. Há muitos conflitos: protecionismo da direção a certos inspetores, interferência da comunidade e falta de apoio de direção e colegas. Aconselho fugir do local. A escala é injusta, sem divisão clara; os novos são prejudicados e os favoritos privilegiados. O espaço é bom e não há problemas de segurança. Na época em que trabalhei lá, não havia apoio nem tutores. Desgaste: 4/5. O acesso é fácil, com estacionamento e ciclovias."
     ]
   },
   {
@@ -373,6 +533,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Rejane M. Silveira Sachette",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -382,7 +544,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -396,6 +560,8 @@ const ESCOLAS_DATA = [
     "nome": "BN CAIC Guilherme L. B. Sobrinho",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -405,7 +571,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -419,90 +587,112 @@ const ESCOLAS_DATA = [
     "nome": "Paulo Freire",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": true,
+    "notaFinal": 3.4,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "600",
-      "turmas": "16",
+      "alunos": "aproximadamente 595",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Completo",
-      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano) / Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
-      "soninhoPre": "Inspetor não acompanha",
+      "soninhoPre": "Inspetor não acompanha / Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas fechamento",
-      "publicoAtendido": "Classe baixa média, muitos estrangeiros"
+      "portoes": "Apenas fechamento / Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe baixa média , muitos estrangeiros; Tranquilo, sem problemas",
+      "turmasIntegrais": "8 / 04 por turno",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.5,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 1,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.5,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
         "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta neutralidade da direção e postura folgada do setor pedagógico, e orienta que venha quem não tenha atitude queixosa. O refeitório, no meio do pátio, tem pouco espaço para o almoço. Os espaços são adequados e a segurança é mediana. Todos os alunos de inclusão têm PA. O estresse é moderado (3/5), e a gestão minimiza casos, acionando pais na reincidência.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,4), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,5); Inspetores x Secretaria (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Auxílio Pedagógico/Direção no Recreio (2,3); Materiais para Recreio (2,5); Equilíbrio na Distribuição de Funções (2,5); Estrutura Física e Mobiliária (2,5).",
+    "conselho": "O público é de classe baixa a média, com muitos estrangeiros. Há neutralidade da direção e setor pedagógico folgado. Venha, mas sem \"mimimi\", pois a direção já é assim e geraria conflito. O refeitório fica no meio do pátio, com pouco espaço para dividir turmas. O suporte de espaços é adequado. A segurança é mediana e todos os incluídos têm PA. Desgaste: 3/5. Há várias linhas de ônibus. O público é tranquilo. Os problemas são desorganização, pouco espaço, desvio de função, direção que mente e pedagogas que terceirizam trabalho aos inspetores. Cuidado com a direção: brigue por suas atribuições. A escala é justa, mas muito desgastante pelo número de crianças. Há dois almoxarifados como sala, sem descanso. Considero a região tranquila. Cada incluído tem profissional de apoio. Desgaste: 5/5. Acesso fácil, com estacionamento de portão eletrônico.",
     "relatos": [
-      "O relato aponta neutralidade da direção e postura folgada do setor pedagógico, e orienta que venha quem não tenha atitude queixosa. O refeitório, no meio do pátio, tem pouco espaço para o almoço. Os espaços são adequados e a segurança é mediana. Todos os alunos de inclusão têm PA. O estresse é moderado (3/5), e a gestão minimiza casos, acionando pais na reincidência."
+      "O público é de classe baixa a média, com muitos estrangeiros. Há neutralidade da direção e setor pedagógico folgado. Venha, mas sem \"mimimi\", pois a direção já é assim e geraria conflito. O refeitório fica no meio do pátio, com pouco espaço para dividir turmas. O suporte de espaços é adequado. A segurança é mediana e todos os incluídos têm PA. Desgaste: 3/5. Há várias linhas de ônibus.",
+      "O público é tranquilo. Os problemas são desorganização, pouco espaço, desvio de função, direção que mente e pedagogas que terceirizam trabalho aos inspetores. Cuidado com a direção: brigue por suas atribuições. A escala é justa, mas muito desgastante pelo número de crianças. Há dois almoxarifados como sala, sem descanso. Considero a região tranquila. Cada incluído tem profissional de apoio. Desgaste: 5/5. Acesso fácil, com estacionamento de portão eletrônico."
     ]
   },
   {
@@ -511,6 +701,8 @@ const ESCOLAS_DATA = [
     "nome": "Madre Teresa de Calcutá",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -520,7 +712,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -533,23 +727,113 @@ const ESCOLAS_DATA = [
     "codigo": "UEBN17",
     "nome": "Heráclito Fontoura Sobral Pinto",
     "regional": "BN - Regional Bairro Novo",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.4,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 800",
+      "turmas": "aproximadamente 13",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Não possui",
+      "soninhoPre": "Escola não possui essa demanda",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "É um público dividido, tem famílias que sao mais carentes e famílias que nao sao carentes",
+      "turmasIntegrais": "2 turmas de manha e 2 turmas de tarde",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global regular (nota final 3,4), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (5,0); Inspetores x Setor Pedagógico (5,0); Inspetores x Secretaria (5,0). Constituem desafios: Materiais para Recreio (2,0); Estrutura Física e Mobiliária (2,0); Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (2,5).",
+    "conselho": "O público é dividido entre famílias carentes e outras não. Há alunos indisciplinados e muitas inclusões; entre colegas, o conflito é velado e vem da sobrecarga: somos seis, mas só dois cuidam do almoxarifado, e a direção cobra apenas esses dois. Aconselho vir sem expectativa de mudar algo. O recreio é em quadras separadas. O almoxarifado serve de sala, sem descanso; usamos a sala dos professores. Nunca soube de problemas de segurança. Há mais incluídos que apoios. Desgaste: 3/5. Bom acesso, com linhas dos terminais Sítio Cercado e Pinheirinho.",
+    "relatos": [
+      "O público é dividido entre famílias carentes e outras não. Há alunos indisciplinados e muitas inclusões; entre colegas, o conflito é velado e vem da sobrecarga: somos seis, mas só dois cuidam do almoxarifado, e a direção cobra apenas esses dois. Aconselho vir sem expectativa de mudar algo. O recreio é em quadras separadas. O almoxarifado serve de sala, sem descanso; usamos a sala dos professores. Nunca soube de problemas de segurança. Há mais incluídos que apoios. Desgaste: 3/5. Bom acesso, com linhas dos terminais Sítio Cercado e Pinheirinho."
+    ]
   },
   {
     "id": "UEBN18",
@@ -557,6 +841,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Maria Neide Gabardo Betiatto",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -566,7 +852,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -580,6 +868,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Carmen Salomão Teixeira",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -589,7 +879,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -603,92 +895,113 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Cecília Maria Westphalen",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 3,
+      "atuais": 1,
+      "exFuncionarios": 2
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 465 (variação: 450–480)",
-      "turmas": "aproximadamente 11 (variação: 9–15)",
+      "alunos": "aproximadamente 450",
+      "turmas": "aproximadamente 15",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Possui",
-      "soninhoPre": "Indefinido",
-      "onibusEscolar": "Sim, possui transporte e o inspetor acompanha",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor acompanha",
+      "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Carente, ignorante do que acontece com seus filhos dentro da escola. Não fazem uso de seus direitos; Crianças e comunidade carentes"
+      "publicoAtendido": "Carente, ignorante do que acontece com seus filhos dentro da escola. Não fazem uso de seus direitos e não cumprem com suas obrigações.",
+      "turmasIntegrais": "8",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3.3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 2.3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 1.7,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente insatisfatória."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3.7,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3.3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 1,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 1.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta falha de comunicação com o pedagógico, proibições que prejudicam o trabalho e tratamento desrespeitoso, mas acolhe novos colegas. A escala é justa na teoria, porém nem todos cumprem seu papel. Faltam local de guarda, e pertences são descartados. A inclusão é negligenciada. O estresse é moderado (3/5), e o retorno só vem por contato direto com os pais. O relato denuncia desrespeito das chefias, assédio moral e opressão, incitando funcionários uns contra os outros, e aconselha cautela e conhecimento das atribuições. A escala é desgastante, opressora e ambígua. Não há estrutura, há problemas de segurança, e faltam profissionais de inclusão, com vagas muitas vezes negadas. O estresse é máximo (5/5), e o atendimento é demorado, após o café da gestão. O relato descreve falta de apoio e respeito, assédio moral, conflitos incitados pela gestão e comandos ambíguos, que levaram o autor a deixar a escola. A escala é injusta e preferencialista, e não há sala de lanche, repouso ou cadeiras. Há insegurança, em comunidade carente. Faltam profissionais de inclusão. O estresse é máximo (5/5), e o retorno é demorado e insuficiente.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (5,0); Entre os Inspetores da Unidade (4,0); Inspetores x Professores (4,0). Constituem desafios: Materiais para Recreio (1,0); Inclusão com Tutores Profissionais (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Comércio e Restaurantes no Entorno (2,0).",
+    "conselho": "A comunidade é carente e pouco informada sobre o que ocorre com os filhos. Há falta de comunicação com o pedagógico, descaso com encaminhamentos, falta de materiais de recreio e tratamento desrespeitoso. Seja bem-vindo: mais pessoas podem fortalecer a equipe. Na teoria, cada um tem seu lugar, mas nem todos cumprem e sobrecarregam os demais. Faltam local para guardar materiais; pertences foram descartados e atas são recusadas. Não há problemas de segurança. Há aluno laudado sem tutor, fora da sala. Desgaste: 3/5. Bom acesso. Crianças e comunidade carentes. A chefia desrespeita comunidade e funcionários, com desmandos, assédio moral e opressão, incitando conflitos entre servidores. Aconselho conhecer bem a função para não cair em armadilhas. A escala é desgastante e opressora, com comandos ambíguos. Não há estrutura para inspetores. Há problemas de segurança. Não há profissionais de inclusão suficientes e a direção evita matrículas. Desgaste: 5/5. Acesso fácil, mas ônibus demorados. A comunidade é carente, formada por pais recicladores e avós ou mães solos. Há falta total de apoio, assédio moral e desrespeito; precisei pedir remoção a pedido do núcleo. Aconselho conhecer bem a função para não cair em desmandos. A escala é injusta e preferencialista. Não há dignidade: nem sala de lanche ou repouso, nem cadeiras. Há problemas de segurança. A direção nega vagas a especiais e faltam tutores. Desgaste: 5/5. Fácil acesso, linhas demoradas.",
     "relatos": [
-      "O relato aponta falha de comunicação com o pedagógico, proibições que prejudicam o trabalho e tratamento desrespeitoso, mas acolhe novos colegas. A escala é justa na teoria, porém nem todos cumprem seu papel. Faltam local de guarda, e pertences são descartados. A inclusão é negligenciada. O estresse é moderado (3/5), e o retorno só vem por contato direto com os pais.",
-      "O relato denuncia desrespeito das chefias, assédio moral e opressão, incitando funcionários uns contra os outros, e aconselha cautela e conhecimento das atribuições. A escala é desgastante, opressora e ambígua. Não há estrutura, há problemas de segurança, e faltam profissionais de inclusão, com vagas muitas vezes negadas. O estresse é máximo (5/5), e o atendimento é demorado, após o café da gestão.",
-      "O relato descreve falta de apoio e respeito, assédio moral, conflitos incitados pela gestão e comandos ambíguos, que levaram o autor a deixar a escola. A escala é injusta e preferencialista, e não há sala de lanche, repouso ou cadeiras. Há insegurança, em comunidade carente. Faltam profissionais de inclusão. O estresse é máximo (5/5), e o retorno é demorado e insuficiente."
+      "A comunidade é carente e pouco informada sobre o que ocorre com os filhos. Há falta de comunicação com o pedagógico, descaso com encaminhamentos, falta de materiais de recreio e tratamento desrespeitoso. Seja bem-vindo: mais pessoas podem fortalecer a equipe. Na teoria, cada um tem seu lugar, mas nem todos cumprem e sobrecarregam os demais. Faltam local para guardar materiais; pertences foram descartados e atas são recusadas. Não há problemas de segurança. Há aluno laudado sem tutor, fora da sala. Desgaste: 3/5. Bom acesso.",
+      "Crianças e comunidade carentes. A chefia desrespeita comunidade e funcionários, com desmandos, assédio moral e opressão, incitando conflitos entre servidores. Aconselho conhecer bem a função para não cair em armadilhas. A escala é desgastante e opressora, com comandos ambíguos. Não há estrutura para inspetores. Há problemas de segurança. Não há profissionais de inclusão suficientes e a direção evita matrículas. Desgaste: 5/5. Acesso fácil, mas ônibus demorados.",
+      "A comunidade é carente, formada por pais recicladores e avós ou mães solos. Há falta total de apoio, assédio moral e desrespeito; precisei pedir remoção a pedido do núcleo. Aconselho conhecer bem a função para não cair em desmandos. A escala é injusta e preferencialista. Não há dignidade: nem sala de lanche ou repouso, nem cadeiras. Há problemas de segurança. A direção nega vagas a especiais e faltam tutores. Desgaste: 5/5. Fácil acesso, linhas demoradas."
     ]
   },
   {
@@ -697,6 +1010,8 @@ const ESCOLAS_DATA = [
     "nome": "Professora Nathalia de Conto",
     "regional": "BN - Regional Bairro Novo",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -706,7 +1021,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -720,6 +1037,8 @@ const ESCOLAS_DATA = [
     "nome": "Jardim Europa",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -729,7 +1048,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -743,6 +1064,8 @@ const ESCOLAS_DATA = [
     "nome": "Paranavaí",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -752,7 +1075,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -766,90 +1091,112 @@ const ESCOLAS_DATA = [
     "nome": "David Carneiro",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "400",
-      "turmas": "16",
-      "quadroInspetores": "Completo",
+      "alunos": "aproximadamente 400",
+      "turmas": "aproximadamente 15",
+      "quadroInspetores": "Completo / Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
-      "uei": "Possui",
-      "soninhoPre": "Inspetor não acompanha",
+      "uei": "Possui / Não possui",
+      "soninhoPre": "Inspetor não acompanha / Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Operária"
+      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "publicoAtendido": "Operaria; Amigáveis",
+      "turmasIntegrais": "16 / Todas as 14",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.8,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.5,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato, bastante sucinto, aponta a disciplina como principal desafio e resume o conselho ao colega à palavra trabalho. A escala é parcialmente justa e a estrutura, apenas parcialmente adequada. Não há problemas de segurança no entorno, mas faltam profissionais de apoio à inclusão. O estresse é alto (4/5), e o retorno diante de ocorrências graves fica a cargo da pedagogia.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Secretaria (5,0); Entre os Inspetores da Unidade (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Materiais para Recreio (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Estrutura Física e Mobiliária (2,8).",
+    "conselho": "O público é operário e o principal problema é a disciplina. Aconselho focar no trabalho. A escala é parcialmente justa e a estrutura, parcial. Não há problemas de segurança no entorno. Relato falta de apoio para a inclusão. O nível de desgaste é 4/5 e o acesso é bom. Os alunos e famílias são amigáveis. Os problemas são a indisciplina e o desrespeito dos alunos com os inspetores. Aconselho fazer o melhor e não se deixar influenciar por situações negativas. A escala é dividida por setores. Há sala de convivência que atende todos os colaboradores. Existem problemas de segurança e a inclusão não conta com apoio adequado. Desgaste: 3/5. O acesso é bom.",
     "relatos": [
-      "O relato, bastante sucinto, aponta a disciplina como principal desafio e resume o conselho ao colega à palavra trabalho. A escala é parcialmente justa e a estrutura, apenas parcialmente adequada. Não há problemas de segurança no entorno, mas faltam profissionais de apoio à inclusão. O estresse é alto (4/5), e o retorno diante de ocorrências graves fica a cargo da pedagogia."
+      "O público é operário e o principal problema é a disciplina. Aconselho focar no trabalho. A escala é parcialmente justa e a estrutura, parcial. Não há problemas de segurança no entorno. Relato falta de apoio para a inclusão. O nível de desgaste é 4/5 e o acesso é bom.",
+      "Os alunos e famílias são amigáveis. Os problemas são a indisciplina e o desrespeito dos alunos com os inspetores. Aconselho fazer o melhor e não se deixar influenciar por situações negativas. A escala é dividida por setores. Há sala de convivência que atende todos os colaboradores. Existem problemas de segurança e a inclusão não conta com apoio adequado. Desgaste: 3/5. O acesso é bom."
     ]
   },
   {
@@ -858,6 +1205,8 @@ const ESCOLAS_DATA = [
     "nome": "Castro",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -867,7 +1216,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -881,6 +1232,8 @@ const ESCOLAS_DATA = [
     "nome": "Érico Veríssimo",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -890,7 +1243,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -904,6 +1259,8 @@ const ESCOLAS_DATA = [
     "nome": "Rolândia",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -913,7 +1270,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -927,6 +1286,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Maria Augusta Jouve",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -936,7 +1297,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -950,6 +1313,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof. Francisco Hubert",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -959,7 +1324,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -973,6 +1340,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Sophia Gaertner Roslindo",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -982,7 +1351,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -996,91 +1367,112 @@ const ESCOLAS_DATA = [
     "nome": "Maestro Bento Mossurunga",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": true,
+    "notaFinal": 3.5,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 415 (variação: 400–430)",
-      "turmas": "aproximadamente 18 (variação: 16–20)",
+      "alunos": "aproximadamente 415",
+      "turmas": "aproximadamente 18",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
-      "uei": "Indefinido",
+      "uei": "Possui / Não possui",
       "soninhoPre": "Escola não possui essa demanda",
-      "onibusEscolar": "Indefinido",
+      "onibusEscolar": "Possui e o inspetor acompanha / Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Bem mal educado e violento; Classe social média e baixa"
+      "publicoAtendido": "Bem mal educado e violento; Classe social media e baixa",
+      "turmasIntegrais": "16 / 20",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.3,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina e famílias agressivas, aconselhando o colega a não ir. A escala é desgastante, a estrutura e a segurança do entorno são regulares e há algum atendimento à inclusão. O estresse é máximo (5/5), e o setor pedagógico tenta resolver as ocorrências. Em síntese, o ambiente é avaliado como bastante exigente para toda a equipe. Destacam-se questões emocionais dos alunos, mas o conselho é ir, pois se vai gostar. Durante o almoço, um inspetor auxilia a articuladora na fila e os demais circulam pela quadra; nos recreios, todos na quadra. Não há sala própria nem descanso, apenas cozinha e banheiro. O entorno é seguro, faltam apoios à inclusão, o estresse é baixo (2/5) e os pais são avisados.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,5), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Estrutura Física e Mobiliária (2,3); Auxílio Pedagógico/Direção no Recreio (2,5); Comércio e Restaurantes no Entorno (2,5).",
+    "conselho": "O público é mal-educado e violento. Há indisciplina e famílias agressivas. Aconselho não ir. A escala é desgastante e a estrutura, mediana. A segurança também é mediana e há alguns apoios à inclusão. Desgaste: 5/5. O acesso é ruim. O público é de classe média e baixa. O problema são as questões emocionais dos alunos. Aconselho vir, pois vai gostar. No almoço, um inspetor fica com a articuladora organizando a fila e os demais atuam na quadra e em outros espaços. Não há sala própria nem descanso, apenas cozinha e banheiro para funcionários. Sem problemas de segurança. O apoio é insuficiente. Desgaste: 2/5. Bom acesso, com estacionamento interno pequeno.",
     "relatos": [
-      "O relato aponta indisciplina e famílias agressivas, aconselhando o colega a não ir. A escala é desgastante, a estrutura e a segurança do entorno são regulares e há algum atendimento à inclusão. O estresse é máximo (5/5), e o setor pedagógico tenta resolver as ocorrências. Em síntese, o ambiente é avaliado como bastante exigente para toda a equipe.",
-      "Destacam-se questões emocionais dos alunos, mas o conselho é ir, pois se vai gostar. Durante o almoço, um inspetor auxilia a articuladora na fila e os demais circulam pela quadra; nos recreios, todos na quadra. Não há sala própria nem descanso, apenas cozinha e banheiro. O entorno é seguro, faltam apoios à inclusão, o estresse é baixo (2/5) e os pais são avisados."
+      "O público é mal-educado e violento. Há indisciplina e famílias agressivas. Aconselho não ir. A escala é desgastante e a estrutura, mediana. A segurança também é mediana e há alguns apoios à inclusão. Desgaste: 5/5. O acesso é ruim.",
+      "O público é de classe média e baixa. O problema são as questões emocionais dos alunos. Aconselho vir, pois vai gostar. No almoço, um inspetor fica com a articuladora organizando a fila e os demais atuam na quadra e em outros espaços. Não há sala própria nem descanso, apenas cozinha e banheiro para funcionários. Sem problemas de segurança. O apoio é insuficiente. Desgaste: 2/5. Bom acesso, com estacionamento interno pequeno."
     ]
   },
   {
@@ -1089,6 +1481,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof. Guilherme Butler",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1098,7 +1492,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1112,6 +1508,8 @@ const ESCOLAS_DATA = [
     "nome": "Prof.ª Tereza Matsumoto",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1121,7 +1519,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1135,6 +1535,8 @@ const ESCOLAS_DATA = [
     "nome": "Nossa Sra. do Carmo",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1144,7 +1546,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1157,46 +1561,226 @@ const ESCOLAS_DATA = [
     "codigo": "UEBQ14",
     "nome": "Wenceslau Braz",
     "regional": "BQ - Regional Boqueirão",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 10",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 3)",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe média",
+      "turmasIntegrais": "4 com o pré",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Equilíbrio na Distribuição de Funções (2,0); Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Inspetores x Setor Pedagógico (3,0).",
+    "conselho": "O público é de classe média e o problema é a indisciplina. É um bom local de trabalho. Não há divisão de setores e a escola não tem espaço próprio para inspetores. Não há problemas de segurança. A inclusão não é adequadamente atendida. Desgaste: 3/5. O acesso é bom.",
+    "relatos": [
+      "O público é de classe média e o problema é a indisciplina. É um bom local de trabalho. Não há divisão de setores e a escola não tem espaço próprio para inspetores. Não há problemas de segurança. A inclusão não é adequadamente atendida. Desgaste: 3/5. O acesso é bom."
+    ]
   },
   {
     "id": "UEBQ15",
     "codigo": "UEBQ15",
     "nome": "Prof. Germano Paciornik",
     "regional": "BQ - Regional Boqueirão",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 400",
+      "turmas": "aproximadamente 8",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Possui",
+      "soninhoPre": "Escola não possui essa demanda",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Estamos numa região mais carente, com favelas e invasões. Muitos usuários de drogas, crianças criadas pelos avós, pais traficantes, tornozeleiras eletrônica, muitas crianças abandonadas pela mãe, temos também muitas crianças estrangeiras, sobretudo venezuelanos.",
+      "turmasIntegrais": "4 turmas do 1 ao 4 ano",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (5,0); Entre os Inspetores da Unidade (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0).",
+    "conselho": "A região é carente, com favelas, invasões e usuários de drogas; há pais traficantes, crianças abandonadas e muitos estrangeiros. Há indisciplina e alunos neurodivergentes sem laudo que surtam e ficam sob responsabilidade do inspetor. É uma boa escola, mas esteja preparado para intervir em brigas e não ache que mudará a vida das crianças. A divisão é justa. Temos um quartinho de depósito com mesa e sofá. A segurança é mediana. Há três incluídos pela manhã, dois com PA. Desgaste: 3/5. Duas linhas de ônibus.",
+    "relatos": [
+      "A região é carente, com favelas, invasões e usuários de drogas; há pais traficantes, crianças abandonadas e muitos estrangeiros. Há indisciplina e alunos neurodivergentes sem laudo que surtam e ficam sob responsabilidade do inspetor. É uma boa escola, mas esteja preparado para intervir em brigas e não ache que mudará a vida das crianças. A divisão é justa. Temos um quartinho de depósito com mesa e sofá. A segurança é mediana. Há três incluídos pela manhã, dois com PA. Desgaste: 3/5. Duas linhas de ônibus."
+    ]
   },
   {
     "id": "UEBQ16",
@@ -1204,6 +1788,8 @@ const ESCOLAS_DATA = [
     "nome": "Lapa",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1213,7 +1799,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1227,6 +1815,8 @@ const ESCOLAS_DATA = [
     "nome": "Helena Wladimirna Antipoff",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1236,7 +1826,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1250,90 +1842,111 @@ const ESCOLAS_DATA = [
     "nome": "Francisco Derosso",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": true,
+    "notaFinal": 3.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "700",
-      "turmas": "24",
+      "alunos": "aproximadamente 700",
+      "turmas": "aproximadamente 24",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe média, enfrentamos problemas e conflitos diariamente na escola causados pela interferência da comunidade."
+      "publicoAtendido": "Classe média, enfrentamos problemas e conflitos diariamente na escola causados pela interferência da comunidade.",
+      "turmasIntegrais": "2",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta conflitos com colegas e interferência da comunidade, aconselhando comunicar à direção qualquer saída da escola em horário de trabalho. A escala é injusta, desgastante e sem divisão clara de setores. A escola não oferece estrutura mínima e digna, e o entorno raramente é inseguro. A inclusão é regular, o estresse é alto (4/5) e o retorno é muito satisfatório.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,0), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (4,0); Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Entre os Inspetores da Unidade (2,0); Materiais para Recreio (2,0); Equilíbrio na Distribuição de Funções (2,0); Estrutura Física e Mobiliária (2,0).",
+    "conselho": "O público é de classe média e enfrentamos conflitos diários causados pela interferência da comunidade, além de conflitos com colegas. Aconselho comunicar a direção ou o pedagógico sempre que precisar sair da escola. A escala é injusta, muito desgastante e sem divisão clara. A escola não oferece estrutura mínima digna. A segurança raramente é problema e a relação com a inclusão é regular. Desgaste: 4/5. A unidade possui acesso.",
     "relatos": [
-      "O relato aponta conflitos com colegas e interferência da comunidade, aconselhando comunicar à direção qualquer saída da escola em horário de trabalho. A escala é injusta, desgastante e sem divisão clara de setores. A escola não oferece estrutura mínima e digna, e o entorno raramente é inseguro. A inclusão é regular, o estresse é alto (4/5) e o retorno é muito satisfatório."
+      "O público é de classe média e enfrentamos conflitos diários causados pela interferência da comunidade, além de conflitos com colegas. Aconselho comunicar a direção ou o pedagógico sempre que precisar sair da escola. A escala é injusta, muito desgastante e sem divisão clara. A escola não oferece estrutura mínima digna. A segurança raramente é problema e a relação com a inclusão é regular. Desgaste: 4/5. A unidade possui acesso."
     ]
   },
   {
@@ -1342,6 +1955,8 @@ const ESCOLAS_DATA = [
     "nome": "Nivaldo Braga",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1351,7 +1966,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1365,6 +1982,8 @@ const ESCOLAS_DATA = [
     "nome": "Leonor Castellano",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1374,7 +1993,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1388,91 +2009,112 @@ const ESCOLAS_DATA = [
     "nome": "Jorn. Arnaldo A. da Cruz",
     "regional": "BQ - Regional Boqueirão",
     "temRelatorio": true,
+    "notaFinal": 3.9,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 320 (variação: 300–339)",
-      "turmas": "aproximadamente 12 (variação: 10–13)",
-      "quadroInspetores": "Incompleto",
+      "alunos": "aproximadamente 320",
+      "turmas": "aproximadamente 12",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Indefinido",
+      "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Já teve épocas de muito conflito, mas, nos últimos anos é bem tranquilo. É uma comunidade de favela, Comunidade carente, crianças em situação vulnerável"
+      "publicoAtendido": "Já teve épocas de muito conflito, mas, nos últimos anos é bem tranquilo. É uma comunidade de favela, crianças carentes mas amorosas.; Comunidade carente, crianças em situação vulnerável",
+      "turmasIntegrais": "3 / Oito turmas: Pré, primeiro, segundo e terceiro anos. Quarto e quinto é regular.",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 4.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 4.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.8,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 2,
-        "obs": "Acesso à unidade limitado, com restrições de transporte ou estacionamento."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato reconhece conflitos inevitáveis, ligados à inclusão e a colegas, e aconselha respeitar as regras, evitar mimos sem autorização e agir com cautela na comunidade de favela. A escala é justa e com rodízio de recreios. Não há sala própria, mas a dos professores atende. Há risco no entorno, os surtos estressam, o estresse é moderado (3/5) e a direção sempre resolve. O relato aponta crianças atípicas completamente desreguladas e professores que desrespeitam as funções dos inspetores, aconselhando cumprir apenas a própria função. A escala é justa, mas a estrutura é insuficiente, e o entorno é seguro. A inclusão é considerada difícil, o estresse é alto (4/5) e o retorno varia: pela manhã ajudam muito, enquanto à tarde a pedagoga recusa atender as crianças encaminhadas.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,9), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (4,5); Inspetores x Secretaria (4,5). Constituem desafios: Auxílio Pedagógico/Direção no Recreio (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0); Comércio e Restaurantes no Entorno (2,0); Estrutura Física e Mobiliária (2,3).",
+    "conselho": "A comunidade é de favela, de crianças carentes, mas amorosas; já houve conflitos intensos, hoje a escola é tranquila. Há conflitos pontuais com alunos de inclusão e colegas. Aconselho respeitar as regras, não dar doces sem autorização e evitar situações que gerem B.O. A escala é justa e clara, com setores fixos e plano para dias de chuva. Usamos a sala dos professores, sem rádio, por ser pequena a escola. Há problemas de segurança. Os incluídos têm PA, mas surtos estressam. Desgaste: 3/5. O ônibus é demorado. A comunidade é carente, com crianças vulneráveis. Os problemas são alunos atípicos totalmente desregulados e professores que não respeitam as funções dos inspetores. Aconselho cumprir sua função e nada além. A escala é justa. Não há estrutura mínima e a segurança também preocupa. A relação com a inclusão é difícil. Desgaste: 4/5. O acesso é limitado.",
     "relatos": [
-      "O relato reconhece conflitos inevitáveis, ligados à inclusão e a colegas, e aconselha respeitar as regras, evitar mimos sem autorização e agir com cautela na comunidade de favela. A escala é justa e com rodízio de recreios. Não há sala própria, mas a dos professores atende. Há risco no entorno, os surtos estressam, o estresse é moderado (3/5) e a direção sempre resolve.",
-      "O relato aponta crianças atípicas completamente desreguladas e professores que desrespeitam as funções dos inspetores, aconselhando cumprir apenas a própria função. A escala é justa, mas a estrutura é insuficiente, e o entorno é seguro. A inclusão é considerada difícil, o estresse é alto (4/5) e o retorno varia: pela manhã ajudam muito, enquanto à tarde a pedagoga recusa atender as crianças encaminhadas."
+      "A comunidade é de favela, de crianças carentes, mas amorosas; já houve conflitos intensos, hoje a escola é tranquila. Há conflitos pontuais com alunos de inclusão e colegas. Aconselho respeitar as regras, não dar doces sem autorização e evitar situações que gerem B.O. A escala é justa e clara, com setores fixos e plano para dias de chuva. Usamos a sala dos professores, sem rádio, por ser pequena a escola. Há problemas de segurança. Os incluídos têm PA, mas surtos estressam. Desgaste: 3/5. O ônibus é demorado.",
+      "A comunidade é carente, com crianças vulneráveis. Os problemas são alunos atípicos totalmente desregulados e professores que não respeitam as funções dos inspetores. Aconselho cumprir sua função e nada além. A escala é justa. Não há estrutura mínima e a segurança também preocupa. A relação com a inclusão é difícil. Desgaste: 4/5. O acesso é limitado."
     ]
   },
   {
@@ -1481,91 +2123,112 @@ const ESCOLAS_DATA = [
     "nome": "Romário Martins",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 2.6,
+    "participantes": {
+      "total": 2,
+      "atuais": 0,
+      "exFuncionarios": 2
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 780 (variação: 720–840)",
-      "turmas": "aproximadamente 19 (variação: 18–20)",
-      "quadroInspetores": "Indefinido",
+      "alunos": "aproximadamente 780",
+      "turmas": "aproximadamente 19",
+      "quadroInspetores": "Completo / Incompleto (faltam aproximadamente 4)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "São pessoas mais carentes mas temos exceções também, famílias que não atendem as ligações da escola; Vulnerabilidade social alta."
+      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento dos portões",
+      "publicoAtendido": "São pessoas mais carentes mas temos excessões tbm, famílias que não atendem as ligações da escola quando a criança está doente são bem relapsas no interesse escolas das crianças, tem alunos muito violentos que batem nos inspetores e professores e não é feito nada em relação a isso.; Vulnerabilidade social alta.",
+      "turmasIntegrais": "Esse ano não sei",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 2.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 2.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 2.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato descreve ambiente tóxico, com indisciplina, fofocas, discussões entre professores e problemas entre funcionários, e aconselha fugir antes de sofrer agressão ou adoecer. A divisão de setores é clara e a estrutura é adequada, mas há problemas de segurança. Falta pessoal de inclusão, sobretudo no integral. O estresse é máximo (5/5), e o pedagógico apenas conversa, às vezes chamando as famílias. O relato menciona todos os problemas descritos e aconselha fugir. A escala é desgastante e injusta, e antigos dificultam a rotina. Há sala de inspetores, mas sem almoço ou descanso, e banheiro único. O entorno é inseguro. Alguns alunos de inclusão agridem inspetores e professores, e a autora sofreu agressão e perseguição da chefia. O estresse é máximo (5/5), e o retorno inexiste.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,6), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Estrutura Física e Mobiliária (4,0). Constituem desafios: Entre os Inspetores da Unidade (2,0); Segurança Externa (2,0); Comércio e Restaurantes no Entorno (2,0); Inspetores x Direção (2,5).",
+    "conselho": "O público é mais carente, com exceções. Famílias não atendem às ligações e alunos violentos agridem inspetores e professores sem providências. O ambiente é tóxico, com fofocas e brigas de professores diante dos alunos. Aconselho fugir enquanto há tempo. A divisão da escala é clara. Há estrutura e problemas de segurança. Não há apoio adequado e, no integral, sem tutor. Desgaste: 5/5. Bom acesso. A vulnerabilidade social é alta e todos os problemas listados ocorrem. Aconselho fugir. A escala é muito desgastante e injusta; antigos dificultam o trabalho. Há sala para almoçar, não para descansar, e banheiro único para todos. Há problemas de segurança. Alguns apoios existem, mas há alunos agressivos; sofri agressão que exigiu cirurgia, fisioterapia e afastamento. Desgaste: 5/5. Ônibus em frente, estacionamento pago na rua.",
     "relatos": [
-      "O relato descreve ambiente tóxico, com indisciplina, fofocas, discussões entre professores e problemas entre funcionários, e aconselha fugir antes de sofrer agressão ou adoecer. A divisão de setores é clara e a estrutura é adequada, mas há problemas de segurança. Falta pessoal de inclusão, sobretudo no integral. O estresse é máximo (5/5), e o pedagógico apenas conversa, às vezes chamando as famílias.",
-      "O relato menciona todos os problemas descritos e aconselha fugir. A escala é desgastante e injusta, e antigos dificultam a rotina. Há sala de inspetores, mas sem almoço ou descanso, e banheiro único. O entorno é inseguro. Alguns alunos de inclusão agridem inspetores e professores, e a autora sofreu agressão e perseguição da chefia. O estresse é máximo (5/5), e o retorno inexiste."
+      "O público é mais carente, com exceções. Famílias não atendem às ligações e alunos violentos agridem inspetores e professores sem providências. O ambiente é tóxico, com fofocas e brigas de professores diante dos alunos. Aconselho fugir enquanto há tempo. A divisão da escala é clara. Há estrutura e problemas de segurança. Não há apoio adequado e, no integral, sem tutor. Desgaste: 5/5. Bom acesso.",
+      "A vulnerabilidade social é alta e todos os problemas listados ocorrem. Aconselho fugir. A escala é muito desgastante e injusta; antigos dificultam o trabalho. Há sala para almoçar, não para descansar, e banheiro único para todos. Há problemas de segurança. Alguns apoios existem, mas há alunos agressivos; sofri agressão que exigiu cirurgia, fisioterapia e afastamento. Desgaste: 5/5. Ônibus em frente, estacionamento pago na rua."
     ]
   },
   {
@@ -1574,91 +2237,112 @@ const ESCOLAS_DATA = [
     "nome": "Ulysses Silveira Guimarães",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 4.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 600 (variação: 580–620)",
-      "turmas": "aproximadamente 72 (variação: 24–120)",
-      "quadroInspetores": "Indefinido",
-      "ensinoIntegral": "Indefinido",
-      "uei": "Indefinido",
-      "soninhoPre": "Indefinido",
+      "alunos": "aproximadamente 620",
+      "turmas": "aproximadamente 60",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 3)",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "uei": "Possui",
+      "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Muitos alunos são da região metropolitana. Clientela razoável.; Bom"
+      "publicoAtendido": "Bom",
+      "turmasIntegrais": "18",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato cita conflitos e pouca indisciplina, e aconselha dedicação, criatividade e disposição, com acolhimento e respeito aos alunos, que passam nove horas na escola integral. A escala é justa, e há sala própria e materiais para os intervalos. O entorno apresenta problemas de segurança, sempre faltam profissionais de apoio à inclusão, o estresse é moderado (3/5) e o retorno é imediato. O relato afirma que a equipe diretiva resolve os problemas e que professores, inspetores e direção oferecem apoio, e que a reforma deixará a escola excelente. Os inspetores atuam apenas no pátio, e a estrutura aguarda a reforma. O entorno é seguro, há apoio à inclusão para crianças diagnosticadas, o estresse é alto (4/5) e a direção atende os conflitos graves.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,3), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Comércio e Restaurantes no Entorno (2,0); Estrutura Física e Mobiliária (2,5); Materiais para Recreio (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "Muitos alunos vêm da região metropolitana, com clientela razoável. Há conflitos e pouca indisciplina. A escola integral exige dedicação, criatividade e disposição; como ficam nove horas, acolhimento e respeito são fundamentais. A escala é justa. Há sala própria e materiais para os intervalos. Há problemas de segurança. Sempre faltam profissionais de apoio. Desgaste: 3/5. Há ônibus. O público é bom. A equipe diretiva resolve os problemas e há apoio de professores, inspetores e direção, mesmo com muitos recreios. Gosto muito da escola. Os inspetores atuam só no pátio. Estamos em reforma e a estrutura ficará pronta. Não há problemas de segurança. Há apoio para crianças diagnosticadas. Desgaste: 4/5. O acesso é mediano.",
     "relatos": [
-      "O relato cita conflitos e pouca indisciplina, e aconselha dedicação, criatividade e disposição, com acolhimento e respeito aos alunos, que passam nove horas na escola integral. A escala é justa, e há sala própria e materiais para os intervalos. O entorno apresenta problemas de segurança, sempre faltam profissionais de apoio à inclusão, o estresse é moderado (3/5) e o retorno é imediato.",
-      "O relato afirma que a equipe diretiva resolve os problemas e que professores, inspetores e direção oferecem apoio, e que a reforma deixará a escola excelente. Os inspetores atuam apenas no pátio, e a estrutura aguarda a reforma. O entorno é seguro, há apoio à inclusão para crianças diagnosticadas, o estresse é alto (4/5) e a direção atende os conflitos graves."
+      "Muitos alunos vêm da região metropolitana, com clientela razoável. Há conflitos e pouca indisciplina. A escola integral exige dedicação, criatividade e disposição; como ficam nove horas, acolhimento e respeito são fundamentais. A escala é justa. Há sala própria e materiais para os intervalos. Há problemas de segurança. Sempre faltam profissionais de apoio. Desgaste: 3/5. Há ônibus.",
+      "O público é bom. A equipe diretiva resolve os problemas e há apoio de professores, inspetores e direção, mesmo com muitos recreios. Gosto muito da escola. Os inspetores atuam só no pátio. Estamos em reforma e a estrutura ficará pronta. Não há problemas de segurança. Há apoio para crianças diagnosticadas. Desgaste: 4/5. O acesso é mediano."
     ]
   },
   {
@@ -1667,6 +2351,8 @@ const ESCOLAS_DATA = [
     "nome": "Lauro Esmanhoto",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1676,7 +2362,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1690,90 +2378,112 @@ const ESCOLAS_DATA = [
     "nome": "Herley Mehl",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "630",
-      "turmas": "22",
+      "alunos": "aproximadamente 700",
+      "turmas": "aproximadamente 4",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Possui",
+      "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Não realiza abertura nem fechamento",
-      "publicoAtendido": "Bom relacionamento"
+      "portoes": "Apenas fechamento",
+      "publicoAtendido": "C e D, próximo à favela urbanizada",
+      "turmasIntegrais": "4",
+      "anosFinais": "Sim"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": null,
-        "obs": "Não informado"
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": null,
-        "obs": "Não informado"
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O principal problema é a indisciplina de alguns alunos, e o conselho é dedicar mais atenção aos estudantes de inclusão. A escala é justa, com setores bem distribuídos, e a escola é considerada bem estruturada. O entorno não apresenta problemas de segurança, há número adequado de apoios, o estresse é mínimo (1/5) e as ocorrências são resolvidas entre as partes na direção.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,3), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0); Materiais para Recreio (4,0). Constituem desafios: Segurança Externa (2,0); Equilíbrio na Distribuição de Funções (2,0); Estrutura Física e Mobiliária (2,0); Auxílio Pedagógico/Direção no Recreio (2,0).",
+    "conselho": "O relacionamento com a comunidade é bom e o problema é a indisciplina de alguns alunos. Aconselho dar mais atenção aos alunos de inclusão. A escala é justa, com setores bem distribuídos. A escola é bem estruturada. Não há problemas de segurança no entorno e há número adequado de apoios. Desgaste: 1/5. O público é das classes C e D, próximo a uma favela urbanizada. Há vandalismo, pais hostis, falta de espaço (o pré divide área com o Fundamental II) e estrutura deteriorada. Cuidado: o relacionamento impacta a avaliação. A escala é muito desgastante, com muitos profissionais para os pequenos e poucos no recreio do Fundamental II. A sala é um almoxarifado mofado e os corredores são abertos e frios. Há problemas de segurança. Há tutores, mas algumas turmas concentram muitos incluídos e há má vontade de professores. Desgaste: 5/5. Há ônibus e estacionamento externo pequeno.",
     "relatos": [
-      "O principal problema é a indisciplina de alguns alunos, e o conselho é dedicar mais atenção aos estudantes de inclusão. A escala é justa, com setores bem distribuídos, e a escola é considerada bem estruturada. O entorno não apresenta problemas de segurança, há número adequado de apoios, o estresse é mínimo (1/5) e as ocorrências são resolvidas entre as partes na direção."
+      "O relacionamento com a comunidade é bom e o problema é a indisciplina de alguns alunos. Aconselho dar mais atenção aos alunos de inclusão. A escala é justa, com setores bem distribuídos. A escola é bem estruturada. Não há problemas de segurança no entorno e há número adequado de apoios. Desgaste: 1/5.",
+      "O público é das classes C e D, próximo a uma favela urbanizada. Há vandalismo, pais hostis, falta de espaço (o pré divide área com o Fundamental II) e estrutura deteriorada. Cuidado: o relacionamento impacta a avaliação. A escala é muito desgastante, com muitos profissionais para os pequenos e poucos no recreio do Fundamental II. A sala é um almoxarifado mofado e os corredores são abertos e frios. Há problemas de segurança. Há tutores, mas algumas turmas concentram muitos incluídos e há má vontade de professores. Desgaste: 5/5. Há ônibus e estacionamento externo pequeno."
     ]
   },
   {
@@ -1782,6 +2492,8 @@ const ESCOLAS_DATA = [
     "nome": "Júlia Amaral Di Lenna",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1791,7 +2503,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1805,6 +2519,8 @@ const ESCOLAS_DATA = [
     "nome": "José Wanderley Dias",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1814,7 +2530,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1828,6 +2546,8 @@ const ESCOLAS_DATA = [
     "nome": "Doutel de Andrade",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1837,7 +2557,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1851,90 +2573,111 @@ const ESCOLAS_DATA = [
     "nome": "Augusto C. Sandino",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.9,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "600",
-      "turmas": "20 (11 manhã e 9 tarde)",
+      "alunos": "aproximadamente 600",
+      "turmas": "aproximadamente 11",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Indefinido",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Baixa renda"
+      "publicoAtendido": "Baixa renda",
+      "turmasIntegrais": "20",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 3.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta excesso de alunos por turma, com mais de 10% apresentando alguma síndrome, e escassez de tutores. A escola é considerada boa, com escala justa, mas sem estrutura própria para inspetores, apenas uma copa pequena compartilhada. A insegurança no entorno é tratada como comum. O estresse é moderado (3/5); a direção é parceira, enquanto o pedagógico quase não atua.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,9), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Secretaria (5,0). Constituem desafios: Materiais para Recreio (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Comércio e Restaurantes no Entorno (2,0); Estrutura Física e Mobiliária (2,5).",
+    "conselho": "A comunidade é de baixa renda. O principal problema é o excesso de alunos por sala, com mais de 10% apresentando alguma síndrome. Considero a escola boa e a escala justa. A estrutura se resume a uma copa pequena, compartilhada por todos. Sobre segurança, entendo que toda escola tem suas questões. Há poucos tutores e a maioria das crianças com síndromes não tem apoio. Desgaste: 3/5. Há duas linhas de ônibus na porta e estacionamento.",
     "relatos": [
-      "O relato aponta excesso de alunos por turma, com mais de 10% apresentando alguma síndrome, e escassez de tutores. A escola é considerada boa, com escala justa, mas sem estrutura própria para inspetores, apenas uma copa pequena compartilhada. A insegurança no entorno é tratada como comum. O estresse é moderado (3/5); a direção é parceira, enquanto o pedagógico quase não atua."
+      "A comunidade é de baixa renda. O principal problema é o excesso de alunos por sala, com mais de 10% apresentando alguma síndrome. Considero a escola boa e a escala justa. A estrutura se resume a uma copa pequena, compartilhada por todos. Sobre segurança, entendo que toda escola tem suas questões. Há poucos tutores e a maioria das crianças com síndromes não tem apoio. Desgaste: 3/5. Há duas linhas de ônibus na porta e estacionamento."
     ]
   },
   {
@@ -1943,6 +2686,8 @@ const ESCOLAS_DATA = [
     "nome": "Bela Vista do Paraíso",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1952,7 +2697,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1966,6 +2713,8 @@ const ESCOLAS_DATA = [
     "nome": "Anísio Teixeira",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1975,7 +2724,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -1989,6 +2740,8 @@ const ESCOLAS_DATA = [
     "nome": "Erasmo Pilotto",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -1998,7 +2751,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2012,6 +2767,8 @@ const ESCOLAS_DATA = [
     "nome": "Araucária",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2021,7 +2778,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2034,23 +2793,113 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV13",
     "nome": "Jaguariaíva",
     "regional": "BV - Regional Boa Vista",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 150",
+      "turmas": "aproximadamente 7",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Possui",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Possui e o inspetor acompanha",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Classe média/alta",
+      "turmasIntegrais": "Nenhuma",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,6), com relações interpessoais e características da escola bem avaliadas. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Não foram identificados índices críticos abaixo de 3,3.",
+    "conselho": "Atende classe média/alta e o principal problema são os pais. Aconselho: seja bem-vindo. A escala é justa e a estrutura é adequada. Não há problemas de segurança no entorno e há apoio à inclusão. O nível de desgaste é 1/5 e o acesso é bom.",
+    "relatos": [
+      "Atende classe média/alta e o principal problema são os pais. Aconselho: seja bem-vindo. A escala é justa e a estrutura é adequada. Não há problemas de segurança no entorno e há apoio à inclusão. O nível de desgaste é 1/5 e o acesso é bom."
+    ]
   },
   {
     "id": "UEBV14",
@@ -2058,90 +2907,113 @@ const ESCOLAS_DATA = [
     "nome": "Cerro Azul",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 4.1,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "376",
-      "turmas": "13",
+      "alunos": "aproximadamente 351",
+      "turmas": "aproximadamente 9",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
-      "soninhoPre": "Escola não possui essa demanda",
+      "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Crianças de classe média/alta, assim como o bairro e arredores."
+      "publicoAtendido": "Crianças de classe média/alta, assim como o bairro e arredores.; Classe média e classe média alta.; Pais classe média.",
+      "turmasIntegrais": "2 / Temos UEi vaga de 1 ao 5 ano",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 4.3,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.8,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 3.7,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 3.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.3,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Destacam-se o desrespeito dos alunos, a interferência da comunidade, com reclamações ao 156, e a alta demanda de inclusão, com salas de mais de dez alunos quase sem apoio. A escala é bem distribuída, mas a escola, em reforma, não tem sala de almoço. O estresse é baixo (2/5). Aconselha-se impor-se, pois a direção acumula funções e raramente aciona as famílias.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,1), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (4,7); Inspetores x Secretaria (4,7). Constituem desafios: Comércio e Restaurantes no Entorno (2,3); Estrutura Física e Mobiliária (2,8); Auxílio Pedagógico/Direção no Recreio (2,8); Inclusão com Tutores Profissionais (3,0).",
+    "conselho": "Atende classe média e média-alta, como o bairro. Há cultura de desrespeito entre alunos e grande demanda de inclusão, com salas com mais de dez estudantes incluídos. A comunidade interfere e registra reclamações no 156. Aconselho se impor: a direção é ótima, mas gosta de acumular funções. A escala é boa, com setores definidos. A escola é pequena e está em reforma, sem sala de almoço. Não há problemas de segurança. Quase não há apoio para a inclusão. Desgaste: 2/5. Acesso fácil. O público é de classe média e média-alta, formado por pais de alunos. Aconselho ter disponibilidade para acompanhar o ônibus do integral e atuar na UEI. A escala é justa e a estrutura para inspetores é adequada. Não há problemas de segurança no entorno. A relação com a inclusão é relativamente boa. O desgaste é 1/5 e o acesso é fácil. Os pais são de classe média e o principal problema é a indisciplina. Aconselho vir com vontade de dar certo, pois trabalhamos em grupo. A escala é justa. Estamos em reforma, mas teremos uma sala que não possuíamos. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 1/5. Acesso fácil.",
     "relatos": [
-      "Destacam-se o desrespeito dos alunos, a interferência da comunidade, com reclamações ao 156, e a alta demanda de inclusão, com salas de mais de dez alunos quase sem apoio. A escala é bem distribuída, mas a escola, em reforma, não tem sala de almoço. O estresse é baixo (2/5). Aconselha-se impor-se, pois a direção acumula funções e raramente aciona as famílias."
+      "Atende classe média e média-alta, como o bairro. Há cultura de desrespeito entre alunos e grande demanda de inclusão, com salas com mais de dez estudantes incluídos. A comunidade interfere e registra reclamações no 156. Aconselho se impor: a direção é ótima, mas gosta de acumular funções. A escala é boa, com setores definidos. A escola é pequena e está em reforma, sem sala de almoço. Não há problemas de segurança. Quase não há apoio para a inclusão. Desgaste: 2/5. Acesso fácil.",
+      "O público é de classe média e média-alta, formado por pais de alunos. Aconselho ter disponibilidade para acompanhar o ônibus do integral e atuar na UEI. A escala é justa e a estrutura para inspetores é adequada. Não há problemas de segurança no entorno. A relação com a inclusão é relativamente boa. O desgaste é 1/5 e o acesso é fácil.",
+      "Os pais são de classe média e o principal problema é a indisciplina. Aconselho vir com vontade de dar certo, pois trabalhamos em grupo. A escala é justa. Estamos em reforma, mas teremos uma sala que não possuíamos. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 1/5. Acesso fácil."
     ]
   },
   {
@@ -2150,91 +3022,112 @@ const ESCOLAS_DATA = [
     "nome": "Eny Caldeira",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 740 (variação: 730–750)",
-      "turmas": "aproximadamente 22 (variação: 16–28)",
+      "alunos": "aproximadamente 740",
+      "turmas": "aproximadamente 15",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "A maioria do público é de classe média a média alta; Público classe b e c, escola fica no bairro bacacheri"
+      "publicoAtendido": "A maioria do público é de classe média a média alta; Público classe b e c , escola fica no bairro bacacheri.",
+      "turmasIntegrais": "2 / Duas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 2.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 2.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 3.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 3.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Pais reclamam muito e há indisciplina discente, mas a região é boa, de fácil acesso, com comércio. O prédio antigo será reformado no próximo ano. A escala é bem dividida, com sala de inspetores e refeitório. O risco é o trânsito. Há muitos alunos de inclusão, nem todos com apoio, o estresse é alto (4/5) e nem sempre há retorno. O relato aponta resistência das pedagogas, sobretudo à tarde, em atender os inspetores, com demandas tratadas direto com a direção, nova. A escola é tranquila, bastando.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,3); Inspetores x Setor Pedagógico (2,5); Inspetores x Secretaria (2,5); Materiais para Recreio (2,5).",
+    "conselho": "A maioria do público é de classe média a média-alta. Os pais reclamam muito e há indisciplina. A região é muito boa, com comércio próximo, e a escola passará por reforma geral no próximo ano. A escala é, na maioria das vezes, bem dividida. Há sala de inspetores e refeitório, em prédio antigo. O risco de segurança é o trânsito. Há muitos alunos de inclusão e nem todos têm apoio. Desgaste: 4/5. Fácil acesso, sem estacionamento interno. O público é de classe B e C, no bairro Bacacheri. As pedagogas, sobretudo as da tarde, não gostam de atender os inspetores e tudo é tratado direto com a direção. A escola é tranquila, a direção é nova e animada, mas algumas inspetoras se acham chefes. A divisão é clara, por escala, e estamos nos adaptando a dois recreios. Há sala de inspetores, mas não de descanso. Sem problemas de segurança. Faltam alguns tutores. Desgaste: 3/5. Muitos ônibus passam na região.",
     "relatos": [
-      "Pais reclamam muito e há indisciplina discente, mas a região é boa, de fácil acesso, com comércio. O prédio antigo será reformado no próximo ano. A escala é bem dividida, com sala de inspetores e refeitório. O risco é o trânsito. Há muitos alunos de inclusão, nem todos com apoio, o estresse é alto (4/5) e nem sempre há retorno.",
-      "O relato aponta resistência das pedagogas, sobretudo à tarde, em atender os inspetores, com demandas tratadas direto com a direção, nova. A escola é tranquila, bastando."
+      "A maioria do público é de classe média a média-alta. Os pais reclamam muito e há indisciplina. A região é muito boa, com comércio próximo, e a escola passará por reforma geral no próximo ano. A escala é, na maioria das vezes, bem dividida. Há sala de inspetores e refeitório, em prédio antigo. O risco de segurança é o trânsito. Há muitos alunos de inclusão e nem todos têm apoio. Desgaste: 4/5. Fácil acesso, sem estacionamento interno.",
+      "O público é de classe B e C, no bairro Bacacheri. As pedagogas, sobretudo as da tarde, não gostam de atender os inspetores e tudo é tratado direto com a direção. A escola é tranquila, a direção é nova e animada, mas algumas inspetoras se acham chefes. A divisão é clara, por escala, e estamos nos adaptando a dois recreios. Há sala de inspetores, mas não de descanso. Sem problemas de segurança. Faltam alguns tutores. Desgaste: 3/5. Muitos ônibus passam na região."
     ]
   },
   {
@@ -2243,90 +3136,111 @@ const ESCOLAS_DATA = [
     "nome": "Theodoro de Bona",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 4.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "330",
-      "turmas": "6",
+      "alunos": "aproximadamente 330",
+      "turmas": "aproximadamente 6",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Próximo ao parque Atuba, a comunidade é de classe média. Temos muitos carentes. Mas a maioria é classe média"
+      "publicoAtendido": "Próximo ao parque Atuba, a comunidade é de classe média. Temos muitos carentes. Mas a maioria é classe média",
+      "turmasIntegrais": "2 turmas multisseriadas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": null,
+        "peso": 6.0,
+        "obs": "Não informado"
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato cita desrespeito dos alunos, principalmente os maiores, e aconselha vir com vontade, pois, apesar do porte da escola, trabalho não falta. A escala é justa, com três inspetores em rodízio. A estrutura é adequada, e o autor nunca presenciou problemas de segurança. Nem todos os alunos especiais têm tutora. O estresse é moderado (3/5), e os problemas são atendidos na hora.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,6), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Auxílio Pedagógico/Direção no Recreio (2,5).",
+    "conselho": "A escola fica próxima ao Parque Atuba, com comunidade de classe média e muitos carentes. O problema é a falta de respeito dos alunos maiores com professores e funcionários. Aconselho vir com vontade, pois a escola é pequena, mas há muito trabalho. A escala é justa: somos três, em rodízio. A estrutura é adequada. Nunca presenciei problemas de segurança. Há muitos alunos especiais e nem todos têm tutora. Desgaste: 3/5.",
     "relatos": [
-      "O relato cita desrespeito dos alunos, principalmente os maiores, e aconselha vir com vontade, pois, apesar do porte da escola, trabalho não falta. A escala é justa, com três inspetores em rodízio. A estrutura é adequada, e o autor nunca presenciou problemas de segurança. Nem todos os alunos especiais têm tutora. O estresse é moderado (3/5), e os problemas são atendidos na hora."
+      "A escola fica próxima ao Parque Atuba, com comunidade de classe média e muitos carentes. O problema é a falta de respeito dos alunos maiores com professores e funcionários. Aconselho vir com vontade, pois a escola é pequena, mas há muito trabalho. A escala é justa: somos três, em rodízio. A estrutura é adequada. Nunca presenciei problemas de segurança. Há muitos alunos especiais e nem todos têm tutora. Desgaste: 3/5."
     ]
   },
   {
@@ -2335,6 +3249,8 @@ const ESCOLAS_DATA = [
     "nome": "Ricardo Krieger",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2344,7 +3260,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2357,23 +3275,113 @@ const ESCOLAS_DATA = [
     "codigo": "UEBV18",
     "nome": "Curitiba Ano 300",
     "regional": "BV - Regional Boa Vista",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 500",
+      "turmas": "aproximadamente 9",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Bom",
+      "turmasIntegrais": "9",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (4,0); Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Entre os Inspetores da Unidade (3,0); Materiais para Recreio (3,0).",
+    "conselho": "O público é bom. Os problemas são indisciplina, questões emocionais e falta de parceria entre colegas. Aconselho ser criativo, gostar de criança, levar brinquedos e música e trabalhar sem reclamar. O refeitório é atribuição da articuladora, mas isso não é respeitado: ficam uma inspetora no refeitório, uma no soninho e cinco no pátio. Há cozinha para todos, sistema de som e banheiros adequados. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 4/5. Acesso fácil.",
+    "relatos": [
+      "O público é bom. Os problemas são indisciplina, questões emocionais e falta de parceria entre colegas. Aconselho ser criativo, gostar de criança, levar brinquedos e música e trabalhar sem reclamar. O refeitório é atribuição da articuladora, mas isso não é respeitado: ficam uma inspetora no refeitório, uma no soninho e cinco no pátio. Há cozinha para todos, sistema de som e banheiros adequados. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 4/5. Acesso fácil."
+    ]
   },
   {
     "id": "UEBV19",
@@ -2381,90 +3389,111 @@ const ESCOLAS_DATA = [
     "nome": "Raul Gelbeck",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 4.2,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "300",
-      "turmas": "5",
-      "quadroInspetores": "Incompleto",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 5",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Não realiza abertura nem fechamento",
-      "publicoAtendido": "Há famílias estruturadas, e também as de baixa renda, além dos estrangeiros."
+      "publicoAtendido": "Há famílias estruturadas, e também as de baixa renda,além dos estrangeiros.",
+      "turmasIntegrais": "1",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta poucos conflitos, bem conduzidos pela gestão, embora parte da comunidade conteste o comportamento dos estudantes. Aconselha-se firmeza com acolhimento, diálogo e encaminhamento ao pedagógico em agressões. Com dois ASEs, a escala é desgastante. A estrutura é adequada, a segurança é relativa, a inclusão nem sempre é suprida, o estresse é moderado (3/5) e o retorno é muito bom.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,2), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Setor Pedagógico (5,0). Constituem desafios: Equilíbrio na Distribuição de Funções (2,0); Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (2,5); Auxílio Pedagógico/Direção no Recreio (2,5).",
+    "conselho": "As famílias são estruturadas ou de baixa renda, além de estrangeiros. Há poucos conflitos e a direção e o pedagógico auxiliam bem. Algumas famílias contestam o comportamento do estudante. Aconselho firmeza com carinho e criatividade; em conflitos sem agressão, converse e ouça; havendo agressão, leve ao pedagógico. Somos dois ASEs, cada um com metade das turmas, em escala desgastante entre pátios e parquinhos. A estrutura é adequada. A segurança é relativa e o apoio nem sempre ocorre. Desgaste: 3/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta poucos conflitos, bem conduzidos pela gestão, embora parte da comunidade conteste o comportamento dos estudantes. Aconselha-se firmeza com acolhimento, diálogo e encaminhamento ao pedagógico em agressões. Com dois ASEs, a escala é desgastante. A estrutura é adequada, a segurança é relativa, a inclusão nem sempre é suprida, o estresse é moderado (3/5) e o retorno é muito bom."
+      "As famílias são estruturadas ou de baixa renda, além de estrangeiros. Há poucos conflitos e a direção e o pedagógico auxiliam bem. Algumas famílias contestam o comportamento do estudante. Aconselho firmeza com carinho e criatividade; em conflitos sem agressão, converse e ouça; havendo agressão, leve ao pedagógico. Somos dois ASEs, cada um com metade das turmas, em escala desgastante entre pátios e parquinhos. A estrutura é adequada. A segurança é relativa e o apoio nem sempre ocorre. Desgaste: 3/5. O acesso é bom."
     ]
   },
   {
@@ -2473,6 +3502,8 @@ const ESCOLAS_DATA = [
     "nome": "Santa Águeda",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2482,7 +3513,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2496,91 +3529,112 @@ const ESCOLAS_DATA = [
     "nome": "Duílio Calderari",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 570 (variação: 560–580)",
-      "turmas": "20 (10 manhã e 10 tarde)",
+      "alunos": "aproximadamente 570",
+      "turmas": "aproximadamente 10",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
-      "onibusEscolar": "Indefinido",
-      "portoes": "Indefinido",
-      "publicoAtendido": "O público é de um nível social bom, a comunidade tem bom relacionamento com os funcionários, exceto c; Famílias com melhores condições de vida, alunos bem cuidados."
+      "onibusEscolar": "Possui e o inspetor acompanha / Possui, mas o inspetor NÃO acompanha",
+      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "publicoAtendido": "O público é de um nível social bom,a comunidade tem bom relacionamento com os funcionários, exceto casos isolados e o entorno é chácara e rua sem saída.; Famílias com melhores condições de vida, alunos bem cuidados.",
+      "turmasIntegrais": "UEI 60 alunos no integral",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 3.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 3.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 2,
-        "obs": "Acesso à unidade limitado, com restrições de transporte ou estacionamento."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "A reforma desregula alunos autistas, e há excesso de inclusões, com vários tutores por sala. Aconselha-se chegar sem esperar silêncio, com carinho, bom senso e vontade de aprender. Não há escala, rádio ou boas cadeiras, e o entorno carece de guarda e de botão do pânico. O estresse é máximo (5/5), e cada caso é analisado com a família ou a pedagoga. Os pais reclamam de tudo e há inclusão violenta, com agressões a professoras, inspetores e apoios, agravadas por famílias que não levam filhos aos atendimentos. Ainda assim, é tranquila, pois os professores não incomodam os inspetores. A escala é justa, embora não haja refeitório. A estrutura é adequada, o entorno é seguro, o estresse é moderado (3/5) e o retorno é bom.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (4,0); Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Acesso (ônibus, bicicleta, estacionamento) (2,5); Auxílio Pedagógico/Direção no Recreio (2,8); Materiais para Recreio (3,0); Estrutura Física e Mobiliária (3,0).",
+    "conselho": "O nível social é bom, com comunidade que se relaciona bem com os funcionários; o entorno é de chácaras e rua sem saída. A reforma dificultou a situação dos alunos autistas, desregulados pelas mudanças. Aconselho não esperar silêncio nem achar que não se faz nada: traga carinho, bom senso e vontade de aprender. Não há escala nesta unidade. Em reforma, faltam rádio e boas cadeiras. Não há guarda e o botão do pânico foi retirado. Há excesso de inclusões. Desgaste: 5/5. A rua sem saída complica entrada e saída. As famílias têm melhores condições e os alunos são bem cuidados. Os pais reclamam de tudo e alguns alunos de inclusão violentos já agrediram professoras, inspetores e PAs; há pais que não levam os filhos aos atendimentos. Pode vir: é uma escola mais tranquila, onde os professores não incomodam. A escala é justa e não há refeitório. A estrutura é adequada e não há problemas de segurança. Há PA, mas muitos casos de agressividade. Desgaste: 3/5. Sem estacionamento, mas vários ônibus na avenida.",
     "relatos": [
-      "A reforma desregula alunos autistas, e há excesso de inclusões, com vários tutores por sala. Aconselha-se chegar sem esperar silêncio, com carinho, bom senso e vontade de aprender. Não há escala, rádio ou boas cadeiras, e o entorno carece de guarda e de botão do pânico. O estresse é máximo (5/5), e cada caso é analisado com a família ou a pedagoga.",
-      "Os pais reclamam de tudo e há inclusão violenta, com agressões a professoras, inspetores e apoios, agravadas por famílias que não levam filhos aos atendimentos. Ainda assim, é tranquila, pois os professores não incomodam os inspetores. A escala é justa, embora não haja refeitório. A estrutura é adequada, o entorno é seguro, o estresse é moderado (3/5) e o retorno é bom."
+      "O nível social é bom, com comunidade que se relaciona bem com os funcionários; o entorno é de chácaras e rua sem saída. A reforma dificultou a situação dos alunos autistas, desregulados pelas mudanças. Aconselho não esperar silêncio nem achar que não se faz nada: traga carinho, bom senso e vontade de aprender. Não há escala nesta unidade. Em reforma, faltam rádio e boas cadeiras. Não há guarda e o botão do pânico foi retirado. Há excesso de inclusões. Desgaste: 5/5. A rua sem saída complica entrada e saída.",
+      "As famílias têm melhores condições e os alunos são bem cuidados. Os pais reclamam de tudo e alguns alunos de inclusão violentos já agrediram professoras, inspetores e PAs; há pais que não levam os filhos aos atendimentos. Pode vir: é uma escola mais tranquila, onde os professores não incomodam. A escala é justa e não há refeitório. A estrutura é adequada e não há problemas de segurança. Há PA, mas muitos casos de agressividade. Desgaste: 3/5. Sem estacionamento, mas vários ônibus na avenida."
     ]
   },
   {
@@ -2589,6 +3643,8 @@ const ESCOLAS_DATA = [
     "nome": "Tanira Regina Schimidt",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2598,7 +3654,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2612,90 +3670,111 @@ const ESCOLAS_DATA = [
     "nome": "Kó Yamawaki",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.1,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "600",
-      "turmas": "22",
+      "alunos": "aproximadamente 600",
+      "turmas": "aproximadamente 22",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Não realiza abertura nem fechamento",
-      "publicoAtendido": "Famílias com renda de até 3 salários mínimos, trabalhadores do comércio local, trabalhadores de aplicativos. Muitas famílias católicas, evangélicas e conservadoras."
+      "publicoAtendido": "Famílias com renda de até 3 salários mínimos, trabalhadores do comércio local, trabalhadores de aplicativos. Muitas famílias católicas, evangélicas e conservadoras.",
+      "turmasIntegrais": "6",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 2,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Citam-se alunos indisciplinados, com neurodivergências, colegas individualistas, comunicação falha e interferência da comunidade em temas polêmicos. A direção apoia, mas repassa tarefas pedagógicas aos inspetores. Aconselha-se vir para colaborar e trabalhar. A escala é justa e clara, mas faltam sala, descanso, rádio e cadeiras. O entorno é seguro, faltam tutores, o estresse é moderado (3/5) e o retorno é quase nulo.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,1), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (4,0); Inspetores x Secretaria (4,0); Materiais para Recreio (4,0). Constituem desafios: Entre os Inspetores da Unidade (2,0); Inspetores x Setor Pedagógico (2,0); Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0).",
+    "conselho": "As famílias têm renda de até três salários mínimos, atuam no comércio local e em aplicativos, e muitas são religiosas e conservadoras. Há alunos indisciplinados e neurodivergentes, equipe individualista e interferência da comunidade em temas como ensino religioso e diversidade; a direção apoia, mas repassa funções pedagógicas. Venha para ser bom colega. A escala é justa. Não há sala, descanso nem rádio (usamos WhatsApp), e o banheiro não garante privacidade. Sem problemas de segurança. Faltam tutores. Desgaste: 3/5. Bem localizada.",
     "relatos": [
-      "Citam-se alunos indisciplinados, com neurodivergências, colegas individualistas, comunicação falha e interferência da comunidade em temas polêmicos. A direção apoia, mas repassa tarefas pedagógicas aos inspetores. Aconselha-se vir para colaborar e trabalhar. A escala é justa e clara, mas faltam sala, descanso, rádio e cadeiras. O entorno é seguro, faltam tutores, o estresse é moderado (3/5) e o retorno é quase nulo."
+      "As famílias têm renda de até três salários mínimos, atuam no comércio local e em aplicativos, e muitas são religiosas e conservadoras. Há alunos indisciplinados e neurodivergentes, equipe individualista e interferência da comunidade em temas como ensino religioso e diversidade; a direção apoia, mas repassa funções pedagógicas. Venha para ser bom colega. A escala é justa. Não há sala, descanso nem rádio (usamos WhatsApp), e o banheiro não garante privacidade. Sem problemas de segurança. Faltam tutores. Desgaste: 3/5. Bem localizada."
     ]
   },
   {
@@ -2704,90 +3783,113 @@ const ESCOLAS_DATA = [
     "nome": "Pilarzinho",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "350",
-      "turmas": "26",
-      "quadroInspetores": "Completo",
+      "alunos": "aproximadamente 350",
+      "turmas": "aproximadamente 12",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe média"
+      "publicoAtendido": "Classe média; Acredito que por ser situada em área carente com forte influencia do tráfico de drogas, acaba que os pais têm muita relutância em participar e ajudar a disciplinar os alunos.; Classe baixa",
+      "turmasIntegrais": "7",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.7,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.3,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.3,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.3,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 2.7,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.7,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato cita apenas a indisciplina dos alunos e aconselha vir, pois a escola é muito boa para trabalhar. A escala é justa, a estrutura oferece o essencial e o entorno não apresenta problemas de segurança. A relação com a inclusão é positiva. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção a ocorrências graves é satisfatório.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Secretaria (4,7); Inspetores x Professores (4,3); Materiais para Recreio (4,3). Constituem desafios: Inclusão com Tutores Profissionais (2,7); Comércio e Restaurantes no Entorno (2,7); Auxílio Pedagógico/Direção no Recreio (2,8); Estrutura Física e Mobiliária (3,0).",
+    "conselho": "O público é de classe média e o problema é a indisciplina. Pode vir, pois é muito bom trabalhar aqui. A escala é justa e a estrutura é essencial. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom. A escola fica em área carente, com forte influência do tráfico, e os pais relutam em disciplinar os filhos. Alunos sofrem influência externa e desrespeitam funcionários; faltam apoio da direção e espaço para ideias. A escala é injusta: os antigos escolhem primeiro. Não há banheiro para inspetores e a sala de descanso é insalubre. A área é dominada pelo tráfico. Não há apoio suficiente à inclusão. Desgaste: 5/5. O acesso é péssimo. O público é de classe baixa e o problema é a indisciplina de alguns alunos. Pode vir, porque a escola é muito boa de trabalhar. A escala é justa e a estrutura é adequada. Não há problemas de segurança. Não há número adequado de apoios. Desgaste: 3/5. O acesso é bom.",
     "relatos": [
-      "O relato cita apenas a indisciplina dos alunos e aconselha vir, pois a escola é muito boa para trabalhar. A escala é justa, a estrutura oferece o essencial e o entorno não apresenta problemas de segurança. A relação com a inclusão é positiva. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção a ocorrências graves é satisfatório."
+      "O público é de classe média e o problema é a indisciplina. Pode vir, pois é muito bom trabalhar aqui. A escala é justa e a estrutura é essencial. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom.",
+      "A escola fica em área carente, com forte influência do tráfico, e os pais relutam em disciplinar os filhos. Alunos sofrem influência externa e desrespeitam funcionários; faltam apoio da direção e espaço para ideias. A escala é injusta: os antigos escolhem primeiro. Não há banheiro para inspetores e a sala de descanso é insalubre. A área é dominada pelo tráfico. Não há apoio suficiente à inclusão. Desgaste: 5/5. O acesso é péssimo.",
+      "O público é de classe baixa e o problema é a indisciplina de alguns alunos. Pode vir, porque a escola é muito boa de trabalhar. A escala é justa e a estrutura é adequada. Não há problemas de segurança. Não há número adequado de apoios. Desgaste: 3/5. O acesso é bom."
     ]
   },
   {
@@ -2796,92 +3898,113 @@ const ESCOLAS_DATA = [
     "nome": "EM Professor Metry Bacila",
     "regional": "BV - Regional Boa Vista",
     "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "280",
-      "turmas": "10",
+      "alunos": "aproximadamente 280",
+      "turmas": "aproximadamente 10",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
-      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Não possui",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral) / Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Não possui / Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Comunidade difícil e carente; Carente"
+      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento dos portões",
+      "publicoAtendido": "Comunidade difícil e carente; Carente; Comunidade carente,difícil,com problemas sociais e convivência.",
+      "turmasIntegrais": "10",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 4.7,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 3.7,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 3.3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.9,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.2,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Cita-se indisciplina e questões emocionais dos alunos, mas a escola é boa, se souberem conversar com as famílias do entorno. Não há divisão de escala, pois o espaço é pequeno. Há sala própria, e as refeições ocorrem na sala dos professores. Operações policiais são frequentes. Há PA apenas para quem mais precisa, o estresse é baixo (2/5) e o retorno é excelente. O relato cita indisciplina e questões emocionais dos alunos, e considera a escola boa. A escala é justa, a estrutura é adequada e há problemas de segurança no entorno. A inclusão é avaliada negativamente. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção diante de ocorrências graves é positivo, confirmando o suporte oferecido aos inspetores. O relato cita indisciplina, conflitos entre alunos e carências emocionais, além de famílias difíceis, que exigem preparo psicológico. A escala permite refeições na sala dos.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,0), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Setor Pedagógico (5,0). Constituem desafios: Segurança Externa (2,0); Comércio e Restaurantes no Entorno (2,0); Materiais para Recreio (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "A comunidade é difícil e carente. Há indisciplina e questões emocionais. É uma boa escola, mas é preciso saber conversar com as famílias do entorno. Não há divisão de escala, pois o espaço é pequeno. Há sala de inspetores e usamos a sala dos professores nas refeições. Sempre há operação policial. Há PA para os que mais precisam, não para todos. Desgaste: 2/5. Há ônibus e estacionamento para oito carros. A comunidade é carente. Há indisciplina e questões emocionais. A escola é boa, a escala é justa e a estrutura é adequada. Há problemas de segurança no entorno. A inclusão não conta com apoio suficiente. Desgaste: 3/5. O ônibus para na frente, mas é difícil conseguir estacionamento. A comunidade é carente, com problemas sociais. Há indisciplina, conflitos entre alunos e carência emocional em situações de risco. Aconselho vir com psicológico preparado: as famílias, por vezes agressivas, querem direitos sem cumprir deveres. Há liberdade para almoçar na sala dos professores e há sala de inspetores. Há muitas operações policiais e, em um ano, ocorreram assassinatos na comunidade. Falta apoio à inclusão. Desgaste: 3/5. Há uma linha de ônibus e pouco estacionamento.",
     "relatos": [
-      "Cita-se indisciplina e questões emocionais dos alunos, mas a escola é boa, se souberem conversar com as famílias do entorno. Não há divisão de escala, pois o espaço é pequeno. Há sala própria, e as refeições ocorrem na sala dos professores. Operações policiais são frequentes. Há PA apenas para quem mais precisa, o estresse é baixo (2/5) e o retorno é excelente.",
-      "O relato cita indisciplina e questões emocionais dos alunos, e considera a escola boa. A escala é justa, a estrutura é adequada e há problemas de segurança no entorno. A inclusão é avaliada negativamente. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção diante de ocorrências graves é positivo, confirmando o suporte oferecido aos inspetores.",
-      "O relato cita indisciplina, conflitos entre alunos e carências emocionais, além de famílias difíceis, que exigem preparo psicológico. A escala permite refeições na sala dos."
+      "A comunidade é difícil e carente. Há indisciplina e questões emocionais. É uma boa escola, mas é preciso saber conversar com as famílias do entorno. Não há divisão de escala, pois o espaço é pequeno. Há sala de inspetores e usamos a sala dos professores nas refeições. Sempre há operação policial. Há PA para os que mais precisam, não para todos. Desgaste: 2/5. Há ônibus e estacionamento para oito carros.",
+      "A comunidade é carente. Há indisciplina e questões emocionais. A escola é boa, a escala é justa e a estrutura é adequada. Há problemas de segurança no entorno. A inclusão não conta com apoio suficiente. Desgaste: 3/5. O ônibus para na frente, mas é difícil conseguir estacionamento.",
+      "A comunidade é carente, com problemas sociais. Há indisciplina, conflitos entre alunos e carência emocional em situações de risco. Aconselho vir com psicológico preparado: as famílias, por vezes agressivas, querem direitos sem cumprir deveres. Há liberdade para almoçar na sala dos professores e há sala de inspetores. Há muitas operações policiais e, em um ano, ocorreram assassinatos na comunidade. Falta apoio à inclusão. Desgaste: 3/5. Há uma linha de ônibus e pouco estacionamento."
     ]
   },
   {
@@ -2890,6 +4013,8 @@ const ESCOLAS_DATA = [
     "nome": "Heitor de A. Furtado",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2899,7 +4024,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2913,6 +4040,8 @@ const ESCOLAS_DATA = [
     "nome": "Maria do Carmo Martins",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2922,7 +4051,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2936,6 +4067,8 @@ const ESCOLAS_DATA = [
     "nome": "Colônia Augusta",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2945,7 +4078,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2959,6 +4094,8 @@ const ESCOLAS_DATA = [
     "nome": "São Miguel",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2968,7 +4105,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -2982,6 +4121,8 @@ const ESCOLAS_DATA = [
     "nome": "Tancredo de A. Neves",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -2991,7 +4132,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3005,90 +4148,111 @@ const ESCOLAS_DATA = [
     "nome": "Olívio Soares Sabóia",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 3.5,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "360",
-      "turmas": "13",
+      "alunos": "aproximadamente 360",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Não informado"
+      "publicoAtendido": ".",
+      "turmasIntegrais": "Menos para os 5° anos",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
         "nota": null,
+        "peso": 6.0,
         "obs": "Não informado"
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": null,
+        "peso": 5.2,
         "obs": "Não informado"
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato descreve indisciplina dos educandos e preferência da direção por quem exerce a função de inspetora sem ocupar o cargo, desaconselhando a escola, pois os alunos mandam, por medo da comunidade. A escala é desgastante, e a sala dos inspetores mede cerca de 2x1 metros, com um armário para seis pessoas. O estresse é máximo (5/5), e as ocorrências são diárias.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,5), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Materiais para Recreio (2,0); Equilíbrio na Distribuição de Funções (2,0); Estrutura Física e Mobiliária (2,0); Inspetores x Direção (3,0).",
+    "conselho": "Não detalhou o público. Relata indisciplina total dos alunos e preferência absoluta da direção por uma \"inspetora\" que nem ocupa o cargo. Aconselha que a escola é furada: a direção deixa os alunos mandarem, parecendo temer a comunidade. A escala é desgastante. A sala mede cerca de 2 x 1 m, com uma mesa, três cadeiras e um armário para seis pessoas. Desgaste: 5/5. Há linha de ônibus e estacionamento minúsculo.",
     "relatos": [
-      "O relato descreve indisciplina dos educandos e preferência da direção por quem exerce a função de inspetora sem ocupar o cargo, desaconselhando a escola, pois os alunos mandam, por medo da comunidade. A escala é desgastante, e a sala dos inspetores mede cerca de 2x1 metros, com um armário para seis pessoas. O estresse é máximo (5/5), e as ocorrências são diárias."
+      "Não detalhou o público. Relata indisciplina total dos alunos e preferência absoluta da direção por uma \"inspetora\" que nem ocupa o cargo. Aconselha que a escola é furada: a direção deixa os alunos mandarem, parecendo temer a comunidade. A escala é desgastante. A sala mede cerca de 2 x 1 m, com uma mesa, três cadeiras e um armário para seis pessoas. Desgaste: 5/5. Há linha de ônibus e estacionamento minúsculo."
     ]
   },
   {
@@ -3097,90 +4261,111 @@ const ESCOLAS_DATA = [
     "nome": "Sidônio Muralha",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "670",
-      "turmas": "27",
+      "alunos": "aproximadamente 670",
+      "turmas": "aproximadamente 27",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Não realiza abertura nem fechamento",
-      "publicoAtendido": "Poder aquisitivo baixo ou muito baixo. Parte considerável dos pais são ex-alunos e possuem vínculo forte e positivo com a escola. Cerca de 30% de alunos migrantes."
+      "publicoAtendido": "Poder aquisitivo baixo ou muito baixo. Parte considerável dos pais são ex- alunos e possuem vínculo forte e positivo com a escola. Cerca de 30% de alunos migrantes.",
+      "turmasIntegrais": "1 pré integral, 4 turmas de fundamental I por período, com 20 alunos cada",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta falta de coesão da gestão, estrutura prejudicada e desvio de função consentido, mas é excelente para quem conhece as atribuições e sabe dizer não. A escala é clara, mas sem consequências a quem a descumpre. Há sala própria e ótimo refeitório. O entorno é seguro, a inclusão é quase suficiente, o estresse é baixo (2/5) e o retorno é adequado.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,0), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (5,0); Entre os Inspetores da Unidade (4,0). Constituem desafios: Equilíbrio na Distribuição de Funções (2,0); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Setor Pedagógico (3,0).",
+    "conselho": "O público tem baixo poder aquisitivo e muitos pais são ex-alunos com vínculo positivo; cerca de 30% são migrantes. Há falta de coesão da gestão, conflitos abafados e desvio de função consentido. É excelente quem está informado das atribuições e disposto a dizer não. A escala é clara, mas o descumprimento sem repercussão sobrecarrega. Há sala ampla, banheiros adequados e refeitório ótimo, sem rádio. Não há problemas de segurança. O apoio é pouco abaixo do ideal. Desgaste: 2/5.",
     "relatos": [
-      "O relato aponta falta de coesão da gestão, estrutura prejudicada e desvio de função consentido, mas é excelente para quem conhece as atribuições e sabe dizer não. A escala é clara, mas sem consequências a quem a descumpre. Há sala própria e ótimo refeitório. O entorno é seguro, a inclusão é quase suficiente, o estresse é baixo (2/5) e o retorno é adequado."
+      "O público tem baixo poder aquisitivo e muitos pais são ex-alunos com vínculo positivo; cerca de 30% são migrantes. Há falta de coesão da gestão, conflitos abafados e desvio de função consentido. É excelente quem está informado das atribuições e disposto a dizer não. A escala é clara, mas o descumprimento sem repercussão sobrecarrega. Há sala ampla, banheiros adequados e refeitório ótimo, sem rádio. Não há problemas de segurança. O apoio é pouco abaixo do ideal. Desgaste: 2/5."
     ]
   },
   {
@@ -3189,90 +4374,111 @@ const ESCOLAS_DATA = [
     "nome": "Ditmar Brepohl",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 4.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "300",
-      "turmas": "23",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 11",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Comunidade humilde e respeitosa com o trabalho dos profissionais da escola."
+      "publicoAtendido": "Comunidade humilde e respeitosa com o trabalho dos profissionais da escola.",
+      "turmasIntegrais": "2 turmas manhã e tarde",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta conflitos entre colegas como principal dificuldade, mas aconselha, com plena convicção, vir trabalhar na escola. A escala é justa, a estrutura é adequada e o entorno é seguro. Há profissionais de apoio para a inclusão. O estresse é mínimo (1/5), e o retorno da gestão é imediato, com disposição para dialogar com os alunos e auxiliar.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,6), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Comércio e Restaurantes no Entorno (2,0); Acesso (ônibus, bicicleta, estacionamento) (3,0).",
+    "conselho": "A comunidade é humilde e respeita o trabalho dos profissionais. O conflito mais comum é entre colegas. Aconselho vir com toda a certeza. A escala é justa e a estrutura para inspetores é adequada. Não há problemas de segurança no entorno e há profissionais de apoio. O desgaste é 1/5. Há linha de ônibus e estacionamento interno, mas apenas uma linha atende, o que dificulta um pouco.",
     "relatos": [
-      "O relato aponta conflitos entre colegas como principal dificuldade, mas aconselha, com plena convicção, vir trabalhar na escola. A escala é justa, a estrutura é adequada e o entorno é seguro. Há profissionais de apoio para a inclusão. O estresse é mínimo (1/5), e o retorno da gestão é imediato, com disposição para dialogar com os alunos e auxiliar."
+      "A comunidade é humilde e respeita o trabalho dos profissionais. O conflito mais comum é entre colegas. Aconselho vir com toda a certeza. A escala é justa e a estrutura para inspetores é adequada. Não há problemas de segurança no entorno e há profissionais de apoio. O desgaste é 1/5. Há linha de ônibus e estacionamento interno, mas apenas uma linha atende, o que dificulta um pouco."
     ]
   },
   {
@@ -3281,6 +4487,8 @@ const ESCOLAS_DATA = [
     "nome": "Moradias do Ribeirão",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3290,7 +4498,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3303,23 +4513,113 @@ const ESCOLAS_DATA = [
     "codigo": "UECIC10",
     "nome": "Pró-Morar Barigüi",
     "regional": "CIC - Regional Cidade Industrial",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 400",
+      "turmas": "aproximadamente 14",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
+      "uei": "Possui",
+      "soninhoPre": "Inspetor acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Bom",
+      "turmasIntegrais": "3",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0); Inspetores x Secretaria (4,0). Constituem desafios: Segurança Externa (2,0); Inclusão com Tutores Profissionais (2,5); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5).",
+    "conselho": "O público é bom. O problema é a equipe. Aconselho não contar os próprios planos. A escala tem certo desequilíbrio e a escola não oferece estrutura adequada. Há problemas de segurança no entorno. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom.",
+    "relatos": [
+      "O público é bom. O problema é a equipe. Aconselho não contar os próprios planos. A escala tem certo desequilíbrio e a escola não oferece estrutura adequada. Há problemas de segurança no entorno. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom."
+    ]
   },
   {
     "id": "UECIC11",
@@ -3327,91 +4627,112 @@ const ESCOLAS_DATA = [
     "nome": "Dario P. de C. Velloso",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "450",
-      "turmas": "aproximadamente 24 (variação: 17–32)",
+      "alunos": "aproximadamente 0",
+      "turmas": "aproximadamente 10",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Indefinido",
+      "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Indefinido",
-      "publicoAtendido": "Carente; Carente, área de invasão e com risco de enchentes."
+      "portoes": "Abertura e fechamento dos portões / Apenas abertura",
+      "publicoAtendido": "Carente; Carente, área de invasão e com risco de enchentes.",
+      "turmasIntegrais": "4 / 4 M, 4 T, 2 pres",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 3.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 3.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 3.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato cita indisciplina de alunos e funcionários, mas recomenda tranquilidade ao colega. A escala é descrita como tranquila, a estrutura como razoável, e tanto a segurança do entorno quanto a inclusão são avaliadas de forma intermediária. O nível de estresse é moderado (3/5), e o retorno da direção e do pedagógico é considerado bom diante de ocorrências no pátio. Além dos conflitos usuais, o relato denuncia favoritismo da direção e recomenda não contraríá-la. A divisão de escala existe, mas não é clara nem justa. Há sala para inspetores, ainda que o descanso ocorra na sala dos professores; banheiros são adequados e cadeiras, medianas. O entorno é inseguro, faltam tutores, o estresse é moderado (3/5) e o retorno é irregular.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Auxílio Pedagógico/Direção no Recreio (2,3); Segurança Externa (2,5); Entre os Inspetores da Unidade (3,0).",
+    "conselho": "O público é carente. Os problemas são a indisciplina de alunos e funcionários. Aconselho ficar tranquilo. A escala é tranquila e a estrutura, razoável. A segurança e a relação com a inclusão são medianas. O nível de desgaste é 3/5 e o acesso à escola é bom. A escola está em área de invasão, com risco de enchentes, e atende público carente. Além dos conflitos usuais, há uma \"panelinha\" favorecida pela direção. Aconselho não contrariar a direção, pois mesmo com razão o prejudicado é o inspetor. A divisão existe, mas não é clara nem justa. Há sala, mas o descanso só é possível na sala dos professores; banheiros estão ok. Há problemas de segurança e faltam vários tutores. Desgaste: 3/5. Ponto de ônibus quase no portão e estacionamento interno.",
     "relatos": [
-      "O relato cita indisciplina de alunos e funcionários, mas recomenda tranquilidade ao colega. A escala é descrita como tranquila, a estrutura como razoável, e tanto a segurança do entorno quanto a inclusão são avaliadas de forma intermediária. O nível de estresse é moderado (3/5), e o retorno da direção e do pedagógico é considerado bom diante de ocorrências no pátio.",
-      "Além dos conflitos usuais, o relato denuncia favoritismo da direção e recomenda não contraríá-la. A divisão de escala existe, mas não é clara nem justa. Há sala para inspetores, ainda que o descanso ocorra na sala dos professores; banheiros são adequados e cadeiras, medianas. O entorno é inseguro, faltam tutores, o estresse é moderado (3/5) e o retorno é irregular."
+      "O público é carente. Os problemas são a indisciplina de alunos e funcionários. Aconselho ficar tranquilo. A escala é tranquila e a estrutura, razoável. A segurança e a relação com a inclusão são medianas. O nível de desgaste é 3/5 e o acesso à escola é bom.",
+      "A escola está em área de invasão, com risco de enchentes, e atende público carente. Além dos conflitos usuais, há uma \"panelinha\" favorecida pela direção. Aconselho não contrariar a direção, pois mesmo com razão o prejudicado é o inspetor. A divisão existe, mas não é clara nem justa. Há sala, mas o descanso só é possível na sala dos professores; banheiros estão ok. Há problemas de segurança e faltam vários tutores. Desgaste: 3/5. Ponto de ônibus quase no portão e estacionamento interno."
     ]
   },
   {
@@ -3420,6 +4741,8 @@ const ESCOLAS_DATA = [
     "nome": "Mansur Guérios",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3429,7 +4752,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3443,6 +4768,8 @@ const ESCOLAS_DATA = [
     "nome": "CAIC-Cândido Portinari",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3452,7 +4779,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3466,6 +4795,8 @@ const ESCOLAS_DATA = [
     "nome": "Albert Schweitzer",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3475,7 +4806,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3489,6 +4822,8 @@ const ESCOLAS_DATA = [
     "nome": "Nossa Sra. da Luz",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3498,7 +4833,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3512,6 +4849,8 @@ const ESCOLAS_DATA = [
     "nome": "Joaquim Távora",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3521,7 +4860,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3535,6 +4876,8 @@ const ESCOLAS_DATA = [
     "nome": "América da Costa Sabóia",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3544,7 +4887,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3558,6 +4903,8 @@ const ESCOLAS_DATA = [
     "nome": "João Cabral de Melo Neto",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3567,7 +4914,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3581,6 +4930,8 @@ const ESCOLAS_DATA = [
     "nome": "Dom Bosco",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3590,7 +4941,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3604,92 +4957,113 @@ const ESCOLAS_DATA = [
     "nome": "Álvaro Borges",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 4.1,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 800 (variação: 799–800)",
-      "turmas": "30 (15 manhã e 15 tarde)",
+      "alunos": "aproximadamente 799",
+      "turmas": "aproximadamente 15",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Na grande maioria, classe média; Público pobre mas não carente"
+      "publicoAtendido": "Na grande maioria, classe média; Público pobre mas não carente; Os profissionais se dedicam com clareza",
+      "turmasIntegrais": "2",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 4.7,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 4.3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 4.7,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.3,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.7,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato destaca indisciplina e problemas emocionais dos alunos, mas avalia a escola como muito boa para trabalhar. A escala é justa, a estrutura física está ótima e a segurança do entorno é considerada comum a qualquer unidade. Há atendimento à inclusão, e o estresse é baixo (2/5). O único ponto crítico é o retorno do setor pedagógico, descrito como falho. Conflitos com colegas são o principal problema apontado, embora a escola seja considerada boa para trabalhar. A escala é justa, porém a estrutura destinada aos inspetores é insuficiente e o entorno apresenta problemas de segurança. Faltam profissionais adequados para atender estudantes de inclusão, o que contribui para um estresse elevado (4/5). Diante de ocorrências graves, o setor pedagógico atende os inspetores. O principal desafio mencionado é a disciplina dos alunos, e o conselho é que o colega chegue com vontade de trabalhar. A escala é considerada justa, a estrutura oferecida é satisfatória e há problemas de segurança no entorno. A relação com a inclusão é avaliada positivamente. O estresse é moderado (3/5), e o retorno da direção e do pedagógico é satisfatório.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,1), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Secretaria (5,0); Entre os Inspetores da Unidade (4,7). Constituem desafios: Segurança Externa (2,3); Auxílio Pedagógico/Direção no Recreio (2,5); Materiais para Recreio (3,0); Estrutura Física e Mobiliária (3,0).",
+    "conselho": "O público é, em grande maioria, de classe média. Os principais problemas são indisciplina e questões emocionais dos alunos. Considero uma escola muito boa para trabalhar. A escala é justa e a estrutura para os inspetores está ótima. Quanto à segurança, há os riscos comuns a qualquer lugar. A relação com a inclusão é boa. Desgaste: 2/5. O acesso é fácil. A comunidade é pobre, mas não carente. O principal conflito ocorre entre colegas. Trata-se de uma escola boa de trabalhar, com escala justa. Porém, a estrutura oferecida aos inspetores é insuficiente. Não há problemas de segurança no entorno. Na inclusão, faltam profissionais adequados para atender os estudantes. Desgaste: 4/5. O acesso à unidade é fácil. Os profissionais se dedicam com clareza ao trabalho. O principal problema é a disciplina dos alunos. Aconselho vir com vontade de trabalhar. A escala é justa, a estrutura é adequada e não há problemas de segurança no entorno. A relação com os estudantes de inclusão é positiva. O nível de desgaste é 3/5 e o acesso à escola é fácil.",
     "relatos": [
-      "O relato destaca indisciplina e problemas emocionais dos alunos, mas avalia a escola como muito boa para trabalhar. A escala é justa, a estrutura física está ótima e a segurança do entorno é considerada comum a qualquer unidade. Há atendimento à inclusão, e o estresse é baixo (2/5). O único ponto crítico é o retorno do setor pedagógico, descrito como falho.",
-      "Conflitos com colegas são o principal problema apontado, embora a escola seja considerada boa para trabalhar. A escala é justa, porém a estrutura destinada aos inspetores é insuficiente e o entorno apresenta problemas de segurança. Faltam profissionais adequados para atender estudantes de inclusão, o que contribui para um estresse elevado (4/5). Diante de ocorrências graves, o setor pedagógico atende os inspetores.",
-      "O principal desafio mencionado é a disciplina dos alunos, e o conselho é que o colega chegue com vontade de trabalhar. A escala é considerada justa, a estrutura oferecida é satisfatória e há problemas de segurança no entorno. A relação com a inclusão é avaliada positivamente. O estresse é moderado (3/5), e o retorno da direção e do pedagógico é satisfatório."
+      "O público é, em grande maioria, de classe média. Os principais problemas são indisciplina e questões emocionais dos alunos. Considero uma escola muito boa para trabalhar. A escala é justa e a estrutura para os inspetores está ótima. Quanto à segurança, há os riscos comuns a qualquer lugar. A relação com a inclusão é boa. Desgaste: 2/5. O acesso é fácil.",
+      "A comunidade é pobre, mas não carente. O principal conflito ocorre entre colegas. Trata-se de uma escola boa de trabalhar, com escala justa. Porém, a estrutura oferecida aos inspetores é insuficiente. Não há problemas de segurança no entorno. Na inclusão, faltam profissionais adequados para atender os estudantes. Desgaste: 4/5. O acesso à unidade é fácil.",
+      "Os profissionais se dedicam com clareza ao trabalho. O principal problema é a disciplina dos alunos. Aconselho vir com vontade de trabalhar. A escala é justa, a estrutura é adequada e não há problemas de segurança no entorno. A relação com os estudantes de inclusão é positiva. O nível de desgaste é 3/5 e o acesso à escola é fácil."
     ]
   },
   {
@@ -3698,91 +5072,112 @@ const ESCOLAS_DATA = [
     "nome": "Monteiro Lobato",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 575 (variação: 500–650)",
-      "turmas": "aproximadamente 21 (variação: 20–22)",
+      "alunos": "aproximadamente 575",
+      "turmas": "aproximadamente 21",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
-      "uei": "Indefinido",
-      "soninhoPre": "Indefinido",
+      "uei": "Possui / Não possui",
+      "soninhoPre": "Inspetor não acompanha / Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe média / baixa; Tranquilo"
+      "publicoAtendido": "classe média; baixa; Tranquilo",
+      "turmasIntegrais": "18 / 20",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 2.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 2.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 3.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato cita problemas corriqueiros com alunos de inclusão e muita fofoca de professores, aconselhando ir apenas quem queira cumprir seu horário. A escala é relativamente justa, clara e bastante desgastante. A sala própria é minúscula e compartilhada com os professores, o entorno é inseguro e faltam apoios, sem preparo especializado para inclusão. O estresse é máximo (5/5), e o retorno é aceitável. O relato considera a rotina tranquila, dentro da normalidade, mas aconselha ter vontade de trabalhar, pois a demanda é grande. A escala é justa e clara, e a estrutura é completa, com sala, cozinha, rádio, banheiro e bons móveis. Ocorrem arrombamentos ocasionais. A inclusão é complicada: alguns apoios não demonstram vontade de trabalhar. O estresse é moderado (3/5), e a direção atende sempre.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (4,5); Materiais para Recreio (4,0); Acesso (ônibus, bicicleta, estacionamento) (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Inspetores x Professores (2,5); Inspetores x Setor Pedagógico (2,5); Segurança Externa (2,5).",
+    "conselho": "O público é de classe média/baixa. Há problemas corriqueiros com alunos de inclusão e muita fofoca de professores. Vá apenas se quiser cumprir seu horário. A escala é relativamente justa, desgastante, mas com divisão clara. A sala é minúscula e compartilhada com a permanência dos professores. Há problemas de segurança. Os profissionais de apoio faltam sempre e a escola não tem preparo para a inclusão. Desgaste: 5/5. O acesso é bom. O público é tranquilo e os conflitos são normais. Aconselho ter vontade de trabalhar, pois a demanda é grande. A escala é justa e clara. Há sala própria, cozinha, rádio, banheiro e móveis bons. Ocorrem arrombamentos esporádicos. A inclusão é complicada: alguns PAs parecem sem vontade de trabalhar, outros são ótimos. Desgaste: 3/5. Há ônibus e estacionamento.",
     "relatos": [
-      "O relato cita problemas corriqueiros com alunos de inclusão e muita fofoca de professores, aconselhando ir apenas quem queira cumprir seu horário. A escala é relativamente justa, clara e bastante desgastante. A sala própria é minúscula e compartilhada com os professores, o entorno é inseguro e faltam apoios, sem preparo especializado para inclusão. O estresse é máximo (5/5), e o retorno é aceitável.",
-      "O relato considera a rotina tranquila, dentro da normalidade, mas aconselha ter vontade de trabalhar, pois a demanda é grande. A escala é justa e clara, e a estrutura é completa, com sala, cozinha, rádio, banheiro e bons móveis. Ocorrem arrombamentos ocasionais. A inclusão é complicada: alguns apoios não demonstram vontade de trabalhar. O estresse é moderado (3/5), e a direção atende sempre."
+      "O público é de classe média/baixa. Há problemas corriqueiros com alunos de inclusão e muita fofoca de professores. Vá apenas se quiser cumprir seu horário. A escala é relativamente justa, desgastante, mas com divisão clara. A sala é minúscula e compartilhada com a permanência dos professores. Há problemas de segurança. Os profissionais de apoio faltam sempre e a escola não tem preparo para a inclusão. Desgaste: 5/5. O acesso é bom.",
+      "O público é tranquilo e os conflitos são normais. Aconselho ter vontade de trabalhar, pois a demanda é grande. A escala é justa e clara. Há sala própria, cozinha, rádio, banheiro e móveis bons. Ocorrem arrombamentos esporádicos. A inclusão é complicada: alguns PAs parecem sem vontade de trabalhar, outros são ótimos. Desgaste: 3/5. Há ônibus e estacionamento."
     ]
   },
   {
@@ -3791,91 +5186,112 @@ const ESCOLAS_DATA = [
     "nome": "Otto Bracarense Costa",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 800 (variação: 700–900)",
-      "turmas": "aproximadamente 23 (variação: 16–30)",
+      "alunos": "aproximadamente 700",
+      "turmas": "aproximadamente 11",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Periferia; Comunidade bem carente e com poucos recursos"
+      "publicoAtendido": "Comunidade bem carente e com poucos recursos",
+      "turmasIntegrais": "5",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato alega corrupção na direção, com desvio de verbas, exigência de funções fora do descritivo, comunidade difícil e crianças indisciplinadas, aconselhando não ir. A escala é injusta e desgastante, a estrutura é razoável e o entorno é inseguro. Não havia apoio à inclusão. O estresse é máximo (5/5), e o retorno culpa os inspetores ou ignora as ocorrências, sem suporte. Aponta-se falta de apoio da direção e uma comunidade que manda na escola, considerada boa se evitadas atribuições alheias. A escala é bem definida. A sala é minúscula, mal ventilada e sem descanso, e a escola aberta expõe os inspetores à vigilância. Só casos graves têm apoio. O estresse é moderado (3/5), e a falta de.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Materiais para Recreio (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "A escola fica na periferia. Há direção corrupta, com desvio de verbas, exigência de funções fora do descritivo, comunidade difícil e crianças indisciplinadas. Aconselho não ir. A escala é injusta e desgastante e a estrutura é razoável. Há problemas de segurança. Não havia apoio à inclusão. Desgaste: 5/5. A comunidade é bem carente e com poucos recursos. Falta apoio da direção e a comunidade manda. É uma boa escola, mas cuide para a direção não lhe passar atribuições alheias. A divisão é bem definida e todos participam. A sala é minúscula e mal ventilada, e não há descanso. A escola é aberta e a comunidade nos monitora o tempo todo. Só casos severos têm apoio. Desgaste: 3/5. O acesso é muito fácil.",
     "relatos": [
-      "O relato alega corrupção na direção, com desvio de verbas, exigência de funções fora do descritivo, comunidade difícil e crianças indisciplinadas, aconselhando não ir. A escala é injusta e desgastante, a estrutura é razoável e o entorno é inseguro. Não havia apoio à inclusão. O estresse é máximo (5/5), e o retorno culpa os inspetores ou ignora as ocorrências, sem suporte.",
-      "Aponta-se falta de apoio da direção e uma comunidade que manda na escola, considerada boa se evitadas atribuições alheias. A escala é bem definida. A sala é minúscula, mal ventilada e sem descanso, e a escola aberta expõe os inspetores à vigilância. Só casos graves têm apoio. O estresse é moderado (3/5), e a falta de."
+      "A escola fica na periferia. Há direção corrupta, com desvio de verbas, exigência de funções fora do descritivo, comunidade difícil e crianças indisciplinadas. Aconselho não ir. A escala é injusta e desgastante e a estrutura é razoável. Há problemas de segurança. Não havia apoio à inclusão. Desgaste: 5/5.",
+      "A comunidade é bem carente e com poucos recursos. Falta apoio da direção e a comunidade manda. É uma boa escola, mas cuide para a direção não lhe passar atribuições alheias. A divisão é bem definida e todos participam. A sala é minúscula e mal ventilada, e não há descanso. A escola é aberta e a comunidade nos monitora o tempo todo. Só casos severos têm apoio. Desgaste: 3/5. O acesso é muito fácil."
     ]
   },
   {
@@ -3884,6 +5300,8 @@ const ESCOLAS_DATA = [
     "nome": "Vila São José",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -3893,7 +5311,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -3907,91 +5327,112 @@ const ESCOLAS_DATA = [
     "nome": "Doutor Hamilton Calderari Leal",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 410 (variação: 360–460)",
-      "turmas": "aproximadamente 18 (variação: 16–20)",
+      "alunos": "aproximadamente 370",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Comunidade periférica; Área periférica muitas comunidades e estrangeiros"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Área periférica muitas comunidades e estrangeiros; Comunidade periferica",
+      "turmasIntegrais": "4",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.2,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 4.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato considera as dificuldades comuns a todas as escolas, como crianças difíceis e turmas complicadas, e recomenda cautela ao confiar em colegas além dos mais próximos. A escala é justa, não há sala própria nem rádio, mas o restante é adequado. A região, antes complicada, hoje é razoavelmente tranquila. Faltam profissionais de inclusão. O estresse é baixo (2/5) e não há retorno. O relato aponta falta de apoio e indisciplina estudantil, aconselhando união entre inspetores, pois não se pode depender de direção e professores. A divisão de escala é boa; há espaço para refeições, mas não sala exclusiva. O entorno é inseguro, faltam tutores, o estresse é alto (4/5) e, diante de ocorrências graves, nunca há retorno do pedagógico ou da direção.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Segurança Externa (2,0); Inclusão com Tutores Profissionais (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Comércio e Restaurantes no Entorno (2,0).",
+    "conselho": "A comunidade é periférica. As dificuldades são comuns a todas as escolas: crianças difíceis e turmas complicadas. Aconselho confiar apenas nos colegas diretos, o que vale para qualquer escola. A escala é justa. Não há sala própria nem comunicador, mas o restante está bom. A região já foi complicada e hoje é razoavelmente tranquila. Há alguns profissionais de apoio, mas sempre faltam. Desgaste: 2/5. Duas linhas de ônibus e acesso razoável. A área é periférica, com muitas comunidades e estrangeiros. Os problemas são falta de apoio e indisciplina. Aconselho unir-se aos colegas e buscar boa convivência, pois não se deve depender de direção e professores. A divisão da escala é boa. Há espaço para refeições, mas não sala exclusiva. Existem problemas de segurança e faltam tutores. Desgaste: 4/5. O acesso é bom.",
     "relatos": [
-      "O relato considera as dificuldades comuns a todas as escolas, como crianças difíceis e turmas complicadas, e recomenda cautela ao confiar em colegas além dos mais próximos. A escala é justa, não há sala própria nem rádio, mas o restante é adequado. A região, antes complicada, hoje é razoavelmente tranquila. Faltam profissionais de inclusão. O estresse é baixo (2/5) e não há retorno.",
-      "O relato aponta falta de apoio e indisciplina estudantil, aconselhando união entre inspetores, pois não se pode depender de direção e professores. A divisão de escala é boa; há espaço para refeições, mas não sala exclusiva. O entorno é inseguro, faltam tutores, o estresse é alto (4/5) e, diante de ocorrências graves, nunca há retorno do pedagógico ou da direção."
+      "A comunidade é periférica. As dificuldades são comuns a todas as escolas: crianças difíceis e turmas complicadas. Aconselho confiar apenas nos colegas diretos, o que vale para qualquer escola. A escala é justa. Não há sala própria nem comunicador, mas o restante está bom. A região já foi complicada e hoje é razoavelmente tranquila. Há alguns profissionais de apoio, mas sempre faltam. Desgaste: 2/5. Duas linhas de ônibus e acesso razoável.",
+      "A área é periférica, com muitas comunidades e estrangeiros. Os problemas são falta de apoio e indisciplina. Aconselho unir-se aos colegas e buscar boa convivência, pois não se deve depender de direção e professores. A divisão da escala é boa. Há espaço para refeições, mas não sala exclusiva. Existem problemas de segurança e faltam tutores. Desgaste: 4/5. O acesso é bom."
     ]
   },
   {
@@ -4000,6 +5441,8 @@ const ESCOLAS_DATA = [
     "nome": "Francisco Meszner",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4009,7 +5452,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4023,6 +5468,8 @@ const ESCOLAS_DATA = [
     "nome": "Ulisses Falcão Vieira",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4032,7 +5479,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4046,6 +5495,8 @@ const ESCOLAS_DATA = [
     "nome": "Anita Merhy Gaertner",
     "regional": "CIC - Regional Cidade Industrial",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4055,7 +5506,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4069,91 +5522,114 @@ const ESCOLAS_DATA = [
     "nome": "Eva da Silva",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 4,
+      "atuais": 3,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 660 (variação: 620–700)",
-      "turmas": "aproximadamente 18 (variação: 18–19)",
+      "alunos": "aproximadamente 657",
+      "turmas": "aproximadamente 15",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Majoritariamente alunos de comunidades próximas; Baixa a média"
+      "publicoAtendido": "Baixa a média; Bairro e comunidade um pouco carentes em todos os sentidos e certas dificuldades por conta disso.; Classe baixa, alunos de comunidade.",
+      "turmasIntegrais": "5 oficinas e 3 prés",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 2.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "nota": 3.3,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 3.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.7,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 2.7,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.2,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Destacam-se indisciplina, interferência da comunidade e necessidade de jogo de cintura com a equipe. A escala é bem dividida na teoria, mas as faltas de funcionários exigem reorganizações. A estrutura é precária, com mobiliário inadequado, sem rádios e armário em sala alheia. Sem registro recente de insegurança, a inclusão tem apoio adequado, o estresse é alto (4/5) e a gestão é conciliadora. Alunos com desregulação afetam a rotina dos demais, e a equipe é unida, embora desgastante. Cada inspetor responde por seu grupo e tem autonomia, com ajustes em dias de chuva ou faltas. A estrutura é adequada, exceto os móveis reaproveitados. Há riscos em comunidades próximas, a inclusão é atendida, o estresse é baixo (2/5) e a gestão resolve casos específicos com eficiência.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais e características da escola em nível intermediário. Destacam-se como pontos fortes: Materiais para Recreio (4,7); Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0). Constituem desafios: Equilíbrio na Distribuição de Funções (2,7); Comércio e Restaurantes no Entorno (2,8); Segurança Externa (3,0); Auxílio Pedagógico/Direção no Recreio (3,2).",
+    "conselho": "Os alunos vêm de comunidades próximas. Há indisciplina e interferência da comunidade. É preciso ter jogo de cintura com a equipe. Na teoria a divisão é boa, mas as faltas frequentes de funcionários exigem constante reorganização. Há sala de descanso, com equipamentos comprados pelos inspetores, sem rádios; o banheiro é adequado, mas os móveis são ruins. Não há registros recentes de problemas de segurança. Há quantidade adequada de apoios. Desgaste: 4/5. Ônibus próximo e estacionamento interno. O público é de baixa a média renda. Alunos desregulados afetam frequentemente a rotina dos demais. A equipe é unida, mas a rotina é desgastante. Cada um responde pelo seu grupo e tem autonomia, com alterações em dias de chuva ou faltas. A estrutura é adequada, exceto pelos móveis reaproveitados. Há problemas de segurança nas comunidades próximas. A escola possui apoio. Desgaste: 2/5. Há ônibus e estacionamento. O bairro e a comunidade são carentes. Pais que não aceitam as dificuldades dos filhos (inclusão), indisciplina, desorganização e comunicação falha da direção. A escola é grande e há muitas pessoas antigas: faça o solicitado e dê o seu melhor. As faltas sobrecarregam quem está. Há sala própria, mas com itens das antigas. Há problemas com usuários de drogas. Muitas crianças carecem de profissional. Desgaste: 4/5. Três linhas de ônibus próximas. Atende classe baixa, com alunos de comunidade. Há indisciplina, famílias negligentes e desorganização em alguns momentos. É uma boa escola, desde que se saiba lidar com conflitos entre alunos e famílias. A divisão é por turmas, com realocação conforme a quantidade de crianças. A sala foi readaptada e não é apta, mas tem equipamentos para cozinhar; sem rádio e com mobiliário antigo. A segurança não é problema direto. A inclusão é atendida. Desgaste: 3/5. Bom acesso.",
     "relatos": [
-      "Destacam-se indisciplina, interferência da comunidade e necessidade de jogo de cintura com a equipe. A escala é bem dividida na teoria, mas as faltas de funcionários exigem reorganizações. A estrutura é precária, com mobiliário inadequado, sem rádios e armário em sala alheia. Sem registro recente de insegurança, a inclusão tem apoio adequado, o estresse é alto (4/5) e a gestão é conciliadora.",
-      "Alunos com desregulação afetam a rotina dos demais, e a equipe é unida, embora desgastante. Cada inspetor responde por seu grupo e tem autonomia, com ajustes em dias de chuva ou faltas. A estrutura é adequada, exceto os móveis reaproveitados. Há riscos em comunidades próximas, a inclusão é atendida, o estresse é baixo (2/5) e a gestão resolve casos específicos com eficiência."
+      "Os alunos vêm de comunidades próximas. Há indisciplina e interferência da comunidade. É preciso ter jogo de cintura com a equipe. Na teoria a divisão é boa, mas as faltas frequentes de funcionários exigem constante reorganização. Há sala de descanso, com equipamentos comprados pelos inspetores, sem rádios; o banheiro é adequado, mas os móveis são ruins. Não há registros recentes de problemas de segurança. Há quantidade adequada de apoios. Desgaste: 4/5. Ônibus próximo e estacionamento interno.",
+      "O público é de baixa a média renda. Alunos desregulados afetam frequentemente a rotina dos demais. A equipe é unida, mas a rotina é desgastante. Cada um responde pelo seu grupo e tem autonomia, com alterações em dias de chuva ou faltas. A estrutura é adequada, exceto pelos móveis reaproveitados. Há problemas de segurança nas comunidades próximas. A escola possui apoio. Desgaste: 2/5. Há ônibus e estacionamento.",
+      "O bairro e a comunidade são carentes. Pais que não aceitam as dificuldades dos filhos (inclusão), indisciplina, desorganização e comunicação falha da direção. A escola é grande e há muitas pessoas antigas: faça o solicitado e dê o seu melhor. As faltas sobrecarregam quem está. Há sala própria, mas com itens das antigas. Há problemas com usuários de drogas. Muitas crianças carecem de profissional. Desgaste: 4/5. Três linhas de ônibus próximas.",
+      "Atende classe baixa, com alunos de comunidade. Há indisciplina, famílias negligentes e desorganização em alguns momentos. É uma boa escola, desde que se saiba lidar com conflitos entre alunos e famílias. A divisão é por turmas, com realocação conforme a quantidade de crianças. A sala foi readaptada e não é apta, mas tem equipamentos para cozinhar; sem rádio e com mobiliário antigo. A segurança não é problema direto. A inclusão é atendida. Desgaste: 3/5. Bom acesso."
     ]
   },
   {
@@ -4162,6 +5638,8 @@ const ESCOLAS_DATA = [
     "nome": "Linneu F. do Amaral",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4171,7 +5649,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4185,90 +5665,113 @@ const ESCOLAS_DATA = [
     "nome": "Omar Sabbag",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "1800",
-      "turmas": "40",
-      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
+      "alunos": "aproximadamente 1533",
+      "turmas": "aproximadamente 28",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 3)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Comunidade participativa, tratam a gente com respeito, as mães do pré sempre dão presentinhos."
+      "publicoAtendido": "Comunidade participativa, tratam a gente com respeito, as mães do pré sempre dão presentinhos.; Difícil; A maioria é de comunidade carentes. Grande quantidade de venezuelanos e Haitianos.",
+      "turmasIntegrais": "13 / Não Sei / 20 turmas",
+      "anosFinais": "Sim"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 3.3,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.3,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato cita alunos bagunceiros e informa que a escola, apesar do tamanho, é boa, com ajuda mútua e direção flexível e disposta a ouvir. A escala é justa e organizada pela equipe, a estrutura é adequada e o entorno é seguro. Há profissionais para os alunos que precisam. O estresse é baixo (2/5), e a direção sempre toma a frente e auxilia.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Secretaria (4,3); Entre os Inspetores da Unidade (4,0); Inspetores x Direção (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Segurança Externa (3,0); Auxílio Pedagógico/Direção no Recreio (3,0).",
+    "conselho": "A comunidade é participativa e respeitosa; as mães do pré dão presentinhos. Os alunos são bagunceiros. Parece ruim pelo tamanho, mas não é: todos se ajudam e a direção é flexível. A escala é justa e organizada entre nós. A estrutura é adequada e não há problemas de segurança. Há profissionais para os alunos que precisam. Desgaste: 2/5. O acesso é bom. O público é difícil e enfrentamos todos os problemas citados. Aconselho fazer seu melhor sem se importar com o colega, evitando conflitos. A escala é tranquila e a estrutura é adequada. A segurança é mediana e o quadro de apoio sempre está incompleto. Desgaste: 3/5. O terminal fica a três quadras. A maioria é de comunidades carentes, com muitos venezuelanos e haitianos. Há indisciplina, falta de apoio da direção, administração péssima e núcleo irresponsável. Não vá: há escolas melhores no Cajuru. A escola é gigante e falta espaço, com disputas por quadras. A estrutura existe, mas sem ar-condicionado. Há brigas. Sempre falta PA, mas a direção nunca escalou inspetores. Desgaste: 5/5. Bom acesso.",
     "relatos": [
-      "O relato cita alunos bagunceiros e informa que a escola, apesar do tamanho, é boa, com ajuda mútua e direção flexível e disposta a ouvir. A escala é justa e organizada pela equipe, a estrutura é adequada e o entorno é seguro. Há profissionais para os alunos que precisam. O estresse é baixo (2/5), e a direção sempre toma a frente e auxilia."
+      "A comunidade é participativa e respeitosa; as mães do pré dão presentinhos. Os alunos são bagunceiros. Parece ruim pelo tamanho, mas não é: todos se ajudam e a direção é flexível. A escala é justa e organizada entre nós. A estrutura é adequada e não há problemas de segurança. Há profissionais para os alunos que precisam. Desgaste: 2/5. O acesso é bom.",
+      "O público é difícil e enfrentamos todos os problemas citados. Aconselho fazer seu melhor sem se importar com o colega, evitando conflitos. A escala é tranquila e a estrutura é adequada. A segurança é mediana e o quadro de apoio sempre está incompleto. Desgaste: 3/5. O terminal fica a três quadras.",
+      "A maioria é de comunidades carentes, com muitos venezuelanos e haitianos. Há indisciplina, falta de apoio da direção, administração péssima e núcleo irresponsável. Não vá: há escolas melhores no Cajuru. A escola é gigante e falta espaço, com disputas por quadras. A estrutura existe, mas sem ar-condicionado. Há brigas. Sempre falta PA, mas a direção nunca escalou inspetores. Desgaste: 5/5. Bom acesso."
     ]
   },
   {
@@ -4277,91 +5780,112 @@ const ESCOLAS_DATA = [
     "nome": "Irati",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 4.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "1200",
-      "turmas": "aproximadamente 18 (variação: 16–20)",
-      "quadroInspetores": "Indefinido",
+      "alunos": "aproximadamente 1200",
+      "turmas": "aproximadamente 20",
+      "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
-      "soninhoPre": "Indefinido",
-      "onibusEscolar": "Indefinido",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "São variadas classes sociais, fica no conjunto mercúrio do cajuru, então tem gente de diversas parte; Apesar da área ser perigosa com assaltos, a comunidade atendida não era tão carente, e situam muitos"
+      "publicoAtendido": "São variadas classes sociais, fica no conjunto mercúrio do cajuru, então tem gente de diversas partes do cajuru",
+      "turmasIntegrais": "3 na escola e 1 UEI (por período)",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Não há problemas relevantes, apenas cansaço normal, e o conselho é vir tranquilo. A escala é justa, com dois inspetores por corredor e todos no recreio. Não há sala própria, e os inspetores usam a dos professores, com banheiros limpos e cadeiras improvisadas. O entorno é seguro, faltam apoios à inclusão, o estresse é mínimo (1/5) e as ocorrências são resolvidas. O relato aponta perseguição da direção, diálogo péssimo e prejuízo a pessoas escolhidas aparentemente ao acaso, sendo apenas mulheres atingidas. Os setores e saídas são fixos, mas não há lugar próprio, descanso, equipamentos ou banheiros adequados. Ouviam-se relatos de assaltos armados no entorno. A inclusão provavelmente existia, o estresse é alto (4/5) e as respostas pedagógicas dependiam do dia.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,3), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Inclusão com Tutores Profissionais (2,5); Estrutura Física e Mobiliária (2,5); Materiais para Recreio (3,0).",
+    "conselho": "O público é de várias classes sociais, no Conjunto Mercúrio do Cajuru. Não é uma escola com problemas; o cansaço eventual é normal. Pode vir em paz. A escala é justa: dois inspetores por corredor e todos presentes no recreio. Não há sala; usamos a dos professores, e o rádio chegou esta semana. Banheiros são limpos e usamos qualquer cadeira. Não há problemas de segurança. Precisamos de mais profissionais de apoio. Desgaste: 1/5. O acesso é bom. A área é perigosa, com assaltos, mas a comunidade não era tão carente. Havia perseguição da direção e péssimo diálogo. O diretor escolhia a quem prejudicar de forma aparentemente aleatória, mas só mulheres foram afetadas. Havia divisão fixa de setores e saídas por ano. Não existia local próprio, de descanso, equipamentos ou banheiros adequados. Ouvia-se sobre assaltos à mão armada. Acredito que havia apoio à inclusão. Desgaste: 4/5. Havia estacionamento com controle do portão.",
     "relatos": [
-      "Não há problemas relevantes, apenas cansaço normal, e o conselho é vir tranquilo. A escala é justa, com dois inspetores por corredor e todos no recreio. Não há sala própria, e os inspetores usam a dos professores, com banheiros limpos e cadeiras improvisadas. O entorno é seguro, faltam apoios à inclusão, o estresse é mínimo (1/5) e as ocorrências são resolvidas.",
-      "O relato aponta perseguição da direção, diálogo péssimo e prejuízo a pessoas escolhidas aparentemente ao acaso, sendo apenas mulheres atingidas. Os setores e saídas são fixos, mas não há lugar próprio, descanso, equipamentos ou banheiros adequados. Ouviam-se relatos de assaltos armados no entorno. A inclusão provavelmente existia, o estresse é alto (4/5) e as respostas pedagógicas dependiam do dia."
+      "O público é de várias classes sociais, no Conjunto Mercúrio do Cajuru. Não é uma escola com problemas; o cansaço eventual é normal. Pode vir em paz. A escala é justa: dois inspetores por corredor e todos presentes no recreio. Não há sala; usamos a dos professores, e o rádio chegou esta semana. Banheiros são limpos e usamos qualquer cadeira. Não há problemas de segurança. Precisamos de mais profissionais de apoio. Desgaste: 1/5. O acesso é bom.",
+      "A área é perigosa, com assaltos, mas a comunidade não era tão carente. Havia perseguição da direção e péssimo diálogo. O diretor escolhia a quem prejudicar de forma aparentemente aleatória, mas só mulheres foram afetadas. Havia divisão fixa de setores e saídas por ano. Não existia local próprio, de descanso, equipamentos ou banheiros adequados. Ouvia-se sobre assaltos à mão armada. Acredito que havia apoio à inclusão. Desgaste: 4/5. Havia estacionamento com controle do portão."
     ]
   },
   {
@@ -4370,6 +5894,8 @@ const ESCOLAS_DATA = [
     "nome": "Issa Nacli",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4379,7 +5905,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4393,6 +5921,8 @@ const ESCOLAS_DATA = [
     "nome": "Dona Lula",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4402,7 +5932,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4416,93 +5948,114 @@ const ESCOLAS_DATA = [
     "nome": "Rita Anna Cássia",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 3.0,
+    "participantes": {
+      "total": 4,
+      "atuais": 4,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 560 (variação: 540–580)",
-      "turmas": "19",
+      "alunos": "aproximadamente 555",
+      "turmas": "aproximadamente 19",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "É uma comunidade bem carente.; Comunidade difícil."
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Comunidade difícil,; É uma comunidade bem carente.; Público bastante complicado , muitos em estado de vulnerabilidade social. Desafiador.; A comunidade é carente",
+      "turmasIntegrais": "100% integral / Todas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 3.2,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.2,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 2.8,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 4.2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.8,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.7,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 1.2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.2,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.2,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 2.9,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta direção autoritária, muita indisciplina, comunidade difícil e aconselha pensar bem. A direção faz a escala, procurando rodízio. A única sala é apertada, com micro-ondas e geladeira, sem cadeiras adequadas. O entorno é perigoso, com um homicídio no portão. A escola integral tem muita inclusão e poucos apoios. O estresse é alto (4/5), e o retorno é quase nulo. O relato cita indisciplina de alunos e familiares e gestão despreparada, informando que oito de dez inspetores pediriam remoção. A escala é injusta, pois há inspetores no soninho da educação infantil, apesar das reivindicações. Não há estrutura adequada, o entorno é inseguro e a inclusão é insatisfatória. O estresse é máximo (5/5), e a maioria do setor pedagógico ajuda nas ocorrências graves. O relato aponta indisciplina, falta de apoio dos demais setores e péssima estrutura, sem perspectiva de melhora, e aconselha avaliar se compensa diante dos desafios. A escala é desgastante, as condições são muito precárias e o entorno é inseguro. Muitos alunos de inclusão não têm apoio ou o perdem rapidamente. O estresse é máximo (5/5), e o retorno às ocorrências graves é inexistente. O relato afirma que todos os problemas listados ocorrem e aconselha pesquisar outras opções na região. A escala não é justa e é estressante, embora a estrutura seja adequada e o entorno não apresente problemas de segurança. Faltam profissionais de inclusão e apoio pedagógico. O estresse é máximo (5/5), e, nas ocorrências graves, há apoio do setor pedagógico e da direção.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,0), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0). Constituem desafios: Materiais para Recreio (1,3); Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (2,2); Auxílio Pedagógico/Direção no Recreio (2,2).",
+    "conselho": "A comunidade é bem carente. Há direção autoritária, muita indisciplina e comunidade ausente. Aconselho pensar bem: hoje a escala é feita pela direção, buscando rodízio. A sala é apertada, com micro-ondas e geladeira, sem cadeiras, rádio ou móveis adequados. O entorno é perigoso: um pai foi morto no portão. Há muita inclusão e poucos apoios, em escola 100% integral. Desgaste: 4/5. A comunidade é difícil. Há indisciplina de alunos e familiares e gestão despreparada. Oito em dez inspetores pedirão remoção. A escala não é justa, pois inspetores seguem no soninho da educação infantil. Não há estrutura e há problemas de segurança. A inclusão não conta com apoio suficiente. Desgaste: 5/5. O acesso é bom. O público é complicado, com muitos em vulnerabilidade social. Há indisciplina, falta de apoio dos demais setores e péssima estrutura, sem perspectiva de melhoria. Aconselho avaliar se compensa. A escala é desgastante e não há estrutura. Há problemas de segurança. Muitos incluídos não têm apoio ou não o mantêm. Desgaste: 5/5. Acesso razoável. A comunidade é carente. Há todos os problemas listados. Aconselho pesquisar outras opções na região. A escala não é justa e é estressante. Não há profissional suficiente nem apoio pedagógico para a inclusão. Desgaste: 5/5. O acesso é ruim.",
     "relatos": [
-      "O relato aponta direção autoritária, muita indisciplina, comunidade difícil e aconselha pensar bem. A direção faz a escala, procurando rodízio. A única sala é apertada, com micro-ondas e geladeira, sem cadeiras adequadas. O entorno é perigoso, com um homicídio no portão. A escola integral tem muita inclusão e poucos apoios. O estresse é alto (4/5), e o retorno é quase nulo.",
-      "O relato cita indisciplina de alunos e familiares e gestão despreparada, informando que oito de dez inspetores pediriam remoção. A escala é injusta, pois há inspetores no soninho da educação infantil, apesar das reivindicações. Não há estrutura adequada, o entorno é inseguro e a inclusão é insatisfatória. O estresse é máximo (5/5), e a maioria do setor pedagógico ajuda nas ocorrências graves.",
-      "O relato aponta indisciplina, falta de apoio dos demais setores e péssima estrutura, sem perspectiva de melhora, e aconselha avaliar se compensa diante dos desafios. A escala é desgastante, as condições são muito precárias e o entorno é inseguro. Muitos alunos de inclusão não têm apoio ou o perdem rapidamente. O estresse é máximo (5/5), e o retorno às ocorrências graves é inexistente.",
-      "O relato afirma que todos os problemas listados ocorrem e aconselha pesquisar outras opções na região. A escala não é justa e é estressante, embora a estrutura seja adequada e o entorno não apresente problemas de segurança. Faltam profissionais de inclusão e apoio pedagógico. O estresse é máximo (5/5), e, nas ocorrências graves, há apoio do setor pedagógico e da direção."
+      "A comunidade é bem carente. Há direção autoritária, muita indisciplina e comunidade ausente. Aconselho pensar bem: hoje a escala é feita pela direção, buscando rodízio. A sala é apertada, com micro-ondas e geladeira, sem cadeiras, rádio ou móveis adequados. O entorno é perigoso: um pai foi morto no portão. Há muita inclusão e poucos apoios, em escola 100% integral. Desgaste: 4/5.",
+      "A comunidade é difícil. Há indisciplina de alunos e familiares e gestão despreparada. Oito em dez inspetores pedirão remoção. A escala não é justa, pois inspetores seguem no soninho da educação infantil. Não há estrutura e há problemas de segurança. A inclusão não conta com apoio suficiente. Desgaste: 5/5. O acesso é bom.",
+      "O público é complicado, com muitos em vulnerabilidade social. Há indisciplina, falta de apoio dos demais setores e péssima estrutura, sem perspectiva de melhoria. Aconselho avaliar se compensa. A escala é desgastante e não há estrutura. Há problemas de segurança. Muitos incluídos não têm apoio ou não o mantêm. Desgaste: 5/5. Acesso razoável.",
+      "A comunidade é carente. Há todos os problemas listados. Aconselho pesquisar outras opções na região. A escala não é justa e é estressante. Não há profissional suficiente nem apoio pedagógico para a inclusão. Desgaste: 5/5. O acesso é ruim."
     ]
   },
   {
@@ -4510,23 +6063,113 @@ const ESCOLAS_DATA = [
     "codigo": "UECJ14",
     "nome": "Guilherme L. B. Sobrinho",
     "regional": "CJ - Regional Cajuru",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.4,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 1600",
+      "turmas": "aproximadamente 35",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "uei": "Possui",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Tem muitos alunos migrantes, a maioria classe média baixa, pessoas fáceis de lidar.",
+      "turmasIntegrais": "17 +ou-",
+      "anosFinais": "Sim"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,4), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Auxílio Pedagógico/Direção no Recreio (2,5).",
+    "conselho": "Há muitos alunos migrantes, a maioria de classe média baixa, de fácil convivência. Não tenho muito a relatar sobre conflitos. É um lugar acolhedor. A escala é justa, embora faltas sobrecarreguem os demais. Só falta espaço de descanso. Não há problemas de segurança. A relação com a inclusão é boa e há profissionais de apoio. Desgaste: 2/5. Há várias linhas de ônibus e estacionamento.",
+    "relatos": [
+      "Há muitos alunos migrantes, a maioria de classe média baixa, de fácil convivência. Não tenho muito a relatar sobre conflitos. É um lugar acolhedor. A escala é justa, embora faltas sobrecarreguem os demais. Só falta espaço de descanso. Não há problemas de segurança. A relação com a inclusão é boa e há profissionais de apoio. Desgaste: 2/5. Há várias linhas de ônibus e estacionamento."
+    ]
   },
   {
     "id": "UECJ15",
@@ -4534,91 +6177,113 @@ const ESCOLAS_DATA = [
     "nome": "Ayrton Senna da Silva",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 3.4,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 570 (variação: 550–590)",
-      "turmas": "aproximadamente 18 (variação: 17–20)",
-      "quadroInspetores": "Incompleto (faltam aproximadamente indefinido)",
+      "alunos": "aproximadamente 580",
+      "turmas": "aproximadamente 16",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe baixa.; Baixa renda e pouca educação"
+      "publicoAtendido": "Classe baixa..; Baixa renda e pouca educação; Grupo de.risco",
+      "turmasIntegrais": "3 / 6 / 2 pres, um 2 ano e 3 turmas de 20 alunos na UEI",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.7,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.3,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 2.7,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 2.7,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.8,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.7,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato indica interferência externa na rotina escolar e elogia os alunos, receptivos a orientações, atribuindo o peso do ambiente a alguns professores. A escala é organizada pela própria equipe, a estrutura destinada aos inspetores é inadequada e há problemas de segurança no entorno. A inclusão carece de suporte. O estresse é alto (4/5), embora o setor pedagógico seja atencioso. Indisciplina discente, ausência de regras impostas pela direção e carência de materiais e estrutura marcam o relato. A escala é justa, mas não há local próprio para almoço ou descanso, e o entorno é seguro. Faltam profissionais para acompanhar estudantes autistas e espaços sensoriais. O estresse é moderado (3/5), e a direção costuma resolver os conflitos, orientando o colega a manter a calma.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,4), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,7); Inspetores x Secretaria (4,3). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Estrutura Física e Mobiliária (2,3); Materiais para Recreio (2,7); Segurança Externa (2,7).",
+    "conselho": "Atende classe baixa, com interferência da comunidade na escola. As crianças são maravilhosas, ouvem e aceitam bem orientações; quem pesa o ambiente são alguns professores. A escala é organizada entre os próprios inspetores. Não há estrutura mínima para a categoria. Existem problemas de segurança no entorno e a inclusão não conta com apoio adequado. Desgaste: 4/5. O acesso é bom. O público é de baixa renda e pouca escolaridade. Há falta de disciplina e a direção não impõe regras a alunos, pais e funcionários; a estrutura é ruim e faltam materiais. Aconselho aceitar que não há regras estabelecidas e evitar o estresse. A escala é justa. Almoçamos na sala dos professores, sem local de descanso. Faltam profissionais para autistas e um espaço calmo com brinquedos sensoriais. Desgaste: 3/5. Há ponto de ônibus próximo e estacionamento para poucos carros. O público pertence a um grupo de risco e há interferência da comunidade. Meu conselho é simples: faça sua parte. A escala é desgastante e a escola não oferece estrutura mínima aos inspetores. Há problemas de segurança no entorno e a inclusão não conta com apoio suficiente. O nível de desgaste é 4/5. A unidade tem bom acesso.",
     "relatos": [
-      "O relato indica interferência externa na rotina escolar e elogia os alunos, receptivos a orientações, atribuindo o peso do ambiente a alguns professores. A escala é organizada pela própria equipe, a estrutura destinada aos inspetores é inadequada e há problemas de segurança no entorno. A inclusão carece de suporte. O estresse é alto (4/5), embora o setor pedagógico seja atencioso.",
-      "Indisciplina discente, ausência de regras impostas pela direção e carência de materiais e estrutura marcam o relato. A escala é justa, mas não há local próprio para almoço ou descanso, e o entorno é seguro. Faltam profissionais para acompanhar estudantes autistas e espaços sensoriais. O estresse é moderado (3/5), e a direção costuma resolver os conflitos, orientando o colega a manter a calma."
+      "Atende classe baixa, com interferência da comunidade na escola. As crianças são maravilhosas, ouvem e aceitam bem orientações; quem pesa o ambiente são alguns professores. A escala é organizada entre os próprios inspetores. Não há estrutura mínima para a categoria. Existem problemas de segurança no entorno e a inclusão não conta com apoio adequado. Desgaste: 4/5. O acesso é bom.",
+      "O público é de baixa renda e pouca escolaridade. Há falta de disciplina e a direção não impõe regras a alunos, pais e funcionários; a estrutura é ruim e faltam materiais. Aconselho aceitar que não há regras estabelecidas e evitar o estresse. A escala é justa. Almoçamos na sala dos professores, sem local de descanso. Faltam profissionais para autistas e um espaço calmo com brinquedos sensoriais. Desgaste: 3/5. Há ponto de ônibus próximo e estacionamento para poucos carros.",
+      "O público pertence a um grupo de risco e há interferência da comunidade. Meu conselho é simples: faça sua parte. A escala é desgastante e a escola não oferece estrutura mínima aos inspetores. Há problemas de segurança no entorno e a inclusão não conta com apoio suficiente. O nível de desgaste é 4/5. A unidade tem bom acesso."
     ]
   },
   {
@@ -4627,6 +6292,8 @@ const ESCOLAS_DATA = [
     "nome": "Elza Lerner",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4636,7 +6303,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4650,6 +6319,8 @@ const ESCOLAS_DATA = [
     "nome": "Marumbi",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4659,7 +6330,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4673,6 +6346,8 @@ const ESCOLAS_DATA = [
     "nome": "Durival Britto e Silva",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4682,7 +6357,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4696,6 +6373,8 @@ const ESCOLAS_DATA = [
     "nome": "Michel Khury",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4705,7 +6384,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4719,6 +6400,8 @@ const ESCOLAS_DATA = [
     "nome": "Donatila C. dos Anjos",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4728,7 +6411,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4742,6 +6427,8 @@ const ESCOLAS_DATA = [
     "nome": "João Macedo Filho",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4751,7 +6438,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4765,6 +6454,8 @@ const ESCOLAS_DATA = [
     "nome": "Eneas Marques dos Santos",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4774,7 +6465,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4788,90 +6481,111 @@ const ESCOLAS_DATA = [
     "nome": "Maria Marli Piovesan",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 4.2,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "600",
-      "turmas": "20",
+      "alunos": "aproximadamente 600",
+      "turmas": "aproximadamente 20",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Gosto da comunidade."
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Gosto da comunidade.",
+      "turmasIntegrais": "13",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 2.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O relato aponta indisciplina e famílias ausentes em comunidade de periferia, mas ressalta o apoio e auxílio da direção. O conselho é entusiasta: venha. A divisão da escala é clara e decidida em equipe, a estrutura é adequada e o entorno é parcialmente inseguro. Todos os alunos de inclusão têm auxiliar. O estresse é baixo (2/5), e a gestão sempre ajuda os inspetores.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,2), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Segurança Externa (2,5); Inspetores x Secretaria (3,0); Materiais para Recreio (3,0).",
+    "conselho": "Gosto da comunidade, embora haja indisciplina e famílias ausentes, por ser de periferia. A direção, porém, apoia e dá todo o auxílio. Aconselho: venha! A divisão é clara e decidida em equipe. Há sala para inspetores. A segurança é razoável. Todos os incluídos têm auxiliar. Desgaste: 2/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta indisciplina e famílias ausentes em comunidade de periferia, mas ressalta o apoio e auxílio da direção. O conselho é entusiasta: venha. A divisão da escala é clara e decidida em equipe, a estrutura é adequada e o entorno é parcialmente inseguro. Todos os alunos de inclusão têm auxiliar. O estresse é baixo (2/5), e a gestão sempre ajuda os inspetores."
+      "Gosto da comunidade, embora haja indisciplina e famílias ausentes, por ser de periferia. A direção, porém, apoia e dá todo o auxílio. Aconselho: venha! A divisão é clara e decidida em equipe. Há sala para inspetores. A segurança é razoável. Todos os incluídos têm auxiliar. Desgaste: 2/5. O acesso é bom."
     ]
   },
   {
@@ -4880,6 +6594,8 @@ const ESCOLAS_DATA = [
     "nome": "Maria de Lourdes L. Pegoraro",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -4889,7 +6605,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -4903,90 +6621,111 @@ const ESCOLAS_DATA = [
     "nome": "Rachel M. Gonçalves",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": true,
+    "notaFinal": 2.7,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "630",
-      "turmas": "22",
+      "alunos": "aproximadamente 630",
+      "turmas": "aproximadamente 22",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Apenas abertura",
-      "publicoAtendido": "Comunidade bem carente, crianças desafiadoras, pais que oferecem risco à saúde dos funcionários"
+      "publicoAtendido": "Comunidade bem carente, crianças desafiadoras, pais que oferecem risco à saúde dos funcionários.",
+      "turmasIntegrais": "6",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta falta de escuta da direção, de materiais e estrutura, indisciplina e problemas no prédio, e aconselha união da classe. A divisão é clara, mas há injustiça por falta de espaço. Não há sala própria, e móveis são sobras. Há ponto de venda de drogas, os apoios à inclusão são insuficientes, o estresse é alto (4/5) e o retorno é péssimo.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,7), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (5,0); Inspetores x Professores (4,0); Equilíbrio na Distribuição de Funções (4,0). Constituem desafios: Entre os Inspetores da Unidade (2,0); Inspetores x Direção (2,0); Materiais para Recreio (2,0); Inclusão com Tutores Profissionais (2,0).",
+    "conselho": "A comunidade é bem carente, com crianças desafiadoras e pais que oferecem risco à saúde dos funcionários. Faltam apoio da direção, material e estrutura; há indisciplina, problemas estruturais e até ratazana no pátio. Lembre: somos uma classe unida. A divisão é clara, mas há injustiça por excesso de alunos. Usamos a sala dos professores; o rádio não tem sinal automático. Há ponto de venda de ilegais, mas filhos dos vendedores estudam ali. Os apoios são insuficientes (cerca de 10% de incluídos). Desgaste: 4/5. Há ônibus e estacionamento mal organizado.",
     "relatos": [
-      "O relato aponta falta de escuta da direção, de materiais e estrutura, indisciplina e problemas no prédio, e aconselha união da classe. A divisão é clara, mas há injustiça por falta de espaço. Não há sala própria, e móveis são sobras. Há ponto de venda de drogas, os apoios à inclusão são insuficientes, o estresse é alto (4/5) e o retorno é péssimo."
+      "A comunidade é bem carente, com crianças desafiadoras e pais que oferecem risco à saúde dos funcionários. Faltam apoio da direção, material e estrutura; há indisciplina, problemas estruturais e até ratazana no pátio. Lembre: somos uma classe unida. A divisão é clara, mas há injustiça por excesso de alunos. Usamos a sala dos professores; o rádio não tem sinal automático. Há ponto de venda de ilegais, mas filhos dos vendedores estudam ali. Os apoios são insuficientes (cerca de 10% de incluídos). Desgaste: 4/5. Há ônibus e estacionamento mal organizado."
     ]
   },
   {
@@ -4995,6 +6734,8 @@ const ESCOLAS_DATA = [
     "nome": "Eneas Farias",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5004,7 +6745,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5018,6 +6761,8 @@ const ESCOLAS_DATA = [
     "nome": "Madre Antonia",
     "regional": "CJ - Regional Cajuru",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5027,7 +6772,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5041,6 +6788,8 @@ const ESCOLAS_DATA = [
     "nome": "Mirazinha Braga",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5050,7 +6799,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5064,90 +6815,111 @@ const ESCOLAS_DATA = [
     "nome": "Caramuru",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": true,
+    "notaFinal": 4.2,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "350",
-      "turmas": "6",
+      "alunos": "aproximadamente 350",
+      "turmas": "aproximadamente 6",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Média/alta"
+      "publicoAtendido": "Média/alta",
+      "turmasIntegrais": "30 crianças manhã, 30 crianças tarde",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Não há grandes problemas na escola, considerada boa. Há divisão de escala, mas os inspetores não têm sala própria e compartilham o espaço com os professores. O entorno é considerado seguro, embora já tenha ocorrido um assalto. A relação com a inclusão é boa, apesar da falta de apoio. O estresse é baixo (2/5), e a direção atende as demandas.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,2), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Segurança Externa (2,0); Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "O público é de classe média/alta e a escola não tem grandes problemas. Considero uma boa escola. Há divisão da escala. Não temos sala própria e dividimos o espaço com os professores. Quanto à segurança, já houve um assalto. A relação com a inclusão é boa, mas ainda falta apoio. Desgaste: 2/5. O acesso à unidade é bom.",
     "relatos": [
-      "Não há grandes problemas na escola, considerada boa. Há divisão de escala, mas os inspetores não têm sala própria e compartilham o espaço com os professores. O entorno é considerado seguro, embora já tenha ocorrido um assalto. A relação com a inclusão é boa, apesar da falta de apoio. O estresse é baixo (2/5), e a direção atende as demandas."
+      "O público é de classe média/alta e a escola não tem grandes problemas. Considero uma boa escola. Há divisão da escala. Não temos sala própria e dividimos o espaço com os professores. Quanto à segurança, já houve um assalto. A relação com a inclusão é boa, mas ainda falta apoio. Desgaste: 2/5. O acesso à unidade é bom."
     ]
   },
   {
@@ -5156,91 +6928,112 @@ const ESCOLAS_DATA = [
     "nome": "Dom Manuel da Silveira D'Elboux",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "350",
-      "turmas": "13 (6 manhã e 7 tarde)",
+      "alunos": "aproximadamente 350",
+      "turmas": "aproximadamente 6",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Apenas abertura",
-      "publicoAtendido": "Classe média alta, egressos de escolas particulares. Filhos de pais muito bem instruídos, muitos alu; Classe média alta. Egressos de escolas particulares."
+      "publicoAtendido": "Classe média alta, egressos de escolas particulares. Filhos de pais muito bem instruídos, muitos alunos de inclusão. A maioria dos pais são simpáticos. Os poucos que são chatos infelizmente fazem questão de serem notados; Classe média alta. Egressos de escolas particulares.",
+      "turmasIntegrais": "1 / Uma única",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 4.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 3.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
         "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Destacam-se professores que pedem tarefas fora da função e cobranças injustas da gestão, em geral boa. A equipe é unida e acolhe quem venha somar. Os setores são ambíguos, não há sala própria e as refeições ocorrem com os demais funcionários. A região é segura, a inclusão é expressiva, mas faltam tutores. O estresse é baixo (1/5), e a resolução é imediata. Destacam-se famílias interferentes e inspetores que assumem funções alheias, sobrecarregando os demais. Recomenda-se perfil afetuoso e firme contra desvios de função. A divisão de tarefas não é clara; a estrutura é boa, mas sem sala de descanso. O entorno é seguro, 30% dos alunos de inclusão não têm tutor, o estresse é baixo (1/5) e a direção resolve bem as demandas.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Setor Pedagógico (5,0); Inspetores x Secretaria (5,0); Entre os Inspetores da Unidade (4,5). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0); Equilíbrio na Distribuição de Funções (2,5); Acesso (ônibus, bicicleta, estacionamento) (2,5).",
+    "conselho": "O público é de classe média alta, egresso de escolas particulares, com pais instruídos e muitos alunos de inclusão. Alguns professores solicitam tarefas fora da função e a gestão, em geral ótima, às vezes cobra de forma injusta. Aconselho vir para somar: a equipe é unida. A divisão da escala é ambígua e seguimos o feeling. Não há sala de inspetores, mas banheiros e refeições são adequados. Muito segura. Faltam tutores. Desgaste: 1/5. Há várias linhas de ônibus e ciclovia, sem estacionamento. O público é de classe média alta. As famílias querem mandar na escola e há colegas que, com consentimento, assumem tarefas que não são da função, como a cozinha. Aconselho vir com paixão e firmeza para recusar o que não é atribuição. Não há clareza na divisão de tarefas. A estrutura é boa, mas sem sala de descanso. Não há problemas de segurança. Cerca de 30% dos incluídos não têm tutor. Desgaste: 1/5. Há ciclovia e muitas linhas de ônibus.",
     "relatos": [
-      "Destacam-se professores que pedem tarefas fora da função e cobranças injustas da gestão, em geral boa. A equipe é unida e acolhe quem venha somar. Os setores são ambíguos, não há sala própria e as refeições ocorrem com os demais funcionários. A região é segura, a inclusão é expressiva, mas faltam tutores. O estresse é baixo (1/5), e a resolução é imediata.",
-      "Destacam-se famílias interferentes e inspetores que assumem funções alheias, sobrecarregando os demais. Recomenda-se perfil afetuoso e firme contra desvios de função. A divisão de tarefas não é clara; a estrutura é boa, mas sem sala de descanso. O entorno é seguro, 30% dos alunos de inclusão não têm tutor, o estresse é baixo (1/5) e a direção resolve bem as demandas."
+      "O público é de classe média alta, egresso de escolas particulares, com pais instruídos e muitos alunos de inclusão. Alguns professores solicitam tarefas fora da função e a gestão, em geral ótima, às vezes cobra de forma injusta. Aconselho vir para somar: a equipe é unida. A divisão da escala é ambígua e seguimos o feeling. Não há sala de inspetores, mas banheiros e refeições são adequados. Muito segura. Faltam tutores. Desgaste: 1/5. Há várias linhas de ônibus e ciclovia, sem estacionamento.",
+      "O público é de classe média alta. As famílias querem mandar na escola e há colegas que, com consentimento, assumem tarefas que não são da função, como a cozinha. Aconselho vir com paixão e firmeza para recusar o que não é atribuição. Não há clareza na divisão de tarefas. A estrutura é boa, mas sem sala de descanso. Não há problemas de segurança. Cerca de 30% dos incluídos não têm tutor. Desgaste: 1/5. Há ciclovia e muitas linhas de ônibus."
     ]
   },
   {
@@ -5249,6 +7042,8 @@ const ESCOLAS_DATA = [
     "nome": "Irmãos Rebouças",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5258,7 +7053,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5272,92 +7069,113 @@ const ESCOLAS_DATA = [
     "nome": "Professor Brandão",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": true,
+    "notaFinal": 3.1,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "700",
-      "turmas": "27 (13 manhã e 14 tarde)",
+      "alunos": "aproximadamente 700",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "É um público de classe média, a maioria das famílias são educadas e respeitam nosso trabalho, apoiar; Classe média, comunidade exigente"
+      "publicoAtendido": "É um público de classe média, a maioria das famílias são educadas e respeitam nosso trabalho, apoiaram a nossa última greve, e participaram inclusive.; Classe média , comunidade exigente; Classe média, muitos alunos de inclusão, aluno de pais que trabalham na região",
+      "turmasIntegrais": "8 / 8 turmas / 8, 6 +2 pre",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 2.7,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 3.3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.7,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato cita conflito entre alunos e orienta demonstrar conhecimento das atribuições dos ASEs para ser respeitado. A escala é desgastante, sobretudo no refeitório e no pátio, com barulho. Não há local de almoço nem descanso, e o banheiro é de funcionários. O entorno central é arriscado, faltam apoios à inclusão, o estresse é moderado (3/5) e o retorno é imediato. O relato afirma que todas as dificuldades listadas se aplicam e aconselha vir disposto a trabalhar. A escala é avaliada negativamente, não há espaço para almoçar, e uma pessoa tentou invadir a escola no ano passado. A inclusão também é considerada insatisfatória. O estresse é máximo (5/5), e o setor pedagógico é bem presente, oferecendo resposta às ocorrências graves dos inspetores. O relato menciona indisciplina, falta de limites claros, pais que sempre têm razão e saídas desrespeitadas, aconselhando disposição, paciência e vontade de trabalhar. A escala não é seguida por alguns colegas. Não há refeitório próprio, e os inspetores comem escondidos, em cadeiras desconfortáveis. O entorno é inseguro, os apoios de inclusão atrasam, o estresse é máximo (5/5) e o retorno limita-se a conversas.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,1), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Setor Pedagógico (4,0); Acesso (ônibus, bicicleta, estacionamento) (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Segurança Externa (2,7); Equilíbrio na Distribuição de Funções (2,7).",
+    "conselho": "O público é de classe média, famílias educadas que apoiaram nossa greve. O conflito é entre alunos. Não é a melhor escola e é preciso demonstrar conhecimento das atribuições para sermos respeitados. A escala é muito desgastante no refeitório e no pátio, com barulho e crianças comendo correndo. Não há almoço nem descanso; o mobiliário é razoável. Por ser central, há riscos: alguém tentou entrar à força. Não há número adequado de apoios. Desgaste: 3/5. O acesso é bom. O público é de classe média e a comunidade é exigente. Todos os problemas listados estão presentes. Venha disposto a trabalhar. A escala é inadequada e não há espaço para almoçar. Ano passado alguém tentou invadir a escola. A inclusão não é bem atendida. Desgaste: 5/5. O acesso é bom. O público é de classe média, com muitos incluídos e pais que trabalham na região. Há indisciplina, falta de limites, pais que sempre têm razão e horários de saída desrespeitados. Aconselho disposição, paciência e muita vontade de trabalhar. Colegas não cumprem a escala. Não há refeitório próprio e as cadeiras são desconfortáveis; precisamos nos esconder para comer. Há problemas de segurança. Os apoios chegam atrasados e com pouco preparo. Desgaste: 5/5. O acesso é bom.",
     "relatos": [
-      "O relato cita conflito entre alunos e orienta demonstrar conhecimento das atribuições dos ASEs para ser respeitado. A escala é desgastante, sobretudo no refeitório e no pátio, com barulho. Não há local de almoço nem descanso, e o banheiro é de funcionários. O entorno central é arriscado, faltam apoios à inclusão, o estresse é moderado (3/5) e o retorno é imediato.",
-      "O relato afirma que todas as dificuldades listadas se aplicam e aconselha vir disposto a trabalhar. A escala é avaliada negativamente, não há espaço para almoçar, e uma pessoa tentou invadir a escola no ano passado. A inclusão também é considerada insatisfatória. O estresse é máximo (5/5), e o setor pedagógico é bem presente, oferecendo resposta às ocorrências graves dos inspetores.",
-      "O relato menciona indisciplina, falta de limites claros, pais que sempre têm razão e saídas desrespeitadas, aconselhando disposição, paciência e vontade de trabalhar. A escala não é seguida por alguns colegas. Não há refeitório próprio, e os inspetores comem escondidos, em cadeiras desconfortáveis. O entorno é inseguro, os apoios de inclusão atrasam, o estresse é máximo (5/5) e o retorno limita-se a conversas."
+      "O público é de classe média, famílias educadas que apoiaram nossa greve. O conflito é entre alunos. Não é a melhor escola e é preciso demonstrar conhecimento das atribuições para sermos respeitados. A escala é muito desgastante no refeitório e no pátio, com barulho e crianças comendo correndo. Não há almoço nem descanso; o mobiliário é razoável. Por ser central, há riscos: alguém tentou entrar à força. Não há número adequado de apoios. Desgaste: 3/5. O acesso é bom.",
+      "O público é de classe média e a comunidade é exigente. Todos os problemas listados estão presentes. Venha disposto a trabalhar. A escala é inadequada e não há espaço para almoçar. Ano passado alguém tentou invadir a escola. A inclusão não é bem atendida. Desgaste: 5/5. O acesso é bom.",
+      "O público é de classe média, com muitos incluídos e pais que trabalham na região. Há indisciplina, falta de limites, pais que sempre têm razão e horários de saída desrespeitados. Aconselho disposição, paciência e muita vontade de trabalhar. Colegas não cumprem a escala. Não há refeitório próprio e as cadeiras são desconfortáveis; precisamos nos esconder para comer. Há problemas de segurança. Os apoios chegam atrasados e com pouco preparo. Desgaste: 5/5. O acesso é bom."
     ]
   },
   {
@@ -5365,23 +7183,113 @@ const ESCOLAS_DATA = [
     "codigo": "UEMZ6",
     "nome": "Batel",
     "regional": "MZ - Regional Matriz",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 430",
+      "turmas": "aproximadamente 7",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Não oferta período integral",
+      "uei": "Possui",
+      "soninhoPre": "Escola não possui essa demanda",
+      "onibusEscolar": "Possui e o inspetor acompanha",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Classe média alta",
+      "turmasIntegrais": "—",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global regular (nota final 4,0), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Secretaria (5,0); Entre os Inspetores da Unidade (4,0). Constituem desafios: Acesso (ônibus, bicicleta, estacionamento) (2,0); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "Atende classe média alta e não aponto problemas relevantes. Aconselho o colega a vir. A escola não tem refeitório e não oferece estrutura mínima aos inspetores. Não há problemas de segurança no entorno. Nem sempre há profissionais de apoio para todos os estudantes de inclusão. O desgaste é baixo, 2/5. O acesso é bom, mas a escola não possui estacionamento próprio.",
+    "relatos": [
+      "Atende classe média alta e não aponto problemas relevantes. Aconselho o colega a vir. A escola não tem refeitório e não oferece estrutura mínima aos inspetores. Não há problemas de segurança no entorno. Nem sempre há profissionais de apoio para todos os estudantes de inclusão. O desgaste é baixo, 2/5. O acesso é bom, mas a escola não possui estacionamento próprio."
+    ]
   },
   {
     "id": "UEMZ7",
@@ -5389,6 +7297,8 @@ const ESCOLAS_DATA = [
     "nome": "Noely Simone de Avila",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5398,7 +7308,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5412,90 +7324,111 @@ const ESCOLAS_DATA = [
     "nome": "EM Matriz II (Helena Wong)",
     "regional": "MZ - Regional Matriz",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "100",
-      "turmas": "18",
+      "alunos": "aproximadamente 100",
+      "turmas": "aproximadamente 8",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Classe média"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe média",
+      "turmasIntegrais": "—",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.5,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta interferência da comunidade e falta de apoio da direção, e o conselho ao colega é fazer terapia. Avalia negativamente a escala e a estrutura destinada aos inspetores. Há problemas de segurança no entorno e a relação com a inclusão é positiva. O estresse é máximo (5/5), embora o setor pedagógico acolha os problemas apresentados.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Segurança Externa (2,0); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Direção (3,0).",
+    "conselho": "O público é de classe média. Os principais problemas são a interferência da comunidade e a falta de apoio da direção. Meu conselho é: faça terapia. A escala não é boa e a estrutura para inspetores não é oferecida. Há problemas de segurança, mas a relação com a inclusão é positiva. Desgaste: 5/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta interferência da comunidade e falta de apoio da direção, e o conselho ao colega é fazer terapia. Avalia negativamente a escala e a estrutura destinada aos inspetores. Há problemas de segurança no entorno e a relação com a inclusão é positiva. O estresse é máximo (5/5), embora o setor pedagógico acolha os problemas apresentados."
+      "O público é de classe média. Os principais problemas são a interferência da comunidade e a falta de apoio da direção. Meu conselho é: faça terapia. A escala não é boa e a estrutura para inspetores não é oferecida. Há problemas de segurança, mas a relação com a inclusão é positiva. Desgaste: 5/5. O acesso é bom."
     ]
   },
   {
@@ -5504,6 +7437,8 @@ const ESCOLAS_DATA = [
     "nome": "São Mateus do Sul",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5513,7 +7448,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5527,6 +7464,8 @@ const ESCOLAS_DATA = [
     "nome": "José Lamartine C. O. Lyra",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5536,7 +7475,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5550,92 +7491,113 @@ const ESCOLAS_DATA = [
     "nome": "Cláudio Abramo",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 450 (variação: 300–600)",
-      "turmas": "aproximadamente 23 (variação: 19–30)",
+      "alunos": "aproximadamente 442",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Médio; O público abrange diversas classes sociais, alunos não são somente moradores do capão raso ou pinheir"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Médio; O público abrange diversas classes sociais, alunos não são somente moradores do capão raso ou pinheirinho mas sim de diversos bairros de Curitiba e região metropolitana.; Classe média/baixa",
+      "turmasIntegrais": "9 / 10 / 10 turmas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.7,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 3.7,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.7,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 4.3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.7,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.2,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 4.7,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.7,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.7,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.7,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Há alunos que desafiam ordens, mimados ou carentes, sendo os piores os que debocham. A escola tem bons profissionais e colaboração, mas exige firmeza. A escala é justa; em obras, não há sala própria nem rádio. O entorno é comum e a direção tem dificuldade em obter apoio à inclusão. O estresse é moderado (3/5), e o retorno poderia ser mais rígido. O relato critica a lentidão da direção em questões básicas e sua falta de firmeza em conflitos, o que leva os inspetores a resolverem as ocorrências. Alunos e colegas são ótimos. Os setores são bem divididos, mas uma parte não cumpre seu papel. Não há estrutura para inspetores, o entorno é seguro e a inclusão tem apoio. O estresse é alto (4/5). O relato aponta um diretor excessivamente político e brando com alunos indisciplinados, além de um inspetor recém-chegado com condutas inadequadas. Em contrapartida, valoriza a equipe unida e recomenda franqueza. A escala é justa, mas não há estrutura para inspetores; a segurança do entorno é parcial e falta pessoal de apoio à inclusão. O estresse é moderado (3/5), e as punições aplicadas são brandas.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Secretaria (4,7); Materiais para Recreio (4,7); Entre os Inspetores da Unidade (4,3). Constituem desafios: Estrutura Física e Mobiliária (2,2); Auxílio Pedagógico/Direção no Recreio (2,5); Inclusão com Tutores Profissionais (2,7); Inspetores x Professores (3,0).",
+    "conselho": "O público é de classe média. Alguns alunos não aceitam ordens, muitos são mimados pelos pais e alguns são carentes; os piores são os que debocham. Trata-se de uma escola muito boa, com ótimos profissionais, mas é preciso saber se impor. A escala é justa e conversada. Em obras, não há sala própria nem rádio; a comunicação é no grito ou microfone. A segurança é comum e a direção tem dificuldade de obter apoio para todos. Desgaste: 3/5. Acesso fácil, com estacionamento reduzido pela obra. O público é diverso, com alunos de vários bairros de Curitiba e região metropolitana. Faltam agilidade da direção para problemas menores e posicionamento firme em conflitos entre cargos. Trabalhar aqui é muito bom: os alunos são carinhosos e há bons colegas, mas falta ajuda quando se precisa de nível acima. A divisão é clara, embora uma das partes não cumpra seu papel. Não há estrutura para inspetores. Não há graves problemas de segurança. A classe especial e os demais incluídos têm apoio. Desgaste: 4/5. Ponto de ônibus em frente e fácil acesso ao biarticulado. O público é de classe média/baixa. Considero o diretor excessivamente \"político\" e brando com crianças arteiras, quase sem bilhetes. Houve também um inspetor recém-chegado com atitudes incoerentes e comentários de cunho sexual com colegas. A equipe, porém, é muito boa e unida. Quem é franco e sincero se dá bem. A escala é justa, mas não há estrutura adequada. A segurança é um pouco preocupante e faltam profissionais de apoio. Desgaste: 3/5. Acesso fácil.",
     "relatos": [
-      "Há alunos que desafiam ordens, mimados ou carentes, sendo os piores os que debocham. A escola tem bons profissionais e colaboração, mas exige firmeza. A escala é justa; em obras, não há sala própria nem rádio. O entorno é comum e a direção tem dificuldade em obter apoio à inclusão. O estresse é moderado (3/5), e o retorno poderia ser mais rígido.",
-      "O relato critica a lentidão da direção em questões básicas e sua falta de firmeza em conflitos, o que leva os inspetores a resolverem as ocorrências. Alunos e colegas são ótimos. Os setores são bem divididos, mas uma parte não cumpre seu papel. Não há estrutura para inspetores, o entorno é seguro e a inclusão tem apoio. O estresse é alto (4/5).",
-      "O relato aponta um diretor excessivamente político e brando com alunos indisciplinados, além de um inspetor recém-chegado com condutas inadequadas. Em contrapartida, valoriza a equipe unida e recomenda franqueza. A escala é justa, mas não há estrutura para inspetores; a segurança do entorno é parcial e falta pessoal de apoio à inclusão. O estresse é moderado (3/5), e as punições aplicadas são brandas."
+      "O público é de classe média. Alguns alunos não aceitam ordens, muitos são mimados pelos pais e alguns são carentes; os piores são os que debocham. Trata-se de uma escola muito boa, com ótimos profissionais, mas é preciso saber se impor. A escala é justa e conversada. Em obras, não há sala própria nem rádio; a comunicação é no grito ou microfone. A segurança é comum e a direção tem dificuldade de obter apoio para todos. Desgaste: 3/5. Acesso fácil, com estacionamento reduzido pela obra.",
+      "O público é diverso, com alunos de vários bairros de Curitiba e região metropolitana. Faltam agilidade da direção para problemas menores e posicionamento firme em conflitos entre cargos. Trabalhar aqui é muito bom: os alunos são carinhosos e há bons colegas, mas falta ajuda quando se precisa de nível acima. A divisão é clara, embora uma das partes não cumpra seu papel. Não há estrutura para inspetores. Não há graves problemas de segurança. A classe especial e os demais incluídos têm apoio. Desgaste: 4/5. Ponto de ônibus em frente e fácil acesso ao biarticulado.",
+      "O público é de classe média/baixa. Considero o diretor excessivamente \"político\" e brando com crianças arteiras, quase sem bilhetes. Houve também um inspetor recém-chegado com atitudes incoerentes e comentários de cunho sexual com colegas. A equipe, porém, é muito boa e unida. Quem é franco e sincero se dá bem. A escala é justa, mas não há estrutura adequada. A segurança é um pouco preocupante e faltam profissionais de apoio. Desgaste: 3/5. Acesso fácil."
     ]
   },
   {
@@ -5644,6 +7606,8 @@ const ESCOLAS_DATA = [
     "nome": "Ivaiporã",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5653,7 +7617,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5667,90 +7633,111 @@ const ESCOLAS_DATA = [
     "nome": "Umuarama",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.1,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "520",
-      "turmas": "9",
+      "alunos": "aproximadamente 520",
+      "turmas": "aproximadamente 9",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Classe média-baixa"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "classe média-baixa",
+      "turmasIntegrais": "2 turmas de manhã apenas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
         "nota": null,
+        "peso": 6.0,
         "obs": "Não informado"
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta falta de profissionais de apoio e aconselha não se frustrar com a ausência de trabalho em equipe. A escala divide o pátio interno. Os inspetores ocupam antigo depósito, compartilhado com material de educação física, sem descanso, local de almoço ou rádio. A inclusão tem troca constante de PAs, o estresse é baixo (2/5) e o pedagógico resolve conflitos.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,1), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (4,0); Inspetores x Setor Pedagógico (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Materiais para Recreio (2,0); Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0); Auxílio Pedagógico/Direção no Recreio (2,0).",
+    "conselho": "O público é de classe média-baixa. O problema é a falta de profissional de apoio, com troca constante de PAs. Aconselho não se frustrar com a falta de trabalho em equipe. A escala no pátio interno é dividida. A sala divide espaço com material de educação física, sem descanso adequado e sem local definido para almoço nem rádio. Desgaste: 2/5. Há ônibus perto, sem estacionamento interno.",
     "relatos": [
-      "O relato aponta falta de profissionais de apoio e aconselha não se frustrar com a ausência de trabalho em equipe. A escala divide o pátio interno. Os inspetores ocupam antigo depósito, compartilhado com material de educação física, sem descanso, local de almoço ou rádio. A inclusão tem troca constante de PAs, o estresse é baixo (2/5) e o pedagógico resolve conflitos."
+      "O público é de classe média-baixa. O problema é a falta de profissional de apoio, com troca constante de PAs. Aconselho não se frustrar com a falta de trabalho em equipe. A escala no pátio interno é dividida. A sala divide espaço com material de educação física, sem descanso adequado e sem local definido para almoço nem rádio. Desgaste: 2/5. Há ônibus perto, sem estacionamento interno."
     ]
   },
   {
@@ -5759,90 +7746,111 @@ const ESCOLAS_DATA = [
     "nome": "Jurandyr B. Mockell",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 2.9,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "170",
-      "turmas": "Toda integral",
+      "alunos": "aproximadamente 170",
+      "turmas": "—",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Razoável"
+      "publicoAtendido": "Razoável",
+      "turmasIntegrais": "7",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 1,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente insatisfatória."
+        "nota": 1.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito negativa."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta alunos autistas agressivos, cuja demanda tenta-se transferir aos inspetores, e define o ambiente como muito estressante. A escala é desgastante, a equipe fica exposta no pátio, sem nenhuma sala, e não há profissionais de apoio, e o entorno é seguro. O estresse é máximo (5/5), e o retorno do setor pedagógico e da direção é razoável.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,9), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (5,0); Inspetores x Setor Pedagógico (4,0); Inspetores x Secretaria (4,0). Constituem desafios: Inspetores x Direção (1,0); Equilíbrio na Distribuição de Funções (2,0); Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0).",
+    "conselho": "O público é razoável. O principal problema são alunos autistas agressivos, cuja responsabilidade tentam repassar aos inspetores. A situação é muito estressante e a escala, desgastante. Estamos jogadas no pátio, sem sala nenhuma. Não há problemas de segurança no entorno, mas a escola está sem PA. Desgaste: 5/5. O acesso é péssimo.",
     "relatos": [
-      "O relato aponta alunos autistas agressivos, cuja demanda tenta-se transferir aos inspetores, e define o ambiente como muito estressante. A escala é desgastante, a equipe fica exposta no pátio, sem nenhuma sala, e não há profissionais de apoio, e o entorno é seguro. O estresse é máximo (5/5), e o retorno do setor pedagógico e da direção é razoável."
+      "O público é razoável. O principal problema são alunos autistas agressivos, cuja responsabilidade tentam repassar aos inspetores. A situação é muito estressante e a escala, desgastante. Estamos jogadas no pátio, sem sala nenhuma. Não há problemas de segurança no entorno, mas a escola está sem PA. Desgaste: 5/5. O acesso é péssimo."
     ]
   },
   {
@@ -5851,90 +7859,112 @@ const ESCOLAS_DATA = [
     "nome": "Piratini",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "350",
-      "turmas": "9",
+      "alunos": "aproximadamente 375",
+      "turmas": "aproximadamente 10",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "As pessoas são educadas no geral"
+      "publicoAtendido": "As pessoas são educadas no geral; Público educado na grande maioria",
+      "turmasIntegrais": "5 / 6",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.5,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina e recomenda cautela ao colega. A escala é justa, mas a estrutura se limita ao rádio comunicador, e há problemas de segurança no entorno. A inclusão conta com número razoável de apoios. O estresse é baixo (2/5), e o setor pedagógico e a direção atuam na sequência das ocorrências graves, oferecendo resposta rápida às demandas dos inspetores.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (5,0); Inspetores x Secretaria (5,0); Inspetores x Direção (4,5). Constituem desafios: Segurança Externa (2,5); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Entre os Inspetores da Unidade (3,0).",
+    "conselho": "O público é, em geral, educado. O problema é a indisciplina. Aconselho ficar com um pé atrás. A escala é justa. A única estrutura é o rádio comunicador. Há problemas de segurança. Há número razoável de apoios. Desgaste: 2/5. A unidade possui acesso. O público é educado na grande maioria e o problema é a interferência da comunidade. Aconselho não vir. A escala é justa e só há rádio como estrutura. Há problemas de segurança. A relação com a inclusão é boa. Desgaste: 4/5. Duas linhas de ônibus passam perto.",
     "relatos": [
-      "O relato aponta indisciplina e recomenda cautela ao colega. A escala é justa, mas a estrutura se limita ao rádio comunicador, e há problemas de segurança no entorno. A inclusão conta com número razoável de apoios. O estresse é baixo (2/5), e o setor pedagógico e a direção atuam na sequência das ocorrências graves, oferecendo resposta rápida às demandas dos inspetores."
+      "O público é, em geral, educado. O problema é a indisciplina. Aconselho ficar com um pé atrás. A escala é justa. A única estrutura é o rádio comunicador. Há problemas de segurança. Há número razoável de apoios. Desgaste: 2/5. A unidade possui acesso.",
+      "O público é educado na grande maioria e o problema é a interferência da comunidade. Aconselho não vir. A escala é justa e só há rádio como estrutura. Há problemas de segurança. A relação com a inclusão é boa. Desgaste: 4/5. Duas linhas de ônibus passam perto."
     ]
   },
   {
@@ -5943,6 +7973,8 @@ const ESCOLAS_DATA = [
     "nome": "Maringá",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -5952,7 +7984,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -5966,93 +8000,114 @@ const ESCOLAS_DATA = [
     "nome": "Francisco Frischmann",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 2.7,
+    "participantes": {
+      "total": 4,
+      "atuais": 4,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "700",
-      "turmas": "aproximadamente 44 (variação: 30–75)",
-      "quadroInspetores": "Incompleto (faltam aproximadamente indefinido)",
+      "alunos": "aproximadamente 700",
+      "turmas": "aproximadamente 28",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
-      "onibusEscolar": "Indefinido",
+      "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe mais pobre, com muitos imigrantes; A maioria é de classe média e não respeitam muito os inspetores"
+      "publicoAtendido": "Classe mais pobre, com muitos imigrantes; A maioria é de classe média e não respeitam muito os inspetores; Atende principalmente população de risco, imigrantes e classe baixa.; Indefinido",
+      "turmasIntegrais": "20 / 24 / Aproximadamente 13 de manhã e 12 a tarde / Cerca de 20",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3.2,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.3,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 2.8,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 2.8,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 1.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente insatisfatória."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.7,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 3.6,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.3,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.7,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Denunciam-se inspetores antigos que mandam na escola, direção sem pulso, equipe desunida e falhas do pedagógico, e professores sem apoio. Aconselha-se não abaixar a cabeça. A escala divide setores, mas os mais velhos desrespeitam os postos. A sala fica no refeitório. O entorno é seguro, falta apoio à inclusão, o estresse é máximo (5/5) e o pedagógico não atende no recreio. Alunos desrespeitam autoridades, brigam e podem agredir inspetores. A escala é desgastante, sobretudo o soninho mensal e o recreio de chuva em sala, que o autor considera tarefa dos professores. A sala própria tem micro-ondas e banheiros adequados. O entorno oferece riscos, como galhos grandes e uma valeta; faltam apoios à inclusão. O estresse é alto (4/5), e a direção atende bem. Critica-se uma direção que protege funcionárias antigas e desencoraja denúncias; aconselha-se não ir a quem queira trabalhar seriamente. A escala existe só para o recreio, sem rodízio de horários ou refeitório, deixando o pátio desfalcado. O banheiro é distante, e o entorno é seguro. Faltam apoios de inclusão, o estresse é alto (4/5) e o retorno pedagógico quase se limita a bilhetes. O relato, sucinto, aponta crianças sem laudo e conflitos com a equipe mais antiga, desejando apenas boa sorte ao colega. A escala é desgastante, a estrutura é adequada e não há informação sobre segurança. A inclusão é insuficiente, pois faltam profissionais de apoio e há crianças sem laudo. O estresse é máximo (5/5), e não houve resposta quanto ao retorno do setor pedagógico.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,7), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Acesso (ônibus, bicicleta, estacionamento) (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Entre os Inspetores da Unidade (1,5); Equilíbrio na Distribuição de Funções (2,3); Materiais para Recreio (2,5); Inclusão com Tutores Profissionais (2,5).",
+    "conselho": "Atende a classe mais pobre, com muitos imigrantes. Inspetores mais velhos \"mandam\" na escola, a direção não tem pulso, a equipe é desunida e o setor pedagógico falha com alunos problemáticos; professores agredidos ficam sem apoio. Aconselho não abaixar a cabeça. As funções são divididas por local, mas os antigos não respeitam os postos fixos. A sala fica no refeitório, barulhenta, com cadeiras iguais às dos alunos. Sem problemas de segurança. Não há PA para todos. Desgaste: 5/5. A maioria é de classe média e respeita pouco os inspetores. Os alunos desobedecem, podem agredir e quebrar objetos, com brigas frequentes. Na escola integral o cansaço é maior. A escala é desgastante, sobretudo o soninho de um mês e o recreio de chuva, de uma hora em sala, que caberia aos professores. Há sala própria com micro-ondas e banheiros adequados; a cadeira é dura. Há riscos de árvores e valeta. Faltam alguns apoios. Desgaste: 4/5. Bom acesso. Atende população de risco, imigrantes e classe baixa. Há conflitos entre colegas e direção que protege funcionários antigos de mau desempenho, sugerindo não se \"queimar\" com denúncias. Não venha se quiser trabalho sério: é uma escola de \"mamata\". A escala existe só no recreio e é mal feita; não há rodízio de horários nem de refeitório. Cadeiras decentes só neste ano; o banheiro fica a 100 metros. Não há problemas de segurança que eu saiba. Inspetoras cuidam de inclusão por falta de apoio. Desgaste: 4/5. Bom acesso. O público é indefinido. Há crianças sem laudo e conflitos com a equipe mais antiga. Meu conselho: boa sorte. A escala é desgastante. A estrutura é adequada. Faltam profissionais de apoio e algumas crianças não têm laudo. Desgaste: 5/5. O acesso é bom.",
     "relatos": [
-      "Denunciam-se inspetores antigos que mandam na escola, direção sem pulso, equipe desunida e falhas do pedagógico, e professores sem apoio. Aconselha-se não abaixar a cabeça. A escala divide setores, mas os mais velhos desrespeitam os postos. A sala fica no refeitório. O entorno é seguro, falta apoio à inclusão, o estresse é máximo (5/5) e o pedagógico não atende no recreio.",
-      "Alunos desrespeitam autoridades, brigam e podem agredir inspetores. A escala é desgastante, sobretudo o soninho mensal e o recreio de chuva em sala, que o autor considera tarefa dos professores. A sala própria tem micro-ondas e banheiros adequados. O entorno oferece riscos, como galhos grandes e uma valeta; faltam apoios à inclusão. O estresse é alto (4/5), e a direção atende bem.",
-      "Critica-se uma direção que protege funcionárias antigas e desencoraja denúncias; aconselha-se não ir a quem queira trabalhar seriamente. A escala existe só para o recreio, sem rodízio de horários ou refeitório, deixando o pátio desfalcado. O banheiro é distante, e o entorno é seguro. Faltam apoios de inclusão, o estresse é alto (4/5) e o retorno pedagógico quase se limita a bilhetes.",
-      "O relato, sucinto, aponta crianças sem laudo e conflitos com a equipe mais antiga, desejando apenas boa sorte ao colega. A escala é desgastante, a estrutura é adequada e não há informação sobre segurança. A inclusão é insuficiente, pois faltam profissionais de apoio e há crianças sem laudo. O estresse é máximo (5/5), e não houve resposta quanto ao retorno do setor pedagógico."
+      "Atende a classe mais pobre, com muitos imigrantes. Inspetores mais velhos \"mandam\" na escola, a direção não tem pulso, a equipe é desunida e o setor pedagógico falha com alunos problemáticos; professores agredidos ficam sem apoio. Aconselho não abaixar a cabeça. As funções são divididas por local, mas os antigos não respeitam os postos fixos. A sala fica no refeitório, barulhenta, com cadeiras iguais às dos alunos. Sem problemas de segurança. Não há PA para todos. Desgaste: 5/5.",
+      "A maioria é de classe média e respeita pouco os inspetores. Os alunos desobedecem, podem agredir e quebrar objetos, com brigas frequentes. Na escola integral o cansaço é maior. A escala é desgastante, sobretudo o soninho de um mês e o recreio de chuva, de uma hora em sala, que caberia aos professores. Há sala própria com micro-ondas e banheiros adequados; a cadeira é dura. Há riscos de árvores e valeta. Faltam alguns apoios. Desgaste: 4/5. Bom acesso.",
+      "Atende população de risco, imigrantes e classe baixa. Há conflitos entre colegas e direção que protege funcionários antigos de mau desempenho, sugerindo não se \"queimar\" com denúncias. Não venha se quiser trabalho sério: é uma escola de \"mamata\". A escala existe só no recreio e é mal feita; não há rodízio de horários nem de refeitório. Cadeiras decentes só neste ano; o banheiro fica a 100 metros. Não há problemas de segurança que eu saiba. Inspetoras cuidam de inclusão por falta de apoio. Desgaste: 4/5. Bom acesso.",
+      "O público é indefinido. Há crianças sem laudo e conflitos com a equipe mais antiga. Meu conselho: boa sorte. A escala é desgastante. A estrutura é adequada. Faltam profissionais de apoio e algumas crianças não têm laudo. Desgaste: 5/5. O acesso é bom."
     ]
   },
   {
@@ -6061,6 +8116,8 @@ const ESCOLAS_DATA = [
     "nome": "Leonel Moro",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6070,7 +8127,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6084,6 +8143,8 @@ const ESCOLAS_DATA = [
     "nome": "Laís Peretti",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6093,7 +8154,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6107,91 +8170,112 @@ const ESCOLAS_DATA = [
     "nome": "Tomaz Edison de Andrade Vieira",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 2.7,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 325 (variação: 300–350)",
-      "turmas": "aproximadamente 24 (variação: 24–25)",
-      "quadroInspetores": "Incompleto (faltam aproximadamente indefinido)",
+      "alunos": "aproximadamente 325",
+      "turmas": "aproximadamente 24",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 4)",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
-      "onibusEscolar": "Indefinido",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Razoável; Classe baixa algumas com problemas estruturais outras mais presentes e melhor organizadas."
+      "onibusEscolar": "Possui e o inspetor acompanha / Possui, mas o inspetor NÃO acompanha",
+      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "publicoAtendido": "Razoável; Classe baixa algumas com problemas estruturais outras mais presentes e melhor organizadas.",
+      "turmasIntegrais": "?",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 2.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 3.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 1,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 1.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta falta de apoio da direção e dos professores, e considera que, mesmo com o adicional de 34%, a escola não vale a pena. A escala é desgastante, a estrutura não é oferecida e o entorno é seguro. Trata-se de escola especial. O estresse é máximo (5/5), e a gestão se mostra alheia, repassando as ocorrências aos inspetores. O relato cita todos os conflitos, exceto a interferência das famílias, mas considera o lugar bom e as crianças ótimas, ressalvando equipe conflituosa. A escala é clara e justa, mas sobrecarrega o colega quando o apoio evita tarefas. Não há sala nem descanso, o entorno é seguro, a escola é de inclusão, o estresse é moderado (3/5) e o retorno é lento.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,7), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Segurança Externa (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Materiais para Recreio (1,0); Inspetores x Direção (2,0); Estrutura Física e Mobiliária (2,0); Inspetores x Professores (2,5).",
+    "conselho": "O público é razoável. Há falta de apoio de direção e professores. Apesar de receber 34% a mais, não vale a pena. A escala é desgastante e não há estrutura. Não há problemas de segurança. A escola é voltada à inclusão. Desgaste: 5/5. O acesso é bom. O público é de classe baixa, com famílias mais organizadas e outras com problemas estruturais. Há interferência das famílias. Aconselho vir: as crianças são ótimas, mas a equipe é conflitante. A divisão é clara e justa, mas o apoio com preguiça ou fazendo tarefas alheias sobrecarrega o colega. Não há sala nem descanso e não há problemas de segurança. É uma escola de inclusão. Desgaste: 3/5. Sem estacionamento, em obra.",
     "relatos": [
-      "O relato aponta falta de apoio da direção e dos professores, e considera que, mesmo com o adicional de 34%, a escola não vale a pena. A escala é desgastante, a estrutura não é oferecida e o entorno é seguro. Trata-se de escola especial. O estresse é máximo (5/5), e a gestão se mostra alheia, repassando as ocorrências aos inspetores.",
-      "O relato cita todos os conflitos, exceto a interferência das famílias, mas considera o lugar bom e as crianças ótimas, ressalvando equipe conflituosa. A escala é clara e justa, mas sobrecarrega o colega quando o apoio evita tarefas. Não há sala nem descanso, o entorno é seguro, a escola é de inclusão, o estresse é moderado (3/5) e o retorno é lento."
+      "O público é razoável. Há falta de apoio de direção e professores. Apesar de receber 34% a mais, não vale a pena. A escala é desgastante e não há estrutura. Não há problemas de segurança. A escola é voltada à inclusão. Desgaste: 5/5. O acesso é bom.",
+      "O público é de classe baixa, com famílias mais organizadas e outras com problemas estruturais. Há interferência das famílias. Aconselho vir: as crianças são ótimas, mas a equipe é conflitante. A divisão é clara e justa, mas o apoio com preguiça ou fazendo tarefas alheias sobrecarrega o colega. Não há sala nem descanso e não há problemas de segurança. É uma escola de inclusão. Desgaste: 3/5. Sem estacionamento, em obra."
     ]
   },
   {
@@ -6200,90 +8284,111 @@ const ESCOLAS_DATA = [
     "nome": "Belmiro César",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.8,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "500",
-      "turmas": "11",
+      "alunos": "aproximadamente 500",
+      "turmas": "aproximadamente 11",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Misto de crianças carentes e de boas condições"
+      "publicoAtendido": "Misto de crianças carentes e de boas condições",
+      "turmasIntegrais": "11",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O principal problema relatado é o absenteísmo abonado de uma colega pela direção. O conselho é vir apenas se não houver alternativa. A escala é justa e clara; o refeitório é bom, mas não há sala própria nem rádio, e o descanso ocorre junto às professoras. O entorno é seguro, faltam tutores, o estresse é alto (4/5) e os problemas são resolvidos.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,8), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Professores (5,0); Inspetores x Setor Pedagógico (5,0); Inspetores x Secretaria (5,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Comércio e Restaurantes no Entorno (2,0); Entre os Inspetores da Unidade (3,0); Materiais para Recreio (3,0).",
+    "conselho": "O público mistura crianças carentes e outras em boas condições. O problema é uma inspetora que falta mais do que comparece, com faltas abonadas pela direção, enquanto o ponto é preenchido normalmente. Se não houver outra escolha, aconselho vir. A escala é justa e clara. Não há sala própria; o descanso é na sala do café com as professoras. O almoço é bom, não há rádio e banheiros e móveis estão adequados. Não há problemas de segurança. Faltam tutores. Desgaste: 4/5. Acesso fácil.",
     "relatos": [
-      "O principal problema relatado é o absenteísmo abonado de uma colega pela direção. O conselho é vir apenas se não houver alternativa. A escala é justa e clara; o refeitório é bom, mas não há sala própria nem rádio, e o descanso ocorre junto às professoras. O entorno é seguro, faltam tutores, o estresse é alto (4/5) e os problemas são resolvidos."
+      "O público mistura crianças carentes e outras em boas condições. O problema é uma inspetora que falta mais do que comparece, com faltas abonadas pela direção, enquanto o ponto é preenchido normalmente. Se não houver outra escolha, aconselho vir. A escala é justa e clara. Não há sala própria; o descanso é na sala do café com as professoras. O almoço é bom, não há rádio e banheiros e móveis estão adequados. Não há problemas de segurança. Faltam tutores. Desgaste: 4/5. Acesso fácil."
     ]
   },
   {
@@ -6292,6 +8397,8 @@ const ESCOLAS_DATA = [
     "nome": "Arapongas",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6301,7 +8408,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6315,6 +8424,8 @@ const ESCOLAS_DATA = [
     "nome": "Maria Clara B. Tesserolli",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6324,7 +8435,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6338,6 +8451,8 @@ const ESCOLAS_DATA = [
     "nome": "Nair de Macedo",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6347,7 +8462,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6361,92 +8478,113 @@ const ESCOLAS_DATA = [
     "nome": "Do Expedicionário",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 225 (variação: 200–250)",
-      "turmas": "aproximadamente 8 (variação: 8–9)",
-      "quadroInspetores": "Incompleto (faltam aproximadamente indefinido)",
+      "alunos": "aproximadamente 223",
+      "turmas": "aproximadamente 8",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 4)",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Pessoas da comunidade uberlândia, classes sociais majoritariamente baixas; A comunidade é boa mas ausente em relação ao desenvolvimento escolar dos filhos"
+      "publicoAtendido": "pessoas da comunidade uberlândia, classes sociais majoritariamente baixas; A comunidade de boa mas ausente em relação ao desenvolvimento escolar dos filhos; Classe baixa, comunidade com periculosidade, tem boca de tráfico, riscos emitentes. Já teve situação de vir um rapaz esfaqueado por facção se esconder aqui.",
+      "turmasIntegrais": "8",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 2.7,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente regular a insatisfatória."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 2.7,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.7,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 2.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 3.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.7,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 2.7,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato descreve fofocas entre professores, alunos reincidentes, falta de valorização do inspetor e direção sem apoio, que segrega a equipe. A escala imposta pela gestão foi injusta e precisou de ajuste interno. A sala é minúscula e deteriorada, o almoço é restrito e o entorno é perigoso, com tráfico. Faltam profissionais de inclusão. O estresse é máximo (5/5); o retorno é aceitável. Aponta-se como principal conflito o desrespeito de alguns alunos, em escola considerada boa, com colegas cooperativos, que precisa de inspetores mais proativos. A escala é justa quando todos estão presentes. A equipe conquistou um espaço próprio, o entorno raramente apresenta riscos e faltam profissionais de inclusão. O estresse é moderado (3/5); alunos levam bilhete e, se necessário, os responsáveis são convocados. Relata-se indisciplina, conflitos com professoras, direção omissa por receio da comunidade e cultura de tratar o inspetor como subalterno. A equipe cuida do pátio, sem atuar no refeitório; o espaço conquistado não é respeitado e há invasão de seus armários. O entorno tem tráfico. Faltam apoios à inclusão. O estresse é máximo (5/5), a gestão é condescendente e a escola, desaconselhada.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (4,7); Entre os Inspetores da Unidade (4,0); Materiais para Recreio (4,0). Constituem desafios: Comércio e Restaurantes no Entorno (2,0); Segurança Externa (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Direção (2,7).",
+    "conselho": "A comunidade, de classes majoritariamente baixas, tem a região considerada relativamente perigosa. Há fofocas de professores, alunos reincidentes, falta de valorização do inspetor e uma direção que o segrega do pedagógico. Não recomendaria, embora existam trabalhos piores; o lado positivo é a escola ser pequena. A escala feita pela gestão foi tão injusta que a equipe a alterou por acordo interno. A sala é minúscula e velha, e o almoço é difícil. Há tráfico no entorno e faltam profissionais de inclusão. Desgaste: 5/5. A linha de ônibus é demorada. A comunidade é boa, mas ausente no desenvolvimento escolar dos filhos. O problema é a falta de respeito de alguns alunos. É um bom local, ninguém fica no pé, mas precisamos de inspetores mais proativos. A escala é justa quando todos estão presentes. Lutamos por um cantinho. A segurança raramente é problema e o número de profissionais de apoio não é adequado. Desgaste: 3/5. Há ponto de ônibus em frente à escola. O público é de classe baixa, com tráfico e riscos; um rapaz esfaqueado já se refugiou na escola. Há indisciplina, conflitos com professoras e direção omissa por medo da comunidade. Aconselho não vir: somos sobrecarregados e desvalorizados. Cuidamos do pátio, não do refeitório. A sala que montamos não é respeitada e nossos pertences foram descartados. Há invasões, e alunos de inclusão ficam sob responsabilidade dos inspetores. Desgaste: 5/5. Há ônibus em horários pouco práticos e estacionamento pequeno.",
     "relatos": [
-      "O relato descreve fofocas entre professores, alunos reincidentes, falta de valorização do inspetor e direção sem apoio, que segrega a equipe. A escala imposta pela gestão foi injusta e precisou de ajuste interno. A sala é minúscula e deteriorada, o almoço é restrito e o entorno é perigoso, com tráfico. Faltam profissionais de inclusão. O estresse é máximo (5/5); o retorno é aceitável.",
-      "Aponta-se como principal conflito o desrespeito de alguns alunos, em escola considerada boa, com colegas cooperativos, que precisa de inspetores mais proativos. A escala é justa quando todos estão presentes. A equipe conquistou um espaço próprio, o entorno raramente apresenta riscos e faltam profissionais de inclusão. O estresse é moderado (3/5); alunos levam bilhete e, se necessário, os responsáveis são convocados.",
-      "Relata-se indisciplina, conflitos com professoras, direção omissa por receio da comunidade e cultura de tratar o inspetor como subalterno. A equipe cuida do pátio, sem atuar no refeitório; o espaço conquistado não é respeitado e há invasão de seus armários. O entorno tem tráfico. Faltam apoios à inclusão. O estresse é máximo (5/5), a gestão é condescendente e a escola, desaconselhada."
+      "A comunidade, de classes majoritariamente baixas, tem a região considerada relativamente perigosa. Há fofocas de professores, alunos reincidentes, falta de valorização do inspetor e uma direção que o segrega do pedagógico. Não recomendaria, embora existam trabalhos piores; o lado positivo é a escola ser pequena. A escala feita pela gestão foi tão injusta que a equipe a alterou por acordo interno. A sala é minúscula e velha, e o almoço é difícil. Há tráfico no entorno e faltam profissionais de inclusão. Desgaste: 5/5. A linha de ônibus é demorada.",
+      "A comunidade é boa, mas ausente no desenvolvimento escolar dos filhos. O problema é a falta de respeito de alguns alunos. É um bom local, ninguém fica no pé, mas precisamos de inspetores mais proativos. A escala é justa quando todos estão presentes. Lutamos por um cantinho. A segurança raramente é problema e o número de profissionais de apoio não é adequado. Desgaste: 3/5. Há ponto de ônibus em frente à escola.",
+      "O público é de classe baixa, com tráfico e riscos; um rapaz esfaqueado já se refugiou na escola. Há indisciplina, conflitos com professoras e direção omissa por medo da comunidade. Aconselho não vir: somos sobrecarregados e desvalorizados. Cuidamos do pátio, não do refeitório. A sala que montamos não é respeitada e nossos pertences foram descartados. Há invasões, e alunos de inclusão ficam sob responsabilidade dos inspetores. Desgaste: 5/5. Há ônibus em horários pouco práticos e estacionamento pequeno."
     ]
   },
   {
@@ -6455,91 +8593,113 @@ const ESCOLAS_DATA = [
     "nome": "Elevir Dionísio",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 3,
+      "atuais": 2,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 348 (variação: 330–366)",
-      "turmas": "16 (média: 8 manhã e 8 tarde)",
+      "alunos": "aproximadamente 366",
+      "turmas": "aproximadamente 8",
       "quadroInspetores": "Completo",
-      "ensinoIntegral": "Indefinido",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
-      "soninhoPre": "Indefinido",
+      "soninhoPre": "Indefinido / Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe social média; Média"
+      "publicoAtendido": "Media; Bem de vida, entorno tranquilo.",
+      "turmasIntegrais": "3",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.5,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.5,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "Aponta-se falta de apoio da diretora, que não ouve as duas partes e pressiona quem não aprecia. O autor não foi feliz no local, mas admite que outro inspetor possa ter experiência diferente. A escala é desgastante, não há sala e os inspetores ficam expostos. O entorno é seguro, faltam apoios à inclusão, o estresse é alto (4/5) e o retorno é indiferente. Os principais problemas são alunos sem limites e pais alheios à situação, e o conselho é ser proativo. A escala é justa e a sala, embora pequena, é adequada. O entorno não apresenta problemas de segurança e a relação com a inclusão é positiva. O estresse é moderado (3/5), e o setor pedagógico e a direção estão sempre prontos para resolver os problemas.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Professores (4,0); Inspetores x Secretaria (4,0). Constituem desafios: Materiais para Recreio (3,0); Auxílio Pedagógico/Direção no Recreio (3,0); Acesso (ônibus, bicicleta, estacionamento) (3,0); Inclusão com Tutores Profissionais (3,3).",
+    "conselho": "O público é de classe média. Houve falta de apoio da diretora, que não ouve as duas partes e persegue quem não lhe agrada. Não fui feliz lá, mas com outro inspetor talvez seja diferente. A escala é desgastante e não há sala, ficando os inspetores expostos no pátio. Não há problemas de segurança no entorno e faltam apoios para a inclusão. Desgaste: 4/5. O público é de classe média. Os alunos têm falta de limites e os pais são alheios. Aconselho ser proativo. A escala é justa e a sala, embora pequena, é adequada. Não há problemas de segurança e a relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom. Atende famílias de boa condição, em entorno tranquilo. Os problemas são famílias omissas diante do mau comportamento das crianças e uma articuladora intrometida. Aconselho tentar. Há divisão em setores. A sala é inadequada para a quantidade de inspetores, mas banheiro e mobiliário estão ok. Não há problemas de segurança. Há crianças com laudo e as PAs ficam desamparadas. Desgaste: 2/5. Sem estacionamento; os carros ficam na rua.",
     "relatos": [
-      "Aponta-se falta de apoio da diretora, que não ouve as duas partes e pressiona quem não aprecia. O autor não foi feliz no local, mas admite que outro inspetor possa ter experiência diferente. A escala é desgastante, não há sala e os inspetores ficam expostos. O entorno é seguro, faltam apoios à inclusão, o estresse é alto (4/5) e o retorno é indiferente.",
-      "Os principais problemas são alunos sem limites e pais alheios à situação, e o conselho é ser proativo. A escala é justa e a sala, embora pequena, é adequada. O entorno não apresenta problemas de segurança e a relação com a inclusão é positiva. O estresse é moderado (3/5), e o setor pedagógico e a direção estão sempre prontos para resolver os problemas."
+      "O público é de classe média. Houve falta de apoio da diretora, que não ouve as duas partes e persegue quem não lhe agrada. Não fui feliz lá, mas com outro inspetor talvez seja diferente. A escala é desgastante e não há sala, ficando os inspetores expostos no pátio. Não há problemas de segurança no entorno e faltam apoios para a inclusão. Desgaste: 4/5.",
+      "O público é de classe média. Os alunos têm falta de limites e os pais são alheios. Aconselho ser proativo. A escala é justa e a sala, embora pequena, é adequada. Não há problemas de segurança e a relação com a inclusão é boa. Desgaste: 3/5. O acesso é bom.",
+      "Atende famílias de boa condição, em entorno tranquilo. Os problemas são famílias omissas diante do mau comportamento das crianças e uma articuladora intrometida. Aconselho tentar. Há divisão em setores. A sala é inadequada para a quantidade de inspetores, mas banheiro e mobiliário estão ok. Não há problemas de segurança. Há crianças com laudo e as PAs ficam desamparadas. Desgaste: 2/5. Sem estacionamento; os carros ficam na rua."
     ]
   },
   {
@@ -6548,90 +8708,111 @@ const ESCOLAS_DATA = [
     "nome": "Madre Maria dos Anjos",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 2.9,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "280",
-      "turmas": "6",
+      "alunos": "aproximadamente 280",
+      "turmas": "aproximadamente 6",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Acham que nós somos empregados deles"
+      "publicoAtendido": "Acham que nós somos empregados deles",
+      "turmasIntegrais": "—",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta a indiferença entre colegas como maior problema e aconselha procurar outra unidade onde as coisas funcionem. A escala é ineficiente e desgastante, e a escola nada oferece aos inspetores, pois só se pensa nos professores. O entorno é seguro; a inclusão é aceita sem preparo, deixando os profissionais por conta própria. O estresse é máximo (5/5), e não há retorno.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,9), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Segurança Externa (4,0); Acesso (ônibus, bicicleta, estacionamento) (4,0); Comércio e Restaurantes no Entorno (4,0). Constituem desafios: Materiais para Recreio (2,0); Equilíbrio na Distribuição de Funções (2,0); Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5).",
+    "conselho": "O público acha que somos empregados dele. Todos os conflitos estão presentes, mas a indiferença entre colegas é o maior. Aconselho procurar outra unidade onde as coisas funcionem. A escala é ineficiente e desgastante. Não há nada para inspetores, pois só se pensa em professores. Não há problemas de segurança. A escola aceita todos os estudantes, mas os profissionais se viram sozinhos. Desgaste: 5/5. Bom acesso.",
     "relatos": [
-      "O relato aponta a indiferença entre colegas como maior problema e aconselha procurar outra unidade onde as coisas funcionem. A escala é ineficiente e desgastante, e a escola nada oferece aos inspetores, pois só se pensa nos professores. O entorno é seguro; a inclusão é aceita sem preparo, deixando os profissionais por conta própria. O estresse é máximo (5/5), e não há retorno."
+      "O público acha que somos empregados dele. Todos os conflitos estão presentes, mas a indiferença entre colegas é o maior. Aconselho procurar outra unidade onde as coisas funcionem. A escala é ineficiente e desgastante. Não há nada para inspetores, pois só se pensa em professores. Não há problemas de segurança. A escola aceita todos os estudantes, mas os profissionais se viram sozinhos. Desgaste: 5/5. Bom acesso."
     ]
   },
   {
@@ -6640,91 +8821,112 @@ const ESCOLAS_DATA = [
     "nome": "Dr. Osvaldo Cruz",
     "regional": "PN - Regional Pinheirinho",
     "temRelatorio": true,
+    "notaFinal": 3.4,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 305 (variação: 260–350)",
-      "turmas": "14 (7 manhã e 7 tarde)",
+      "alunos": "aproximadamente 305",
+      "turmas": "aproximadamente 7",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
-      "onibusEscolar": "Indefinido",
+      "onibusEscolar": "Possui, mas o inspetor NÃO acompanha / Possui e o inspetor acompanha",
       "portoes": "Apenas fechamento",
-      "publicoAtendido": "Normal; Maior parte das famílias são carentes."
+      "publicoAtendido": "Normal; Maior parte das famílias são carentes.",
+      "turmasIntegrais": "Nós temos uma uei com 40 em cada periodo",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 4.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
         "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta a inclusão como conflito comum a todas as escolas e define a unidade como boa. Há divisão de setores, a estrutura para inspetores é adequada e o entorno é seguro. A relação com a inclusão é regular. O estresse é muito baixo (1/5), e a direção sempre resolve as ocorrências graves no pátio. O relato aponta falta de comunicação da equipe gestora e indisciplina discente, aconselhando cumprir apenas o descritivo da função e manter neutralidade. A divisão do pátio é justa, porém a sala dos inspetores funciona junto ao almoxarifado e arquivo, com mobiliário impróprio. O entorno apresenta problemas de segurança, há profissionais de apoio, o estresse é moderado (3/5) e a direção sempre resolve.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,4), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (4,5); Inspetores x Secretaria (4,5); Auxílio Pedagógico/Direção no Recreio (4,0). Constituem desafios: Materiais para Recreio (2,5); Inclusão com Tutores Profissionais (2,5); Entre os Inspetores da Unidade (3,0); Segurança Externa (3,0).",
+    "conselho": "O público é normal e o problema é a inclusão, como em todas as escolas. Aconselho: é uma boa escola. Há divisão de setores e a estrutura é adequada. Não há problemas de segurança. A relação com a inclusão é regular. O desgaste é 1/5 e o acesso é bom. A maior parte das famílias é carente. Há falta de comunicação da equipe gestora e indisciplina dos alunos. Aconselho fazer apenas o previsto no descritivo e manter-se neutro. A divisão do pátio é justa. A sala dos inspetores divide espaço com almoxarifado e arquivo, com mesa imprópria e itens descartados. Há problemas de segurança, mas existem profissionais de apoio. Desgaste: 3/5. Atendem apenas uma linha alimentadora e uma centro/bairro; sem estacionamento.",
     "relatos": [
-      "O relato aponta a inclusão como conflito comum a todas as escolas e define a unidade como boa. Há divisão de setores, a estrutura para inspetores é adequada e o entorno é seguro. A relação com a inclusão é regular. O estresse é muito baixo (1/5), e a direção sempre resolve as ocorrências graves no pátio.",
-      "O relato aponta falta de comunicação da equipe gestora e indisciplina discente, aconselhando cumprir apenas o descritivo da função e manter neutralidade. A divisão do pátio é justa, porém a sala dos inspetores funciona junto ao almoxarifado e arquivo, com mobiliário impróprio. O entorno apresenta problemas de segurança, há profissionais de apoio, o estresse é moderado (3/5) e a direção sempre resolve."
+      "O público é normal e o problema é a inclusão, como em todas as escolas. Aconselho: é uma boa escola. Há divisão de setores e a estrutura é adequada. Não há problemas de segurança. A relação com a inclusão é regular. O desgaste é 1/5 e o acesso é bom.",
+      "A maior parte das famílias é carente. Há falta de comunicação da equipe gestora e indisciplina dos alunos. Aconselho fazer apenas o previsto no descritivo e manter-se neutro. A divisão do pátio é justa. A sala dos inspetores divide espaço com almoxarifado e arquivo, com mesa imprópria e itens descartados. Há problemas de segurança, mas existem profissionais de apoio. Desgaste: 3/5. Atendem apenas uma linha alimentadora e uma centro/bairro; sem estacionamento."
     ]
   },
   {
@@ -6733,6 +8935,8 @@ const ESCOLAS_DATA = [
     "nome": "Campo Mourão",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6742,7 +8946,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6756,92 +8962,113 @@ const ESCOLAS_DATA = [
     "nome": "Francisco Klemtz",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 3,
+      "atuais": 1,
+      "exFuncionarios": 2
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 350 (variação: 300–400)",
-      "turmas": "aproximadamente 9 (variação: 5–12)",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 5",
       "quadroInspetores": "Completo",
-      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
-      "soninhoPre": "Inspetor acompanha",
+      "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe B/C; Comunidade problemática, muitos conflitos."
+      "publicoAtendido": "Classe B,/C",
+      "turmasIntegrais": "5",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4.3,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4.7,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 1.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta indisciplina estudantil e dá boas-vindas ao colega. A escala é muito desgastante, e o ambiente, embora adequado à função diária, é mal conservado pelo tempo de uso e inadequado para descanso. O entorno não apresenta problemas de segurança, faltam PA e tutores para a inclusão, o estresse é alto (4/5) e o retorno do pedagógico e da direção é insatisfatório. Indisciplina, interferência da comunidade e direção sem força para mudar a cultura vigente marcam o relato, que desaconselha a escola pelo desvio de função. A escala é desgastante e injusta, pois alguns acumulam tarefas pesadas e outros pouco trabalham. A sala é ruim, mas o refeitório coletivo é bom. Faltam profissionais de inclusão, o estresse é alto (4/5) e o retorno é regular. O relato menciona indisciplina, conflitos entre colegas, falta de apoio da direção e demandas incompatíveis com a função de ASE, mas aconselha ir com disposição. A escala é desgastante por causa das escadas, embora a estrutura seja adequada. Há problemas de segurança no entorno, o número de profissionais de apoio era insuficiente, o estresse é máximo (5/5) e a direção era ativa.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Setor Pedagógico (5,0); Inspetores x Direção (4,0). Constituem desafios: Materiais para Recreio (1,0); Equilíbrio na Distribuição de Funções (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0); Comércio e Restaurantes no Entorno (2,0).",
+    "conselho": "O público é de classe B/C e o problema é a indisciplina dos estudantes. Aconselho: seja bem-vindo. A escala é grande e desgastante; o ambiente é adequado, mas mal conservado pelo tempo de uso. A estrutura serve ao trabalho diário, não ao descanso. Não há problemas de segurança. Não há PA nem tutores. Desgaste: 4/5. O acesso é ruim. A comunidade é problemática, com muitos conflitos. Há indisciplina, interferência da comunidade e direção sem força para mudar a cultura estabelecida. Aconselho não vir: há muita responsabilidade e desvio de função. A escala é desgastante e injusta, pois alguns acumulam tarefas pesadas e outros mal trabalham. A sala é ruim, mas o refeitório coletivo é bom. Não há problemas de segurança e faltam profissionais de inclusão. Desgaste: 4/5. Há ônibus, mas é preciso subir ladeira; não há estacionamento nem ciclovia. A comunidade tinha menos recursos. Havia indisciplina, conflitos entre colegas, falta de apoio da direção e demandas fora da função de ASE. Aconselho ir com muita disposição. A escala é muito desgastante por causa das escadas. A estrutura é adequada e há problemas de segurança. O número de profissionais de apoio não era adequado. Desgaste: 5/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta indisciplina estudantil e dá boas-vindas ao colega. A escala é muito desgastante, e o ambiente, embora adequado à função diária, é mal conservado pelo tempo de uso e inadequado para descanso. O entorno não apresenta problemas de segurança, faltam PA e tutores para a inclusão, o estresse é alto (4/5) e o retorno do pedagógico e da direção é insatisfatório.",
-      "Indisciplina, interferência da comunidade e direção sem força para mudar a cultura vigente marcam o relato, que desaconselha a escola pelo desvio de função. A escala é desgastante e injusta, pois alguns acumulam tarefas pesadas e outros pouco trabalham. A sala é ruim, mas o refeitório coletivo é bom. Faltam profissionais de inclusão, o estresse é alto (4/5) e o retorno é regular.",
-      "O relato menciona indisciplina, conflitos entre colegas, falta de apoio da direção e demandas incompatíveis com a função de ASE, mas aconselha ir com disposição. A escala é desgastante por causa das escadas, embora a estrutura seja adequada. Há problemas de segurança no entorno, o número de profissionais de apoio era insuficiente, o estresse é máximo (5/5) e a direção era ativa."
+      "O público é de classe B/C e o problema é a indisciplina dos estudantes. Aconselho: seja bem-vindo. A escala é grande e desgastante; o ambiente é adequado, mas mal conservado pelo tempo de uso. A estrutura serve ao trabalho diário, não ao descanso. Não há problemas de segurança. Não há PA nem tutores. Desgaste: 4/5. O acesso é ruim.",
+      "A comunidade é problemática, com muitos conflitos. Há indisciplina, interferência da comunidade e direção sem força para mudar a cultura estabelecida. Aconselho não vir: há muita responsabilidade e desvio de função. A escala é desgastante e injusta, pois alguns acumulam tarefas pesadas e outros mal trabalham. A sala é ruim, mas o refeitório coletivo é bom. Não há problemas de segurança e faltam profissionais de inclusão. Desgaste: 4/5. Há ônibus, mas é preciso subir ladeira; não há estacionamento nem ciclovia.",
+      "A comunidade tinha menos recursos. Havia indisciplina, conflitos entre colegas, falta de apoio da direção e demandas fora da função de ASE. Aconselho ir com muita disposição. A escala é muito desgastante por causa das escadas. A estrutura é adequada e há problemas de segurança. O número de profissionais de apoio não era adequado. Desgaste: 5/5. O acesso é bom."
     ]
   },
   {
@@ -6850,90 +9077,111 @@ const ESCOLAS_DATA = [
     "nome": "Marçal Justen",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.3,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "300",
-      "turmas": "16",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 8",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Um público com uma realidade socioeconômica alta, com uma comunidade atuante."
+      "publicoAtendido": "Um público com uma realidade socioeconômica alta, com uma comunidade atuante.",
+      "turmasIntegrais": "—",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 2,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A principal dificuldade é a falta de integração entre os setores da escola, que é considerada boa. A escala é justa, a estrutura é adequada e o entorno não apresenta problemas de segurança. Há número adequado de profissionais de apoio para a inclusão. O estresse é moderado (3/5), e o setor pedagógico e a direção tomam as providências devidas diante de ocorrências graves.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,3), com relações interpessoais com desafios e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,0); Inspetores x Secretaria (4,0); Materiais para Recreio (4,0). Constituem desafios: Inspetores x Direção (2,0); Inspetores x Setor Pedagógico (2,0); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Professores (3,0).",
+    "conselho": "O público tem realidade socioeconômica alta e a comunidade é atuante. O problema é a falta de integração entre os setores. É uma boa escola, com escala justa e estrutura adequada. Não há problemas de segurança no entorno e o número de profissionais de apoio é adequado. O desgaste é 3/5 e o acesso é bom.",
     "relatos": [
-      "A principal dificuldade é a falta de integração entre os setores da escola, que é considerada boa. A escala é justa, a estrutura é adequada e o entorno não apresenta problemas de segurança. Há número adequado de profissionais de apoio para a inclusão. O estresse é moderado (3/5), e o setor pedagógico e a direção tomam as providências devidas diante de ocorrências graves."
+      "O público tem realidade socioeconômica alta e a comunidade é atuante. O problema é a falta de integração entre os setores. É uma boa escola, com escala justa e estrutura adequada. Não há problemas de segurança no entorno e o número de profissionais de apoio é adequado. O desgaste é 3/5 e o acesso é bom."
     ]
   },
   {
@@ -6942,6 +9190,8 @@ const ESCOLAS_DATA = [
     "nome": "Papa João XXIII",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -6951,7 +9201,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -6964,46 +9216,226 @@ const ESCOLAS_DATA = [
     "codigo": "UEPR18",
     "nome": "Pe. José de Anchieta",
     "regional": "PR - Regional Portão",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.1,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 350",
+      "turmas": "aproximadamente 7",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe media e baixa",
+      "turmasIntegrais": "1",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": null,
+        "peso": 3.47,
+        "obs": "Não informado"
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": null,
+        "peso": 5.2,
+        "obs": "Não informado"
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,1), com relações interpessoais e características da escola bem avaliadas. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (4,0); Inspetores x Setor Pedagógico (4,0). Constituem desafios: Inspetores x Professores (3,0).",
+    "conselho": "O público é de classe média e baixa. Não relatei problemas e não tenho conselhos específicos. A escala é boa e a estrutura é adequada. Não há problemas de segurança. Desgaste: 3/5. O acesso é bom, perto do terminal e de pontos de ônibus.",
+    "relatos": [
+      "O público é de classe média e baixa. Não relatei problemas e não tenho conselhos específicos. A escala é boa e a estrutura é adequada. Não há problemas de segurança. Desgaste: 3/5. O acesso é bom, perto do terminal e de pontos de ônibus."
+    ]
   },
   {
     "id": "UEPR19",
     "codigo": "UEPR19",
     "nome": "CEI Prof. Adriano C. G. Robine",
     "regional": "PR - Regional Portão",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.4,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 275",
+      "turmas": "aproximadamente 10",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Não possui",
+      "soninhoPre": "Escola não possui essa demanda",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Crianças com uma situação boa, comunidade a maior parte participativa, e entorno tranquilo praticamente ao lado do terminal do Fazendinha.",
+      "turmasIntegrais": "Todas",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,4), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Auxílio Pedagógico/Direção no Recreio (2,0); Comércio e Restaurantes no Entorno (2,5); Materiais para Recreio (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "As crianças estão em boa situação, a comunidade é majoritariamente participativa e o entorno é tranquilo, ao lado do terminal Fazendinha. O problema é a indisciplina. Venha tranquilo: a equipe é muito boa. Fazemos tudo juntos; só a saída tem divisão. Há sala própria e cozinha com os professores. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 2/5. O acesso é muito fácil.",
+    "relatos": [
+      "As crianças estão em boa situação, a comunidade é majoritariamente participativa e o entorno é tranquilo, ao lado do terminal Fazendinha. O problema é a indisciplina. Venha tranquilo: a equipe é muito boa. Fazemos tudo juntos; só a saída tem divisão. Há sala própria e cozinha com os professores. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 2/5. O acesso é muito fácil."
+    ]
   },
   {
     "id": "UEPR20",
@@ -7011,6 +9443,8 @@ const ESCOLAS_DATA = [
     "nome": "Nova Esperança",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7020,7 +9454,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7034,90 +9470,111 @@ const ESCOLAS_DATA = [
     "nome": "Graciliano Ramos",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.9,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "580",
-      "turmas": "20",
+      "alunos": "aproximadamente 580",
+      "turmas": "aproximadamente 20",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Não realiza abertura nem fechamento",
-      "publicoAtendido": "Em sua grande maioria, são famílias que não passam por necessidades financeiras, temos bastante alunos vindos do norte, nordeste e também da Venezuela"
+      "publicoAtendido": "Em sua grande maioria, são famílias que não passam por necessidades financeiras, temos bastante alunos vindos do norte, nordeste e também da Venezuela",
+      "turmasIntegrais": "—",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato destaca pais exigentes, que mimam os filhos, mas valoriza o respeito aos alunos, aconselhando quem goste de crianças. A escala é em rodízio, sem sobrecarregar ninguém. Há sala com armários e refeitório com micro-ondas. O entorno é seguro, falta uma profissional de apoio, o estresse é moderado (3/5) e as pedagogas e a direção oferecem bom suporte.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,9), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (5,0); Inspetores x Direção (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5); Inspetores x Secretaria (3,0).",
+    "conselho": "São famílias sem necessidades financeiras, com muitos alunos do Norte, Nordeste e Venezuela. Os pais mimam as crianças e a comunidade, muito exigente, reclama por tudo. Aconselho: aqui prezamos pelo bem-estar dos alunos; quem não gosta de criança e quer só recessos e férias não se adapta. A escala é em rodízio, sem sobrecarga. Há sala com armários, ar-condicionado e refeitório com micro-ondas. Sem problemas de segurança. Há muitos incluídos, alguns sem apoio. Desgaste: 3/5. Bom acesso.",
     "relatos": [
-      "O relato destaca pais exigentes, que mimam os filhos, mas valoriza o respeito aos alunos, aconselhando quem goste de crianças. A escala é em rodízio, sem sobrecarregar ninguém. Há sala com armários e refeitório com micro-ondas. O entorno é seguro, falta uma profissional de apoio, o estresse é moderado (3/5) e as pedagogas e a direção oferecem bom suporte."
+      "São famílias sem necessidades financeiras, com muitos alunos do Norte, Nordeste e Venezuela. Os pais mimam as crianças e a comunidade, muito exigente, reclama por tudo. Aconselho: aqui prezamos pelo bem-estar dos alunos; quem não gosta de criança e quer só recessos e férias não se adapta. A escala é em rodízio, sem sobrecarga. Há sala com armários, ar-condicionado e refeitório com micro-ondas. Sem problemas de segurança. Há muitos incluídos, alguns sem apoio. Desgaste: 3/5. Bom acesso."
     ]
   },
   {
@@ -7126,6 +9583,8 @@ const ESCOLAS_DATA = [
     "nome": "São Luiz",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7135,7 +9594,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7149,6 +9610,8 @@ const ESCOLAS_DATA = [
     "nome": "Miguel Krug",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7158,7 +9621,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7172,90 +9637,111 @@ const ESCOLAS_DATA = [
     "nome": "Itacelina Bittencourt",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "390",
-      "turmas": "13",
+      "alunos": "aproximadamente 390",
+      "turmas": "aproximadamente 13",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Sociedade carente do Guaíra, Fanny e Parolin."
+      "publicoAtendido": "Sociedade carente do Guaíra, Fanny e Parolin.",
+      "turmasIntegrais": "12",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "Destacam-se indisciplina crescente e pais que exigem milagres sem apoiar os filhos, aconselhando vir sem medo, mas disposto a trabalhar. A escala é justa, com uma turma por inspetor e recreios de vinte minutos. Faltam sala, rádio e mobiliário, e a escola sofre furtos. Há poucos PAs, o estresse é baixo (2/5) e o conflito exige a intervenção dos inspetores.",
+    "sintese": "Unidade com avaliação global regular (nota final 4,0), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Entre os Inspetores da Unidade (4,0); Inspetores x Professores (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Auxílio Pedagógico/Direção no Recreio (2,5); Segurança Externa (3,0).",
+    "conselho": "A comunidade é carente, do Guaíra, Fanny e Parolin. A indisciplina cresce e os pais exigem milagres, sem enxergar a necessidade de participar da educação dos filhos. Pode vir sem medo, mas disposto a trabalhar. A escala é justa e bem organizada: uma turma por inspetor e dois recreios de vinte minutos. Não há sala própria, rádio nem mobiliário adequado, só cadeiras das crianças. Há muitos furtos. Há classe especial, mas poucos PAs, com alta rotatividade. Desgaste: 2/5. Bom acesso.",
     "relatos": [
-      "Destacam-se indisciplina crescente e pais que exigem milagres sem apoiar os filhos, aconselhando vir sem medo, mas disposto a trabalhar. A escala é justa, com uma turma por inspetor e recreios de vinte minutos. Faltam sala, rádio e mobiliário, e a escola sofre furtos. Há poucos PAs, o estresse é baixo (2/5) e o conflito exige a intervenção dos inspetores."
+      "A comunidade é carente, do Guaíra, Fanny e Parolin. A indisciplina cresce e os pais exigem milagres, sem enxergar a necessidade de participar da educação dos filhos. Pode vir sem medo, mas disposto a trabalhar. A escala é justa e bem organizada: uma turma por inspetor e dois recreios de vinte minutos. Não há sala própria, rádio nem mobiliário adequado, só cadeiras das crianças. Há muitos furtos. Há classe especial, mas poucos PAs, com alta rotatividade. Desgaste: 2/5. Bom acesso."
     ]
   },
   {
@@ -7264,6 +9750,8 @@ const ESCOLAS_DATA = [
     "nome": "Presidente Pedrosa",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7273,7 +9761,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7287,6 +9777,8 @@ const ESCOLAS_DATA = [
     "nome": "Maria Nicolas",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7296,7 +9788,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7310,90 +9804,111 @@ const ESCOLAS_DATA = [
     "nome": "Nansyr Cecato",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 0,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "120",
-      "turmas": "Não lembro",
+      "alunos": "aproximadamente 120",
+      "turmas": "—",
       "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Público bem carente"
+      "publicoAtendido": "Público bem carente",
+      "turmasIntegrais": "Eram todas integrais se não me engano",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 1.5,
-        "obs": "Entorno com registro de riscos ou ocorrências de violência nas proximidades."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 1.8,
-        "obs": "Escala de pátio descrita como desgastante ou pouco justa na maior parte das avaliações."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como ruim pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 2,
-        "obs": "Acesso à unidade limitado, com restrições de transporte ou estacionamento."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta violência e falta de apoio da comunidade, recomendando cuidado e paciência, pois alguns alunos são carentes. A escala é desgastante, com banheiros adequados. O entorno é inseguro, e critica-se a falta de atenção ao local, com funcionários mal pagos e sem adicional de insalubridade. A inclusão é atendida, o estresse é máximo (5/5) e o retorno é rápido.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Materiais para Recreio (2,0); Equilíbrio na Distribuição de Funções (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0); Comércio e Restaurantes no Entorno (2,0).",
+    "conselho": "O público é bem carente. Os problemas são violência e falta de apoio da comunidade. Aconselho cuidado em todos os sentidos e paciência, pois alguns alunos são bem carentes. A escala é desgastante. Há banheiros adequados. A segurança é crítica e é um absurdo não darem atenção a essa área, com funcionários mal pagos e sem adicional de insalubridade. Há apoio à inclusão. Desgaste: 5/5. Não há acesso: cada um que lute.",
     "relatos": [
-      "O relato aponta violência e falta de apoio da comunidade, recomendando cuidado e paciência, pois alguns alunos são carentes. A escala é desgastante, com banheiros adequados. O entorno é inseguro, e critica-se a falta de atenção ao local, com funcionários mal pagos e sem adicional de insalubridade. A inclusão é atendida, o estresse é máximo (5/5) e o retorno é rápido."
+      "O público é bem carente. Os problemas são violência e falta de apoio da comunidade. Aconselho cuidado em todos os sentidos e paciência, pois alguns alunos são bem carentes. A escala é desgastante. Há banheiros adequados. A segurança é crítica e é um absurdo não darem atenção a essa área, com funcionários mal pagos e sem adicional de insalubridade. Há apoio à inclusão. Desgaste: 5/5. Não há acesso: cada um que lute."
     ]
   },
   {
@@ -7402,91 +9917,112 @@ const ESCOLAS_DATA = [
     "nome": "Ali Bark",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 2.8,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 185 (variação: 170–200)",
-      "turmas": "aproximadamente 14 (variação: 9–20)",
-      "quadroInspetores": "Indefinido",
+      "alunos": "aproximadamente 170",
+      "turmas": "aproximadamente 10",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
       "ensinoIntegral": "Não oferta período integral",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Abrange todas as classes mas prevalece média alta; Classe média"
+      "publicoAtendido": "Abrange todas as classes mas prevalece média alta",
+      "turmasIntegrais": "0",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre segurança no entorno; alguns relatos apontam riscos."
+        "nota": 2.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como ruim pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2.5,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
         "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato descreve uma escola especial com demandas intensas, como surtos, agressões e questões emocionais, que exigem do inspetor muito mais do que as atribuições formais. A escala é justa, mas a estrutura mínima não é oferecida e há problemas de segurança no entorno. O estresse é alto (4/5). O retorno pedagógico limita-se aos pais, sem devolutiva à equipe. Em vez de conflitos, o relato aponta excesso de responsabilidades em escola especial: troca de fraldas, acesso a sondas, acompanhamento de almoço de cadeirantes e medicação. Recomenda-se experiência prévia com necessidades especiais. A escala mensal em rodízio conta com boa colaboração, a estrutura é mínima, o entorno é seguro, o estresse é moderado (3/5) e o retorno da gestão é bom.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,8), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Equilíbrio na Distribuição de Funções (4,0). Constituem desafios: Materiais para Recreio (2,0); Segurança Externa (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Comércio e Restaurantes no Entorno (2,0).",
+    "conselho": "O público abrange todas as classes, com predomínio da média alta. Por ser escola especial, lidamos com surtos, agressões e questões emocionais. Aconselho suportar o que não existe em escola regular e fazer bem mais do que as atribuições da função. A escala é justa, mas a estrutura mínima não é oferecida. Não há problemas de segurança. Desgaste: 4/5. Atende apenas uma linha regular de ônibus. Atendemos famílias de classe média. Mais que conflitos, há excesso de responsabilidades: troca de fraldas, acesso a sondas, acompanhamento de almoço de cadeirantes e medicação. Recomendo a escola apenas a quem tenha experiência com alunos com necessidades especiais. A escala é mensal, em rodízio, com muita colaboração. Há estrutura mínima e não há problemas de segurança. Desgaste: 3/5. Acesso fácil.",
     "relatos": [
-      "O relato descreve uma escola especial com demandas intensas, como surtos, agressões e questões emocionais, que exigem do inspetor muito mais do que as atribuições formais. A escala é justa, mas a estrutura mínima não é oferecida e há problemas de segurança no entorno. O estresse é alto (4/5). O retorno pedagógico limita-se aos pais, sem devolutiva à equipe.",
-      "Em vez de conflitos, o relato aponta excesso de responsabilidades em escola especial: troca de fraldas, acesso a sondas, acompanhamento de almoço de cadeirantes e medicação. Recomenda-se experiência prévia com necessidades especiais. A escala mensal em rodízio conta com boa colaboração, a estrutura é mínima, o entorno é seguro, o estresse é moderado (3/5) e o retorno da gestão é bom."
+      "O público abrange todas as classes, com predomínio da média alta. Por ser escola especial, lidamos com surtos, agressões e questões emocionais. Aconselho suportar o que não existe em escola regular e fazer bem mais do que as atribuições da função. A escala é justa, mas a estrutura mínima não é oferecida. Não há problemas de segurança. Desgaste: 4/5. Atende apenas uma linha regular de ônibus.",
+      "Atendemos famílias de classe média. Mais que conflitos, há excesso de responsabilidades: troca de fraldas, acesso a sondas, acompanhamento de almoço de cadeirantes e medicação. Recomendo a escola apenas a quem tenha experiência com alunos com necessidades especiais. A escala é mensal, em rodízio, com muita colaboração. Há estrutura mínima e não há problemas de segurança. Desgaste: 3/5. Acesso fácil."
     ]
   },
   {
@@ -7495,93 +10031,115 @@ const ESCOLAS_DATA = [
     "nome": "Lina Maria Martins Moreira",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 5,
+      "atuais": 3,
+      "exFuncionarios": 2
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 294 (variação: 290–298)",
-      "turmas": "18 (9 manhã e 9 tarde)",
-      "quadroInspetores": "Indefinido",
+      "alunos": "aproximadamente 296",
+      "turmas": "aproximadamente 9",
+      "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Comunidade com boas condições financeiras-sociais, local seguro; Classe social média"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe social mediap; Classe social média para vulnerável; Classe social média e um bom entorno",
+      "turmasIntegrais": "9",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4.2,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.7,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 2.7,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 3.8,
-        "obs": "Relação com a secretaria da unidade. Avaliação entre boa e regular."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4.8,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2.8,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 2.3,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.3,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 2.2,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 3.7,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.7,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Denunciam-se conflitos com a direção e assédio moral, desaconselhando o ambiente, descrito como terrível para inspetores. A escala é justa, mas não há local próprio e a sala dos professores não os acolhe. O entorno é seguro e a inclusão tem apoio adequado. O estresse é máximo (5/5), e o retorno culpabiliza os inspetores e coloca as famílias contra a equipe. A indisciplina é o principal problema, mas a escola é considerada boa para trabalhar, e o conselho é vir. A escala é justa e a estrutura é insuficiente, e o entorno é seguro. Não há número adequado de profissionais de apoio para a inclusão. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção a ocorrências graves é imediato. O relato aponta indisciplina e falta de apoio da direção, recomendando evitar a escola. A escala, em reforma, é ruim, e a estrutura destinada aos inspetores é insuficiente, e o entorno é seguro. A inclusão é avaliada negativamente. O estresse é máximo (5/5), e o retorno é praticamente inexistente, pois a falta de apoio da direção gera desgaste. Os problemas envolvem autonomia dos inspetores, falta de ergonomia e ausência de espaço para alimentação. O conselho é que se pode trabalhar com tranquilidade, desde que se pleiteiem melhores condições. A escala é justa, mas a escola não oferece estrutura adequada e não possui apoio à inclusão, e o entorno é seguro. O estresse é baixo (2/5), e o retorno é adequado.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (4,7); Inspetores x Secretaria (4,3). Constituem desafios: Inclusão com Tutores Profissionais (2,2); Materiais para Recreio (2,3); Estrutura Física e Mobiliária (2,3); Inspetores x Direção (2,7).",
+    "conselho": "A comunidade tem boas condições financeiras e o local é seguro. Há conflitos com a direção e assédio moral. Não vá: o ambiente é terrível para inspetores. A escala é justa, mas não há local próprio para os inspetores, que não são bem-vindos na sala dos professores. O número de apoios é adequado. Desgaste: 5/5. Três linhas de ônibus e estacionamento pequeno. O público é de classe média e o problema é a indisciplina. Pode vir: é uma escola boa. A escala é justa. A estrutura para inspetores não é oferecida e o número de PAs não é adequado. Não há problemas de segurança. Desgaste: 3/5. Acesso bom. O público é neutro. Os problemas são indisciplina e falta de apoio da direção. Aconselho evitar, por conta da direção. A escola está em reforma, mas a situação é ruim. Não há estrutura para inspetores, nem apoio à inclusão. Desgaste: 5/5. O acesso é apenas por linha de ônibus. O público varia de classe média a vulnerável. Os problemas são autonomia excessiva dos inspetores e falta de ergonomia e de espaço para alimentação. Atualmente é possível trabalhar com tranquilidade, mas é preciso pleitear melhores condições. A escala é justa. A escola não oferece estrutura mínima nem apoio à inclusão. Desgaste: 2/5. O acesso é bom. O público é de classe média, com bom entorno. Há nenhum apoio da direção, apoio médio da equipe pedagógica e muitos alunos que batem e xingam; a direção nada faz para não perder votos. Procure outra opção. A escala é desgastante: o almoço com 300 crianças é enlouquecedor. Não há estrutura, apenas cadeiras jogadas. Sem problemas de segurança. Os inspetores se viram na inclusão. Desgaste: 5/5. Só há uma linha de ônibus.",
     "relatos": [
-      "Denunciam-se conflitos com a direção e assédio moral, desaconselhando o ambiente, descrito como terrível para inspetores. A escala é justa, mas não há local próprio e a sala dos professores não os acolhe. O entorno é seguro e a inclusão tem apoio adequado. O estresse é máximo (5/5), e o retorno culpabiliza os inspetores e coloca as famílias contra a equipe.",
-      "A indisciplina é o principal problema, mas a escola é considerada boa para trabalhar, e o conselho é vir. A escala é justa e a estrutura é insuficiente, e o entorno é seguro. Não há número adequado de profissionais de apoio para a inclusão. O estresse é moderado (3/5), e o retorno do setor pedagógico e da direção a ocorrências graves é imediato.",
-      "O relato aponta indisciplina e falta de apoio da direção, recomendando evitar a escola. A escala, em reforma, é ruim, e a estrutura destinada aos inspetores é insuficiente, e o entorno é seguro. A inclusão é avaliada negativamente. O estresse é máximo (5/5), e o retorno é praticamente inexistente, pois a falta de apoio da direção gera desgaste.",
-      "Os problemas envolvem autonomia dos inspetores, falta de ergonomia e ausência de espaço para alimentação. O conselho é que se pode trabalhar com tranquilidade, desde que se pleiteiem melhores condições. A escala é justa, mas a escola não oferece estrutura adequada e não possui apoio à inclusão, e o entorno é seguro. O estresse é baixo (2/5), e o retorno é adequado."
+      "A comunidade tem boas condições financeiras e o local é seguro. Há conflitos com a direção e assédio moral. Não vá: o ambiente é terrível para inspetores. A escala é justa, mas não há local próprio para os inspetores, que não são bem-vindos na sala dos professores. O número de apoios é adequado. Desgaste: 5/5. Três linhas de ônibus e estacionamento pequeno.",
+      "O público é de classe média e o problema é a indisciplina. Pode vir: é uma escola boa. A escala é justa. A estrutura para inspetores não é oferecida e o número de PAs não é adequado. Não há problemas de segurança. Desgaste: 3/5. Acesso bom.",
+      "O público é neutro. Os problemas são indisciplina e falta de apoio da direção. Aconselho evitar, por conta da direção. A escola está em reforma, mas a situação é ruim. Não há estrutura para inspetores, nem apoio à inclusão. Desgaste: 5/5. O acesso é apenas por linha de ônibus.",
+      "O público varia de classe média a vulnerável. Os problemas são autonomia excessiva dos inspetores e falta de ergonomia e de espaço para alimentação. Atualmente é possível trabalhar com tranquilidade, mas é preciso pleitear melhores condições. A escala é justa. A escola não oferece estrutura mínima nem apoio à inclusão. Desgaste: 2/5. O acesso é bom.",
+      "O público é de classe média, com bom entorno. Há nenhum apoio da direção, apoio médio da equipe pedagógica e muitos alunos que batem e xingam; a direção nada faz para não perder votos. Procure outra opção. A escala é desgastante: o almoço com 300 crianças é enlouquecedor. Não há estrutura, apenas cadeiras jogadas. Sem problemas de segurança. Os inspetores se viram na inclusão. Desgaste: 5/5. Só há uma linha de ônibus."
     ]
   },
   {
@@ -7590,93 +10148,114 @@ const ESCOLAS_DATA = [
     "nome": "Jardim Santos Andrade",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 3.5,
+    "participantes": {
+      "total": 4,
+      "atuais": 4,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 210 (variação: 120–300)",
-      "turmas": "12",
+      "alunos": "aproximadamente 206",
+      "turmas": "aproximadamente 38",
       "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
-      "ensinoIntegral": "Indefinido",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral) / Apenas turmas de Pré-escola Integral",
       "uei": "Possui",
-      "soninhoPre": "Indefinido",
+      "soninhoPre": "Inspetor acompanha / Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Muito complicado pois é uma das 3 piores da região com bastante alunos com proteção; É bem mesclado entre comunidade de baixa renda, e classe média. Sendo assim tendo alguns mais difíceis"
+      "publicoAtendido": "Muito complicado pois é uma das 3 piores da região com bastante alunos com proteção; É bem mesclado entre comunidade de baixa renda, e classe média. Sendo assim tendo alguns mais difíceis de lidar, precisando cuidado, mas a maioria é compreensível.; Classe média; Classe média baixa",
+      "turmasIntegrais": "3",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4.2,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4.2,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4.2,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.3,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
         "nota": 4.8,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 2.8,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.6,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3.2,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.3,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
         "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 2.9,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 3.1,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 2,
-        "obs": "Acesso à unidade limitado, com restrições de transporte ou estacionamento."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "Apontam-se conflitos com colegas e falta de apoio da direção, desaconselhando a escola. A escala é desgastante porque os inspetores antigos comandam. A sala é minúscula e não comporta todos, faltando comunicação. O entorno é seguro, há muitos alunos de inclusão sem profissionais suficientes, o estresse é máximo (5/5) e os casos vão direto à direção, pois o pedagógico é péssimo. Aponta-se falta de apoio das famílias e aconselha-se lidar com as diferenças, gostar do que faz e fazê-lo bem. A escala é justa, e inspetores são acionados só quando necessário. Há sala própria, ainda que pequena, e a direção distribui os inspetores pela escola. O entorno é seguro, a inclusão é boa, o estresse é baixo (2/5) e a gestão atende. O relato afirma não haver problemas relevantes e aconselha aprender observando. A escala é considerada precária, e a estrutura não atende a todos os inspetores. O entorno não apresenta problemas de segurança, a relação com a inclusão é positiva, o estresse é moderado (3/5) e o retorno da direção e do setor pedagógico diante de ocorrências graves é bom. O principal problema relatado são conflitos com colegas, e o conselho é aprender observando. A escala é precária, e a estrutura também, pois não há espaço para toda a equipe. O entorno não apresenta problemas de segurança, a relação com a inclusão é boa, o estresse é moderado (3/5) e o retorno da gestão diante de ocorrências graves é bom, segundo o relato.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,5), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (4,8); Inspetores x Direção (4,3); Inspetores x Professores (4,3). Constituem desafios: Equilíbrio na Distribuição de Funções (2,5); Acesso (ônibus, bicicleta, estacionamento) (2,5); Estrutura Física e Mobiliária (2,6); Entre os Inspetores da Unidade (2,8).",
+    "conselho": "A escola é muito complicada, uma das três piores da região, com muitos alunos sob proteção. Há conflitos entre colegas e falta de apoio da direção. Não vá de jeito nenhum. A escala é desgastante, pois os inspetores mais antigos comandam. A sala é minúscula e falta comunicação. Não há problemas de segurança. Há muitos incluídos e faltam profissionais. Desgaste: 5/5. Só há uma linha de ônibus, demorada, e não há estacionamento. O público mescla baixa renda e classe média, sendo a maioria compreensiva. Falta apoio das famílias. Aconselho aprender a lidar com as diferenças e fazer bem o que se gosta. A escala é justa: articuladora e professoras cuidam, e os inspetores entram quando necessário. Há sala própria pequena e a direção distribui os inspetores. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 2/5. Há quatro linhas de ônibus. O público é de classe média e não há problemas relevantes. Aconselho observar, pois assim se aprende. A escala é precária e a estrutura não atende a todos. Não há problemas de segurança no entorno. A relação com a inclusão é positiva. Desgaste: 3/5. O acesso é ruim. Atende classe média baixa e o conflito é entre colegas. Aconselho observar, pois assim se aprende. A escala é precária e não há espaço para toda a equipe. Sem problemas de segurança. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é ruim.",
     "relatos": [
-      "Apontam-se conflitos com colegas e falta de apoio da direção, desaconselhando a escola. A escala é desgastante porque os inspetores antigos comandam. A sala é minúscula e não comporta todos, faltando comunicação. O entorno é seguro, há muitos alunos de inclusão sem profissionais suficientes, o estresse é máximo (5/5) e os casos vão direto à direção, pois o pedagógico é péssimo.",
-      "Aponta-se falta de apoio das famílias e aconselha-se lidar com as diferenças, gostar do que faz e fazê-lo bem. A escala é justa, e inspetores são acionados só quando necessário. Há sala própria, ainda que pequena, e a direção distribui os inspetores pela escola. O entorno é seguro, a inclusão é boa, o estresse é baixo (2/5) e a gestão atende.",
-      "O relato afirma não haver problemas relevantes e aconselha aprender observando. A escala é considerada precária, e a estrutura não atende a todos os inspetores. O entorno não apresenta problemas de segurança, a relação com a inclusão é positiva, o estresse é moderado (3/5) e o retorno da direção e do setor pedagógico diante de ocorrências graves é bom.",
-      "O principal problema relatado são conflitos com colegas, e o conselho é aprender observando. A escala é precária, e a estrutura também, pois não há espaço para toda a equipe. O entorno não apresenta problemas de segurança, a relação com a inclusão é boa, o estresse é moderado (3/5) e o retorno da gestão diante de ocorrências graves é bom, segundo o relato."
+      "A escola é muito complicada, uma das três piores da região, com muitos alunos sob proteção. Há conflitos entre colegas e falta de apoio da direção. Não vá de jeito nenhum. A escala é desgastante, pois os inspetores mais antigos comandam. A sala é minúscula e falta comunicação. Não há problemas de segurança. Há muitos incluídos e faltam profissionais. Desgaste: 5/5. Só há uma linha de ônibus, demorada, e não há estacionamento.",
+      "O público mescla baixa renda e classe média, sendo a maioria compreensiva. Falta apoio das famílias. Aconselho aprender a lidar com as diferenças e fazer bem o que se gosta. A escala é justa: articuladora e professoras cuidam, e os inspetores entram quando necessário. Há sala própria pequena e a direção distribui os inspetores. Não há problemas de segurança. A relação com a inclusão é boa. Desgaste: 2/5. Há quatro linhas de ônibus.",
+      "O público é de classe média e não há problemas relevantes. Aconselho observar, pois assim se aprende. A escala é precária e a estrutura não atende a todos. Não há problemas de segurança no entorno. A relação com a inclusão é positiva. Desgaste: 3/5. O acesso é ruim.",
+      "Atende classe média baixa e o conflito é entre colegas. Aconselho observar, pois assim se aprende. A escala é precária e não há espaço para toda a equipe. Sem problemas de segurança. A relação com a inclusão é boa. Desgaste: 3/5. O acesso é ruim."
     ]
   },
   {
@@ -7685,6 +10264,8 @@ const ESCOLAS_DATA = [
     "nome": "Pe. João Cruciani",
     "regional": "PR - Regional Portão",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7694,7 +10275,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7708,90 +10291,111 @@ const ESCOLAS_DATA = [
     "nome": "EM de Educação Integral Zélia Milléo Pavão",
     "regional": "PR - Regional Portão",
     "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "270",
-      "turmas": "9",
+      "alunos": "aproximadamente 270",
+      "turmas": "aproximadamente 9",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe e comunidade envolta de média alta na maioria"
+      "publicoAtendido": "Classe e comunidade envolta de média alta na maioria",
+      "turmasIntegrais": "9",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta conflitos com colegas e aconselha vir. A escala é razoável e a estrutura é deficiente: não há rádio nem descanso, apenas uma sala com mesa e micro-ondas, onde o intervalo é interrompido por pedidos de curativos, temperatura e gelo. O entorno é seguro, a inclusão é insatisfatória, o estresse é moderado (3/5) e a gestão apoia os inspetores.",
+    "sintese": "Unidade com avaliação global regular (nota final 4,0), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (5,0); Inspetores x Setor Pedagógico (5,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Inclusão com Tutores Profissionais (2,5); Entre os Inspetores da Unidade (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "O público e a comunidade são, em sua maioria, de classe média alta. O conflito é entre colegas. Aconselho vir. A escala é razoável. Não há rádio nem espaço de descanso; a sala tem mesa e micro-ondas, mas mesmo no intervalo as crianças pedem curativos, temperatura e gelo. Não há problemas de segurança. A inclusão não é adequadamente atendida. Desgaste: 3/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta conflitos com colegas e aconselha vir. A escala é razoável e a estrutura é deficiente: não há rádio nem descanso, apenas uma sala com mesa e micro-ondas, onde o intervalo é interrompido por pedidos de curativos, temperatura e gelo. O entorno é seguro, a inclusão é insatisfatória, o estresse é moderado (3/5) e a gestão apoia os inspetores."
+      "O público e a comunidade são, em sua maioria, de classe média alta. O conflito é entre colegas. Aconselho vir. A escala é razoável. Não há rádio nem espaço de descanso; a sala tem mesa e micro-ondas, mas mesmo no intervalo as crianças pedem curativos, temperatura e gelo. Não há problemas de segurança. A inclusão não é adequadamente atendida. Desgaste: 3/5. O acesso é bom."
     ]
   },
   {
@@ -7800,6 +10404,8 @@ const ESCOLAS_DATA = [
     "nome": "Sônia Maria Coimbra Kenski",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7809,7 +10415,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7823,6 +10431,8 @@ const ESCOLAS_DATA = [
     "nome": "Foz do Iguaçu",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7832,7 +10442,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7845,23 +10457,114 @@ const ESCOLAS_DATA = [
     "codigo": "UESF3",
     "nome": "Dos Vinhedos",
     "regional": "SF - Regional Santa Felicidade",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.2,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 650",
+      "turmas": "aproximadamente 10",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas turmas de Pré-escola Integral / Ambas (Pré e Fundamental Integral)",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor não acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "publicoAtendido": "É como se fosse um grupo de pais no estilo Caco Antibes do seriado Sai de Baixo. Um monte de pobre que se acha rico.; Minha comunidade é igual ao personagem do Miguel Falabella no Sai de Baixo.",
+      "turmasIntegrais": "1",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 1.5,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente negativa."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 3.5,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 2.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ruim pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 2.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,2), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Acesso (ônibus, bicicleta, estacionamento) (4,0). Constituem desafios: Inspetores x Setor Pedagógico (1,5); Materiais para Recreio (2,0); Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,3).",
+    "conselho": "O público é de famílias com ar de elite, embora muitas tenham condição modesta. Há interferência da comunidade e lentidão da equipe pedagógica. Aconselho pensar duas vezes: são mais de 70 crianças de inclusão e as pedagogas não acionam as famílias em crise, o que nos expõe a agressões. Não há escala além do recreio e faltam cadeiras. Há problemas de segurança. A escola não dispõe de apoio suficiente. Desgaste: 5/5. Acesso fácil. A comunidade tem perfil elitizado e atuante. Há excesso de inclusão, falta de apoio pedagógico e acúmulo de combinados com as famílias; a comunidade manda mais que os profissionais. Aconselho registrar tudo em ata, cuidar do que diz e cultivar boa relação com a comunidade. A divisão está em ata, com escala setorial. A sala é pequena e a chefia do núcleo não gosta que a usemos; faltam cadeiras. Sem problemas de segurança. Apoio insuficiente. Desgaste: 5/5. Fica a menos de 500 metros do terminal.",
+    "relatos": [
+      "O público é de famílias com ar de elite, embora muitas tenham condição modesta. Há interferência da comunidade e lentidão da equipe pedagógica. Aconselho pensar duas vezes: são mais de 70 crianças de inclusão e as pedagogas não acionam as famílias em crise, o que nos expõe a agressões. Não há escala além do recreio e faltam cadeiras. Há problemas de segurança. A escola não dispõe de apoio suficiente. Desgaste: 5/5. Acesso fácil.",
+      "A comunidade tem perfil elitizado e atuante. Há excesso de inclusão, falta de apoio pedagógico e acúmulo de combinados com as famílias; a comunidade manda mais que os profissionais. Aconselho registrar tudo em ata, cuidar do que diz e cultivar boa relação com a comunidade. A divisão está em ata, com escala setorial. A sala é pequena e a chefia do núcleo não gosta que a usemos; faltam cadeiras. Sem problemas de segurança. Apoio insuficiente. Desgaste: 5/5. Fica a menos de 500 metros do terminal."
+    ]
   },
   {
     "id": "UESF4",
@@ -7869,6 +10572,8 @@ const ESCOLAS_DATA = [
     "nome": "Raoul Wallenberg",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7878,7 +10583,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7892,6 +10599,8 @@ const ESCOLAS_DATA = [
     "nome": "Júlio Moreira",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -7901,7 +10610,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -7915,91 +10626,112 @@ const ESCOLAS_DATA = [
     "nome": "Boleslau Falarz",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": true,
+    "notaFinal": 4.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 0,
+      "exFuncionarios": 2
+    },
     "caracteristicasGerais": {
-      "alunos": "300",
-      "turmas": "16",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 16",
       "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Baixa/média; Todas as classes"
+      "publicoAtendido": "Baixa/média; Todas as classes",
+      "turmasIntegrais": "2",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
         "nota": 4.5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 3.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "A escola é descrita como maravilhosa, com problemas pontuais de indisciplina e questões emocionais dos alunos. A escala é justa, há sala própria para inspetores e o entorno não oferece riscos de segurança. Existem profissionais de inclusão, embora nunca em número suficiente. O nível de estresse é muito baixo (1/5), e a equipe pedagógica e a direção auxiliam prontamente quando acionadas. O relato resume uma ótima escola, em que a indisciplina é o único problema recorrente. A escala é justa, a estrutura para os inspetores é adequada e o entorno não apresenta problemas de segurança. Há tutores disponíveis para os alunos de inclusão. O estresse é mínimo (1/5), e a direção e o setor pedagógico sempre atendem a equipe quando necessário.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,3), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (5,0); Inspetores x Setor Pedagógico (5,0). Constituem desafios: Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (3,3); Auxílio Pedagógico/Direção no Recreio (3,3).",
+    "conselho": "O público é de classe baixa a média. O principal problema é a indisciplina, além de questões emocionais. É uma escola maravilhosa, com escala justa e sala própria para inspetores. Não há problemas de segurança. Há tutores, embora nunca em número suficiente. O nível de desgaste é 1/5 e o acesso é fácil. Atende todas as classes sociais, com indisciplina como principal problema. É uma ótima escola, com escala justa e boa estrutura. Não há problemas de segurança no entorno. Existem tutores, mas o quadro nunca é suficiente. O nível de desgaste é 1/5. Acesso fácil.",
     "relatos": [
-      "A escola é descrita como maravilhosa, com problemas pontuais de indisciplina e questões emocionais dos alunos. A escala é justa, há sala própria para inspetores e o entorno não oferece riscos de segurança. Existem profissionais de inclusão, embora nunca em número suficiente. O nível de estresse é muito baixo (1/5), e a equipe pedagógica e a direção auxiliam prontamente quando acionadas.",
-      "O relato resume uma ótima escola, em que a indisciplina é o único problema recorrente. A escala é justa, a estrutura para os inspetores é adequada e o entorno não apresenta problemas de segurança. Há tutores disponíveis para os alunos de inclusão. O estresse é mínimo (1/5), e a direção e o setor pedagógico sempre atendem a equipe quando necessário."
+      "O público é de classe baixa a média. O principal problema é a indisciplina, além de questões emocionais. É uma escola maravilhosa, com escala justa e sala própria para inspetores. Não há problemas de segurança. Há tutores, embora nunca em número suficiente. O nível de desgaste é 1/5 e o acesso é fácil.",
+      "Atende todas as classes sociais, com indisciplina como principal problema. É uma ótima escola, com escala justa e boa estrutura. Não há problemas de segurança no entorno. Existem tutores, mas o quadro nunca é suficiente. O nível de desgaste é 1/5. Acesso fácil."
     ]
   },
   {
@@ -8008,90 +10740,112 @@ const ESCOLAS_DATA = [
     "nome": "Pedro Dallabona",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": true,
+    "notaFinal": 3.7,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "325",
-      "turmas": "11",
-      "quadroInspetores": "Incompleto (faltam aproximadamente 1)",
+      "alunos": "aproximadamente 342",
+      "turmas": "aproximadamente 11",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 1) / Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
-      "uei": "Não possui",
+      "uei": "Não possui / Possui",
       "soninhoPre": "Escola não possui essa demanda",
-      "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Classe média."
+      "onibusEscolar": "Não possui transporte escolar / Possui, mas o inspetor NÃO acompanha",
+      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe média.; Alguns pais mais presentes. Crianças com diferentes classes sociais",
+      "turmasIntegrais": "11 / Todas",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 3.5,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 4,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 4,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 4.5,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 3.5,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 2.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato menciona alunos atípicos com apoio intermitente e elogia a equipe e a localização, próxima a avenida. A escala é justa, com revezamento entre os prédios, e há sala pequena para inspetores e sala de funcionários com geladeira, micro-ondas e mesa. O entorno é seguro, faltam profissionais de inclusão, o estresse é baixo (2/5) e o pedagógico faz sua parte.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,7), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (4,5); Inspetores x Professores (4,5); Inspetores x Secretaria (4,5). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,3); Auxílio Pedagógico/Direção no Recreio (2,3); Acesso (ônibus, bicicleta, estacionamento) (2,5).",
+    "conselho": "O público é de classe média. Há alunos atípicos que precisam de apoio, nem sempre disponível ou só em um período. A equipe é boa e a localização também, perto de avenida. A escala é justa. A sala é pequena e revezamos com o outro prédio; há sala dos funcionários com geladeira, micro-ondas e mesa. Não há problemas de segurança. Faltam profissionais. Desgaste: 2/5. Há ônibus, mas não estacionamento interno. Há alguns pais mais presentes e crianças de diferentes classes sociais. Os alunos são indisciplinados. Quem chega será bem recebido e terá muito trabalho. A escala é feita entre as inspetoras. Não há estrutura: o almoxarifado serve de sala, e usamos a sala dos professores e o refeitório. Não há problemas de segurança. O apoio é insuficiente e o inspetor cuida das crianças no contraturno. Desgaste: 3/5. Ponto de ônibus ao lado.",
     "relatos": [
-      "O relato menciona alunos atípicos com apoio intermitente e elogia a equipe e a localização, próxima a avenida. A escala é justa, com revezamento entre os prédios, e há sala pequena para inspetores e sala de funcionários com geladeira, micro-ondas e mesa. O entorno é seguro, faltam profissionais de inclusão, o estresse é baixo (2/5) e o pedagógico faz sua parte."
+      "O público é de classe média. Há alunos atípicos que precisam de apoio, nem sempre disponível ou só em um período. A equipe é boa e a localização também, perto de avenida. A escala é justa. A sala é pequena e revezamos com o outro prédio; há sala dos funcionários com geladeira, micro-ondas e mesa. Não há problemas de segurança. Faltam profissionais. Desgaste: 2/5. Há ônibus, mas não estacionamento interno.",
+      "Há alguns pais mais presentes e crianças de diferentes classes sociais. Os alunos são indisciplinados. Quem chega será bem recebido e terá muito trabalho. A escala é feita entre as inspetoras. Não há estrutura: o almoxarifado serve de sala, e usamos a sala dos professores e o refeitório. Não há problemas de segurança. O apoio é insuficiente e o inspetor cuida das crianças no contraturno. Desgaste: 3/5. Ponto de ônibus ao lado."
     ]
   },
   {
@@ -8100,90 +10854,112 @@ const ESCOLAS_DATA = [
     "nome": "Paranaguá",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": true,
+    "notaFinal": 4.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 2,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "300",
-      "turmas": "12 (6 manhã e 6 tarde)",
+      "alunos": "aproximadamente 300",
+      "turmas": "aproximadamente 10",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Indefinido",
-      "publicoAtendido": "Todas as classes"
+      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "publicoAtendido": "Todas as classes",
+      "turmasIntegrais": "1",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
         "nota": 4.5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
         "nota": 4.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
         "nota": 4.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 4,
-        "obs": "Estrutura considerada adequada, com sala ou espaço próprio para os inspetores em boa parte das avaliações."
+        "nota": 3.3,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 1.5,
-        "obs": "Pouca oferta de comércio e serviços nas proximidades da escola."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outros detalhes adicionais sobre a rotina, a direção ou a equipe. A avaliação geral registrada pelo respondente é bastante positiva, indicando uma boa experiência de trabalho nessa unidade escolar.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,3), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Secretaria (5,0); Materiais para Recreio (5,0). Constituem desafios: Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (2,5); Estrutura Física e Mobiliária (3,3); Auxílio Pedagógico/Direção no Recreio (3,3).",
+    "conselho": "Atende todas as classes sociais e o problema é a indisciplina. É uma escola maravilhosa. A escala é justa e há sala e mobiliário adequados. Não há problemas de segurança. Há pessoal de apoio, mas nunca suficiente. Desgaste: 1/5. O acesso é bom. O público é de todas as classes e o problema é a indisciplina. É uma ótima escola, com escala justa e estrutura adequada. Não há problemas de segurança e há tutores. Desgaste: 1/5. O acesso é bom.",
     "relatos": [
-      "O único ponto mencionado no relato é a indisciplina de parte dos alunos, sem outros detalhes adicionais sobre a rotina, a direção ou a equipe. A avaliação geral registrada pelo respondente é bastante positiva, indicando uma boa experiência de trabalho nessa unidade escolar."
+      "Atende todas as classes sociais e o problema é a indisciplina. É uma escola maravilhosa. A escala é justa e há sala e mobiliário adequados. Não há problemas de segurança. Há pessoal de apoio, mas nunca suficiente. Desgaste: 1/5. O acesso é bom.",
+      "O público é de todas as classes e o problema é a indisciplina. É uma ótima escola, com escala justa e estrutura adequada. Não há problemas de segurança e há tutores. Desgaste: 1/5. O acesso é bom."
     ]
   },
   {
@@ -8191,23 +10967,113 @@ const ESCOLAS_DATA = [
     "codigo": "UESF9",
     "nome": "Jardim Santo Inácio",
     "regional": "SF - Regional Santa Felicidade",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 3.1,
+    "participantes": {
+      "total": 1,
+      "atuais": 0,
+      "exFuncionarios": 1
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 150",
+      "turmas": "aproximadamente 6",
+      "quadroInspetores": "Incompleto (faltam aproximadamente 2)",
+      "ensinoIntegral": "Apenas turmas de Pré-escola Integral",
+      "uei": "Não possui",
+      "soninhoPre": "Inspetor acompanha",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Apenas fechamento",
+      "publicoAtendido": "Público Classe média, comunidade de classe média e entorno sem comércio, residencial, longe e de difícil transporte ( não tem muitas linhas de ônibus)",
+      "turmasIntegrais": "1 de pré",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como regular."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 2.5,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como regular pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 3,1), com relações interpessoais e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Professores (4,0); Materiais para Recreio (4,0); Segurança Externa (4,0). Constituem desafios: Estrutura Física e Mobiliária (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0); Comércio e Restaurantes no Entorno (2,0); Inclusão com Tutores Profissionais (2,5).",
+    "conselho": "O público é de classe média, em entorno residencial sem comércio, longe e de difícil transporte. Faltam apoio da equipe pedagógica e coesão da equipe; o serviço geral manda na escola e a direção, arrogante, culpa o auxiliar. Não vá: o público é bom, mas o tratamento recebido é decisivo. A divisão é feita pelo inspetor, clara, porém injusta. Não há sala de inspetores, mas a estrutura é boa. O bairro é seguro. Um tutor às vezes atende dois incluídos. Desgaste: 3/5. Poucas linhas de ônibus, avenida perigosa e sem estacionamento.",
+    "relatos": [
+      "O público é de classe média, em entorno residencial sem comércio, longe e de difícil transporte. Faltam apoio da equipe pedagógica e coesão da equipe; o serviço geral manda na escola e a direção, arrogante, culpa o auxiliar. Não vá: o público é bom, mas o tratamento recebido é decisivo. A divisão é feita pelo inspetor, clara, porém injusta. Não há sala de inspetores, mas a estrutura é boa. O bairro é seguro. Um tutor às vezes atende dois incluídos. Desgaste: 3/5. Poucas linhas de ônibus, avenida perigosa e sem estacionamento."
+    ]
   },
   {
     "id": "UESF17",
@@ -8215,6 +11081,8 @@ const ESCOLAS_DATA = [
     "nome": "Ana Hella",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8224,7 +11092,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8238,6 +11108,8 @@ const ESCOLAS_DATA = [
     "nome": "Walter Hoerner",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8247,7 +11119,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8261,6 +11135,8 @@ const ESCOLAS_DATA = [
     "nome": "Nympha Maria da Rocha Peplow",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8270,7 +11146,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8284,6 +11162,8 @@ const ESCOLAS_DATA = [
     "nome": "João Stival",
     "regional": "SF - Regional Santa Felicidade",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8293,7 +11173,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8307,90 +11189,111 @@ const ESCOLAS_DATA = [
     "nome": "Dona Pompília",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 4.0,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "1000",
-      "turmas": "18",
+      "alunos": "aproximadamente 1000",
+      "turmas": "aproximadamente 18",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Baixa renda, muita dificuldade financeira, mas respeitam a escola"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Baixa renda, muita dificuldade financeira, mas respeitam a escola",
+      "turmasIntegrais": "8",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 5,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 4,
-        "obs": "Retorno adequado da direção e setor pedagógico nas situações de conflito no pátio."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": null,
+        "peso": 3.47,
         "obs": "Não informado"
       }
     ],
-    "sintese": "Unidade com avaliação global positiva, destacando-se nas relações interpessoais e em aspectos estruturais relevantes. Ambiente de trabalho considerado favorável em grande parte dos relatos.",
-    "conselho": "O único problema são inspetores que reclamam do trabalho; o conselho é trabalhar direito, pois tudo é maravilhoso. A escala é organizada e justa, e as faltas são cobertas sem sobrecarregar a equipe. Há sala de lanche coletiva, o entorno é seguro e os alunos de inclusão têm apoio. O estresse é moderado (3/5), e a direção toma as providências cabíveis.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,0), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Professores (5,0); Inspetores x Secretaria (5,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,5); Entre os Inspetores da Unidade (3,0).",
+    "conselho": "Atende famílias de baixa renda, com muita dificuldade financeira, mas que respeitam a escola. O problema são inspetores que reclamam de todo trabalho. Aconselho trabalhar direito, pois tudo é maravilhoso. A escala é organizada e justa: na falta de inspetores, a direção assume ou chama professores, sem sobrecarregar ninguém. Há sala de lanche para todos, inclusive terceirizados. Não há problemas de segurança. Há apoio para todos; na falta, remanejam estagiárias. Desgaste: 3/5.",
     "relatos": [
-      "O único problema são inspetores que reclamam do trabalho; o conselho é trabalhar direito, pois tudo é maravilhoso. A escala é organizada e justa, e as faltas são cobertas sem sobrecarregar a equipe. Há sala de lanche coletiva, o entorno é seguro e os alunos de inclusão têm apoio. O estresse é moderado (3/5), e a direção toma as providências cabíveis."
+      "Atende famílias de baixa renda, com muita dificuldade financeira, mas que respeitam a escola. O problema são inspetores que reclamam de todo trabalho. Aconselho trabalhar direito, pois tudo é maravilhoso. A escala é organizada e justa: na falta de inspetores, a direção assume ou chama professores, sem sobrecarregar ninguém. Há sala de lanche para todos, inclusive terceirizados. Não há problemas de segurança. Há apoio para todos; na falta, remanejam estagiárias. Desgaste: 3/5."
     ]
   },
   {
@@ -8399,90 +11302,113 @@ const ESCOLAS_DATA = [
     "nome": "Newton Borges Reis",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 4.1,
+    "participantes": {
+      "total": 3,
+      "atuais": 3,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "800",
-      "turmas": "32 (16 manhã e 16 tarde)",
+      "alunos": "aproximadamente 657",
+      "turmas": "aproximadamente 12",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Classe média"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Classe média; São poucas crianças e famílias que são muito necessitadas, algumas poucas famílias se destacam por ser muito alarmistas, mas a direção da escola é eficiente na comunicação.; A classe social e bem diversa. Famílias com poder aquisitivo baixo a poder aquisitivo moderado.",
+      "turmasIntegrais": "1",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 2,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente regular a insatisfatória."
+        "nota": 3.3,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 4,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente positiva."
+        "nota": 4.7,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 4.3,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.5,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 3.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como boa."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 2.3,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": null,
-        "obs": "Não informado"
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como regular pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": null,
-        "obs": "Não informado"
+        "nota": 3.3,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato aponta professores que desrespeitam horários e aconselha ir sem medo. A escala é bem justa, a estrutura é insuficiente e o entorno é seguro. A relação com a inclusão é razoável. O estresse é baixo (2/5), e a escola oferece apoio e suporte diante de ocorrências graves, o que reforça a avaliação positiva do ambiente de trabalho.",
+    "sintese": "Unidade com avaliação global positiva (nota final 4,1), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Inspetores x Direção (5,0); Inspetores x Secretaria (5,0); Inspetores x Setor Pedagógico (4,7). Constituem desafios: Inclusão com Tutores Profissionais (2,3); Acesso (ônibus, bicicleta, estacionamento) (2,5); Estrutura Física e Mobiliária (3,0); Comércio e Restaurantes no Entorno (3,3).",
+    "conselho": "O público é de classe média e o problema são professores que não respeitam horários. Aconselho ir sem medo. A escala é bem justa. A escola não oferece estrutura mínima nem há problemas de segurança. A relação com a inclusão é razoável. Desgaste: 2/5. Atende poucas crianças, em famílias necessitadas; algumas são alarmistas, mas a direção comunica bem. Há colegas ausentes, professores com atrasos e muitos alunos laudados sem acompanhamento. É um ótimo lugar, leve e descontraído, mas exige condição física por rampas e degraus. A divisão é muito boa. A sala só guarda jogos; almoçamos na sala dos professores. Há um buraco no muro. Faltam profissionais de apoio. Desgaste: 2/5. Ponto de ônibus ao lado e estacionamento interno. O público é diverso, de poder aquisitivo baixo a moderado. Os problemas são pedagógicos e emocionais, com transtornos variados. É bem tranquilo: execute o que for pedido. Sete inspetores dividem tarefas de forma justa. Há tudo, menos rádio comunicador. Não sei se existe escola segura. Não sei avaliar a inclusão. Desgaste: 2/5. Duas linhas de ônibus ao terminal Tatuquara, a cerca de 2 km.",
     "relatos": [
-      "O relato aponta professores que desrespeitam horários e aconselha ir sem medo. A escala é bem justa, a estrutura é insuficiente e o entorno é seguro. A relação com a inclusão é razoável. O estresse é baixo (2/5), e a escola oferece apoio e suporte diante de ocorrências graves, o que reforça a avaliação positiva do ambiente de trabalho."
+      "O público é de classe média e o problema são professores que não respeitam horários. Aconselho ir sem medo. A escala é bem justa. A escola não oferece estrutura mínima nem há problemas de segurança. A relação com a inclusão é razoável. Desgaste: 2/5.",
+      "Atende poucas crianças, em famílias necessitadas; algumas são alarmistas, mas a direção comunica bem. Há colegas ausentes, professores com atrasos e muitos alunos laudados sem acompanhamento. É um ótimo lugar, leve e descontraído, mas exige condição física por rampas e degraus. A divisão é muito boa. A sala só guarda jogos; almoçamos na sala dos professores. Há um buraco no muro. Faltam profissionais de apoio. Desgaste: 2/5. Ponto de ônibus ao lado e estacionamento interno.",
+      "O público é diverso, de poder aquisitivo baixo a moderado. Os problemas são pedagógicos e emocionais, com transtornos variados. É bem tranquilo: execute o que for pedido. Sete inspetores dividem tarefas de forma justa. Há tudo, menos rádio comunicador. Não sei se existe escola segura. Não sei avaliar a inclusão. Desgaste: 2/5. Duas linhas de ônibus ao terminal Tatuquara, a cerca de 2 km."
     ]
   },
   {
@@ -8491,6 +11417,8 @@ const ESCOLAS_DATA = [
     "nome": "Darcy Ribeiro",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8500,7 +11428,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8514,91 +11444,112 @@ const ESCOLAS_DATA = [
     "nome": "Margarida Orso Dalagassa",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 3.3,
+    "participantes": {
+      "total": 2,
+      "atuais": 1,
+      "exFuncionarios": 1
+    },
     "caracteristicasGerais": {
-      "alunos": "aproximadamente 465 (variação: 430–500)",
-      "turmas": "aproximadamente 16 (variação: 12–19)",
-      "quadroInspetores": "Indefinido",
-      "ensinoIntegral": "Indefinido",
+      "alunos": "aproximadamente 430",
+      "turmas": "aproximadamente 15",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Ambas (Pré e Fundamental Integral)",
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "As famílias mandam na escola; Comunidade bastante mista: muitos estrangeiros, famílias carentes, bem como, mais abastadas. Ambos os"
+      "publicoAtendido": "Comunidade bastante mista: muitos estrangeiros, famílias carentes, bem como, mais abastadas. Ambos os extremos sobre o comportamento: super protetores ou totalmente alheios aos filhos.",
+      "turmasIntegrais": "4",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3.5,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3.5,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2.5,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 4.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4.5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 2.5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada predominantemente negativa."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 2,
-        "obs": "Fornecimento de materiais para recreio escasso na quase totalidade das avaliações."
+        "nota": 1.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como péssima pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 4,
-        "obs": "Distribuição de funções considerada justa e com divisão clara na maioria dos relatos."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como boa pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 2.5,
-        "obs": "Informações divergentes sobre a adequação do suporte a estudantes de inclusão."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta desrespeito da direção com os inspetores e aconselha não ir. Na escala, se faltar inspetor, quem está presente fica sozinho. Os inspetores tomavam café separados, no arquivo, e o entorno é seguro. Não havia apoio à inclusão. O estresse é máximo (5/5), e a direção culpa os inspetores e agrada os alunos para evitar reclamações dos pais. Citam-se falta de acordo na equipe, resistência a recreios dirigidos e uso de celular, com direção mantendo o soninho com inspetores. Aconselha-se preservar-se e trabalhar bem. A escala é injusta, pois a agente de apoio é poupada de tarefas. Não há sala, o entorno é seguro, a inclusão é adequada, o estresse é alto (4/5) e o retorno depende da reincidência.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,3), com relações interpessoais em nível intermediário e características da escola com desafios. Destacam-se como pontos fortes: Inspetores x Secretaria (5,0); Inspetores x Direção (4,0); Inspetores x Professores (4,0). Constituem desafios: Materiais para Recreio (1,0); Entre os Inspetores da Unidade (2,0); Estrutura Física e Mobiliária (2,0); Auxílio Pedagógico/Direção no Recreio (3,0).",
+    "conselho": "As famílias mandam na escola e há falta de respeito da direção com os inspetores. Aconselho não ir. Na falta de inspetores, quem está que se vire. Não há estrutura; os inspetores tomavam café separados, dentro do arquivo. Não há problemas de segurança. Não sei como está a inclusão hoje, mas não havia apoio. Desgaste: 5/5. A comunidade é mista, com estrangeiros, famílias carentes e abastadas, ora superprotetoras ora alheias. Há falta de acordo na equipe, recusa ao recreio dirigido, uso excessivo do celular e a direção mantém os inspetores no soninho. Seja bem-vindo e preserve-se: não mostre fragilidades. A escala é injusta, pois a agente de apoio PSS é poupada do soninho. Não há sala; ficamos em mesas no pátio e na portaria. Sem ocorrência de segurança. A inclusão é adequada. Desgaste: 4/5. Bom acesso.",
     "relatos": [
-      "O relato aponta desrespeito da direção com os inspetores e aconselha não ir. Na escala, se faltar inspetor, quem está presente fica sozinho. Os inspetores tomavam café separados, no arquivo, e o entorno é seguro. Não havia apoio à inclusão. O estresse é máximo (5/5), e a direção culpa os inspetores e agrada os alunos para evitar reclamações dos pais.",
-      "Citam-se falta de acordo na equipe, resistência a recreios dirigidos e uso de celular, com direção mantendo o soninho com inspetores. Aconselha-se preservar-se e trabalhar bem. A escala é injusta, pois a agente de apoio é poupada de tarefas. Não há sala, o entorno é seguro, a inclusão é adequada, o estresse é alto (4/5) e o retorno depende da reincidência."
+      "As famílias mandam na escola e há falta de respeito da direção com os inspetores. Aconselho não ir. Na falta de inspetores, quem está que se vire. Não há estrutura; os inspetores tomavam café separados, dentro do arquivo. Não há problemas de segurança. Não sei como está a inclusão hoje, mas não havia apoio. Desgaste: 5/5.",
+      "A comunidade é mista, com estrangeiros, famílias carentes e abastadas, ora superprotetoras ora alheias. Há falta de acordo na equipe, recusa ao recreio dirigido, uso excessivo do celular e a direção mantém os inspetores no soninho. Seja bem-vindo e preserve-se: não mostre fragilidades. A escala é injusta, pois a agente de apoio PSS é poupada do soninho. Não há sala; ficamos em mesas no pátio e na portaria. Sem ocorrência de segurança. A inclusão é adequada. Desgaste: 4/5. Bom acesso."
     ]
   },
   {
@@ -8607,6 +11558,8 @@ const ESCOLAS_DATA = [
     "nome": "Osvaldo Arns",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8616,7 +11569,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8630,6 +11585,8 @@ const ESCOLAS_DATA = [
     "nome": "Érica Plewka Mlynarczyk",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8639,7 +11596,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8653,6 +11612,8 @@ const ESCOLAS_DATA = [
     "nome": "Antonio Pietruza",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8662,7 +11623,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8676,6 +11639,8 @@ const ESCOLAS_DATA = [
     "nome": "Vila Zanon",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8685,7 +11650,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8699,6 +11666,8 @@ const ESCOLAS_DATA = [
     "nome": "Leonel de Moura Brizola",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8708,7 +11677,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8722,6 +11693,8 @@ const ESCOLAS_DATA = [
     "nome": "Santa Ana Mestra",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8731,7 +11704,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8745,90 +11720,111 @@ const ESCOLAS_DATA = [
     "nome": "Rio Bonito",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 3.6,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "620",
-      "turmas": "21",
+      "alunos": "aproximadamente 620",
+      "turmas": "aproximadamente 11",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Média"
+      "publicoAtendido": "Média",
+      "turmasIntegrais": "Apenas 30 estudantes por turno",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 4,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada predominantemente positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 5,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
         "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 2,
-        "obs": "Acesso à unidade limitado, com restrições de transporte ou estacionamento."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como ruim pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "O relato cita indisciplina e falta de apoio da direção em alguns casos, e considera a escola boa, mas recomenda cuidado com algumas pessoas. Por ser pequena, não tem distribuição de escala nem estrutura para inspetores. O entorno é seguro e há atendimento à inclusão. O estresse é alto (4/5), e os pais costumam ser comunicados quando o assunto é grave.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,6), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Secretaria (5,0); Inspetores x Professores (4,0). Constituem desafios: Acesso (ônibus, bicicleta, estacionamento) (2,0); Comércio e Restaurantes no Entorno (2,0); Estrutura Física e Mobiliária (2,5); Auxílio Pedagógico/Direção no Recreio (2,5).",
+    "conselho": "O público é de classe média. Há indisciplina e falta de apoio da direção em alguns casos. É uma boa escola, mas cuidado com algumas pessoas, como o vigia. Por ser pequena, não há distribuição de escala. Não há estrutura. Não há problemas de segurança e a relação com a inclusão é boa. Desgaste: 4/5. O acesso é ruim.",
     "relatos": [
-      "O relato cita indisciplina e falta de apoio da direção em alguns casos, e considera a escola boa, mas recomenda cuidado com algumas pessoas. Por ser pequena, não tem distribuição de escala nem estrutura para inspetores. O entorno é seguro e há atendimento à inclusão. O estresse é alto (4/5), e os pais costumam ser comunicados quando o assunto é grave."
+      "O público é de classe média. Há indisciplina e falta de apoio da direção em alguns casos. É uma boa escola, mas cuidado com algumas pessoas, como o vigia. Por ser pequena, não há distribuição de escala. Não há estrutura. Não há problemas de segurança e a relação com a inclusão é boa. Desgaste: 4/5. O acesso é ruim."
     ]
   },
   {
@@ -8837,6 +11833,8 @@ const ESCOLAS_DATA = [
     "nome": "Joana Raksa",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": false,
+    "notaFinal": null,
+    "participantes": null,
     "caracteristicasGerais": {
       "alunos": "—",
       "turmas": "—",
@@ -8846,7 +11844,9 @@ const ESCOLAS_DATA = [
       "soninhoPre": "—",
       "onibusEscolar": "—",
       "portoes": "—",
-      "publicoAtendido": "—"
+      "publicoAtendido": "—",
+      "turmasIntegrais": "—",
+      "anosFinais": "—"
     },
     "relacoesInterpessoais": [],
     "caracteristicasEscola": [],
@@ -8860,90 +11860,111 @@ const ESCOLAS_DATA = [
     "nome": "Helena Kolody",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 2.8,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "990",
-      "turmas": "19",
+      "alunos": "aproximadamente 990",
+      "turmas": "aproximadamente 19",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Majoritariamente não realiza nenhum dos dois",
-      "publicoAtendido": "Comunidade não é tão carente"
+      "portoes": "Não realiza abertura nem fechamento",
+      "publicoAtendido": "Comunidade não é tão carente",
+      "turmasIntegrais": "Uma turma por período",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 3,
-        "obs": "Relação com o corpo docente. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como regular."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 2,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 2,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação predominantemente regular a insatisfatória."
+        "nota": 2.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada predominantemente negativa."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 1,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente insatisfatória."
+        "nota": 1.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito negativa."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 3,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como regular."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 4.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como boa pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
         "nota": 2.5,
-        "obs": "Avaliações divergentes sobre a estrutura física disponível para os inspetores."
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como regular pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 4,
-        "obs": "Fornecimento de materiais para recreio considerado adequado ou generoso."
+        "nota": 4.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como boa pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 2.5,
-        "obs": "Avaliações mistas sobre o suporte pedagógico e da direção em conflitos."
+        "nota": 3.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 4,
-        "obs": "Número adequado de profissionais de apoio para estudantes de inclusão na maioria das avaliações."
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 4,
-        "obs": "Unidade com fácil acesso, linhas de ônibus e/ou estrutura de estacionamento."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
-        "nota": 4,
-        "obs": "Boa variedade de comércios e serviços no entorno da escola."
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global abaixo do ideal, com desafios relevantes nas relações, estrutura e condições de trabalho reportadas pelos inspetores.",
-    "conselho": "O relato aponta alunos indisciplinados e pouco espaço para o recreio, mas aconselha vir para somar. A escala é tranquila, e a estrutura está em obras, com término previsto para este ano. O entorno não apresenta problemas de segurança, a inclusão é positiva, o estresse é moderado (3/5) e o retorno do setor pedagógico e da direção é razoável.",
+    "sintese": "Unidade com avaliação global abaixo do ideal (nota final 2,8), com relações interpessoais com desafios e características da escola em nível intermediário. Destacam-se como pontos fortes: Materiais para Recreio (4,0); Segurança Externa (4,0); Inclusão com Tutores Profissionais (4,0). Constituem desafios: Inspetores x Secretaria (1,0); Inspetores x Direção (2,0); Inspetores x Setor Pedagógico (2,0); Estrutura Física e Mobiliária (2,5).",
+    "conselho": "A comunidade não é tão carente. Os problemas são alguns alunos indisciplinados, que geram conflitos, e o pouco espaço no recreio. Aconselho vir para somar. A escala é tranquila. A escola está em obras, com término previsto para este ano. Não há problemas de segurança no entorno e há apoio para a inclusão. Desgaste: 3/5. O acesso é bom.",
     "relatos": [
-      "O relato aponta alunos indisciplinados e pouco espaço para o recreio, mas aconselha vir para somar. A escala é tranquila, e a estrutura está em obras, com término previsto para este ano. O entorno não apresenta problemas de segurança, a inclusão é positiva, o estresse é moderado (3/5) e o retorno do setor pedagógico e da direção é razoável."
+      "A comunidade não é tão carente. Os problemas são alguns alunos indisciplinados, que geram conflitos, e o pouco espaço no recreio. Aconselho vir para somar. A escala é tranquila. A escola está em obras, com término previsto para este ano. Não há problemas de segurança no entorno e há apoio para a inclusão. Desgaste: 3/5. O acesso é bom."
     ]
   },
   {
@@ -8951,23 +11972,113 @@ const ESCOLAS_DATA = [
     "codigo": "UETQ14",
     "nome": "Maria Ienkot Zeglin",
     "regional": "TQ - Regional Tatuquara",
-    "temRelatorio": false,
-    "caracteristicasGerais": {
-      "alunos": "—",
-      "turmas": "—",
-      "quadroInspetores": "—",
-      "ensinoIntegral": "—",
-      "uei": "—",
-      "soninhoPre": "—",
-      "onibusEscolar": "—",
-      "portoes": "—",
-      "publicoAtendido": "—"
+    "temRelatorio": true,
+    "notaFinal": 4.5,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
     },
-    "relacoesInterpessoais": [],
-    "caracteristicasEscola": [],
-    "sintese": "",
-    "conselho": "",
-    "relatos": []
+    "caracteristicasGerais": {
+      "alunos": "aproximadamente 900",
+      "turmas": "aproximadamente 17",
+      "quadroInspetores": "Completo",
+      "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
+      "uei": "Não possui",
+      "soninhoPre": "Escola não possui essa demanda",
+      "onibusEscolar": "Não possui transporte escolar",
+      "portoes": "Abertura e fechamento dos portões",
+      "publicoAtendido": "Famílias carentes, vulnerabilidade social",
+      "turmasIntegrais": "2",
+      "anosFinais": "Não"
+    },
+    "relacoesInterpessoais": [
+      {
+        "item": "Inspetores x Professores",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Setor Pedagógico",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Direção",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como muito positiva."
+      },
+      {
+        "item": "Inspetores x Secretaria",
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada como muito positiva."
+      },
+      {
+        "item": "Entre os Inspetores da Unidade",
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
+      }
+    ],
+    "caracteristicasEscola": [
+      {
+        "item": "Segurança Externa",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Estrutura Física e Mobiliária",
+        "nota": 4.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como boa pelos inspetores participantes."
+      },
+      {
+        "item": "Materiais para Recreio",
+        "nota": 5.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como ótima pelos participantes."
+      },
+      {
+        "item": "Equilíbrio na Distribuição de Funções",
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
+      },
+      {
+        "item": "Auxílio Pedagógico/Direção no Recreio",
+        "nota": 2.5,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como regular."
+      },
+      {
+        "item": "Inclusão com Tutores Profissionais",
+        "nota": 4.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como boa pelos participantes."
+      },
+      {
+        "item": "Acesso (ônibus, bicicleta, estacionamento)",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como boa pelos participantes do relato."
+      },
+      {
+        "item": "Comércio e Restaurantes no Entorno",
+        "nota": 4.0,
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como boa pelos participantes."
+      }
+    ],
+    "sintese": "Unidade com avaliação global positiva (nota final 4,5), com relações interpessoais bem avaliadas e características da escola em nível intermediário. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Direção (5,0); Inspetores x Professores (5,0). Constituem desafios: Auxílio Pedagógico/Direção no Recreio (2,5); Segurança Externa (3,0); Equilíbrio na Distribuição de Funções (3,0).",
+    "conselho": "As famílias são carentes e em vulnerabilidade social. A cada dia há desafios a superar; o importante é não desistir. É uma ótima escola. A escala conta com mesas, quadra, espirobol e rodízio de turmas. Há mesas próprias e espaço para almoço e lanche. Às vezes, como em qualquer lugar, há vulnerabilidade a situações de insegurança. A relação com a inclusão é boa. Desgaste: 1/5. O acesso é bom.",
+    "relatos": [
+      "As famílias são carentes e em vulnerabilidade social. A cada dia há desafios a superar; o importante é não desistir. É uma ótima escola. A escala conta com mesas, quadra, espirobol e rodízio de turmas. Há mesas próprias e espaço para almoço e lanche. Às vezes, como em qualquer lugar, há vulnerabilidade a situações de insegurança. A relação com a inclusão é boa. Desgaste: 1/5. O acesso é bom."
+    ]
   },
   {
     "id": "UETQ15",
@@ -8975,90 +12086,111 @@ const ESCOLAS_DATA = [
     "nome": "João Amazonas",
     "regional": "TQ - Regional Tatuquara",
     "temRelatorio": true,
+    "notaFinal": 3.4,
+    "participantes": {
+      "total": 1,
+      "atuais": 1,
+      "exFuncionarios": 0
+    },
     "caracteristicasGerais": {
-      "alunos": "990",
-      "turmas": "17",
+      "alunos": "aproximadamente 990",
+      "turmas": "aproximadamente 15",
       "quadroInspetores": "Completo",
       "ensinoIntegral": "Apenas Ensino Fundamental Integral (1º ao 5º ano)",
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
       "portoes": "Abertura e fechamento dos portões",
-      "publicoAtendido": "Maioria classe média, digamos que 80%"
+      "publicoAtendido": "Maioria classe média, digamos que 80%",
+      "turmasIntegrais": "120 crianças no total",
+      "anosFinais": "Não"
     },
     "relacoesInterpessoais": [
       {
         "item": "Inspetores x Professores",
-        "nota": 5,
-        "obs": "Relação com o corpo docente. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 8.0,
+        "obs": "Relação com o corpo docente avaliada como muito positiva."
       },
       {
         "item": "Inspetores x Setor Pedagógico",
-        "nota": 3,
-        "obs": "Suporte e interação com o setor pedagógico. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 8.0,
+        "obs": "Relação com o setor pedagógico avaliada como regular."
       },
       {
         "item": "Inspetores x Direção",
-        "nota": 3,
-        "obs": "Relação e diálogo com a gestão da unidade. Avaliação entre boa e regular."
+        "nota": 3.0,
+        "peso": 18.0,
+        "obs": "Relação com a direção avaliada como regular."
       },
       {
         "item": "Inspetores x Secretaria",
-        "nota": 4,
-        "obs": "Relação com a secretaria da unidade. Avaliação predominantemente positiva."
+        "nota": 4.0,
+        "peso": 8.0,
+        "obs": "Relação com a secretaria avaliada predominantemente positiva."
       },
       {
         "item": "Entre os Inspetores da Unidade",
-        "nota": 5,
-        "obs": "Coesão e cooperação interna da equipe de inspetores. Avaliação predominantemente positiva."
+        "nota": 5.0,
+        "peso": 18.0,
+        "obs": "Coesão e cooperação entre os inspetores avaliada como muito positiva."
       }
     ],
     "caracteristicasEscola": [
       {
         "item": "Segurança Externa",
-        "nota": 4,
-        "obs": "Entorno considerado seguro, sem registros relevantes de problemas de segurança."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Segurança no entorno da escola avaliada como regular pelos participantes."
       },
       {
         "item": "Estrutura Física e Mobiliária",
-        "nota": 1.5,
-        "obs": "Espaço para inspetores insuficiente ou inadequado; ausência de local de descanso adequado em parte dos relatos."
+        "nota": 2.0,
+        "peso": 5.6,
+        "obs": "Estrutura física e mobiliária avaliada como ruim pelos inspetores participantes."
       },
       {
         "item": "Materiais para Recreio",
-        "nota": 3,
-        "obs": "Fornecimento de materiais para recreio em nível intermediário segundo as avaliações."
+        "nota": 3.0,
+        "peso": 6.8,
+        "obs": "Oferta de materiais para recreio avaliada como regular pelos participantes."
       },
       {
         "item": "Equilíbrio na Distribuição de Funções",
-        "nota": 2.5,
-        "obs": "Avaliações variadas sobre o equilíbrio na distribuição de funções e escalas."
+        "nota": 3.0,
+        "peso": 6.0,
+        "obs": "Distribuição de funções e escala avaliada como regular pelos participantes."
       },
       {
         "item": "Auxílio Pedagógico/Direção no Recreio",
-        "nota": 1.5,
-        "obs": "Retorno da direção e do setor pedagógico em situações de conflito raro ou insuficiente segundo os relatos."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Auxílio pedagógico e da direção no recreio avaliado como ruim."
       },
       {
         "item": "Inclusão com Tutores Profissionais",
-        "nota": 1.5,
-        "obs": "Carência de profissionais de apoio/tutores para alunos de inclusão, afetando o atendimento diário."
+        "nota": 2.0,
+        "peso": 5.2,
+        "obs": "Suporte de inclusão com tutores avaliado como ruim pelos participantes."
       },
       {
         "item": "Acesso (ônibus, bicicleta, estacionamento)",
-        "nota": 3,
-        "obs": "Avaliações variadas sobre a facilidade de acesso à unidade."
+        "nota": 2.0,
+        "peso": 3.47,
+        "obs": "Acesso à unidade avaliado como ruim pelos participantes do relato."
       },
       {
         "item": "Comércio e Restaurantes no Entorno",
         "nota": 2.5,
-        "obs": "Oferta de comércio no entorno avaliada de forma divergente."
+        "peso": 3.47,
+        "obs": "Comércio e restaurantes no entorno avaliados como regular pelos participantes."
       }
     ],
-    "sintese": "Unidade com avaliação global moderada, apresentando pontos fortes em algumas dimensões e oportunidades de melhoria em outras, especialmente em estrutura e suporte operacional.",
-    "conselho": "A direção é tranquila e orienta; o maior problema são os pais de crianças menos favorecidas. O conselho é vir, pois os inspetores são unidos. A escala tem rodízio anual. Não há descanso e a cozinha comunitária é pequena. Há furtos noturnos eventuais, faltam apoios à inclusão por rotatividade, o estresse é baixo (2/5) e o pedagógico pouco se manifesta.",
+    "sintese": "Unidade com avaliação global regular (nota final 3,4), com relações interpessoais bem avaliadas e características da escola com desafios. Destacam-se como pontos fortes: Entre os Inspetores da Unidade (5,0); Inspetores x Professores (5,0); Inspetores x Secretaria (4,0). Constituem desafios: Inclusão com Tutores Profissionais (2,0); Estrutura Física e Mobiliária (2,0); Auxílio Pedagógico/Direção no Recreio (2,0); Acesso (ônibus, bicicleta, estacionamento) (2,0).",
+    "conselho": "Cerca de 80% do público é de classe média. A direção é tranquila e direciona o trabalho sem pressionar; o maior problema são os pais das crianças menos favorecidas. Aconselho vir: os inspetores são unidos. O rodízio é anual, antecipado se houver muita queixa. Não há local de descanso e a cozinha comunitária é pequena. Há furtos apenas à noite. O apoio tem alta rotatividade e o IMAP demora a enviar PA. Desgaste: 2/5. Há ônibus no entorno e estacionamento descoberto.",
     "relatos": [
-      "A direção é tranquila e orienta; o maior problema são os pais de crianças menos favorecidas. O conselho é vir, pois os inspetores são unidos. A escala tem rodízio anual. Não há descanso e a cozinha comunitária é pequena. Há furtos noturnos eventuais, faltam apoios à inclusão por rotatividade, o estresse é baixo (2/5) e o pedagógico pouco se manifesta."
+      "Cerca de 80% do público é de classe média. A direção é tranquila e direciona o trabalho sem pressionar; o maior problema são os pais das crianças menos favorecidas. Aconselho vir: os inspetores são unidos. O rodízio é anual, antecipado se houver muita queixa. Não há local de descanso e a cozinha comunitária é pequena. Há furtos apenas à noite. O apoio tem alta rotatividade e o IMAP demora a enviar PA. Desgaste: 2/5. Há ônibus no entorno e estacionamento descoberto."
     ]
   }
 ];
