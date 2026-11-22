@@ -100,7 +100,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Diversificada ( tem uns que condições boa enquanto outros desfavorável)",
       "turmasIntegrais": "12",
       "anosFinais": "Não"
@@ -240,7 +240,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Indefinido",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Crianças carentes e crianças melhores de vida são metade metade.",
       "turmasIntegrais": "Não sei atualmente, talvez 1 ou 2",
       "anosFinais": "Não"
@@ -434,7 +434,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Público diversificado, tem uns pais complicados.",
       "turmasIntegrais": "Quase 100% integral.",
       "anosFinais": "Não"
@@ -909,7 +909,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Carente, ignorante do que acontece com seus filhos dentro da escola. Não fazem uso de seus direitos e não cumprem com suas obrigações.",
       "turmasIntegrais": "8",
       "anosFinais": "Não"
@@ -1105,7 +1105,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor não acompanha / Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "portoes": "Abertura e fechamento da escola / Não realiza abertura nem fechamento",
       "publicoAtendido": "Operaria; Amigáveis",
       "turmasIntegrais": "16 / Todas as 14",
       "anosFinais": "Não"
@@ -1381,7 +1381,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha / Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Bem mal educado e violento; Classe social media e baixa",
       "turmasIntegrais": "16 / 20",
       "anosFinais": "Não"
@@ -1689,7 +1689,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Estamos numa região mais carente, com favelas e invasões. Muitos usuários de drogas, crianças criadas pelos avós, pais traficantes, tornozeleiras eletrônica, muitas crianças abandonadas pela mãe, temos também muitas crianças estrangeiras, sobretudo venezuelanos.",
       "turmasIntegrais": "4 turmas do 1 ao 4 ano",
       "anosFinais": "Não"
@@ -1856,7 +1856,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe média, enfrentamos problemas e conflitos diariamente na escola causados pela interferência da comunidade.",
       "turmasIntegrais": "2",
       "anosFinais": "Não"
@@ -2023,7 +2023,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Já teve épocas de muito conflito, mas, nos últimos anos é bem tranquilo. É uma comunidade de favela, crianças carentes mas amorosas.; Comunidade carente, crianças em situação vulnerável",
       "turmasIntegrais": "3 / Oito turmas: Pré, primeiro, segundo e terceiro anos. Quarto e quinto é regular.",
       "anosFinais": "Não"
@@ -2137,7 +2137,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento dos portões",
+      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento da escola",
       "publicoAtendido": "São pessoas mais carentes mas temos excessões tbm, famílias que não atendem as ligações da escola quando a criança está doente são bem relapsas no interesse escolas das crianças, tem alunos muito violentos que batem nos inspetores e professores e não é feito nada em relação a isso.; Vulnerabilidade social alta.",
       "turmasIntegrais": "Esse ano não sei",
       "anosFinais": "Não"
@@ -2251,7 +2251,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Bom",
       "turmasIntegrais": "18",
       "anosFinais": "Não"
@@ -2587,7 +2587,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Indefinido",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Baixa renda",
       "turmasIntegrais": "20",
       "anosFinais": "Não"
@@ -2808,7 +2808,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe média/alta",
       "turmasIntegrais": "Nenhuma",
       "anosFinais": "Não"
@@ -2921,7 +2921,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Crianças de classe média/alta, assim como o bairro e arredores.; Classe média e classe média alta.; Pais classe média.",
       "turmasIntegrais": "2 / Temos UEi vaga de 1 ao 5 ano",
       "anosFinais": "Não"
@@ -3036,7 +3036,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "A maioria do público é de classe média a média alta; Público classe b e c , escola fica no bairro bacacheri.",
       "turmasIntegrais": "2 / Duas",
       "anosFinais": "Não"
@@ -3150,7 +3150,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Próximo ao parque Atuba, a comunidade é de classe média. Temos muitos carentes. Mas a maioria é classe média",
       "turmasIntegrais": "2 turmas multisseriadas",
       "anosFinais": "Não"
@@ -3543,7 +3543,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha / Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "portoes": "Apenas abertura / Abertura e fechamento da escola",
       "publicoAtendido": "O público é de um nível social bom,a comunidade tem bom relacionamento com os funcionários, exceto casos isolados e o entorno é chácara e rua sem saída.; Famílias com melhores condições de vida, alunos bem cuidados.",
       "turmasIntegrais": "UEI 60 alunos no integral",
       "anosFinais": "Não"
@@ -3797,7 +3797,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe média; Acredito que por ser situada em área carente com forte influencia do tráfico de drogas, acaba que os pais têm muita relutância em participar e ajudar a disciplinar os alunos.; Classe baixa",
       "turmasIntegrais": "7",
       "anosFinais": "Não"
@@ -3912,7 +3912,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui / Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento dos portões",
+      "portoes": "Não realiza abertura nem fechamento / Abertura e fechamento da escola",
       "publicoAtendido": "Comunidade difícil e carente; Carente; Comunidade carente,difícil,com problemas sociais e convivência.",
       "turmasIntegrais": "10",
       "anosFinais": "Não"
@@ -4162,7 +4162,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": ".",
       "turmasIntegrais": "Menos para os 5° anos",
       "anosFinais": "Não"
@@ -4388,7 +4388,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Comunidade humilde e respeitosa com o trabalho dos profissionais da escola.",
       "turmasIntegrais": "2 turmas manhã e tarde",
       "anosFinais": "Não"
@@ -4528,7 +4528,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Bom",
       "turmasIntegrais": "3",
       "anosFinais": "Não"
@@ -4641,7 +4641,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões / Apenas abertura",
+      "portoes": "Abertura e fechamento da escola / Apenas abertura",
       "publicoAtendido": "Carente; Carente, área de invasão e com risco de enchentes.",
       "turmasIntegrais": "4 / 4 M, 4 T, 2 pres",
       "anosFinais": "Não"
@@ -4971,7 +4971,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Na grande maioria, classe média; Público pobre mas não carente; Os profissionais se dedicam com clareza",
       "turmasIntegrais": "2",
       "anosFinais": "Não"
@@ -5086,7 +5086,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor não acompanha / Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "classe média; baixa; Tranquilo",
       "turmasIntegrais": "18 / 20",
       "anosFinais": "Não"
@@ -5200,7 +5200,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Comunidade bem carente e com poucos recursos",
       "turmasIntegrais": "5",
       "anosFinais": "Não"
@@ -5536,7 +5536,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Baixa a média; Bairro e comunidade um pouco carentes em todos os sentidos e certas dificuldades por conta disso.; Classe baixa, alunos de comunidade.",
       "turmasIntegrais": "5 oficinas e 3 prés",
       "anosFinais": "Não"
@@ -5679,7 +5679,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Comunidade participativa, tratam a gente com respeito, as mães do pré sempre dão presentinhos.; Difícil; A maioria é de comunidade carentes. Grande quantidade de venezuelanos e Haitianos.",
       "turmasIntegrais": "13 / Não Sei / 20 turmas",
       "anosFinais": "Sim"
@@ -5794,7 +5794,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "São variadas classes sociais, fica no conjunto mercúrio do cajuru, então tem gente de diversas partes do cajuru",
       "turmasIntegrais": "3 na escola e 1 UEI (por período)",
       "anosFinais": "Não"
@@ -6191,7 +6191,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe baixa..; Baixa renda e pouca educação; Grupo de.risco",
       "turmasIntegrais": "3 / 6 / 2 pres, um 2 ano e 3 turmas de 20 alunos na UEI",
       "anosFinais": "Não"
@@ -6829,7 +6829,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Média/alta",
       "turmasIntegrais": "30 crianças manhã, 30 crianças tarde",
       "anosFinais": "Não"
@@ -7083,7 +7083,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "É um público de classe média, a maioria das famílias são educadas e respeitam nosso trabalho, apoiaram a nossa última greve, e participaram inclusive.; Classe média , comunidade exigente; Classe média, muitos alunos de inclusão, aluno de pais que trabalham na região",
       "turmasIntegrais": "8 / 8 turmas / 8, 6 +2 pre",
       "anosFinais": "Não"
@@ -7198,7 +7198,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe média alta",
       "turmasIntegrais": "—",
       "anosFinais": "Não"
@@ -7760,7 +7760,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Razoável",
       "turmasIntegrais": "7",
       "anosFinais": "Não"
@@ -7873,7 +7873,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "As pessoas são educadas no geral; Público educado na grande maioria",
       "turmasIntegrais": "5 / 6",
       "anosFinais": "Não"
@@ -8014,7 +8014,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe mais pobre, com muitos imigrantes; A maioria é de classe média e não respeitam muito os inspetores; Atende principalmente população de risco, imigrantes e classe baixa.; Indefinido",
       "turmasIntegrais": "20 / 24 / Aproximadamente 13 de manhã e 12 a tarde / Cerca de 20",
       "anosFinais": "Não"
@@ -8184,7 +8184,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha / Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "portoes": "Abertura e fechamento da escola / Não realiza abertura nem fechamento",
       "publicoAtendido": "Razoável; Classe baixa algumas com problemas estruturais outras mais presentes e melhor organizadas.",
       "turmasIntegrais": "?",
       "anosFinais": "Não"
@@ -8298,7 +8298,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Misto de crianças carentes e de boas condições",
       "turmasIntegrais": "11",
       "anosFinais": "Não"
@@ -8492,7 +8492,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "pessoas da comunidade uberlândia, classes sociais majoritariamente baixas; A comunidade de boa mas ausente em relação ao desenvolvimento escolar dos filhos; Classe baixa, comunidade com periculosidade, tem boca de tráfico, riscos emitentes. Já teve situação de vir um rapaz esfaqueado por facção se esconder aqui.",
       "turmasIntegrais": "8",
       "anosFinais": "Não"
@@ -8607,7 +8607,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Indefinido / Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Media; Bem de vida, entorno tranquilo.",
       "turmasIntegrais": "3",
       "anosFinais": "Não"
@@ -8722,7 +8722,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Acham que nós somos empregados deles",
       "turmasIntegrais": "—",
       "anosFinais": "Não"
@@ -8976,7 +8976,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe B,/C",
       "turmasIntegrais": "5",
       "anosFinais": "Não"
@@ -9091,7 +9091,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Um público com uma realidade socioeconômica alta, com uma comunidade atuante.",
       "turmasIntegrais": "—",
       "anosFinais": "Não"
@@ -9344,7 +9344,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Crianças com uma situação boa, comunidade a maior parte participativa, e entorno tranquilo praticamente ao lado do terminal do Fazendinha.",
       "turmasIntegrais": "Todas",
       "anosFinais": "Não"
@@ -9651,7 +9651,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Sociedade carente do Guaíra, Fanny e Parolin.",
       "turmasIntegrais": "12",
       "anosFinais": "Não"
@@ -9818,7 +9818,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Público bem carente",
       "turmasIntegrais": "Eram todas integrais se não me engano",
       "anosFinais": "Não"
@@ -9931,7 +9931,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Abrange todas as classes mas prevalece média alta",
       "turmasIntegrais": "0",
       "anosFinais": "Não"
@@ -10162,7 +10162,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Inspetor acompanha / Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Muito complicado pois é uma das 3 piores da região com bastante alunos com proteção; É bem mesclado entre comunidade de baixa renda, e classe média. Sendo assim tendo alguns mais difíceis de lidar, precisando cuidado, mas a maioria é compreensível.; Classe média; Classe média baixa",
       "turmasIntegrais": "3",
       "anosFinais": "Não"
@@ -10305,7 +10305,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Classe e comunidade envolta de média alta na maioria",
       "turmasIntegrais": "9",
       "anosFinais": "Não"
@@ -10472,7 +10472,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "portoes": "Apenas abertura / Abertura e fechamento da escola",
       "publicoAtendido": "É como se fosse um grupo de pais no estilo Caco Antibes do seriado Sai de Baixo. Um monte de pobre que se acha rico.; Minha comunidade é igual ao personagem do Miguel Falabella no Sai de Baixo.",
       "turmasIntegrais": "1",
       "anosFinais": "Não"
@@ -10640,7 +10640,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Baixa/média; Todas as classes",
       "turmasIntegrais": "2",
       "anosFinais": "Não"
@@ -10754,7 +10754,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui / Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar / Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Abertura e fechamento dos portões / Não realiza abertura nem fechamento",
+      "portoes": "Abertura e fechamento da escola / Não realiza abertura nem fechamento",
       "publicoAtendido": "Classe média.; Alguns pais mais presentes. Crianças com diferentes classes sociais",
       "turmasIntegrais": "11 / Todas",
       "anosFinais": "Não"
@@ -10868,7 +10868,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura / Abertura e fechamento dos portões",
+      "portoes": "Apenas abertura / Abertura e fechamento da escola",
       "publicoAtendido": "Todas as classes",
       "turmasIntegrais": "1",
       "anosFinais": "Não"
@@ -11458,7 +11458,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Comunidade bastante mista: muitos estrangeiros, famílias carentes, bem como, mais abastadas. Ambos os extremos sobre o comportamento: super protetores ou totalmente alheios aos filhos.",
       "turmasIntegrais": "4",
       "anosFinais": "Não"
@@ -11734,7 +11734,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Média",
       "turmasIntegrais": "Apenas 30 estudantes por turno",
       "anosFinais": "Não"
@@ -11987,7 +11987,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Famílias carentes, vulnerabilidade social",
       "turmasIntegrais": "2",
       "anosFinais": "Não"
@@ -12100,7 +12100,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha",
-      "portoes": "Abertura e fechamento dos portões",
+      "portoes": "Abertura e fechamento da escola",
       "publicoAtendido": "Maioria classe média, digamos que 80%",
       "turmasIntegrais": "120 crianças no total",
       "anosFinais": "Não"
