@@ -3543,7 +3543,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui e o inspetor acompanha / Possui, mas o inspetor NÃO acompanha",
-      "portoes": "Apenas abertura / Abertura e fechamento da escola",
+      "portoes": "Apenas abertura da escola / Abertura e fechamento da escola",
       "publicoAtendido": "O público é de um nível social bom,a comunidade tem bom relacionamento com os funcionários, exceto casos isolados e o entorno é chácara e rua sem saída.; Famílias com melhores condições de vida, alunos bem cuidados.",
       "turmasIntegrais": "UEI 60 alunos no integral",
       "anosFinais": "Não"
@@ -4641,7 +4641,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui / Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Abertura e fechamento da escola / Apenas abertura",
+      "portoes": "Abertura e fechamento da escola / Apenas abertura da escola",
       "publicoAtendido": "Carente; Carente, área de invasão e com risco de enchentes.",
       "turmasIntegrais": "4 / 4 M, 4 T, 2 pres",
       "anosFinais": "Não"
@@ -6635,7 +6635,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura",
+      "portoes": "Apenas abertura da escola",
       "publicoAtendido": "Comunidade bem carente, crianças desafiadoras, pais que oferecem risco à saúde dos funcionários.",
       "turmasIntegrais": "6",
       "anosFinais": "Não"
@@ -6942,7 +6942,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura",
+      "portoes": "Apenas abertura da escola",
       "publicoAtendido": "Classe média alta, egressos de escolas particulares. Filhos de pais muito bem instruídos, muitos alunos de inclusão. A maioria dos pais são simpáticos. Os poucos que são chatos infelizmente fazem questão de serem notados; Classe média alta. Egressos de escolas particulares.",
       "turmasIntegrais": "1 / Uma única",
       "anosFinais": "Não"
@@ -10472,7 +10472,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura / Abertura e fechamento da escola",
+      "portoes": "Apenas abertura da escola / Abertura e fechamento da escola",
       "publicoAtendido": "É como se fosse um grupo de pais no estilo Caco Antibes do seriado Sai de Baixo. Um monte de pobre que se acha rico.; Minha comunidade é igual ao personagem do Miguel Falabella no Sai de Baixo.",
       "turmasIntegrais": "1",
       "anosFinais": "Não"
@@ -10868,7 +10868,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas abertura / Abertura e fechamento da escola",
+      "portoes": "Apenas abertura da escola / Abertura e fechamento da escola",
       "publicoAtendido": "Todas as classes",
       "turmasIntegrais": "1",
       "anosFinais": "Não"
