@@ -601,7 +601,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor não acompanha / Escola não possui essa demanda",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas fechamento / Não realiza abertura nem fechamento",
+      "portoes": "Apenas fechamento da escola / Não realiza abertura nem fechamento",
       "publicoAtendido": "Classe baixa média , muitos estrangeiros; Tranquilo, sem problemas",
       "turmasIntegrais": "8 / 04 por turno",
       "anosFinais": "Não"
@@ -2392,7 +2392,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas fechamento",
+      "portoes": "Apenas fechamento da escola",
       "publicoAtendido": "C e D, próximo à favela urbanizada",
       "turmasIntegrais": "4",
       "anosFinais": "Sim"
@@ -8835,7 +8835,7 @@ const ESCOLAS_DATA = [
       "uei": "Possui",
       "soninhoPre": "Escola não possui essa demanda",
       "onibusEscolar": "Possui, mas o inspetor NÃO acompanha / Possui e o inspetor acompanha",
-      "portoes": "Apenas fechamento",
+      "portoes": "Apenas fechamento da escola",
       "publicoAtendido": "Normal; Maior parte das famílias são carentes.",
       "turmasIntegrais": "Nós temos uma uei com 40 em cada periodo",
       "anosFinais": "Não"
@@ -10982,7 +10982,7 @@ const ESCOLAS_DATA = [
       "uei": "Não possui",
       "soninhoPre": "Inspetor acompanha",
       "onibusEscolar": "Não possui transporte escolar",
-      "portoes": "Apenas fechamento",
+      "portoes": "Apenas fechamento da escola",
       "publicoAtendido": "Público Classe média, comunidade de classe média e entorno sem comércio, residencial, longe e de difícil transporte ( não tem muitas linhas de ônibus)",
       "turmasIntegrais": "1 de pré",
       "anosFinais": "Não"
